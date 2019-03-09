@@ -8,7 +8,7 @@ tags:
 ---
 ### 配置oracle外部链接库
 1. 将ArcGIS Desktop安装目录下DatabaseSupport文件夹下的st_shapelib.dll拷贝到装有oracle的服务器上，可以放置在任意地方，这里推荐放在Oracle安装目录下的bin文件夹下。
-
+    
     例如：st_shapelib.dll所在文件夹路径：
     C:\ProgramFiles(x86)\ArcGIS\Desktop10.2\DatabaseSupport\Oracle\Windows64\st_shapelib.dll
     拷贝放置位置：E:\app\503\product\11.2.0\dbhome_1\BIN\ st_shapelib.dll
