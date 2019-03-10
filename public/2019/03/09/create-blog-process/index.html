@@ -14,27 +14,28 @@
     
     
     
-    <title>create-blog-process | WeiYuan&#39;s Blog | 学习随记</title>
+    <title>使用hexo+github创建个人博客并备份源码 | WeiYuan&#39;s Blog | 学习随记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="hexo,git">
-    <meta name="description" content="###使用hexo+github创建个人博客并备份源码 ###一、准备  安装node.js 安装git-windows 安装hexo-cli 1$npm install hexo-cli -g  在GitHub上创建.github.io的仓库 e.g. 11wy11.github.io  配置SSH key打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开执行 1ss">
+    <meta name="description" content="一、准备 安装node.js 安装git-windows 安装hexo-cli 1$npm install hexo-cli -g  在GitHub上创建&amp;lt;username&amp;gt;.github.io的仓库 e.g. 11wy11.github.io  配置SSH key打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开，执行 1ssh -keygen -t rs">
 <meta name="keywords" content="hexo,git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="create-blog-process">
+<meta property="og:title" content="使用hexo+github创建个人博客并备份源码">
 <meta property="og:url" content="http://yoursite.com/2019/03/09/create-blog-process/index.html">
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
-<meta property="og:description" content="###使用hexo+github创建个人博客并备份源码 ###一、准备  安装node.js 安装git-windows 安装hexo-cli 1$npm install hexo-cli -g  在GitHub上创建.github.io的仓库 e.g. 11wy11.github.io  配置SSH key打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开执行 1ss">
+<meta property="og:description" content="一、准备 安装node.js 安装git-windows 安装hexo-cli 1$npm install hexo-cli -g  在GitHub上创建&amp;lt;username&amp;gt;.github.io的仓库 e.g. 11wy11.github.io  配置SSH key打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开，执行 1ssh -keygen -t rs">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/03/09/create-blog-process/res2.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/09/create-blog-process/res1.png">
-<meta property="og:updated_time" content="2019-03-10T02:18:21.825Z">
+<meta property="og:updated_time" content="2019-03-10T02:39:10.231Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="create-blog-process">
-<meta name="twitter:description" content="###使用hexo+github创建个人博客并备份源码 ###一、准备  安装node.js 安装git-windows 安装hexo-cli 1$npm install hexo-cli -g  在GitHub上创建.github.io的仓库 e.g. 11wy11.github.io  配置SSH key打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开执行 1ss">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/09/create-blog-process/res1.png">
+<meta name="twitter:title" content="使用hexo+github创建个人博客并备份源码">
+<meta name="twitter:description" content="一、准备 安装node.js 安装git-windows 安装hexo-cli 1$npm install hexo-cli -g  在GitHub上创建&amp;lt;username&amp;gt;.github.io的仓库 e.g. 11wy11.github.io  配置SSH key打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开，执行 1ssh -keygen -t rs">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/09/create-blog-process/res2.png">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -122,7 +123,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">create-blog-process</div>
+        <div class="flex-col header-title ellipsis">使用hexo+github创建个人博客并备份源码</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -144,7 +145,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">create-blog-process</h1>
+        <h1 class="title">使用hexo+github创建个人博客并备份源码</h1>
         <h5 class="subtitle">
             
                 <time datetime="2019-03-09T13:52:06.000Z" itemprop="datePublished" class="page-time">
@@ -164,11 +165,18 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、准备"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、准备</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、搭建流程"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、搭建流程</span></a></li></ol>
+        </nav>
+    </aside>
+
 
 <article id="post-create-blog-process" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">create-blog-process</h1>
+        <h1 class="post-card-title">使用hexo+github创建个人博客并备份源码</h1>
         <div class="post-meta">
             <time class="post-time" title="2019-03-09 21:52:06" datetime="2019-03-09T13:52:06.000Z" itemprop="datePublished">2019-03-09</time>
 
@@ -183,28 +191,26 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>###使用hexo+github创建个人博客并备份源码</p>
-<p>###一、准备</p>
-<ol>
+            <h3 id="一、准备"><a href="#一、准备" class="headerlink" title="一、准备"></a>一、准备</h3><ol>
 <li>安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a></li>
 <li>安装<a href="https://gitforwindows.org/" target="_blank" rel="noopener">git-windows</a></li>
 <li><p>安装hexo-cli</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在GitHub上创建<username>.github.io的仓库</username></p>
+<li><p>在GitHub上创建&lt;username&gt;.github.io的仓库</p>
 <pre><code>e.g. 11wy11.github.io
 </code></pre></li>
-<li><p>配置SSH key<br>打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开<br>执行</p>
+<li><p>配置SSH key<br>打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开，执行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -keygen -t rsa -C &apos;D:/id.txt&apos;</span><br></pre></td></tr></table></figure>
-<p>然后连续按3次回车，最终会在用户目录下生成一个文件，找到<strong>目录.ssh/id_rsa.pub</strong>文件，用记事本打开全选复制<br>在你的github上点击头像&gt;设置进入设置页面，选择SSH and GPG keys, 点击<strong>New SSH key</strong>按钮，名称随意填写，将刚复制的内容粘贴到key,添加<br>！<a href="create-blog-process/res2.png">添加ssh key</a><br>###二、搭建流程</p>
-</li>
-<li>本地创建<username>.github.io</username></li>
-<li><p>在本地<username>.github.io文件夹下初始化hexo项目并安装依赖</username></p>
+<p>然后连续按3次回车，最终会在用户目录下生成一个文件，找到<strong>目录.ssh/id_rsa.pub</strong>文件，用记事本打开全选复制。<br>在你的github上点击头像&gt;设置进入设置页面，选择SSH and GPG keys, 点击<strong>New SSH key</strong>按钮，名称随意填写，将刚复制的内容粘贴到key,添加<br><img src="/2019/03/09/create-blog-process/res2.png" alt="添加ssh key"></p>
+<h3 id="二、搭建流程"><a href="#二、搭建流程" class="headerlink" title="二、搭建流程"></a>二、搭建流程</h3></li>
+<li>本地创建&lt;username&gt;.github.io</li>
+<li><p>在本地&lt;username&gt;.github.io文件夹下初始化hexo项目并安装依赖</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init //初始化工程</span><br><span class="line">npm install //安装依赖</span><br><span class="line">hexo server //启动本地调试器在localhost:4000预览</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>修改默认主题，可以在github上clone其他的主题，如<br><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a>,<br><a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">icarus</a>,<br><a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="noopener">indigo</a>等</p>
+<li><p>修改默认主题，可以在github上clone其他的主题，如<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a>,<a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">icarus</a>,<a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="noopener">indigo</a>等</p>
 <ul>
-<li><p>以indigo为例，在本地<username>.github.io文件夹下执行以下命令安装主题</username></p>
+<li><p>以indigo为例，在本地&lt;username&gt;.github.io文件夹下执行以下命令安装主题</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:yscoder/hexo-theme-indigo.git themes/indigo</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改工程中的_config.yml配置文件，将themes: landscope改为themes: indigo<br><img src="/2019/03/09/create-blog-process/res1.png" alt="修改配置"></p>
@@ -212,16 +218,32 @@
 <li><p>依赖安装分别安装Less,Feed,Json-content依赖，执行如下命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-renderer-less --save</span><br><span class="line">$ npm install hexo-generator-feed --save</span><br><span class="line">$ npm install hexo-generator-json-content --save</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>执行<figure class="highlight plain"><figcaption><span>s```命令启动服务器在localhost:4000查看效果</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4. 新建文章，使用hexo new  &quot;my-first blog&quot;，会在source/_posts下创建my-first-blog.md的页面文件</span><br><span class="line">   进行编写</span><br><span class="line">5. 发布博客  </span><br><span class="line">   首先修改工程中的_config.yml配置文件，在最后三行添加以下代码，将username换成自己的git用户名</span><br></pre></td></tr></table></figure></p>
-<p>deploy:<br>type: git<br>repo: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:<username>/<username>.github.io.git<br>branch: master</username></username></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    其次安装hexo-deployer-git 执行 ```npm install hexo-deployer-git --save```  </span><br><span class="line">    在工程文件夹内右键git bash进入命令行 输入hexo g，编译为静态文件，生成public文件夹，使用 hexo d 部署，此时可以访问https://&lt;username&gt;.github.io查看你的博客</span><br><span class="line">6. 备份源码  </span><br><span class="line">    在工程文件夹内右键git bash进入命令行 输入 touch .gitignore ，生成“.gitignore”文件。  </span><br><span class="line">    在”.gitignore” 文件里输入你要忽略的文件夹及其文件就可以了。（注意格式）  </span><br><span class="line">    我的 .gitignore：</span><br></pre></td></tr></table></figure>
-<p>.deploy_git/<br>node_modules/</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">执行以下命令</span><br></pre></td></tr></table></figure>
-<p>#git初始化<br>git init<br>#创建hexo分支，用来存放源码<br>git checkout -b hexo<br>#git 文件添加<br>git add .<br>#git 提交<br>git commit -m “init”<br>#添加远程仓库<br>git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:<username>/<username>.github.io.git<br>#push到hexo分支<br>git push origin hexo<br><code>`</code><br>执行hexo g -d生成网站并部署到GitHub上<br>这样一来，在GitHub上的<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:<username>/<username>.github.io.git仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。</username></username></username></username></p>
+<li><p>执行<code>hexo s</code>命令启动服务器在localhost:4000查看效果</p>
 </li>
 </ul>
 </li>
-<li>其他设备更新博客步骤：<br> 1、先安装hexo<br> $ npm install -g hexo-cli<br> 2、存在github上的git clone下来<br> git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:LJaer/ljaer.github.io<br> 3、项目文件夹下<br> $ npm install<br> $ npm install hexo-deployer-git<br> 4、重新配置github和coding的公钥<br> 5、编写博客push 到远程分支</li>
+<li>新建文章，使用hexo new  “my-first blog”，会在source/_posts下创建my-first-blog.md的页面文件<br>进行编写</li>
+<li><p>发布博客<br>首先修改工程中的_config.yml配置文件，在最后三行添加以下代码，将username换成自己的git用户名</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p> 其次安装hexo-deployer-git 执行 <code>npm install hexo-deployer-git --save</code><br> 在工程文件夹内右键git bash进入命令行 输入hexo g，编译为静态文件，生成public文件夹，使用 hexo d 部署，此时可以访问https://&lt;username&gt;.github.io查看你的博客</p>
+</li>
+<li>备份源码<br> 在工程文件夹内右键git bash进入命令行 输入 touch .gitignore ，生成“.gitignore”文件。<br> 在”.gitignore” 文件里输入你要忽略的文件夹及其文件就可以了。（注意格式）<br> 我的 .gitignore：<pre><code>.deploy_git/
+node_modules/
+</code></pre>  执行以下命令<pre><code class="git">#git初始化
+git init
+#创建hexo分支，用来存放源码
+git checkout -b hexo
+#git 文件添加
+git add .
+#git 提交
+git commit -m &quot;init&quot;
+#添加远程仓库
+git remote add origin git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git
+#push到hexo分支
+git push origin hexo
+</code></pre>
+ 执行hexo g -d生成网站并部署到GitHub上<br> 这样一来，在GitHub上的<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:&lt;username&gt;/&lt;username&gt;.github.io.git仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。</li>
+<li>其他设备更新博客步骤：<br> 1、先安装hexo<br> $ npm install -g hexo-cli<br> 2、存在github上的git clone下来<br> git clone -b hexo <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:&lt;username&gt;/&lt;username&gt;.github.io.git<br> 3、项目文件夹下<br> $ npm install<br> $ npm install hexo-deployer-git<br> 4、重新配置github和coding的公钥<br> 5、编写博客push 到远程分支</li>
 </ol>
 
         </div>
@@ -231,7 +253,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-10T02:18:21.825Z" itemprop="dateUpdated">2019-03-10 10:18:21</time>
+    最后更新时间：<time datetime="2019-03-10T02:39:10.231Z" itemprop="dateUpdated">2019-03-10 10:39:10</time>
 </span><br>
 
 
@@ -263,7 +285,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/09/create-blog-process/&title=《create-blog-process》 — WeiYuan's Blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/09/create-blog-process/&title=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -273,7 +295,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/09/create-blog-process/&title=《create-blog-process》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/09/create-blog-process/&title=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -283,7 +305,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《create-blog-process》 — WeiYuan's Blog&url=http://yoursite.com/2019/03/09/create-blog-process/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&url=http://yoursite.com/2019/03/09/create-blog-process/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -389,7 +411,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/09/create-blog-process/&title=《create-blog-process》 — WeiYuan's Blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/09/create-blog-process/&title=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -399,7 +421,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/09/create-blog-process/&title=《create-blog-process》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/09/create-blog-process/&title=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -409,7 +431,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《create-blog-process》 — WeiYuan's Blog&url=http://yoursite.com/2019/03/09/create-blog-process/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&url=http://yoursite.com/2019/03/09/create-blog-process/&via=http://yoursite.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
