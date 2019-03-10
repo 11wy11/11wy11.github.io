@@ -1,43 +1,38 @@
 ---
-title: create-blog-process
+title: 使用hexo+github创建个人博客并备份源码
 date: 2019-03-09 21:52:06
 tags: 
    - hexo
    - git
 categeries: Tools   
 ---
-###使用hexo+github创建个人博客并备份源码
-###一、准备
+### 一、准备
 1. 安装[node.js](https://nodejs.org/en/)
 2. 安装[git-windows](https://gitforwindows.org/)
 3. 安装hexo-cli
    ```
    $npm install hexo-cli -g
    ```
-4. 在GitHub上创建<username>.github.io的仓库
+4. 在GitHub上创建&lt;username&gt;.github.io的仓库
         e.g. 11wy11.github.io
 5. 配置SSH key  
-   打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开
-   执行
+   打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开，执行
    ```
    ssh -keygen -t rsa -C 'D:/id.txt'
    ```
-   然后连续按3次回车，最终会在用户目录下生成一个文件，找到**目录\.ssh/id_rsa.pub**文件，用记事本打开全选复制  
+   然后连续按3次回车，最终会在用户目录下生成一个文件，找到**目录\.ssh/id_rsa.pub**文件，用记事本打开全选复制。   
    在你的github上点击头像>设置进入设置页面，选择SSH and GPG keys, 点击**New SSH key**按钮，名称随意填写，将刚复制的内容粘贴到key,添加
-   ！[添加ssh key](create-blog-process/res2.png)
-###二、搭建流程
-1. 本地创建<username>.github.io
-2. 在本地<username>.github.io文件夹下初始化hexo项目并安装依赖
+   ![添加ssh key](create-blog-process/res2.png)
+### 二、搭建流程
+1. 本地创建&lt;username&gt;.github.io
+2. 在本地&lt;username&gt;.github.io文件夹下初始化hexo项目并安装依赖
    ```
    hexo init //初始化工程
    npm install //安装依赖
    hexo server //启动本地调试器在localhost:4000预览
    ```
-3. 修改默认主题，可以在github上clone其他的主题，如
-[yilia](https://github.com/litten/hexo-theme-yilia),
-[icarus](https://github.com/ppoffice/hexo-theme-icarus),
-[indigo](https://github.com/yscoder/hexo-theme-indigo)等
-    * 以indigo为例，在本地<username>.github.io文件夹下执行以下命令安装主题
+3. 修改默认主题，可以在github上clone其他的主题，如[yilia](https://github.com/litten/hexo-theme-yilia),[icarus](https://github.com/ppoffice/hexo-theme-icarus),[indigo](https://github.com/yscoder/hexo-theme-indigo)等
+    * 以indigo为例，在本地&lt;username&gt;.github.io文件夹下执行以下命令安装主题
     ```
      git clone git@github.com:yscoder/hexo-theme-indigo.git themes/indigo  
     ```
@@ -49,7 +44,7 @@ categeries: Tools
     $ npm install hexo-generator-feed --save
     $ npm install hexo-generator-json-content --save
     ```
-    * 执行```hexo s```命令启动服务器在localhost:4000查看效果
+    * 执行` hexo s `命令启动服务器在localhost:4000查看效果
 4. 新建文章，使用hexo new  "my-first blog"，会在source/_posts下创建my-first-blog.md的页面文件
    进行编写
 5. 发布博客  
@@ -60,8 +55,8 @@ categeries: Tools
       repo: git@github.com:<username>/<username>.github.io.git
       branch: master
     ```
-    其次安装hexo-deployer-git 执行 ```npm install hexo-deployer-git --save```  
-    在工程文件夹内右键git bash进入命令行 输入hexo g，编译为静态文件，生成public文件夹，使用 hexo d 部署，此时可以访问https://<username>.github.io查看你的博客
+    其次安装hexo-deployer-git 执行 `npm install hexo-deployer-git --save`
+    在工程文件夹内右键git bash进入命令行 输入hexo g，编译为静态文件，生成public文件夹，使用 hexo d 部署，此时可以访问https://&lt;username&gt;.github.io查看你的博客
 6. 备份源码  
     在工程文件夹内右键git bash进入命令行 输入 touch .gitignore ，生成“.gitignore”文件。  
     在”.gitignore” 文件里输入你要忽略的文件夹及其文件就可以了。（注意格式）  
@@ -69,9 +64,9 @@ categeries: Tools
      ```
      .deploy_git/
      node_modules/
-     ```                      
+     ```                  
      执行以下命令
-     ```
+     ```git
      #git初始化
      git init
      #创建hexo分支，用来存放源码
@@ -86,12 +81,12 @@ categeries: Tools
      git push origin hexo
      ```                   
     执行hexo g -d生成网站并部署到GitHub上  
-    这样一来，在GitHub上的git@github.com:<username>/<username>.github.io.git仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。
+    这样一来，在GitHub上的git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。
 7. 其他设备更新博客步骤：  
     1、先安装hexo   
     $ npm install -g hexo-cli  
     2、存在github上的git clone下来   
-    git clone git@github.com:LJaer/ljaer.github.io  
+    git clone -b hexo git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git 
     3、项目文件夹下  
     $ npm install 
     $ npm install hexo-deployer-git
