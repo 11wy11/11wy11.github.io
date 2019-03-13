@@ -47,9 +47,9 @@ email: 1124485058@qq.com
 color: '#3F51B5'
 
 # 页面标题
-tags_title: Tags
-archives_title: Archives
-categories_title: Categories
+tags_title: 标签
+archives_title: 随笔
+categories_title: 分类
 
 # 文章截断
 excerpt_render: false
