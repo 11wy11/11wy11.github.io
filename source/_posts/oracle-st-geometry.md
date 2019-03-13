@@ -1,7 +1,7 @@
 ---
 title: Oracle配置SDE支持空间查询
 date: 2019-03-09 09:56:40
-categeries: ArcGIS
+categories: ArcGIS
 tags:
     - ArcGIS
     - Oracle

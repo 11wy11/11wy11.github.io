@@ -2,6 +2,7 @@
 title: Vue全局添加组件
 date: 2019-03-09 10:39:22
 tags: Vue
+categories: 前端
 ---
 ### 一. 背景  
 在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。

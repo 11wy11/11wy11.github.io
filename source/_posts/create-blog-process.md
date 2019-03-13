@@ -4,7 +4,7 @@ date: 2019-03-09 21:52:06
 tags: 
    - hexo
    - git
-categeries: Tools   
+categories: 工具   
 ---
 ### 一、准备
 1. 安装[node.js](https://nodejs.org/en/)
@@ -92,3 +92,6 @@ categeries: Tools
     $ npm install hexo-deployer-git
     4、重新配置github和coding的公钥  
     5、编写博客push 到远程分支
+8. 补充：
+    有时会出现下载的主题无法上传，首先删除themes/主题文件夹下的`.git`,使用` git rm --cached themes/indigo`命令清空后重新上传
+`
