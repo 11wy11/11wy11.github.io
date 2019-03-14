@@ -10,7 +10,6 @@ categories: 前端
 1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建一个index.js，一个自定义组件loading.vue,在这个loading.vue里面就是这个组件的具体的内容，
 
 2、在index.js中，规定使用这个组件的名字，以及使用方法，如：
-    ``` vuejs
     
     import loadingComponent from './loading.vue'
      
@@ -21,9 +20,8 @@ categories: 前端
     };
     export default loading;
     ```
-3、只要在main.js中规定了install方法，就可以像一些公共的插件一样使用Vue.use()来使用，如：
-    ``` js
+3、只要在main.js中规定了install方法，就可以像一些公共的插件一样使用Vue.use()来使用：
+ 
     import loading from './loading'
     Vue.use(loading）
-    ```
 
