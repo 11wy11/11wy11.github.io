@@ -31,7 +31,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/03/09/create-blog-process/res2.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/09/create-blog-process/res1.png">
-<meta property="og:updated_time" content="2019-03-10T02:39:10.231Z">
+<meta property="og:updated_time" content="2019-03-13T15:17:11.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hexo+github创建个人博客并备份源码">
 <meta name="twitter:description" content="一、准备 安装node.js 安装git-windows 安装hexo-cli 1$npm install hexo-cli -g  在GitHub上创建&amp;lt;username&amp;gt;.github.io的仓库 e.g. 11wy11.github.io  配置SSH key打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开，执行 1ssh -keygen -t rs">
@@ -153,6 +153,8 @@
 </time>
 
 
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/工具/">工具</a></li></ul>
+
             
         </h5>
     </div>
@@ -181,6 +183,8 @@
             <time class="post-time" title="2019-03-09 21:52:06" datetime="2019-03-09T13:52:06.000Z" itemprop="datePublished">2019-03-09</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/工具/">工具</a></li></ul>
+
 
 
             
@@ -244,6 +248,7 @@ git push origin hexo
 </code></pre>
  执行hexo g -d生成网站并部署到GitHub上<br> 这样一来，在GitHub上的<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:&lt;username&gt;/&lt;username&gt;.github.io.git仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。</li>
 <li>其他设备更新博客步骤：<br> 1、先安装hexo<br> $ npm install -g hexo-cli<br> 2、存在github上的git clone下来<br> git clone -b hexo <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:&lt;username&gt;/&lt;username&gt;.github.io.git<br> 3、项目文件夹下<br> $ npm install<br> $ npm install hexo-deployer-git<br> 4、重新配置github和coding的公钥<br> 5、编写博客push 到远程分支</li>
+<li>补充：<br> 有时会出现下载的主题无法上传，首先删除themes/主题文件夹下的<code>.git</code>,使用<code>git rm --cached themes/indigo</code>命令清空后重新上传<br>`</li>
 </ol>
 
         </div>
@@ -253,7 +258,7 @@ git push origin hexo
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-10T02:39:10.231Z" itemprop="dateUpdated">2019-03-10 10:39:10</time>
+    最后更新时间：<time datetime="2019-03-13T15:17:11.123Z" itemprop="dateUpdated">2019-03-13 23:17:11</time>
 </span><br>
 
 
@@ -330,7 +335,14 @@ git push origin hexo
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/13/git-command/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">git常用命令</h4>
+      </a>
+    </div>
   
 
   
@@ -365,6 +377,30 @@ git push origin hexo
 
 
 
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "",
+            appKey: "",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
 
 
 

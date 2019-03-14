@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
 <meta property="og:description" content="一. 背景在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。 二. 具体实现方法1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-10T03:41:34.783Z">
+<meta property="og:updated_time" content="2019-03-13T15:17:11.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue全局添加组件">
 <meta name="twitter:description" content="一. 背景在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。 二. 具体实现方法1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建">
@@ -150,6 +150,8 @@
 </time>
 
 
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
             
         </h5>
     </div>
@@ -178,6 +180,8 @@
             <time class="post-time" title="2019-03-09 10:39:22" datetime="2019-03-09T02:39:22.000Z" itemprop="datePublished">2019-03-09</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
 
 
             
@@ -200,7 +204,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-10T03:41:34.783Z" itemprop="dateUpdated">2019-03-10 11:41:34</time>
+    最后更新时间：<time datetime="2019-03-13T15:17:11.123Z" itemprop="dateUpdated">2019-03-13 23:17:11</time>
 </span><br>
 
 
@@ -319,6 +323,30 @@
 
 
 
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "",
+            appKey: "",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
 
 
 
