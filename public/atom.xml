@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-13T16:18:48.500Z</updated>
+  <updated>2019-03-14T08:53:12.572Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>krpano快速入门教程（一）</title>
+    <link href="http://yoursite.com/2019/03/14/krpano-first-note/"/>
+    <id>http://yoursite.com/2019/03/14/krpano-first-note/</id>
+    <published>2019-03-14T07:54:54.000Z</published>
+    <updated>2019-03-14T08:53:12.572Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="使用krpano工具构建即用型panos"><a href="#使用krpano工具构建即用型panos" class="headerlink" title="使用krpano工具构建即用型panos"></a>使用krpano工具构建即用型panos</h2><ol><li>从<a href="https://krpano.com/download/" target="_blank" rel="noopener">krpano下载页面下载</a>适合于自己系统的krpano Tools软件包</li><li>将下载的krpano Tools zip文件解压到一个不含中文路径的文件夹下（为了所有稳定使用，推荐）</li><li>如果您已拥有krpano许可文件 - 则立即将其复制或移动到krpano Tools文件夹中。如果您没有任何一个，那么只需跳过此步骤即可。之后可以通过注册码注册，具体破解方法请自行百度，注册后能够去掉切片中的krpano水印。</li><li>要构建单个全景图 - 打开包含全景图像的文件夹，选择其中一个或全部，拖放到MAKE PANO droplet批处理工具上。<br><img src="/2019/03/14/krpano-first-note/pic1.png" alt="拖动全景图到工具上"><br>等待切片完成，会在全景图像所在文件夹中生成一个以全景图命名的文件夹，里面自动生成一个即用型pano,点击tour_testingsever运行测试服务器，打开index.html查看效果。<br><img src="/2019/03/14/krpano-first-note/pic2.png" alt="生成结果"><br>需要说明的是，这里如果没有注册，运行之后全景图是有krpano水印的。可以运行krpano tools选择 register now 输入序列号完成注册。注册完在按照第4步操作，得到没有水印的全景图<br><img src="/2019/03/14/krpano-first-note/pic3.png" alt="注册前"><center>注册前</center><center> <img src="/2019/03/14/krpano-first-note/pic4.png" alt="注册后">注册后</center></li><li>要构建虚拟游览 - 打开包含全景虚拟游览图像的文件夹，选择所有这些图像拖放到MAKE VTOURdroplet批处理工具上。 </li><li>其他工具使用类似，主要功能简介如下：  <ul><li>MAKE PANO (NORMAL) droplet<br>将立即加载完整的全景，最大值。cubeize默认限制为2200像素（可以在’templates / normal.config’文件中更改），没有皮肤 - 只需pano，HTML5 iPhone / iPad就绪</li><li>MAKE PANO（MULTIRES）droplet<br>用于平铺多分辨率panos，没有尺寸/分辨率限制，快速和动态加载，带按钮的默认皮肤，HTML5 iPhone / iPad就绪</li><li>MAKE PANO（FLAT）droplet<br>用于平面/ 2D平移/图像，平铺多分辨率，无尺寸/分辨率限制，平坦全景/图像的皮肤/控制，仅限闪光</li><li>MAKE PANO（SINGLESWF）droplet<br>只生成一个Flash swf文件，对于典型的全屏panos，完整的pano将立即加载，最大值。cubesize限制为2200像素（可在’templates / singleswf.config’文件中更改），默认皮肤带按钮，仅限Flash</li><li>MAKE OBJECT droplet<br>用于平铺多分辨率对象影片，一次删除所有对象图像，没有大小/分辨率限制，快速和动态加载，具有按钮和对象旋转控件的对象外观，仅限Flash</li><li>MAKE VTOUR (NORMAL) droplet / MAKE VTOUR (MULTIRES) droplet<br> 用于自动构建虚拟游览，将所有全景图像放在此工具上，通过自动缩略图生成，准备好HTML5 iPhone / iPad </li></ul></li><li>处理完成后关闭dos / terminal窗口。在源图像的文件夹中会有新文件：典型的.html文件 - 这是嵌入pano的示例网页，.swf文件 - 这是krpano Flash查看器，.js文件 - 这是Javascript Flash到HTML嵌入代码（基于swfkrpano.js）和可选的krpano HTML5 / Javascript iPhone / iPad查看器，一个.xml文件 - 这是krpano xml文件，有pano和皮肤定义，最后有.tiles文件夹 - 有处理过的全景图像。全景图像本身不是观看全景图像所必需的。 6.2。当您使用MAKE VTOUR Droplet时，这些文件将位于’vtour’文件夹中，而pano图像位于其中的’panos’文件夹中。</li><li>编辑全景设置打开并在任何文本编辑器中编辑生成的xml文件（带有xml-syntax-highlighting的文本编辑器可能会有帮助）： 在在线文档中查找krpano xml定义：</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;使用krpano工具构建即用型panos&quot;&gt;&lt;a href=&quot;#使用krpano工具构建即用型panos&quot; class=&quot;headerlink&quot; title=&quot;使用krpano工具构建即用型panos&quot;&gt;&lt;/a&gt;使用krpano工具构建即用型panos&lt;/h2&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="全景" scheme="http://yoursite.com/categories/%E5%85%A8%E6%99%AF/"/>
+    
+    
+      <category term="krpano" scheme="http://yoursite.com/tags/krpano/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AI组件开发（一）--注记旋转矩阵</title>
+    <link href="http://yoursite.com/2019/03/14/ai-first-note/"/>
+    <id>http://yoursite.com/2019/03/14/ai-first-note/</id>
+    <published>2019-03-14T02:56:02.000Z</published>
+    <updated>2019-03-14T07:13:19.452Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="Adobe ILLustrator组件开发" scheme="http://yoursite.com/categories/Adobe-ILLustrator%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="AI" scheme="http://yoursite.com/tags/AI/"/>
+    
+  </entry>
   
   <entry>
     <title>csdn-markdown编辑器语法</title>
@@ -102,9 +145,9 @@
     <link href="http://yoursite.com/2019/03/09/Vue-global-component/"/>
     <id>http://yoursite.com/2019/03/09/Vue-global-component/</id>
     <published>2019-03-09T02:39:22.000Z</published>
-    <updated>2019-03-13T15:17:11.123Z</updated>
+    <updated>2019-03-14T07:36:09.372Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="一-背景"><a href="#一-背景" class="headerlink" title="一. 背景"></a>一. 背景</h3><p>在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。</p><h3 id="二-具体实现方法"><a href="#二-具体实现方法" class="headerlink" title="二. 具体实现方法"></a>二. 具体实现方法</h3><p>1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建一个index.js，一个自定义组件loading.vue,在这个loading.vue里面就是这个组件的具体的内容，</p><p>2、在index.js中，规定使用这个组件的名字，以及使用方法，如：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import loadingComponent from &apos;./loading.vue&apos;</span><br><span class="line"> </span><br><span class="line">const loading=&#123;</span><br><span class="line">    install:function(Vue)&#123;</span><br><span class="line">        Vue.component(&apos;Loading&apos;,loadingComponent)</span><br><span class="line">    &#125;  //&apos;Loading&apos;这就是后面可以使用的组件的名字，install是默认的一个方法</span><br><span class="line">&#125;;</span><br><span class="line">export default loading;</span><br></pre></td></tr></table></figure></p><p>3、只要在main.js中规定了install方法，就可以像一些公共的插件一样使用Vue.use()来使用，如：<br>    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> loading <span class="keyword">from</span> <span class="string">'./loading'</span></span><br><span class="line">Vue.use(loading）</span><br></pre></td></tr></table></figure></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="一-背景"><a href="#一-背景" class="headerlink" title="一. 背景"></a>一. 背景</h3><p>在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。</p><h3 id="二-具体实现方法"><a href="#二-具体实现方法" class="headerlink" title="二. 具体实现方法"></a>二. 具体实现方法</h3><p>1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建一个index.js，一个自定义组件loading.vue,在这个loading.vue里面就是这个组件的具体的内容，</p><p>2、在index.js中，规定使用这个组件的名字，以及使用方法，如：</p><pre><code>import loadingComponent from &apos;./loading.vue&apos;const loading={    install:function(Vue){        Vue.component(&apos;Loading&apos;,loadingComponent)    }  //&apos;Loading&apos;这就是后面可以使用的组件的名字，install是默认的一个方法};export default loading;```</code></pre><p>3、只要在main.js中规定了install方法，就可以像一些公共的插件一样使用Vue.use()来使用：</p><pre><code>import loading from &apos;./loading&apos;Vue.use(loading）</code></pre>]]></content>
     
     <summary type="html">
     
