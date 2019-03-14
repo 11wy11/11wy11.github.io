@@ -41,9 +41,7 @@ tags:
     ```
 3. 修改oracle安装home目录下的hs/admin文件夹下的extproc.ora，具体路径示例：E:\app\503\product\11.2.0\dbhome_1\hs\admin\extproc.ora，将最后一行的SET EXTPROC_DLLS=  设为ANY
    ![extproc.ora设置](oracle-st-geometry/res1.png)
-4. 通过任何一个数据库管理软件，这里以sql-plus为例，使用sde用户登录
-   	首先执行：
-   	`select * from user_libraries`
+4. 通过任何一个数据库管理软件，这里以sql-plus为例，使用sde用户登录首先执行：`select * from user_libraries`
 	查看是否有ST_SHAPELIB并检查路径是否与步骤1中的一致，通常默认为c盘第一次安装Arcgis时的相关路径。结果如下：
 	 ![extproc.ora设置](oracle-st-geometry/res2.png)
 	 如果路径与步骤1中st_shapelib的路径不一致，执行以下两条命令：

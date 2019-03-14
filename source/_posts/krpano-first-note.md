@@ -5,6 +5,8 @@ tags: krpano
 categories: 全景
 ---
 ## 使用krpano工具构建即用型panos  
+简单使用krpano工具快速生成可执行的pano文件，后续介绍如何自定义编写配置文件切图等
+<!--more-->
 1. 从[krpano下载页面下载](https://krpano.com/download/)适合于自己系统的krpano Tools软件包
 2. 将下载的krpano Tools zip文件解压到一个不含中文路径的文件夹下（为了所有稳定使用，推荐）
 3. 如果您已拥有krpano许可文件 - 则立即将其复制或移动到krpano Tools文件夹中。如果您没有任何一个，那么只需跳过此步骤即可。之后可以通过注册码注册，具体破解方法请自行百度，注册后能够去掉切片中的krpano水印。

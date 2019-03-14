@@ -81,3 +81,27 @@ deploy:
   type: git
   repo: git@github.com:11wy11/11wy11.github.io.git
   branch: master
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 0
+  
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: true
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true
