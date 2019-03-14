@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>krpano快速入门教程（一） | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="krpano">
+    <meta name="description" content="使用krpano工具构建即用型panos 从krpano下载页面下载适合于自己系统的krpano Tools软件包 将下载的krpano Tools zip文件解压到一个不含中文路径的文件夹下（为了所有稳定使用，推荐） 如果您已拥有krpano许可文件 - 则立即将其复制或移动到krpano Tools文件夹中。如果您没有任何一个，那么只需跳过此步骤即可。之后可以通过注册码注册，具体破解方法请自行">
+<meta name="keywords" content="krpano">
+<meta property="og:type" content="article">
+<meta property="og:title" content="krpano快速入门教程（一）">
+<meta property="og:url" content="http://yoursite.com/2019/03/14/krpano-first-note/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="使用krpano工具构建即用型panos 从krpano下载页面下载适合于自己系统的krpano Tools软件包 将下载的krpano Tools zip文件解压到一个不含中文路径的文件夹下（为了所有稳定使用，推荐） 如果您已拥有krpano许可文件 - 则立即将其复制或移动到krpano Tools文件夹中。如果您没有任何一个，那么只需跳过此步骤即可。之后可以通过注册码注册，具体破解方法请自行">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/krpano-first-note/pic1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/krpano-first-note/pic2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/krpano-first-note/pic3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/14/krpano-first-note/pic4.png">
+<meta property="og:updated_time" content="2019-03-14T11:01:43.749Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="krpano快速入门教程（一）">
+<meta name="twitter:description" content="使用krpano工具构建即用型panos 从krpano下载页面下载适合于自己系统的krpano Tools软件包 将下载的krpano Tools zip文件解压到一个不含中文路径的文件夹下（为了所有稳定使用，推荐） 如果您已拥有krpano许可文件 - 则立即将其复制或移动到krpano Tools文件夹中。如果您没有任何一个，那么只需跳过此步骤即可。之后可以通过注册码注册，具体破解方法请自行">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/14/krpano-first-note/pic1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">krpano快速入门教程（一）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">krpano快速入门教程（一）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-14T07:54:54.000Z" itemprop="datePublished" class="page-time">
+  2019-03-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/全景/">全景</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用krpano工具构建即用型panos"><span class="post-toc-number">1.</span> <span class="post-toc-text">使用krpano工具构建即用型panos</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-krpano-first-note" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">krpano快速入门教程（一）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-14 15:54:54" datetime="2019-03-14T07:54:54.000Z" itemprop="datePublished">2019-03-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/全景/">全景</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="使用krpano工具构建即用型panos"><a href="#使用krpano工具构建即用型panos" class="headerlink" title="使用krpano工具构建即用型panos"></a>使用krpano工具构建即用型panos</h2><ol>
+<li>从<a href="https://krpano.com/download/" target="_blank" rel="noopener">krpano下载页面下载</a>适合于自己系统的krpano Tools软件包</li>
+<li>将下载的krpano Tools zip文件解压到一个不含中文路径的文件夹下（为了所有稳定使用，推荐）</li>
+<li>如果您已拥有krpano许可文件 - 则立即将其复制或移动到krpano Tools文件夹中。如果您没有任何一个，那么只需跳过此步骤即可。之后可以通过注册码注册，具体破解方法请自行百度，注册后能够去掉切片中的krpano水印。</li>
+<li>要构建单个全景图 - 打开包含全景图像的文件夹，选择其中一个或全部，拖放到MAKE PANO droplet批处理工具上。<br><img src="/2019/03/14/krpano-first-note/pic1.png" alt="拖动全景图到工具上"><br>等待切片完成，会在全景图像所在文件夹中生成一个以全景图命名的文件夹，里面自动生成一个即用型pano,点击tour_testingsever运行测试服务器，打开index.html查看效果。<br><img src="/2019/03/14/krpano-first-note/pic2.png" alt="生成结果"><br>需要说明的是，这里如果没有注册，运行之后全景图是有krpano水印的。可以运行krpano tools选择 register now 输入序列号完成注册。注册完在按照第4步操作，得到没有水印的全景图<br><img src="/2019/03/14/krpano-first-note/pic3.png" alt="注册前"><center>注册前</center><center> <img src="/2019/03/14/krpano-first-note/pic4.png" alt="注册后">注册后</center></li>
+<li>要构建虚拟游览 - 打开包含全景虚拟游览图像的文件夹，选择所有这些图像拖放到MAKE VTOURdroplet批处理工具上。 </li>
+<li>其他工具使用类似，主要功能简介如下：  <ul>
+<li>MAKE PANO (NORMAL) droplet<br>将立即加载完整的全景，最大值。cubeize默认限制为2200像素（可以在’templates / normal.config’文件中更改），没有皮肤 - 只需pano，HTML5 iPhone / iPad就绪</li>
+<li>MAKE PANO（MULTIRES）droplet<br>用于平铺多分辨率panos，没有尺寸/分辨率限制，快速和动态加载，带按钮的默认皮肤，HTML5 iPhone / iPad就绪</li>
+<li>MAKE PANO（FLAT）droplet<br>用于平面/ 2D平移/图像，平铺多分辨率，无尺寸/分辨率限制，平坦全景/图像的皮肤/控制，仅限闪光</li>
+<li>MAKE PANO（SINGLESWF）droplet<br>只生成一个Flash swf文件，对于典型的全屏panos，完整的pano将立即加载，最大值。cubesize限制为2200像素（可在’templates / singleswf.config’文件中更改），默认皮肤带按钮，仅限Flash</li>
+<li>MAKE OBJECT droplet<br>用于平铺多分辨率对象影片，一次删除所有对象图像，没有大小/分辨率限制，快速和动态加载，具有按钮和对象旋转控件的对象外观，仅限Flash</li>
+<li>MAKE VTOUR (NORMAL) droplet / MAKE VTOUR (MULTIRES) droplet<br> 用于自动构建虚拟游览，将所有全景图像放在此工具上，通过自动缩略图生成，准备好HTML5 iPhone / iPad </li>
+</ul>
+</li>
+<li>处理完成后关闭dos / terminal窗口。在源图像的文件夹中会有新文件：典型的.html文件 - 这是嵌入pano的示例网页，.swf文件 - 这是krpano Flash查看器，.js文件 - 这是Javascript Flash到HTML嵌入代码（基于swfkrpano.js）和可选的krpano HTML5 / Javascript iPhone / iPad查看器，一个.xml文件 - 这是krpano xml文件，有pano和皮肤定义，最后有.tiles文件夹 - 有处理过的全景图像。全景图像本身不是观看全景图像所必需的。 6.2。当您使用MAKE VTOUR Droplet时，这些文件将位于’vtour’文件夹中，而pano图像位于其中的’panos’文件夹中。</li>
+<li>编辑全景设置打开并在任何文本编辑器中编辑生成的xml文件（带有xml-syntax-highlighting的文本编辑器可能会有帮助）： 在在线文档中查找krpano xml定义：</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-14T11:01:43.749Z" itemprop="dateUpdated">2019-03-14 19:01:43</time>
+</span><br>
+
+
+        
+        <a href="/2019/03/14/krpano-first-note/" target="_blank" rel="external">http://yoursite.com/2019/03/14/krpano-first-note/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/krpano/">krpano</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/14/krpano-first-note/&title=《krpano快速入门教程（一）》 — WeiYuan's Blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/14/krpano-first-note/&title=《krpano快速入门教程（一）》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/14/krpano-first-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《krpano快速入门教程（一）》 — WeiYuan's Blog&url=http://yoursite.com/2019/03/14/krpano-first-note/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/03/14/krpano-first-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/14/ai-first-note/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">AI组件开发（一）--注记旋转矩阵</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "",
+            appKey: "",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/14/krpano-first-note/&title=《krpano快速入门教程（一）》 — WeiYuan's Blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/14/krpano-first-note/&title=《krpano快速入门教程（一）》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/14/krpano-first-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《krpano快速入门教程（一）》 — WeiYuan's Blog&url=http://yoursite.com/2019/03/14/krpano-first-note/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/03/14/krpano-first-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aQW7DMAwEwPz/0+61RWB7V3LaWh6dAgeJND4QJMXXK17bt/X+fO/z+0r+7f35ZQsDA+O2jO1w7W2Q/Crhtc93qRgYGA9g7EWwNrAev6Djfzje6+TMGBgYGHEQbMN0vi8GBgbGVYykukwSRwwMDIyxIjbpd7VH/4NaHAMD44aMvOv++58/cr+BgYFxK8ZWrrHW2/GxtumFgYGxNqNN+9pLxzyIJ89PxjIwMDCWZowdaybs5qG5LlkxMDAew0gCYltqjo1cJEgMDIynMWYuMmeQFwxbYGBgLM2YaY214HzfenQDAwNjacZYQ20mvUteVnTo+b4gBgbGv2eMhdrjq8f5VK8eL8PAwHgwIznczCBF/ppOdsfAwFiaMZ9ltU2xseGzOtvFwMBYlJE0xZID5d+ONebqWhwDA+PmjLwQTba/KjTnu/zIcDEwMJZmJE35a1PANqAX0xkYGBhLM/IB07ZxP9ZcK3gYGBhLM9qwm2/WXoK2R8fAwMBoYZ+7sMzLYwwMjCcw2pGv9jIyL4AxMDAwjgNuO+Y1s32bYp68XAwMjEUZW7naQjc/XPKydtkYGBhLM/KVp33tyNfMSEeNwcDAuC0jL0TzIYmZsDh4CYGBgfEARnugmZGLsSTyBIOBgYERpIN5mM4HLDAwMDCuSvKS0NlebbbJKwYGxhMY7cBE+2TsuPklKAYGxtqMsdJx/tpyLCmcaudhYGDcj/EF/cGTYVqVrnEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
