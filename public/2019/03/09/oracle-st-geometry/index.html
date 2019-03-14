@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/09/oracle-st-geometry/res2.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/09/oracle-st-geometry/res3.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/09/oracle-st-geometry/res4.png">
-<meta property="og:updated_time" content="2019-03-13T15:17:11.124Z">
+<meta property="og:updated_time" content="2019-03-14T16:39:12.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Oracle配置SDE支持空间查询">
 <meta name="twitter:description" content="配置oracle外部链接库 将ArcGIS Desktop安装目录下DatabaseSupport文件夹下的st_shapelib.dll拷贝到装有oracle的服务器上，可以放置在任意地方，这里推荐放在Oracle安装目录下的bin文件夹下。 例如：st_shapelib.dll所在文件夹路径： C:\ProgramFiles(x86)\ArcGIS\Desktop10.2\DatabaseSu">
@@ -205,9 +205,7 @@
 </li>
 <li><p>修改oracle安装home目录下的hs/admin文件夹下的extproc.ora，具体路径示例：E:\app\503\product\11.2.0\dbhome_1\hs\admin\extproc.ora，将最后一行的SET EXTPROC_DLLS=  设为ANY<br><img src="/2019/03/09/oracle-st-geometry/res1.png" alt="extproc.ora设置"></p>
 </li>
-<li>通过任何一个数据库管理软件，这里以sql-plus为例，使用sde用户登录<pre><code>首先执行：
-`select * from user_libraries`
-</code></pre> 查看是否有ST_SHAPELIB并检查路径是否与步骤1中的一致，通常默认为c盘第一次安装Arcgis时的相关路径。结果如下：<br>  <img src="/2019/03/09/oracle-st-geometry/res2.png" alt="extproc.ora设置"><br>  如果路径与步骤1中st_shapelib的路径不一致，执行以下两条命令：<ul>
+<li>通过任何一个数据库管理软件，这里以sql-plus为例，使用sde用户登录首先执行：<code>select * from user_libraries</code><br> 查看是否有ST_SHAPELIB并检查路径是否与步骤1中的一致，通常默认为c盘第一次安装Arcgis时的相关路径。结果如下：<br>  <img src="/2019/03/09/oracle-st-geometry/res2.png" alt="extproc.ora设置"><br>  如果路径与步骤1中st_shapelib的路径不一致，执行以下两条命令：<ul>
 <li>Create or replace library st_SHAPELIB  as &lt;步骤1中的st_shapelib路径&gt;<br><img src="/2019/03/09/oracle-st-geometry/res3.png" alt="extproc.ora设置"></li>
 <li>Alter package sde.st_geometry_shapelib_pkg compile reuse settings<br><img src="/2019/03/09/oracle-st-geometry/res4.png" alt="extproc.ora设置"></li>
 </ul>
@@ -222,7 +220,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-13T15:17:11.124Z" itemprop="dateUpdated">2019-03-13 23:17:11</time>
+    最后更新时间：<time datetime="2019-03-14T16:39:12.910Z" itemprop="dateUpdated">2019-03-15 00:39:12</time>
 </span><br>
 
 
@@ -317,15 +315,6 @@
     
 
 
-<section class="comments" id="comments">
-    <div id="disqus_thread"></div>
-    <script>
-    var disqus_shortname = 'true';
-    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
-
 
 
 
@@ -349,10 +338,10 @@
             el: '#comments',
             notify: 'false' == 'true',
             verify: 'false' == 'true',
-            appId: "",
-            appKey: "",
-            avatar: "mm",
-            placeholder: "Just go go",
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
             guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
             pageSize: "10"
         })
