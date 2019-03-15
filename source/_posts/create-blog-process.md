@@ -62,8 +62,14 @@ categories: 工具
     在”.gitignore” 文件里输入你要忽略的文件夹及其文件就可以了。（注意格式）  
     我的 .gitignore：
      ```
-     .deploy_git/
-     node_modules/
+    node_modules/
+    .deploy_git
+    public/
+    .DS_Store 
+    Thumbs.db
+    db.json  
+    *.log
+    .deploy*/
      ```                  
      执行以下命令
      ```git
@@ -91,7 +97,7 @@ categories: 工具
     $ npm install 
     $ npm install hexo-deployer-git
     4、重新配置github和coding的公钥  
-    5、编写博客push 到远程分支
-8. 补充：
-    有时会出现下载的主题无法上传，首先删除themes/主题文件夹下的`.git`,使用` git rm --cached themes/indigo`命令清空后重新上传
-`
+    5、编写博客push 到远程分支   
+### 补充
+1. 有时会出现下载的主题无法上传，首先删除themes/主题文件夹下的`.git`,使用` git rm --cached themes/indigo`命令清空后重新上传`
+2. 如果最开始.gitignore文件没有配置正确，可以使用`git rm -r --cached .`命令清楚缓存文件，重新add,commit,push上传
