@@ -89,7 +89,8 @@ deploy:
   type: git
   repo: git@github.com:11wy11/11wy11.github.io.git
   branch: master
-
+  
+skip_render: README.md
 feed:
   type: atom
   path: atom.xml
