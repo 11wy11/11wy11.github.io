@@ -3,7 +3,7 @@ title: AI组件开发（一）--注记旋转矩阵
 date: 2019-03-14 10:56:02
 tags: 
   - AI  
-categories: Adobe ILLustrator组件开发
+categories: AI组件开发
 ---
 ## SDK官方帮助文档
 AIAPI void(* AIRealMathSuite::AIRealMatrixSet)(AIRealMatrix *m, AIReal a, AIReal b, AIReal c, AIReal d, AIReal tx, AIReal ty)
