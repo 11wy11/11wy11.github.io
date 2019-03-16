@@ -25,19 +25,19 @@
 <meta name="keywords" content="krpano">
 <meta property="og:type" content="article">
 <meta property="og:title" content="krpano快速入门教程（一）">
-<meta property="og:url" content="http://yoursite.com/2019/03/14/krpano-first-note/index.html">
+<meta property="og:url" content="http://11wy11.github.io/2019/03/14/krpano-first-note/index.html">
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
 <meta property="og:description" content="使用krpano工具构建即用型panos简单使用krpano工具快速生成可执行的pano文件，后续介绍如何自定义编写配置文件切图等">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/krpano-first-note/pic1.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/krpano-first-note/pic2.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/krpano-first-note/pic3.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/14/krpano-first-note/pic4.png">
-<meta property="og:updated_time" content="2019-03-15T01:30:31.991Z">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/14/krpano-first-note/pic1.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/14/krpano-first-note/pic2.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/14/krpano-first-note/pic3.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/14/krpano-first-note/pic4.png">
+<meta property="og:updated_time" content="2019-03-16T05:46:36.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="krpano快速入门教程（一）">
 <meta name="twitter:description" content="使用krpano工具构建即用型panos简单使用krpano工具快速生成可执行的pano文件，后续介绍如何自定义编写配置文件切图等">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/14/krpano-first-note/pic1.png">
+<meta name="twitter:image" content="http://11wy11.github.io/2019/03/14/krpano-first-note/pic1.png">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -172,7 +172,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用krpano工具构建即用型panos"><span class="post-toc-number">1.</span> <span class="post-toc-text">使用krpano工具构建即用型panos</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用krpano工具构建即用型panos"><span class="post-toc-number">1.</span> <span class="post-toc-text">使用krpano工具构建即用型panos</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#krpano简介"><span class="post-toc-number">2.</span> <span class="post-toc-text">krpano简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#具体步骤"><span class="post-toc-number">3.</span> <span class="post-toc-text">具体步骤</span></a></li></ol>
         </nav>
     </aside>
 
@@ -198,17 +198,18 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="使用krpano工具构建即用型panos"><a href="#使用krpano工具构建即用型panos" class="headerlink" title="使用krpano工具构建即用型panos"></a>使用krpano工具构建即用型panos</h2><p>简单使用krpano工具快速生成可执行的pano文件，后续介绍如何自定义编写配置文件切图等<br><a id="more"></a></p>
-<ol>
+<h2 id="krpano简介"><a href="#krpano简介" class="headerlink" title="krpano简介"></a>krpano简介</h2><p>Krpano是一款全景漫游制作软件和工具。用krpano所生成的全景，在兼容性、功能性、互动性方面的表现都很不错，而且可以二次开发并拥有自己的编程语言，比如使用专用的krpano xml代码编写全景漫游，可开发出高度定制化的项目。因此，目前主流的全景网站均是在krpano全景的基础上进行开发，并不断进行更新迭代，形成自己独有的全景内容服务。</p>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><ol>
 <li>从<a href="https://krpano.com/download/" target="_blank" rel="noopener">krpano下载页面下载</a>适合于自己系统的krpano Tools软件包</li>
 <li>将下载的krpano Tools zip文件解压到一个不含中文路径的文件夹下（为了所有稳定使用，推荐）</li>
 <li>如果您已拥有krpano许可文件 - 则立即将其复制或移动到krpano Tools文件夹中。如果您没有任何一个，那么只需跳过此步骤即可。之后可以通过注册码注册，具体破解方法请自行百度，注册后能够去掉切片中的krpano水印。</li>
-<li>要构建单个全景图 - 打开包含全景图像的文件夹，选择其中一个或全部，拖放到MAKE PANO droplet批处理工具上。<br><img src="/2019/03/14/krpano-first-note/pic1.png" alt="拖动全景图到工具上"><br>等待切片完成，会在全景图像所在文件夹中生成一个以全景图命名的文件夹，里面自动生成一个即用型pano,点击tour_testingsever运行测试服务器，打开index.html查看效果。<br><img src="/2019/03/14/krpano-first-note/pic2.png" alt="生成结果"><br>需要说明的是，这里如果没有注册，运行之后全景图是有krpano水印的。可以运行krpano tools选择 register now 输入序列号完成注册。注册完在按照第4步操作，得到没有水印的全景图<br><img src="/2019/03/14/krpano-first-note/pic3.png" alt="注册前"><center>注册前</center><center> <img src="/2019/03/14/krpano-first-note/pic4.png" alt="注册后">注册后</center></li>
+<li>要构建单个全景图 - 打开包含全景图像的文件夹，选择其中一个或全部，拖放到MAKE PANO droplet批处理工具上。<br><img src="/2019/03/14/krpano-first-note/pic1.png" alt="拖动全景图到工具上"><br>等待切片完成，会在全景图像所在文件夹中生成一个以全景图命名的文件夹，里面自动生成一个即用型pano,点击tour_testingsever运行测试服务器，打开index.html查看效果。<br><img src="/2019/03/14/krpano-first-note/pic2.png" alt="生成结果"><br>需要说明的是，这里如果没有注册，运行之后全景图是有krpano水印的。可以运行krpano tools选择 register now 输入序列号完成注册。注册完在按照第4步操作，得到没有水印的全景图<br><img src="/2019/03/14/krpano-first-note/pic3.png" alt="注册前"><center>注册前</center><br><img src="/2019/03/14/krpano-first-note/pic4.png" alt="注册后"><br><center> 注册后</center></li>
 <li>要构建虚拟游览 - 打开包含全景虚拟游览图像的文件夹，选择所有这些图像拖放到MAKE VTOURdroplet批处理工具上。 </li>
 <li>其他工具使用类似，主要功能简介如下：  <ul>
-<li>MAKE PANO (NORMAL) droplet<br>将立即加载完整的全景，最大值。cubeize默认限制为2200像素（可以在’templates / normal.config’文件中更改），没有皮肤 - 只需pano，HTML5 iPhone / iPad就绪</li>
-<li>MAKE PANO（MULTIRES）droplet<br>用于平铺多分辨率panos，没有尺寸/分辨率限制，快速和动态加载，带按钮的默认皮肤，HTML5 iPhone / iPad就绪</li>
+<li>MAKE PANO (NORMAL) droplet<br>针对标准全景图（360度），最大值。cubeize默认限制为2200像素（可以在’templates / normal.config’文件中更改），没有皮肤 - 只需pano，HTML5 iPhone / iPad就绪</li>
+<li>MAKE PANO（MULTIRES）droplet<br>用于渐进多分辨率的panos，没有尺寸/分辨率限制，快速动态加载，带按钮的默认皮肤，HTML5 iPhone / iPad就绪</li>
 <li>MAKE PANO（FLAT）droplet<br>用于平面/ 2D平移/图像，平铺多分辨率，无尺寸/分辨率限制，平坦全景/图像的皮肤/控制，仅限闪光</li>
-<li>MAKE PANO（SINGLESWF）droplet<br>只生成一个Flash swf文件，对于典型的全屏panos，完整的pano将立即加载，最大值。cubesize限制为2200像素（可在’templates / singleswf.config’文件中更改），默认皮肤带按钮，仅限Flash</li>
+<li>MAKE PANO（SINGLESWF）droplet<br>只生成一个Flash swf文件，对于标准全景图，完整的pano将立即加载，最大值。cubesize限制为2200像素（可在’templates / singleswf.config’文件中更改），默认皮肤带按钮，仅限Flash</li>
 <li>MAKE OBJECT droplet<br>用于平铺多分辨率对象影片，一次删除所有对象图像，没有大小/分辨率限制，快速和动态加载，具有按钮和对象旋转控件的对象外观，仅限Flash</li>
 <li>MAKE VTOUR (NORMAL) droplet / MAKE VTOUR (MULTIRES) droplet<br> 用于自动构建虚拟游览，将所有全景图像放在此工具上，通过自动缩略图生成，准备好HTML5 iPhone / iPad </li>
 </ul>
@@ -224,17 +225,17 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-15T01:30:31.991Z" itemprop="dateUpdated">2019-03-15 09:30:31</time>
+    最后更新时间：<time datetime="2019-03-16T05:46:36.064Z" itemprop="dateUpdated">2019-03-16 13:46:36</time>
 </span><br>
 
 
         
-        <a href="/2019/03/14/krpano-first-note/" target="_blank" rel="external">http://yoursite.com/2019/03/14/krpano-first-note/</a>
+        <a href="/2019/03/14/krpano-first-note/" target="_blank" rel="external">http://11wy11.github.io/2019/03/14/krpano-first-note/</a>
         
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="http://11wy11.github.io">
             <img src="/img/avatar.jpg" alt="11wy11">
             11wy11
         </a>
@@ -256,7 +257,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/14/krpano-first-note/&title=《krpano快速入门教程（一）》 — WeiYuan's Blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/14/krpano-first-note/&title=《krpano快速入门教程（一）》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -266,22 +267,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/14/krpano-first-note/&title=《krpano快速入门教程（一）》 — WeiYuan's Blog&source=使用krpano工具构建即用型panos简单使用krpano工具快速生成可执行的pano文件，后续介绍如何自定义编写配置文件切图等" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/14/krpano-first-note/&title=《krpano快速入门教程（一）》 — WeiYuan's Blog&source=使用krpano工具构建即用型panos简单使用krpano工具快速生成可执行的pano文件，后续介绍如何自定义编写配置文件切图等" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/14/krpano-first-note/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/14/krpano-first-note/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《krpano快速入门教程（一）》 — WeiYuan's Blog&url=http://yoursite.com/2019/03/14/krpano-first-note/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《krpano快速入门教程（一）》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/14/krpano-first-note/&via=http://11wy11.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/03/14/krpano-first-note/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/14/krpano-first-note/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -301,7 +302,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/15/krpano-second-note/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">krpano快速入门教程（二）</h4>
+      </a>
+    </div>
   
 
   
@@ -406,7 +414,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/14/krpano-first-note/&title=《krpano快速入门教程（一）》 — WeiYuan's Blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/14/krpano-first-note/&title=《krpano快速入门教程（一）》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -416,22 +424,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/14/krpano-first-note/&title=《krpano快速入门教程（一）》 — WeiYuan's Blog&source=使用krpano工具构建即用型panos简单使用krpano工具快速生成可执行的pano文件，后续介绍如何自定义编写配置文件切图等" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/14/krpano-first-note/&title=《krpano快速入门教程（一）》 — WeiYuan's Blog&source=使用krpano工具构建即用型panos简单使用krpano工具快速生成可执行的pano文件，后续介绍如何自定义编写配置文件切图等" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/14/krpano-first-note/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/14/krpano-first-note/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《krpano快速入门教程（一）》 — WeiYuan's Blog&url=http://yoursite.com/2019/03/14/krpano-first-note/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《krpano快速入门教程（一）》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/14/krpano-first-note/&via=http://11wy11.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/03/14/krpano-first-note/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/14/krpano-first-note/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -442,7 +450,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aQW7DMAwEwPz/0+61RWB7V3LaWh6dAgeJND4QJMXXK17bt/X+fO/z+0r+7f35ZQsDA+O2jO1w7W2Q/Crhtc93qRgYGA9g7EWwNrAev6Djfzje6+TMGBgYGHEQbMN0vi8GBgbGVYykukwSRwwMDIyxIjbpd7VH/4NaHAMD44aMvOv++58/cr+BgYFxK8ZWrrHW2/GxtumFgYGxNqNN+9pLxzyIJ89PxjIwMDCWZowdaybs5qG5LlkxMDAew0gCYltqjo1cJEgMDIynMWYuMmeQFwxbYGBgLM2YaY214HzfenQDAwNjacZYQ20mvUteVnTo+b4gBgbGv2eMhdrjq8f5VK8eL8PAwHgwIznczCBF/ppOdsfAwFiaMZ9ltU2xseGzOtvFwMBYlJE0xZID5d+ONebqWhwDA+PmjLwQTba/KjTnu/zIcDEwMJZmJE35a1PANqAX0xkYGBhLM/IB07ZxP9ZcK3gYGBhLM9qwm2/WXoK2R8fAwMBoYZ+7sMzLYwwMjCcw2pGv9jIyL4AxMDAwjgNuO+Y1s32bYp68XAwMjEUZW7naQjc/XPKydtkYGBhLM/KVp33tyNfMSEeNwcDAuC0jL0TzIYmZsDh4CYGBgfEARnugmZGLsSTyBIOBgYERpIN5mM4HLDAwMDCuSvKS0NlebbbJKwYGxhMY7cBE+2TsuPklKAYGxtqMsdJx/tpyLCmcaudhYGDcj/EF/cGTYVqVrnEAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3a0U7DQAwEQP7/p+EVCbiszwlSfNMnVKVtJkgr2+ePj/j1uXx9v+bn9ck3r9+57YWBgfFaRn6L+TXVX+n8LgYGxjmMdRSuQ7ATvslnk5jGwMDASG4xD8ckWDEwMDD6jPwnk5BNwhcDAwOjOkqrhm/n0dzci2NgYLyQkUfk///9yPkGBgbGqxh7w/r8s+swzRvai1/BwMAYzcgDLm9cq0Ve0txGbTAGBsZoxroErAZofmxZfYitShYDA+O1jL0FrxzT6TQLCxwYGBjHM/J47Sx17ZWJGBgYpzGq6xed5Yy8GY6CHgMDYzRjr1mtjtj2ziKrAzgMDIwTGPk71eisfirHXJxvYGBgjGBUbzcvAfNjy2px+ee4DQMDYygjb1M7B5ZPrGJEh5oYGBgjGOWRVnzNXsi2li0wMDCGMjo3l8dutcXdKxYxMDCmMp5b59or+HL2ZmZjYGC8kNEpzvKyby/7q4sgGBgYsxmtWrLY9FZXK1pHAhgYGIMYnbJsr0zMvyF/3BgYGOcwnpjn3VVEXoQ4BgbGMYxkFSwp9Z44mLy4KwwMjKGM/rh/HcHVB5E/yl/+DxgYGEMZe2HXaTiri2KdISAGBsYkRh6ySWl478FnIWQxMDAOYBRG8MWBfn4wuRf9GBgYGP2RXL8QLG+LYGBgYGwN0To9dNQMY2BgHMCoHgbk47a9lrV6nImBgTGbUY28Nf6G7Y9i+GJgYIxmfAFa3GqYagGugQAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

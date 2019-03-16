@@ -25,17 +25,17 @@
 <meta name="keywords" content="hexo,git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用hexo+github创建个人博客并备份源码">
-<meta property="og:url" content="http://yoursite.com/2019/03/09/create-blog-process/index.html">
+<meta property="og:url" content="http://11wy11.github.io/2019/03/09/create-blog-process/index.html">
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
 <meta property="og:description" content="一、准备 安装node.js 安装git-windows 安装hexo-cli 1$npm install hexo-cli -g  在GitHub上创建&amp;lt;username&amp;gt;.github.io的仓库 e.g. 11wy11.github.io  配置SSH key打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开，执行 1ssh -keygen -t rs">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/03/09/create-blog-process/res2.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/09/create-blog-process/res1.png">
-<meta property="og:updated_time" content="2019-03-13T12:45:22.435Z">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/09/create-blog-process/res2.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/09/create-blog-process/res1.png">
+<meta property="og:updated_time" content="2019-03-16T05:46:36.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hexo+github创建个人博客并备份源码">
 <meta name="twitter:description" content="一、准备 安装node.js 安装git-windows 安装hexo-cli 1$npm install hexo-cli -g  在GitHub上创建&amp;lt;username&amp;gt;.github.io的仓库 e.g. 11wy11.github.io  配置SSH key打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开，执行 1ssh -keygen -t rs">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/09/create-blog-process/res2.png">
+<meta name="twitter:image" content="http://11wy11.github.io/2019/03/09/create-blog-process/res2.png">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -170,7 +170,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、准备"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、准备</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、搭建流程"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、搭建流程</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、准备"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、准备</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、搭建流程"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、搭建流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#补充"><span class="post-toc-number">3.</span> <span class="post-toc-text">补充</span></a></li></ol>
         </nav>
     </aside>
 
@@ -231,8 +231,14 @@
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <p> 其次安装hexo-deployer-git 执行 <code>npm install hexo-deployer-git --save</code><br> 在工程文件夹内右键git bash进入命令行 输入hexo g，编译为静态文件，生成public文件夹，使用 hexo d 部署，此时可以访问https://&lt;username&gt;.github.io查看你的博客</p>
 </li>
-<li>备份源码<br> 在工程文件夹内右键git bash进入命令行 输入 touch .gitignore ，生成“.gitignore”文件。<br> 在”.gitignore” 文件里输入你要忽略的文件夹及其文件就可以了。（注意格式）<br> 我的 .gitignore：<pre><code>.deploy_git/
-node_modules/
+<li>备份源码<br> 在工程文件夹内右键git bash进入命令行 输入 touch .gitignore ，生成“.gitignore”文件。<br> 在”.gitignore” 文件里输入你要忽略的文件夹及其文件就可以了。（注意格式）<br> 我的 .gitignore：<pre><code>node_modules/
+.deploy_git
+public/
+.DS_Store 
+Thumbs.db
+db.json  
+*.log
+.deploy*/
 </code></pre>  执行以下命令<pre><code class="git">#git初始化
 git init
 #创建hexo分支，用来存放源码
@@ -247,8 +253,9 @@ git remote add origin git@github.com:&lt;username&gt;/&lt;username&gt;.github.io
 git push origin hexo
 </code></pre>
  执行hexo g -d生成网站并部署到GitHub上<br> 这样一来，在GitHub上的<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:&lt;username&gt;/&lt;username&gt;.github.io.git仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。</li>
-<li>其他设备更新博客步骤：<br> 1、先安装hexo<br> $ npm install -g hexo-cli<br> 2、存在github上的git clone下来<br> git clone -b hexo <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:&lt;username&gt;/&lt;username&gt;.github.io.git<br> 3、项目文件夹下<br> $ npm install<br> $ npm install hexo-deployer-git<br> 4、重新配置github和coding的公钥<br> 5、编写博客push 到远程分支</li>
-<li>补充：<br> 有时会出现下载的主题无法上传，首先删除themes/主题文件夹下的<code>.git</code>,使用<code>git rm --cached themes/indigo</code>命令清空后重新上传<br>`</li>
+<li>其他设备更新博客步骤：<br> 1、先安装hexo<br> $ npm install -g hexo-cli<br> 2、存在github上的git clone下来<br> git clone -b hexo <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:&lt;username&gt;/&lt;username&gt;.github.io.git<br> 3、项目文件夹下<br> $ npm install<br> $ npm install hexo-deployer-git<br> 4、重新配置github和coding的公钥<br> 5、编写博客push 到远程分支   <h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3></li>
+<li>有时会出现下载的主题无法上传，首先删除themes/主题文件夹下的<code>.git</code>,使用<code>git rm --cached themes/indigo</code>命令清空后重新上传`</li>
+<li>如果最开始.gitignore文件没有配置正确，可以使用<code>git rm -r --cached .</code>命令清楚缓存文件，重新add,commit,push上传</li>
 </ol>
 
         </div>
@@ -258,17 +265,17 @@ git push origin hexo
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-13T12:45:22.435Z" itemprop="dateUpdated">2019-03-13 20:45:22</time>
+    最后更新时间：<time datetime="2019-03-16T05:46:36.063Z" itemprop="dateUpdated">2019-03-16 13:46:36</time>
 </span><br>
 
 
         
-        <a href="/2019/03/09/create-blog-process/" target="_blank" rel="external">http://yoursite.com/2019/03/09/create-blog-process/</a>
+        <a href="/2019/03/09/create-blog-process/" target="_blank" rel="external">http://11wy11.github.io/2019/03/09/create-blog-process/</a>
         
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="http://11wy11.github.io">
             <img src="/img/avatar.jpg" alt="11wy11">
             11wy11
         </a>
@@ -290,7 +297,7 @@ git push origin hexo
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/09/create-blog-process/&title=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/09/create-blog-process/&title=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -300,22 +307,22 @@ git push origin hexo
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/09/create-blog-process/&title=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/09/create-blog-process/&title=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/09/create-blog-process/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/09/create-blog-process/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&url=http://yoursite.com/2019/03/09/create-blog-process/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/09/create-blog-process/&via=http://11wy11.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/03/09/create-blog-process/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/09/create-blog-process/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -447,7 +454,7 @@ git push origin hexo
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/03/09/create-blog-process/&title=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/09/create-blog-process/&title=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -457,22 +464,22 @@ git push origin hexo
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/03/09/create-blog-process/&title=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/09/create-blog-process/&title=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/03/09/create-blog-process/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/09/create-blog-process/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&url=http://yoursite.com/2019/03/09/create-blog-process/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用hexo+github创建个人博客并备份源码》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/09/create-blog-process/&via=http://11wy11.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/03/09/create-blog-process/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/09/create-blog-process/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -483,7 +490,7 @@ git push origin hexo
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aQW7CQAwFUO5/aSp11YomfNuhUmberFAgYV4Wlsf24xGv5/c6uv5zHV1//fb8aY9PLAwMjNsynqfr9Y/zz+dXjkjJ6/iDioGBsQHjPMieh8JkK9UAne8NAwMDY0LNt3v+ewwMDIz5FquhuZeGYmBgYCSP7oXIZ2t98CyOgYFxQ0a1MfCfnz/Y38DAwLgJ46ogWC3J9cLr4a4wMDCWZiRl/TwRrH6bj2VE4RgDA2NRRnIsTBK1ajMyb1hGIxoYGBgbMObDE5OgXH1xzc4GBgbGzRnJtvI/qCaOvZEODAyM3RjVxkC+6d64WH6Q/lU1xMDAWJTR6wNeG17nv8TAwNiHUW0V9EbBqvX8csDFwMBYjlFtDFQLYflGe6MbGBgY+zAmrYK8SZkPcJTHPjAwMJZmTDLKanDspYP5+AUGBsaejOq2eoMak8Q0wmBgYNyckZTg85LZ5FjbSyIxMDB2Y1TTtV5Lsvfi3rwmDAyMpRnnQXMybDE5ylZLexgYGGszJo3DyaBYtdD25l4MDIwNGL0DZ6/RWE74kuYlBgbG0ox5M7L3hGpamTwBAwNjVcazuHpHzXkBDgMDY2dGdThsMnKRJ3n5MRgDA2MfRhJky+7xXeU9YGBgbMColubzQHkt782wBQYGxvaM+QhFklBWG6UYGBgY87GJ3mBH+V4MDIwNGM0wFz9hPlRRmHHDwMBYjnHBAbLYKsgHNXqvFQMDYyHGF56LYL663k0yAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3aQW7DMAxEUd//0u46COTMDOUCIr9WReLYel6wFMnrkte9WN/frq5/vuf359cbCwYMGMcy7selP/J50888/fPlU2DAgDGAsXrk6hol4Lo85bnLz2HAgAGjEBz1FwEDBgwYbwRc5bCq3EEJ3DBgwIChh8s7WlmQfeUsDgMGjAMZetX9//9+pb8BAwaMoxhZ0NxV9K+E74+7wYABozVDD3BuEc0txukthOWVMGDAaM3IWgLKEIY+oqEnptvyWRgwYBzFyFLA7D1Vxr9+vD4YMGCMYWTH0Wwsw21wShkuDBgw2jFKAc7cqNuS1O8AAwaM3gx3SEuJ35UDqt42uNwNwYAB41iGskW90eiW8t1RsOUOYcCA0Zqhp33Zw9zEUQ+10lkcBgwY7RhZ8cvd4q5RDClBhAEDRguGXlDLwO4BOBy2gAEDxgBGJWnTt+5+azQqYMCA0ZqRNQayEpteOHMLeTBgwJjAcEclsgZkljgaaSIMGDBaM/Sf1Ucr3KKePQICAwaMpowwtAkpoJtoZkkkDBgw5jDcwQil3agfejeEchgwYAxgZKlbtulKKrnh/wYMGDCOYtzmcsN0dsRVQr+UFMKAAaMFY1eD0w3E+qiZPWwBAwaMpgy9WOY2Piu/skM2DBgwBjD0Evwu8N7EEQYMGDAqI1zuFvXwXQq4MGDAGMCw584KZ2hpBBYGDBgDGHqhvz5mkZXhfrwOGDBgtGZUkjb3IJq1B7KEFQYMGC0Yf8ELk2EIV8zvAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

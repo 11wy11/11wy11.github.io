@@ -14,25 +14,27 @@
     
     
     
-    <title>Vue全局添加组件 | WeiYuan&#39;s Blog | 学习随记</title>
+    <title>krpano快速入门教程（二） | WeiYuan&#39;s Blog | 学习随记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="Vue">
-    <meta name="description" content="一. 背景在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。 二. 具体实现方法1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建">
-<meta name="keywords" content="Vue">
+    <meta name="keywords" content="krpano">
+    <meta name="description" content="vtour全景漫游及vtour文件夹介绍使用MAKE VTOUR (MULTIRES) droplet工具生成全景漫游">
+<meta name="keywords" content="krpano">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue全局添加组件">
-<meta property="og:url" content="http://11wy11.github.io/2019/03/09/Vue-global-component/index.html">
+<meta property="og:title" content="krpano快速入门教程（二）">
+<meta property="og:url" content="http://11wy11.github.io/2019/03/15/krpano-second-note/index.html">
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
-<meta property="og:description" content="一. 背景在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。 二. 具体实现方法1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建">
+<meta property="og:description" content="vtour全景漫游及vtour文件夹介绍使用MAKE VTOUR (MULTIRES) droplet工具生成全景漫游">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-14T11:01:43.749Z">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/15/krpano-second-note/pic1.png">
+<meta property="og:updated_time" content="2019-03-16T05:46:36.064Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue全局添加组件">
-<meta name="twitter:description" content="一. 背景在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。 二. 具体实现方法1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建">
+<meta name="twitter:title" content="krpano快速入门教程（二）">
+<meta name="twitter:description" content="vtour全景漫游及vtour文件夹介绍使用MAKE VTOUR (MULTIRES) droplet工具生成全景漫游">
+<meta name="twitter:image" content="http://11wy11.github.io/2019/03/15/krpano-second-note/pic1.png">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -120,7 +122,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Vue全局添加组件</div>
+        <div class="flex-col header-title ellipsis">krpano快速入门教程（二）</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -142,15 +144,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Vue全局添加组件</h1>
+        <h1 class="title">krpano快速入门教程（二）</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-03-09T02:39:22.000Z" itemprop="datePublished" class="page-time">
-  2019-03-09
+                <time datetime="2019-03-15T15:19:51.000Z" itemprop="datePublished" class="page-time">
+  2019-03-15
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/全景/">全景</a></li></ul>
 
             
         </h5>
@@ -167,20 +169,20 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">一. 背景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-具体实现方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">二. 具体实现方法</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vtour全景漫游及vtour文件夹介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">vtour全景漫游及vtour文件夹介绍</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#背景"><span class="post-toc-number">2.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生成vtour"><span class="post-toc-number">3.</span> <span class="post-toc-text">生成vtour</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vtour文件夹内容介绍"><span class="post-toc-number">4.</span> <span class="post-toc-text">vtour文件夹内容介绍</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#预览效果"><span class="post-toc-number">5.</span> <span class="post-toc-text">预览效果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#补充"><span class="post-toc-number">6.</span> <span class="post-toc-text">补充</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#历史文章"><span class="post-toc-number">7.</span> <span class="post-toc-text">历史文章</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-Vue-global-component" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-krpano-second-note" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Vue全局添加组件</h1>
+        <h1 class="post-card-title">krpano快速入门教程（二）</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-03-09 10:39:22" datetime="2019-03-09T02:39:22.000Z" itemprop="datePublished">2019-03-09</time>
+            <time class="post-time" title="2019-03-15 23:19:51" datetime="2019-03-15T15:19:51.000Z" itemprop="datePublished">2019-03-15</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/全景/">全景</a></li></ul>
 
 
 
@@ -192,22 +194,27 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="一-背景"><a href="#一-背景" class="headerlink" title="一. 背景"></a>一. 背景</h3><p>在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。</p>
-<h3 id="二-具体实现方法"><a href="#二-具体实现方法" class="headerlink" title="二. 具体实现方法"></a>二. 具体实现方法</h3><p>1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建一个index.js，一个自定义组件loading.vue,在这个loading.vue里面就是这个组件的具体的内容，</p>
-<p>2、在index.js中，规定使用这个组件的名字，以及使用方法，如：</p>
-<pre><code>import loadingComponent from &apos;./loading.vue&apos;
+            <h3 id="vtour全景漫游及vtour文件夹介绍"><a href="#vtour全景漫游及vtour文件夹介绍" class="headerlink" title="vtour全景漫游及vtour文件夹介绍"></a>vtour全景漫游及vtour文件夹介绍</h3><p>使用MAKE VTOUR (MULTIRES) droplet工具生成全景漫游<br><a id="more"></a></p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在初始学习krpano时，可以借助krpano的工具生成全景漫游文件，之后可以根据需要修改tour.xml,定制skin等；<br>上节简单介绍了krpano使用Make pano的工具创建单场景应用，但大多数应用中场景数量不只一个，彼此之间可以跳转，这就需要借助MAKE VTOUR droplet工具了。而具体选择三种中的哪一种，根据应用场景需要选择，multires支持将全景切片分级，能够达到更好的展示效果，但会使全景文件大小增加，normal生成普通的pano_f.jpg,pano_b.jpg,pano_l.jpg，pano_r.jpg，pano_u.jpg，pano_d.jpg,preview.jpg，分别为全景图的前后左右上下，以及菜单中的预览图。</p>
+<h3 id="生成vtour"><a href="#生成vtour" class="headerlink" title="生成vtour"></a>生成vtour</h3><p>使用MAKE VTOUR (MULTIRES) droplet工具生成的全景漫游场景，场景彼此之间相互连接，能够从一个场景跳转到另一个场景。<br>可以同时选择多张全景图片拖放在该工具上，输入全景图类型，和全景角度，执行切片，等待完成。显示<strong>done</strong>之后，在全景图文件夹中生成vtour文件夹。</p>
+<h3 id="vtour文件夹内容介绍"><a href="#vtour文件夹内容介绍" class="headerlink" title="vtour文件夹内容介绍"></a>vtour文件夹内容介绍</h3><ol>
+<li>tour.html文件–嵌入全景的网页</li>
+<li>tour.swf文件–krpano的flash viewer</li>
+<li>tour.js文件–基于swfkrpano.js的一个viewer，即HTML5的viewer及嵌入HTML的js文件的合体</li>
+<li>tour.xml文件–是krpano xml配置文件，定义全景图配置及皮肤配置</li>
+<li>panos文件夹–存放处理后的全景图切片</li>
+<li>plugins文件夹–主要存放使用到的插件</li>
+</ol>
+<h3 id="预览效果"><a href="#预览效果" class="headerlink" title="预览效果"></a>预览效果</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/03/15/krpano-second-note/pic1.png" alt="效果图" title>
+                </div>
+                <div class="image-caption">效果图</div>
+            </figure>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>之后的主要工作为：定制skin，定制plugins，定制xml，一些动态操作全景图配置使编辑js文件，能够实现动态配置全景图程序，能够更好的融入到Web应用程序中，作为其中一个子功能模块。后续结合实际案例介绍具体实现方式。历史文章</p>
+<h3 id="历史文章"><a href="#历史文章" class="headerlink" title="历史文章"></a>历史文章</h3><p><a href="/2019/03/14/krpano-first-note">krpano快速入门教程（一)</a></p>
 
-const loading={
-    install:function(Vue){
-        Vue.component(&apos;Loading&apos;,loadingComponent)
-    }  //&apos;Loading&apos;这就是后面可以使用的组件的名字，install是默认的一个方法
-};
-export default loading;
-```
-</code></pre><p>3、只要在main.js中规定了install方法，就可以像一些公共的插件一样使用Vue.use()来使用：</p>
-<pre><code>import loading from &apos;./loading&apos;
-Vue.use(loading）
-</code></pre>
         </div>
 
         <blockquote class="post-copyright">
@@ -215,12 +222,12 @@ Vue.use(loading）
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-14T11:01:43.749Z" itemprop="dateUpdated">2019-03-14 19:01:43</time>
+    最后更新时间：<time datetime="2019-03-16T05:46:36.064Z" itemprop="dateUpdated">2019-03-16 13:46:36</time>
 </span><br>
 
 
         
-        <a href="/2019/03/09/Vue-global-component/" target="_blank" rel="external">http://11wy11.github.io/2019/03/09/Vue-global-component/</a>
+        <a href="/2019/03/15/krpano-second-note/" target="_blank" rel="external">http://11wy11.github.io/2019/03/15/krpano-second-note/</a>
         
     </div>
     
@@ -237,7 +244,7 @@ Vue.use(loading）
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/krpano/">krpano</a></li></ul>
 
 
             
@@ -247,7 +254,7 @@ Vue.use(loading）
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/09/Vue-global-component/&title=《Vue全局添加组件》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/15/krpano-second-note/&title=《krpano快速入门教程（二）》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -257,22 +264,22 @@ Vue.use(loading）
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/09/Vue-global-component/&title=《Vue全局添加组件》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/15/krpano-second-note/&title=《krpano快速入门教程（二）》 — WeiYuan's Blog&source=vtour全景漫游及vtour文件夹介绍使用MAKE VTOUR (MULTIRES) droplet工具生成全景漫游" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/09/Vue-global-component/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/15/krpano-second-note/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue全局添加组件》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/09/Vue-global-component/&via=http://11wy11.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《krpano快速入门教程（二）》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/15/krpano-second-note/&via=http://11wy11.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/09/Vue-global-component/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/15/krpano-second-note/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -295,18 +302,18 @@ Vue.use(loading）
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/03/09/create-blog-process/" id="post-prev" class="post-nav-link">
+      <a href="/2019/03/16/qt-note/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">使用hexo+github创建个人博客并备份源码</h4>
+        <h4 class="title">C++之QT的信号和槽的详解</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/03/09/oracle-st-geometry/" id="post-next" class="post-nav-link">
+      <a href="/2019/03/14/krpano-first-note/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Oracle配置SDE支持空间查询</h4>
+        <h4 class="title">krpano快速入门教程（一）</h4>
       </a>
     </div>
   
@@ -404,7 +411,7 @@ Vue.use(loading）
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/09/Vue-global-component/&title=《Vue全局添加组件》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/15/krpano-second-note/&title=《krpano快速入门教程（二）》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -414,22 +421,22 @@ Vue.use(loading）
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/09/Vue-global-component/&title=《Vue全局添加组件》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/15/krpano-second-note/&title=《krpano快速入门教程（二）》 — WeiYuan's Blog&source=vtour全景漫游及vtour文件夹介绍使用MAKE VTOUR (MULTIRES) droplet工具生成全景漫游" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/09/Vue-global-component/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/15/krpano-second-note/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue全局添加组件》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/09/Vue-global-component/&via=http://11wy11.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《krpano快速入门教程（二）》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/15/krpano-second-note/&via=http://11wy11.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/09/Vue-global-component/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/15/krpano-second-note/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -440,7 +447,7 @@ Vue.use(loading）
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aW67CMAxFUeY/6d4BVA372OFKcXe/EEQkiw8TPz4f/Fy35/4pX39fs/62bY8MGTKOZVzLh6xZb0zW1/aVIUPG2xhP269D6tPr9TvrsLve9/F9GTJkyAjXEPY6yMqQIUNGh1E7EA+1MmTIkNFJYvvFOJ6s/jAXlyFDxoEMXnX//9c/6W/IkCHjKMYVPmnDstbIjE8lQ4aM0Qwe4MhRaqkvB385jwwZMoYyeChME8vaN5OLafE3liFDxrGMztDD3qPzUt2XvWTIkPECBrn2pYdYH47/TOhTGTJkDGX0R7LSyyIv4QWBW4YMGaMZneJ+OpDRD+hBXi5DhowRDB4E08scSXFJgooaEjJkyBjN6F/v0uGJ/qxXUDWUIUPGCEbnqzuNyTTFDbJwGTJkjGPU2oT8iJy0YdhChgwZoxm89B8MPZQKeWnSiyqIMmTIOJyRXuBqdfhaW7T4jyFDhoxxDBIQ+ZrOXhtgMmTIGM0gLcnaOEWn6FZsM8iQIWMoo5aIpmE3TWXjERAZMmS8klEbzOJHJC0KcjYZMmS8h0FSx3Q8grdL+91JGTJkTGVc4ZO2HteHTsfL0KVQhgwZ4xi7Cvq11gK/IBZnRmTIkDGIkRa5dpXSOlMTQUVQhgwZgxhp4FsHXxLda1e9x91lyJAhI2wApCMXG9JUGTJkyMANA/J+v0q2LeDKkCHjKAYv9/PElQfutAooQ4aMtzFq9640BPM1v0h9ZciQcSzjDyPQk2GUz4v9AAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3ay27DMAxEUf//T7tAVwVcqzNDKaioq1UQJ46OF4z4uC553d/r5+u3d55Xn/d5Xn3e7VqxYMCAsS3jHq63WyuY8daVR6DsDQYMGOcwlCCrkJSlPA59bzBgwIDhHgfdQx4MGDBgrAu42fFRD9AwYMCAkSWx2XLD6/JcHAYMGBsyssbAZ14v72/AgAHj3zPmhtFZ5X57JzBgwGjNUFqMlSEM5ZN64/OPHcKAAaM1oxIox+/XD6Pju71ehQEDRjuGsgm3eTB+NO6oWdgYgAEDRlOGPgSWjY5lD05KnmHAgNGUoRTOssK9cqSrFO8u5QswYMBowXC/5ia0WZKsh+9f/jdgwIDRmuFu2mVkbU6jGAcDBoymDP3H3GA6q5EghWAYMGAcz6iU0tzivg6zAy4MGDC2ZSi3MEZIo9Lb3DIfDBgw+jGy2TH3MFc5MkoPCwYMGAcwsrKXHqDd9kBYboMBA0ZThp5MZqFwRcC1J0dgwIDRjuEW4PTxCPee9mdgwIBxDKPSzsw2V2mRhjk3DBgwtmUoRzT3KJkdQMOADgMGjNaMStH/M8mwO5ABAwaMTozbXGPMrEENN9DDgAGjN0NferKaJcPKVRgwYJzMyIKsEjTdAFoKuDBgwDiAkaWsWavSyKr1BicMGDBgRAmqewSshGkYMGDAcLc7CzB5ZgQGDBibM/TNKcFXb21mzQMYMGCcxsgaA+4wWVbay4p9MGDAaMT4AsdAN/VqynaiAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
