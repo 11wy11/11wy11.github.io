@@ -18,3 +18,8 @@ categories: 语言
 + \\- 减号  
 + \\. 英文句号  
 + \\! 感叹号  
+也可以用ASCII码代替
+![1](markdown-first-skill/pic1.png)
+![2](markdown-first-skill/pic2.png)
+![3](markdown-first-skill/pic3.png)
+![4](markdown-first-skill/pic4.png)
