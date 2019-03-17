@@ -19,7 +19,6 @@ categories: 前端
         }  //'Loading'这就是后面可以使用的组件的名字，install是默认的一个方法
     };
     export default loading;
-    ```
 3、只要在main.js中规定了install方法，就可以像一些公共的插件一样使用Vue.use()来使用：
  
     import loading from './loading'
