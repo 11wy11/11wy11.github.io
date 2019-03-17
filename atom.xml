@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://11wy11.github.io/"/>
-  <updated>2019-03-17T13:40:27.348Z</updated>
+  <updated>2019-03-17T13:52:29.624Z</updated>
   <id>http://11wy11.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://11wy11.github.io/2019/03/17/markdown-first-skill/"/>
     <id>http://11wy11.github.io/2019/03/17/markdown-first-skill/</id>
     <published>2019-03-17T13:33:53.000Z</published>
-    <updated>2019-03-17T13:40:27.348Z</updated>
+    <updated>2019-03-17T13:52:29.624Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="常用转义字符"><a href="#常用转义字符" class="headerlink" title="常用转义字符"></a>常用转义字符</h1><ul><li>\\ 反斜杠  </li><li>\` 反引号  </li><li>\* 星号  </li><li>\_ 下划线  </li><li>\{\} 大括号  </li><li>\[\] 中括号  </li><li>\(\) 小括号  </li><li>\# 井号  </li><li>\+ 加号  </li><li>\- 减号  </li><li>\. 英文句号  </li><li>\! 感叹号  </li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="常用转义字符"><a href="#常用转义字符" class="headerlink" title="常用转义字符"></a>常用转义字符</h1><ul><li>\\ 反斜杠  </li><li>\` 反引号  </li><li>\* 星号  </li><li>\_ 下划线  </li><li>\{\} 大括号  </li><li>\[\] 中括号  </li><li>\(\) 小括号  </li><li>\# 井号  </li><li>\+ 加号  </li><li>\- 减号  </li><li>\. 英文句号  </li><li>\! 感叹号<br>也可以用ASCII码代替<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2019/03/17/markdown-first-skill/pic1.png" alt="1" title>                </div>                <div class="image-caption">1</div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2019/03/17/markdown-first-skill/pic2.png" alt="2" title>                </div>                <div class="image-caption">2</div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2019/03/17/markdown-first-skill/pic3.png" alt="3" title>                </div>                <div class="image-caption">3</div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2019/03/17/markdown-first-skill/pic4.png" alt="4" title>                </div>                <div class="image-caption">4</div>            </figure></li></ul>]]></content>
     
     <summary type="html">
     
