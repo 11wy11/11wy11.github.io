@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
 <meta property="og:description" content="一. 背景在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。 二. 具体实现方法1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-14T11:01:43.749Z">
+<meta property="og:updated_time" content="2019-03-17T16:43:47.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue全局添加组件">
 <meta name="twitter:description" content="一. 背景在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。 二. 具体实现方法1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建">
@@ -203,7 +203,6 @@ const loading={
     }  //&apos;Loading&apos;这就是后面可以使用的组件的名字，install是默认的一个方法
 };
 export default loading;
-```
 </code></pre><p>3、只要在main.js中规定了install方法，就可以像一些公共的插件一样使用Vue.use()来使用：</p>
 <pre><code>import loading from &apos;./loading&apos;
 Vue.use(loading）
@@ -215,7 +214,7 @@ Vue.use(loading）
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-14T11:01:43.749Z" itemprop="dateUpdated">2019-03-14 19:01:43</time>
+    最后更新时间：<time datetime="2019-03-17T16:43:47.662Z" itemprop="dateUpdated">2019-03-18 00:43:47</time>
 </span><br>
 
 
