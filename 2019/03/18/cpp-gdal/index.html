@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>GDAL简介及函数 | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="GDAL">
+    <meta name="description" content="GDAL(Geospatial Data Abstraction Library)是一个在X/MIT许可协议下的开源栅格空间数据转换库持续更新中">
+<meta name="keywords" content="GDAL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GDAL简介及函数">
+<meta property="og:url" content="http://11wy11.github.io/2019/03/18/cpp-gdal/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="GDAL(Geospatial Data Abstraction Library)是一个在X/MIT许可协议下的开源栅格空间数据转换库持续更新中">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/18/cpp-gdal/pic2.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/18/cpp-gdal/pic1.png">
+<meta property="og:updated_time" content="2019-03-18T14:56:40.723Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GDAL简介及函数">
+<meta name="twitter:description" content="GDAL(Geospatial Data Abstraction Library)是一个在X/MIT许可协议下的开源栅格空间数据转换库持续更新中">
+<meta name="twitter:image" content="http://11wy11.github.io/2019/03/18/cpp-gdal/pic2.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">GDAL简介及函数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">GDAL简介及函数</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-18T07:26:26.000Z" itemprop="datePublished" class="page-time">
+  2019-03-18
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#功能特征"><span class="post-toc-number">2.</span> <span class="post-toc-text">功能特征</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OGR体系结构编辑"><span class="post-toc-number">3.</span> <span class="post-toc-text">OGR体系结构编辑</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GDAL中OGR的使用"><span class="post-toc-number">4.</span> <span class="post-toc-text">GDAL中OGR的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#读数据"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">读数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#写数据"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">写数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GDAL-基本使用函数"><span class="post-toc-number">5.</span> <span class="post-toc-text">GDAL 基本使用函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDALAllRegister"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">GDALAllRegister</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDALOpenEx"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">GDALOpenEx</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDALDataSet"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">GDALDataSet</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GetLayerByName"><span class="post-toc-number">5.3.1.</span> <span class="post-toc-text">GetLayerByName</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OGR类或函数"><span class="post-toc-number">6.</span> <span class="post-toc-text">OGR类或函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OGRLayer"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">OGRLayer</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OGREnvelope"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">OGREnvelope</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-cpp-gdal" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">GDAL简介及函数</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-18 15:26:26" datetime="2019-03-18T07:26:26.000Z" itemprop="datePublished">2019-03-18</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>GDAL(Geospatial Data Abstraction Library)是一个在X/MIT许可协议下的开源栅格空间数据转换库<br><strong>持续更新中</strong><br><a id="more"></a><br><!-- START doctoc generated TOC please keep comment here to allow auto update --><br><!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE --><br><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc" target="_blank" rel="noopener">DocToc</a></em></p>
+<ul>
+<li><a href="#%E7%AE%80%E4%BB%8B">简介</a></li>
+<li><a href="#%E5%8A%9F%E8%83%BD%E7%89%B9%E5%BE%81">功能特征</a></li>
+<li><a href="#ogr%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%BC%96%E8%BE%91">OGR体系结构编辑</a></li>
+<li><a href="#gdal%E4%B8%ADogr%E7%9A%84%E4%BD%BF%E7%94%A8">GDAL中OGR的使用</a><ul>
+<li><a href="#%E8%AF%BB%E6%95%B0%E6%8D%AE">读数据</a></li>
+</ul>
+</li>
+<li><a href="#gdal-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0">GDAL 基本使用函数</a><ul>
+<li><a href="#gdalallregister">GDALAllRegister</a></li>
+<li><a href="#gdalopenex">GDALOpenEx</a></li>
+<li><a href="#gdaldataset">GDALDataSet</a><ul>
+<li><a href="#getlayerbyname">GetLayerByName</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#ogr%E7%B1%BB%E6%88%96%E5%87%BD%E6%95%B0">OGR类或函数</a><ul>
+<li><a href="#ogrlayer">OGRLayer</a></li>
+<li><a href="#ogrenvelope">OGREnvelope</a></li>
+</ul>
+</li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>它利用抽象数据模型来表达所支持的各种文件格式。它还有一系列命令行工具来进行数据转换和处理。</p>
+<p>OGR是GDAL项目的一个分支，功能与GDAL类似，只不过它提供对矢量数据的支持。</p>
+<p>有很多著名的GIS类产品都使用了GDAL/OGR库，包括ESRI的ARCGIS 9.3，Google Earth和跨平台的GRASS GIS系统。利用GDAL/OGR库，可以使基于Linux的地理空间数据管理系统提供对矢量和栅格文件数据的支持。</p>
+<h1 id="功能特征"><a href="#功能特征" class="headerlink" title="功能特征"></a>功能特征</h1><p>GDAL提供对多种栅格数据的支持，包括Arc/Info ASCII Grid(asc)，GeoTiff (tiff)，Erdas Imagine Images(img)，ASCII DEM(dem) 等格式。</p>
+<p>GDAL使用抽象数据模型(abstract data model)来解析它所支持的数据格式，抽象数据模型包括数据集(dataset)，坐标系统，仿射地理坐标转换(Affine Geo Transform)， 大地控制点(GCPs)， 元数据(Metadata)，栅格波段(Raster Band)，颜色表(Color Table)，子数据集域(Subdatasets Domain)，图像结构域(Image_Structure Domain)，XML域(XML:Domains)。</p>
+<p>GDALMajorObject类：带有元数据的对象。</p>
+<p>GDALDdataset类：通常是从一个栅格文件中提取的相关联的栅格波段集合和这些波段的元数据;GDALDdataset也负责所有栅格波段的地理坐标转换(georeferencing transform)和坐标系定义。</p>
+<p>GDALDriver类：文件格式驱动类，GDAL会为每一个所支持的文件格式创建一个该类的实体，来管理该文件格式。</p>
+<p>GDALDriverManager类：文件格式驱动管理类，用来管理GDALDriver类。</p>
+<h1 id="OGR体系结构编辑"><a href="#OGR体系结构编辑" class="headerlink" title="OGR体系结构编辑"></a>OGR体系结构编辑</h1><p>Geometry类：Geometry (包括OGRGeometry等类)封装了OpenGIS的矢量数据模型，并提供了一些几何操作，WKB(Well Knows Binary)和WKT(Well Known Text)格式之间的相互转换，以及空间参考系统(投影)。</p>
+<p>Spatial Reference类：OGRSpatialReference封装了投影和基准面的定义。</p>
+<p>Feature类：OGRFeature封装了一个完整feature的定义，一个完整的feature包括一个geometry和geometry的一系列属性。</p>
+<p>Feature Definition类：OGRFeatureDefn里面封装了feature的属性，类型、名称及其默认的空间参考系统等。一个OGRFeatureDefn对象通常与一个层(layer)对应。</p>
+<p>Layer类：OGRLayer是一个抽象基类，表示数据源类OGRDataSource里面的一层要素(feature)。</p>
+<p>Data Source类：OGRDataSource是一个抽象基类，表示含有OGRLayer对象的一个文件或一个数据库。</p>
+<p>Drivers类：OGRSFDriver对应于每一个所支持的矢量文件格式。类OGRSFDriver由类OGRSFDriverRegistrar来注册和管理。</p>
+<h1 id="GDAL中OGR的使用"><a href="#GDAL中OGR的使用" class="headerlink" title="GDAL中OGR的使用"></a>GDAL中OGR的使用</h1><h2 id="读数据"><a href="#读数据" class="headerlink" title="读数据"></a>读数据</h2><ol>
+<li><p>在工程的Library files中和Include files中分别添加GDAL的LIB文件目录和头文件目录</p>
+</li>
+<li><p>最初需要注册所需的所有格式驱动程序。这通常通过调用GDALAllRegister（）来完成，该寄存器注册GDAL / OGR中内置的所有格式驱动程序。 </p>
+</li>
+<li><p>接下来我们需要打开输入OGR数据源。数据源可以是文件，RDBMS，充满文件的目录，甚至是远程Web服务，具体取决于所使用的驱动程序。但是，数据源名称始终是单个字符串。在这种情况下，我们硬编码打开一个特定的shapefile。第二个参数（GDAL_OF_VECTOR）告诉OGROpen（）方法我们想要使用向量驱动程序并且不需要更新访问。失败时返回NULL，我们报告错误。</p>
+</li>
+<li><p>GDALDataset可以潜在地具有与它相关联的许多层。可以使用GDALDataset :: GetLayerCount（）查询可用的图层数，并使用GDALDataset :: GetLayer（）通过索引获取各个图层。但是，我们只是按名称获取图层。<br> OGRLayer   * poLayer;<br> poLayer = poDS-&gt; GetLayerByName（“point”）;  </p>
+</li>
+<li><p>现在我们要开始从图层中读取要素。在我们开始之前，我们可以为图层指定属性或空间过滤器以限制我们获取的功能集，但是现在我们有兴趣获取所有功能。</p>
+</li>
+<li><p>我们使用OGRLayer :: GetNextFeature（）遍历图层中的所有要素。当我们用完功能时它会返回NULL。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">OGRFeature *poFeature;</span><br><span class="line">poLayer-&gt;ResetReading();</span><br><span class="line">while( (poFeature = poLayer-&gt;GetNextFeature()) != NULL )</span><br><span class="line">&#123;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>为了转储该功能的所有属性字段，获取OGRFeatureDefn会很有帮助。这是与图层关联的对象，包含所有字段的定义。我们遍历所有字段，并根据其类型获取和报告属性。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">for( auto&amp;&amp; oField: *poFeature )</span><br><span class="line">&#123;</span><br><span class="line">    switch( oField.GetType() )</span><br><span class="line">    &#123;</span><br><span class="line">        case OFTInteger:</span><br><span class="line">            printf( &quot;%d,&quot;, oField.GetInteger() );</span><br><span class="line">            break;</span><br><span class="line">        case OFTInteger64:</span><br><span class="line">            printf( CPL_FRMT_GIB &quot;,&quot;, oField.GetInteger64() );</span><br><span class="line">            break;</span><br><span class="line">        case OFTReal:</span><br><span class="line">            printf( &quot;%.3f,&quot;, oField.GetDouble() );</span><br><span class="line">            break;</span><br><span class="line">        case OFTString:</span><br><span class="line">            printf( &quot;%s,&quot;, oField.GetString() );</span><br><span class="line">            break;</span><br><span class="line">        default:</span><br><span class="line">            printf( &quot;%s,&quot;, oField.GetAsString() );</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 除了上面显式处理的字段类型之外，还有一些字段类型，但可以使用OGRFeature :: GetFieldAsString（）方法获取它们的合理表示。事实上，我们可以通过对所有类型使用OGRFeature :: GetFieldAsString（）来缩短上述内容。   </p>
+</li>
+<li><p>接下来，我们要从要素中提取几何体，并写出点几何体x和y。几何图形作为通用OGRGeometry指针返回。然后我们确定特定的几何类型，如果它是一个点，我们将其转换为点并对其进行操作。如果它是别的东西我们写占位符。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    OGRGeometry *poGeometry;</span><br><span class="line">    poGeometry = poFeature-&gt;GetGeometryRef();</span><br><span class="line">    if( poGeometry != NULL</span><br><span class="line">            &amp;&amp; wkbFlatten(poGeometry-&gt;getGeometryType()) == wkbPoint )</span><br><span class="line">    &#123;</span><br><span class="line">#if GDAL_VERSION_NUM &gt;= GDAL_COMPUTE_VERSION(2,3,0)</span><br><span class="line">        OGRPoint *poPoint = poGeometry-&gt;toPoint();</span><br><span class="line">#else</span><br><span class="line">        OGRPoint *poPoint = (OGRPoint *) poGeometry;</span><br><span class="line">#endif</span><br><span class="line">        printf( &quot;%.3f,%3.f\n&quot;, poPoint-&gt;getX(), poPoint-&gt;getY() );</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        printf( &quot;no point geometry\n&quot; );</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p> 所述wkbFlatten（）宏上述用于将类型转换为一个wkbPoint25D（带z坐标的点）到2D的类型代码（wkbPoint）。对于每个2D几何类型，都有相应的2.5D类型代码。2D和2.5D几何案例由相同的C ++类处理，因此我们的代码将正确处理2D或3D案例。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">OGRGeometry *poGeometry;</span><br><span class="line">   int iGeomField;</span><br><span class="line">   int nGeomFieldCount;</span><br><span class="line">   nGeomFieldCount = poFeature-&gt;GetGeomFieldCount();</span><br><span class="line">   for(iGeomField = 0; iGeomField &lt; nGeomFieldCount; iGeomField ++ )</span><br><span class="line">   &#123;</span><br><span class="line">       poGeometry = poFeature-&gt;GetGeomFieldRef(iGeomField);</span><br><span class="line">       if( poGeometry != NULL</span><br><span class="line">               &amp;&amp; wkbFlatten(poGeometry-&gt;getGeometryType()) == wkbPoint )</span><br><span class="line">       &#123;</span><br><span class="line">       #if GDAL_VERSION_NUM &gt;= GDAL_COMPUTE_VERSION(2,3,0)</span><br><span class="line">                   OGRPoint *poPoint = poGeometry-&gt;toPoint();</span><br><span class="line">       #else</span><br><span class="line">                   OGRPoint *poPoint = (OGRPoint *) poGeometry;</span><br><span class="line">       #endif</span><br><span class="line">                   printf( &quot;%.3f,%3.f\n&quot;, poPoint-&gt;getX(), poPoint-&gt;getY() );</span><br><span class="line">               &#125;</span><br><span class="line">       else</span><br><span class="line">       &#123;</span><br><span class="line">           printf( &quot;no point geometry\n&quot; );</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p> 请注意，OGRFeature :: GetGeometryRef（）和OGRFeature :: GetGeomFieldRef（）返回指向OGRFeature所拥有的内部几何的指针。实际上没有删除返回几何。  </p>
+</li>
+<li>对于GDAL &lt;2.3，因为OGRLayer :: GetNextFeature（）方法返回现在由我们拥有的功能的副本。因此，在使用结束时，我们必须释放该功能。我们可以“删除”它，但这可能会导致Windows版本中的问题，其中GDAL DLL与主程序具有不同的“堆”。为了安全起见，我们使用GDAL功能删除该功能。<br> <code>OGRFeature :: DestroyFeature（poFeature）;}</code></li>
+<li>该OGRLayer通过返回的GDALDataset :: GetLayerByName（）也是由拥有一个内部层参考的GDALDataset所以我们并不需要将其删除。但我们确实需要删除数据源才能关闭输入文件。我们再一次使用自定义删除方法来避免特殊的win32堆问题。<br> <code>GDALClose（poDS）; }</code></li>
+<li><p>完整模板 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;ogrsf_frmts.h&quot;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    GDALAllRegister();</span><br><span class="line">    GDALDataset *poDS = static_cast&lt;GDALDataset*&gt;(</span><br><span class="line">        GDALOpenEx( &quot;point.shp&quot;, GDAL_OF_VECTOR, NULL, NULL, NULL ));</span><br><span class="line">    if( poDS == NULL )</span><br><span class="line">    &#123;</span><br><span class="line">        printf( &quot;Open failed.\n&quot; );</span><br><span class="line">        exit( 1 );</span><br><span class="line">    &#125;</span><br><span class="line">    OGRLayer  *poLayer = poDS-&gt;GetLayerByName( &quot;point&quot; );</span><br><span class="line">    OGRFeatureDefn *poFDefn = poLayer-&gt;GetLayerDefn();</span><br><span class="line">    poLayer-&gt;ResetReading();</span><br><span class="line">    OGRFeature *poFeature;</span><br><span class="line">    while( (poFeature = poLayer-&gt;GetNextFeature()) != NULL )</span><br><span class="line">    &#123;</span><br><span class="line">        for( int iField = 0; iField &lt; poFDefn-&gt;GetFieldCount(); iField++ )</span><br><span class="line">        &#123;</span><br><span class="line">            OGRFieldDefn *poFieldDefn = poFDefn-&gt;GetFieldDefn( iField );</span><br><span class="line">            switch( poFieldDefn-&gt;GetType() )</span><br><span class="line">            &#123;</span><br><span class="line">                case OFTInteger:</span><br><span class="line">                    printf( &quot;%d,&quot;, poFeature-&gt;GetFieldAsInteger( iField ) );</span><br><span class="line">                    break;</span><br><span class="line">                case OFTInteger64:</span><br><span class="line">                    printf( CPL_FRMT_GIB &quot;,&quot;, poFeature-&gt;GetFieldAsInteger64( iField ) );</span><br><span class="line">                    break;</span><br><span class="line">                case OFTReal:</span><br><span class="line">                    printf( &quot;%.3f,&quot;, poFeature-&gt;GetFieldAsDouble(iField) );</span><br><span class="line">                    break;</span><br><span class="line">                case OFTString:</span><br><span class="line">                    printf( &quot;%s,&quot;, poFeature-&gt;GetFieldAsString(iField) );</span><br><span class="line">                    break;</span><br><span class="line">                default:</span><br><span class="line">                    printf( &quot;%s,&quot;, poFeature-&gt;GetFieldAsString(iField) );</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        OGRGeometry *poGeometry = poFeature-&gt;GetGeometryRef();</span><br><span class="line">        if( poGeometry != NULL</span><br><span class="line">                &amp;&amp; wkbFlatten(poGeometry-&gt;getGeometryType()) == wkbPoint )</span><br><span class="line">        &#123;</span><br><span class="line">            OGRPoint *poPoint = (OGRPoint *) poGeometry;</span><br><span class="line">            printf( &quot;%.3f,%3.f\n&quot;, poPoint-&gt;getX(), poPoint-&gt;getY() );</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            printf( &quot;no point geometry\n&quot; );</span><br><span class="line">        &#125;</span><br><span class="line">        OGRFeature::DestroyFeature( poFeature );</span><br><span class="line">    &#125;</span><br><span class="line">    GDALClose( poDS );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="写数据"><a href="#写数据" class="headerlink" title="写数据"></a>写数据</h2><p>作为通过OGR写作的一个例子，我们将大致与上述相反。从输入文本中读取逗号分隔值的短程序将通过OGR写入点shapefile。  </p>
+<ol>
+<li><p>像往常一样，我们首先注册所有驱动程序，然后获取Shapefile驱动程序，因为我们需要它来创建输出文件。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;ogrsf_frmts.h&quot;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    const char *pszDriverName = &quot;ESRI Shapefile&quot;;</span><br><span class="line">    GDALDriver *poDriver;</span><br><span class="line">    GDALAllRegister();</span><br><span class="line">    poDriver = GetGDALDriverManager()-&gt;GetDriverByName(pszDriverName );</span><br><span class="line">    if( poDriver == NULL )</span><br><span class="line">    &#123;</span><br><span class="line">        printf( &quot;%s driver not available.\n&quot;, pszDriverName );</span><br><span class="line">        exit( 1 );</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接下来我们创建数据源。ESRI Shapefile驱动程序允许我们创建一个完整的shapefile目录，或一个shapefile作为数据源。在这种情况下，我们将通过在名称中包含扩展名来显式创建单个文件。其他驱动程序表现不同。第二个，第三个，第四个和第五个参数与栅格尺寸相关（如果驱动程序具有栅格功能）。调用的最后一个参数是选项值列表，但在这种情况下我们将只使用默认值。支持的选项的详细信息也是特定于格式的。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GDALDataset *poDS;</span><br><span class="line">poDS = poDriver-&gt;Create( &quot;point_out.shp&quot;, 0, 0, 0, GDT_Unknown, NULL );</span><br><span class="line">if( poDS == NULL )</span><br><span class="line">&#123;</span><br><span class="line">    printf( &quot;Creation of output file failed.\n&quot; );</span><br><span class="line">    exit( 1 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>现在我们创建输出层。在这种情况下，由于数据源是单个文件，因此我们只能有一个图层。我们传递wkbPoint来指定该层支持的几何类型。在这种情况下，我们不传递任何坐标系信息或其他特殊图层创建选项。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">OGRLayer *poLayer;</span><br><span class="line">poLayer = poDS-&gt;CreateLayer( &quot;point_out&quot;, NULL, wkbPoint, NULL );</span><br><span class="line">if( poLayer == NULL )</span><br><span class="line">&#123;</span><br><span class="line">    printf( &quot;Layer creation failed.\n&quot; );</span><br><span class="line">    exit( 1 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>现在该图层已存在，我们需要创建应出现在图层上的任何属性字段。必须在写入任何要素之前将字段添加到图层。要创建字段，我们使用有关字段的信息初始化OGRField对象。在Shapefiles的情况下，字段宽度和精度在创建输出.dbf文件时很重要，所以我们专门设置它，尽管通常默认值是OK。对于此示例，我们将只有一个属性，一个与x，y点关联的名称字符串。</p>
+<p>请注意，我们传递给CreateField（）的模板OGRField是在内部复制的。我们保留对象的所有权。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">OGRFieldDefn oField（“Name”，OFTString）;</span><br><span class="line">oField.SetWidth（32）;</span><br><span class="line">if（poLayer-&gt; CreateField（＆oField）！= OGRERR_NONE）</span><br><span class="line">&#123;</span><br><span class="line">    printf（“创建名称字段失败。\ n”）;</span><br><span class="line">    退出（1）;</span><br><span class="line">&#125;</span><br><span class="line">//通过读数据中的x,y,name，写入</span><br><span class="line">double x, y;</span><br><span class="line"> char szName[33];</span><br><span class="line"> while( !feof(stdin)</span><br><span class="line">        &amp;&amp; fscanf( stdin, &quot;%lf,%lf,%32s&quot;, &amp;x, &amp;y, szName ) == 3 )</span><br><span class="line"> &#123;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>要将功能写入磁盘，我们必须创建本地OGRFeature，设置属性并附加几何体，然后再尝试将其写入图层。必须从与要写入的层关联的OGRFeatureDefn实例化此功能。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">OGRFeature * poFeature;</span><br><span class="line">poFeature = OGRFeature :: CreateFeature（poLayer-&gt; GetLayerDefn（））;</span><br><span class="line">poFeature-&gt; SetField（“Name”，szName）;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>我们创建一个本地几何对象，并将其副本（间接）分配给该功能。的和OGRFeature :: SetGeometryDirectly（）不同于和OGRFeature :: SetGeometry（）在该直接方法给出了几何形状的特征的所有权。这通常更有效，因为它避免了几何体的额外深层对象副本。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">OGRPoint pt;</span><br><span class="line">pt.setX( x );</span><br><span class="line">pt.setY( y );</span><br><span class="line">poFeature-&gt;SetGeometry( &amp;pt );</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>现在我们在文件中创建一个功能。该OGRLayer :: CreateFeature（）不走我们的特点的所有权，所以我们在用它做清理。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> if( poLayer-&gt;CreateFeature( poFeature ) != OGRERR_NONE )</span><br><span class="line">     &#123;</span><br><span class="line">         printf( &quot;Failed to create feature in shapefile.\n&quot; );</span><br><span class="line">        exit( 1 );</span><br><span class="line">     &#125;</span><br><span class="line">     OGRFeature::DestroyFeature( poFeature );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后，我们需要关闭数据源，以确保以有序的方式写出标头，并恢复所有资源。<code>GDALClose（poDS）;}</code></p>
+</li>
+<li>模板 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;ogrsf_frmts.h&quot;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    const char *pszDriverName = &quot;ESRI Shapefile&quot;;</span><br><span class="line">    GDALDriver *poDriver;</span><br><span class="line">    GDALAllRegister();</span><br><span class="line">    poDriver = GetGDALDriverManager()-&gt;GetDriverByName(pszDriverName );</span><br><span class="line">    if( poDriver == NULL )</span><br><span class="line">    &#123;</span><br><span class="line">        printf( &quot;%s driver not available.\n&quot;, pszDriverName );</span><br><span class="line">        exit( 1 );</span><br><span class="line">    &#125;</span><br><span class="line">    GDALDataset *poDS;</span><br><span class="line">    poDS = poDriver-&gt;Create( &quot;point_out.shp&quot;, 0, 0, 0, GDT_Unknown, NULL );</span><br><span class="line">    if( poDS == NULL )</span><br><span class="line">    &#123;</span><br><span class="line">        printf( &quot;Creation of output file failed.\n&quot; );</span><br><span class="line">        exit( 1 );</span><br><span class="line">    &#125;</span><br><span class="line">    OGRLayer *poLayer;</span><br><span class="line">    poLayer = poDS-&gt;CreateLayer( &quot;point_out&quot;, NULL, wkbPoint, NULL );</span><br><span class="line">    if( poLayer == NULL )</span><br><span class="line">    &#123;</span><br><span class="line">        printf( &quot;Layer creation failed.\n&quot; );</span><br><span class="line">        exit( 1 );</span><br><span class="line">    &#125;</span><br><span class="line">    OGRFieldDefn oField( &quot;Name&quot;, OFTString );</span><br><span class="line">    oField.SetWidth(32);</span><br><span class="line">    if( poLayer-&gt;CreateField( &amp;oField ) != OGRERR_NONE )</span><br><span class="line">    &#123;</span><br><span class="line">        printf( &quot;Creating Name field failed.\n&quot; );</span><br><span class="line">        exit( 1 );</span><br><span class="line">    &#125;</span><br><span class="line">    double x, y;</span><br><span class="line">    char szName[33];</span><br><span class="line">    while( !feof(stdin)</span><br><span class="line">           &amp;&amp; fscanf( stdin, &quot;%lf,%lf,%32s&quot;, &amp;x, &amp;y, szName ) == 3 )</span><br><span class="line">    &#123;</span><br><span class="line">        OGRFeature *poFeature;</span><br><span class="line">        poFeature = OGRFeature::CreateFeature( poLayer-&gt;GetLayerDefn() );</span><br><span class="line">        poFeature-&gt;SetField( &quot;Name&quot;, szName );</span><br><span class="line">        OGRPoint pt;</span><br><span class="line">        pt.setX( x );</span><br><span class="line">        pt.setY( y );</span><br><span class="line">        poFeature-&gt;SetGeometry( &amp;pt );</span><br><span class="line">        if( poLayer-&gt;CreateFeature( poFeature ) != OGRERR_NONE )</span><br><span class="line">        &#123;</span><br><span class="line">            printf( &quot;Failed to create feature in shapefile.\n&quot; );</span><br><span class="line">            exit( 1 );</span><br><span class="line">        &#125;</span><br><span class="line">        OGRFeature::DestroyFeature( poFeature );</span><br><span class="line">    &#125;</span><br><span class="line">    GDALClose( poDS );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="GDAL-基本使用函数"><a href="#GDAL-基本使用函数" class="headerlink" title="GDAL 基本使用函数"></a>GDAL 基本使用函数</h1><h2 id="GDALAllRegister"><a href="#GDALAllRegister" class="headerlink" title="GDALAllRegister"></a>GDALAllRegister</h2><p>   最初需要注册所需的所有格式驱动程序。这通常通过调用GDALAllRegister（）来完成，该寄存器注册GDAL / OGR中内置的所有格式驱动程序。<br>    原型：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void GDALAllRegister(void)	</span><br><span class="line">//Register all known configured GDAL drivers.</span><br><span class="line">//注册所有已知配置的GDAL驱动程序。</span><br><span class="line"> //This function will drive any of the following that are configured into GDAL. See raster list and vector full list       </span><br><span class="line">//此功能将驱动配置为GDAL的以下任何内容。请参阅栅格列表和矢量完整列表    </span><br><span class="line">//This function should generally be called once at the beginning of the application.</span><br><span class="line">//通常应在应用程序开始时调用此函数一次。 </span><br><span class="line">  </span><br><span class="line">//使用</span><br><span class="line">#include“ ogrsf_frmts.h ”</span><br><span class="line">    int main（）</span><br><span class="line">    &#123;</span><br><span class="line">        GDALAllRegister（）;</span><br></pre></td></tr></table></figure></p>
+<h2 id="GDALOpenEx"><a href="#GDALOpenEx" class="headerlink" title="GDALOpenEx"></a>GDALOpenEx</h2><p>以GDALDataset打开栅格或矢量文件。</p>
+<p>此函数将尝试依次调用每个已注册的GDALDriver的Open方法来打开传递的文件或虚拟数据集名称。第一次成功打开将导致返回的数据集。如果所有驱动程序都失败，则返回NULL并发出错误。</p>
+<p>几条建议：</p>
+<ul>
+<li>如果打开具有GDAL_OF_UPDATE访问权限的数据集对象，则不建议在同一基础文件上打开新数据集。</li>
+<li>返回的数据集一次只能由一个线程访问。如果要从不同的线程中使用它，则必须添加所有必需的代码（互斥锁等）以避免并发使用该对象。（某些驱动程序，如GeoTIFF，维护每次读取新块时更新的内部状态变量，从而防止并发使用。）</li>
+</ul>
+<p>原型：<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GDALDatasetH GDALOpenEx	（	const char * 	pszFilename，</span><br><span class="line">unsigned int 	nOpenFlags，</span><br><span class="line">const char * const * 	papszAllowedDrivers，</span><br><span class="line">const char * const * 	papszOpenOptions，</span><br><span class="line">const char * const * 	papszSiblingFiles </span><br><span class="line">）</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>参数  </p>
+<ul>
+<li><p><strong>pszFilename</strong>    要访问的文件的名称。在外来驱动程序的情况下，这可能不是指物理文件，而是包含驱动程序有关如何访问数据集的信息。它应该是UTF-8编码。</p>
+</li>
+<li><p><strong>nOpenFlags</strong> GDAL_OF_标志的组合，可以通过逻辑或运算符组合。  </p>
+<ul>
+<li>驱动程序类型：用于光栅驱动程序的GDAL_OF_RASTER，用于矢量驱动程序的GDAL_OF_VECTOR，用于地理网络模型驱动程序的GDAL_OF_GNM。如果未指定任何值，则隐含所有类型。</li>
+<li>访问模式：GDAL_OF_READONLY（独占）或GDAL_OF_UPDATE。</li>
+<li>共享模式：GDAL_OF_SHARED。如果设置，它允许与已设置GDAL_OF_SHARED的其他调用者共享数据集的GDALDataset句柄。特别是，GDALOpenEx（）将首先查询其当前打开和共享GDALDataset的列表，如果一个GetDescription（）名称与传递给GDALOpenEx（）的pszFilename完全匹配，则将引用并返回它，如果GDALOpenEx（）是从同一个线程调用。</li>
+<li>详细错误：GDAL_OF_VERBOSE_ERROR。如果设置，则尝试打开文件失败将导致报告错误消息。</li>
+</ul>
+</li>
+<li><p><strong>papszAllowedDrivers</strong>    NULL考虑所有候选驱动程序，或NULL终止的字符串列表，其中包含必须考虑的驱动程序短名称。</p>
+</li>
+<li><p><strong>papszOpenOptions</strong>    NULL或NULL终止的字符串列表，其中打开选项传递给候选驱动程序。所有驱动程序OVERVIEW_LEVEL = level都存在一个选项，用于选择数据集的特定概述级别。级别索引从0开始。级别编号可以以“仅”为后缀，以指定只有此概述级别必须可见，而不是子级别。默认情况下会验证打开选项，如果无法识别选项，则会发出警告。在某些情况下，可能不需要（例如，当不知道哪个驱动程序将打开文件时），因此可以将特殊打开选项VALIDATE_OPEN_OPTIONS设置为NO以避免此类警告。或者，从GDAL 2.1开始，选项名称前面可以加上@字符，表示如果驱动程序没有声明此选项，它可能不会引发警告。</p>
+</li>
+<li><p><strong>papszSiblingFiles</strong>    NULL或NULL终止的字符串列表，这些字符串是主文件名的辅助文件名。如果传递NULL，则将完成对文件系统的探测。</p>
+</li>
+</ul>
+</li>
+<li><p>返回<br>一个GDALDatasetH句柄或失败时为NULL。对于C ++应用程序，此句柄可以转换为GDALDataset *。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GDALDataset       *poDS;</span><br><span class="line">poDS = (GDALDataset*) GDALOpenEx( &quot;point.shp&quot;, GDAL_OF_VECTOR, NULL, NULL, NULL );</span><br><span class="line">if( poDS == NULL )</span><br><span class="line">&#123;</span><br><span class="line">    printf( &quot;Open failed.\n&quot; );</span><br><span class="line">    exit( 1 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>使用实例： </p>
+<pre><code>GDALDataset       *poDS;
+poDS = (GDALDataset*) GDALOpenEx( &quot;point.shp&quot;, GDAL_OF_VECTOR, NULL, NULL, NULL );
+if( poDS == NULL )
+{
+    printf( &quot;Open failed.\n&quot; );
+    exit( 1 );
+}
+</code></pre><h2 id="GDALDataSet"><a href="#GDALDataSet" class="headerlink" title="GDALDataSet"></a>GDALDataSet</h2><p>帮助文档<a href="https://www.gdal.org/classGDALDataset.html" target="_blank" rel="noopener">https://www.gdal.org/classGDALDataset.html</a><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/03/18/cpp-gdal/pic2.png" alt="类图" title>
+                </div>
+                <div class="image-caption">类图</div>
+            </figure><br>部分函数介绍</p>
+<h3 id="GetLayerByName"><a href="#GetLayerByName" class="headerlink" title="GetLayerByName"></a>GetLayerByName</h3><p>Fetch a layer by name.</p>
+<p>The returned layer remains owned by the GDALDataset and should not be deleted by the application.</p>
+<p>This method is the same as the C function GDALDatasetGetLayerByName() and the deprecated OGR_DS_GetLayerByName().</p>
+<p>In GDAL 1.X, this method used to be in the OGRDataSource class.</p>
+<p>Parameters<br>pszName    the layer name of the layer to fetch.<br>Returns<br>the layer, or NULL if Layer is not found or an error occurs.</p>
+<h1 id="OGR类或函数"><a href="#OGR类或函数" class="headerlink" title="OGR类或函数"></a>OGR类或函数</h1><h2 id="OGRLayer"><a href="#OGRLayer" class="headerlink" title="OGRLayer"></a>OGRLayer</h2><p>帮助文档<a href="https://www.gdal.org/classOGRLayer.html" target="_blank" rel="noopener">https://www.gdal.org/classOGRLayer.html</a><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/03/18/cpp-gdal/pic1.png" alt="类图" title>
+                </div>
+                <div class="image-caption">类图</div>
+            </figure></p>
+<table>
+<thead>
+<tr>
+<th>返回值</th>
+<th>函数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FeatureIterator</td>
+<td>begin ()</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Return   begin of feature iterator. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FeatureIterator</td>
+<td>end ()</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Return   end of feature iterator. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRGeometry *</td>
+<td>GetSpatialFilter ()</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>This   method returns the current spatial filter for this layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual void</td>
+<td>SetSpatialFilter (OGRGeometry *)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Set   a new spatial filter. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual void</td>
+<td>SetSpatialFilterRect (double dfMinX, double dfMinY, double dfMaxX, double   dfMaxY)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Set   a new rectangular spatial filter. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual void</td>
+<td>SetSpatialFilter (int iGeomField, OGRGeometry *)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Set   a new spatial filter. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual void</td>
+<td>SetSpatialFilterRect (int iGeomField, double dfMinX, double dfMinY, double   dfMaxX, double dfMaxY)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Set   a new rectangular spatial filter. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>SetAttributeFilter (const char *)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Set   a new attribute query. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual void</td>
+<td>ResetReading ()=0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Reset   feature reading to start on the first feature. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRFeature *</td>
+<td>GetNextFeature () CPL_WARN_UNUSED_RESULT=0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Fetch   the next available feature from this layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>SetNextByIndex (GIntBig nIndex)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Move   read cursor to the nIndex’th feature in the current resultset. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRFeature *</td>
+<td>GetFeature (GIntBig nFID) CPL_WARN_UNUSED_RESULT</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Fetch   a feature by its identifier. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OGRErr</td>
+<td>SetFeature (OGRFeature *poFeature) CPL_WARN_UNUSED_RESULT</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Rewrite   an existing feature. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OGRErr</td>
+<td>CreateFeature (OGRFeature *poFeature) CPL_WARN_UNUSED_RESULT</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Create   and write a new feature within a layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>DeleteFeature (GIntBig nFID) CPL_WARN_UNUSED_RESULT</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Delete   feature from layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual const char *</td>
+<td>GetName ()</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Return   the layer name. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRwkbGeometryType</td>
+<td>GetGeomType ()</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Return   the layer geometry type. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRFeatureDefn *</td>
+<td>GetLayerDefn ()=0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Fetch   the schema information for this layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual int</td>
+<td>FindFieldIndex (const char *pszFieldName, int bExactMatch)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Find   the index of field in the layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRSpatialReference *</td>
+<td>GetSpatialRef ()</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Fetch   the spatial reference system for this layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual GIntBig</td>
+<td>GetFeatureCount (int bForce=TRUE)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Fetch   the feature count in this layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>GetExtent (OGREnvelope   *psExtent, int bForce=TRUE) CPL_WARN_UNUSED_RESULT</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Fetch   the extent of this layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>GetExtent (int   iGeomField, OGREnvelope *psExtent, int bForce=TRUE) CPL_WARN_UNUSED_RESULT</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Fetch   the extent of this layer, on the specified geometry field. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual int</td>
+<td>TestCapability (const char *)=0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Test   if this layer supported the named capability. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>CreateField (OGRFieldDefn *poField, int   bApproxOK=TRUE)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Create   a new field on a layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>DeleteField (int iField)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Delete   an existing field on a layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>ReorderFields (int *panMap)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Reorder   all the fields of a layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>AlterFieldDefn (int   iField, OGRFieldDefn *poNewFieldDefn,   int nFlagsIn)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Alter   the definition of an existing field on a layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>CreateGeomField (OGRGeomFieldDefn *poField, int bApproxOK=TRUE)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Create   a new geometry field on a layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>SyncToDisk ()</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Flush   pending changes to disk. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRStyleTable *</td>
+<td>GetStyleTable ()</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Returns   layer style table. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual void</td>
+<td>SetStyleTableDirectly (OGRStyleTable *poStyleTable)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Set   layer style table. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual void</td>
+<td>SetStyleTable (OGRStyleTable *poStyleTable)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Set   layer style table. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>StartTransaction () CPL_WARN_UNUSED_RESULT</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>For   datasources which support transactions, StartTransaction creates a   transaction. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>CommitTransaction () CPL_WARN_UNUSED_RESULT</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>For   datasources which support transactions, CommitTransaction commits a   transaction. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>RollbackTransaction ()</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>For   datasources which support transactions, RollbackTransaction will roll back a   datasource to its state before the start of the current transaction. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual const char *</td>
+<td>GetFIDColumn ()</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>This   method returns the name of the underlying database column being used as the   FID column, or “” if not supported. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual const char *</td>
+<td>GetGeometryColumn ()</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>This   method returns the name of the underlying database column being used as the   geometry column, or “” if not supported. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>virtual OGRErr</td>
+<td>SetIgnoredFields (const char **papszFields)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Set   which fields can be omitted when retrieving features from the layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OGRErr</td>
+<td>Intersection (OGRLayer <em>pLayerMethod, OGRLayer </em>pLayerResult, char   *<em>papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   </em>pProgressArg=nullptr)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Intersection   of two layers. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OGRErr</td>
+<td>Union (OGRLayer <em>pLayerMethod, OGRLayer </em>pLayerResult, char   *<em>papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   </em>pProgressArg=nullptr)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Union   of two layers. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OGRErr</td>
+<td>SymDifference (OGRLayer <em>pLayerMethod, OGRLayer </em>pLayerResult, char   *<em>papszOptions, GDALProgressFunc pfnProgress, void </em>pProgressArg)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Symmetrical   difference of two layers. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OGRErr</td>
+<td>Identity (OGRLayer <em>pLayerMethod, OGRLayer </em>pLayerResult, char   *<em>papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   </em>pProgressArg=nullptr)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Identify   the features of this layer with the ones from the identity layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OGRErr</td>
+<td>Update (OGRLayer <em>pLayerMethod, OGRLayer </em>pLayerResult, char   *<em>papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   </em>pProgressArg=nullptr)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Update   this layer with features from the update layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OGRErr</td>
+<td>Clip (OGRLayer <em>pLayerMethod, OGRLayer </em>pLayerResult, char   *<em>papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   </em>pProgressArg=nullptr)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Clip   off areas that are not covered by the method layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OGRErr</td>
+<td>Erase (OGRLayer <em>pLayerMethod, OGRLayer </em>pLayerResult, char   *<em>papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   </em>pProgressArg=nullptr)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Remove   areas that are covered by the method layer. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>int</td>
+<td>Reference ()</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Increment   layer reference count. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>int</td>
+<td>Dereference ()</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Decrement   layer reference count. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>int</td>
+<td>GetRefCount () const</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Fetch   reference count. More…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OGRErr</td>
+<td>ReorderField (int iOldFieldPos, int iNewFieldPos)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>　</td>
+<td>Reorder   an existing field on a layer. More…</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="OGREnvelope"><a href="#OGREnvelope" class="headerlink" title="OGREnvelope"></a>OGREnvelope</h2><p>#参考资料：</p>
+<ol>
+<li>百度百科：<a href="https://baike.baidu.com/item/GDAL/4004525?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/GDAL/4004525?fr=aladdin</a></li>
+<li>官方网站：<a href="https://www.gdal.org/" target="_blank" rel="noopener">https://www.gdal.org/</a></li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-18T14:56:40.723Z" itemprop="dateUpdated">2019-03-18 22:56:40</time>
+</span><br>
+
+
+        
+        <a href="/2019/03/18/cpp-gdal/" target="_blank" rel="external">http://11wy11.github.io/2019/03/18/cpp-gdal/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GDAL/">GDAL</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/18/cpp-gdal/&title=《GDAL简介及函数》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/18/cpp-gdal/&title=《GDAL简介及函数》 — WeiYuan's Blog&source=GDAL(Geospatial Data Abstraction Library)是一个在X/MIT许可协议下的开源栅格空间数据转换库持续更新中" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/18/cpp-gdal/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GDAL简介及函数》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/18/cpp-gdal/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/18/cpp-gdal/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/18/tools/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">常用工具</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/18/cpp-gdal/&title=《GDAL简介及函数》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/18/cpp-gdal/&title=《GDAL简介及函数》 — WeiYuan's Blog&source=GDAL(Geospatial Data Abstraction Library)是一个在X/MIT许可协议下的开源栅格空间数据转换库持续更新中" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/18/cpp-gdal/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GDAL简介及函数》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/18/cpp-gdal/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/18/cpp-gdal/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLklEQVR42u3aQZLDIAwF0dz/0p4DJDD9JTsVoFmlJhnMYyEjidcLj+ttvH87+j2Zcz7bbUOGDBnLMq7puOuRfP7534cbJEOGjAMYowePPs9hhDdfOl+bDBkyZJDASpZCZpAhQ4aMexnk+Dj/r58IuDJkyFiKkU7N00uyxK/m4jJkyFiQwYtl3//8SH9DhgwZSzGucPAD33Oh/MM8MmTI2JrBAxxvbaZL7DcVZMiQsTejVvCqJZ+1lgP6jQwZMrZmpFe+aq1KEqBrpboP7w0ZMmRsx6gd1GpsHsTjKxoyZMg4gMGPYqRwxn+Tbspwa2TIkLE1gwDSEluaY6ZrCBJaGTJkbMHohLlastr5dvhEGTJkHMDoX4Yg18hIOlqEyZAh4wBG7WGckXYb429lyJBxDKPfkuTIflobJLEyZMhYnMGvapHiGgnBncQVvR5kyJCxHePCg6ep6XZ0jpgvHvVlyJCxLKN2suLthGIftfEsGTJk7M1IL3KlB0pSsOtcI5MhQ8bejE4bku8TL/cXN06GDBkHMOahjS+Rtw3SFsU/myJDhozDGLVJO3Uw3sgMzrYyZMjYgnGFo3aU7BTaiodCGTJkbMRIe4JB9a50hYIH5XRrZMiQsTqjVvBKC3A8+KaBXoYMGecw0oSz027svAGG2yFDhgwZIET2r4XVjowyZMiQwUlpyzNNoR95b8iQIWMpBkliaxe2nkhZZciQcRojDXmkxN9ZBA/WMmTIOIDxB7rd+gjJeByEAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
