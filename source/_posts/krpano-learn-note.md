@@ -98,7 +98,7 @@ Action scope
 
 本地作用域操作中的 预定义变量：
 actionname - 当前操作的名称。
-args - 参数的值数组。
+args - 参数的值数组。 
 访问者：args [index]。
 通过以下方式获取数字或参数：args.length。
 调用者 - 从那里调用插件/图层/热点对象，否则为null。
