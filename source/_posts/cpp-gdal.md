@@ -1,3 +1,4 @@
+
 ---
 title: GDAL简介及函数
 date: 2019-03-18 15:26:26
@@ -24,7 +25,9 @@ __持续更新中__
     - [GetLayerByName](#getlayerbyname)
 - [OGR类或函数](#ogr%E7%B1%BB%E6%88%96%E5%87%BD%E6%95%B0)
   - [OGRLayer](#ogrlayer)
+  - [OGRGEometry](#ogrgeometry)
   - [OGREnvelope](#ogrenvelope)
+- [参考资料：](#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 # 简介
@@ -595,9 +598,92 @@ the layer, or NULL if Layer is not found or an error occurs.
 | 　                             |                                                                                                                                                                   |   |   |   |
 | OGRErr                         | ReorderField (int iOldFieldPos, int iNewFieldPos)                                                                                                                 |   |   |   |
 | 　                             | Reorder   an existing field on a layer. More...                                                                                                                   |   |   |   |
+## OGRGEometry
 
 ## OGREnvelope
+```
+class CPL_DLL OGREnvelope
+{
+  public:
+        OGREnvelope() : MinX(std::numeric_limits<double>::infinity()),
+                        MaxX(-std::numeric_limits<double>::infinity()),
+                        MinY(std::numeric_limits<double>::infinity()),
+                        MaxY(-std::numeric_limits<double>::infinity())
+        {
+        }
 
-#参考资料：
+        OGREnvelope(const OGREnvelope& oOther) :
+            MinX(oOther.MinX),MaxX(oOther.MaxX), MinY(oOther.MinY), MaxY(oOther.MaxY)
+        {
+        }
+
+    double      MinX;
+    double      MaxX;
+    double      MinY;
+    double      MaxY;
+
+#ifdef HAVE_GCC_DIAGNOSTIC_PUSH
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wfloat-equal"
+#endif
+    int  IsInit() const { return MinX != std::numeric_limits<double>::infinity(); }
+
+#ifdef HAVE_GCC_DIAGNOSTIC_PUSH
+#pragma GCC diagnostic pop
+#endif
+
+    void Merge( OGREnvelope const& sOther ) {
+        MinX = MIN(MinX,sOther.MinX);
+        MaxX = MAX(MaxX,sOther.MaxX);
+        MinY = MIN(MinY,sOther.MinY);
+        MaxY = MAX(MaxY,sOther.MaxY);
+    }
+
+    void Merge( double dfX, double dfY ) {
+        MinX = MIN(MinX,dfX);
+        MaxX = MAX(MaxX,dfX);
+        MinY = MIN(MinY,dfY);
+        MaxY = MAX(MaxY,dfY);
+    }
+
+    void Intersect( OGREnvelope const& sOther ) {
+        if(Intersects(sOther))
+        {
+            if( IsInit() )
+            {
+                MinX = MAX(MinX,sOther.MinX);
+                MaxX = MIN(MaxX,sOther.MaxX);
+                MinY = MAX(MinY,sOther.MinY);
+                MaxY = MIN(MaxY,sOther.MaxY);
+            }
+            else
+            {
+                MinX = sOther.MinX;
+                MaxX = sOther.MaxX;
+                MinY = sOther.MinY;
+                MaxY = sOther.MaxY;
+            }
+        }
+        else
+        {
+            *this = OGREnvelope();
+        }
+    }
+
+    int Intersects(OGREnvelope const& other) const
+    {
+        return MinX <= other.MaxX && MaxX >= other.MinX &&
+               MinY <= other.MaxY && MaxY >= other.MinY;
+    }
+
+    int Contains(OGREnvelope const& other) const
+    {
+        return MinX <= other.MinX && MinY <= other.MinY &&
+               MaxX >= other.MaxX && MaxY >= other.MaxY;
+    }
+};
+```
+
+# 参考资料：
 1. 百度百科：https://baike.baidu.com/item/GDAL/4004525?fr=aladdin
 2. 官方网站：https://www.gdal.org/
