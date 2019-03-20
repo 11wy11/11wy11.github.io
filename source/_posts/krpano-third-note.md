@@ -103,3 +103,6 @@ categories: 全景
 	    ...    
 	</hotspot>  
 ```
+### 历史文章
+[krpano快速入门教程（一) 使用krpano工具构建即用型panos](/2019/03/14/krpano-first-note)  
+[krpano快速入门教程（二) vtour全景漫游及vtour文件夹介绍](/2019/03/15/krpano-second-note)
