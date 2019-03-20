@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>krpano学习笔记--干货 | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="krpano">
+    <meta name="description" content="1.Krpano xml Onstartonstart事件将在xml加载和解析之后直接调用。 Basedirbasedir设置为所有下面的loadpano（）动作调用定义了基本目录。这可以是相对路径或绝对路径，也可以在这里使用 url占位符。默认值是％FIRSTXML％，这意味着所有下面的loadpano（）动作调用的所有相对xml路径都是相对于第一个加载的xml文件。 关于vars和initva">
+<meta name="keywords" content="krpano">
+<meta property="og:type" content="article">
+<meta property="og:title" content="krpano学习笔记--干货">
+<meta property="og:url" content="http://11wy11.github.io/2019/03/20/krpano-learn-note/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="1.Krpano xml Onstartonstart事件将在xml加载和解析之后直接调用。 Basedirbasedir设置为所有下面的loadpano（）动作调用定义了基本目录。这可以是相对路径或绝对路径，也可以在这里使用 url占位符。默认值是％FIRSTXML％，这意味着所有下面的loadpano（）动作调用的所有相对xml路径都是相对于第一个加载的xml文件。 关于vars和initva">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-20T02:34:26.645Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="krpano学习笔记--干货">
+<meta name="twitter:description" content="1.Krpano xml Onstartonstart事件将在xml加载和解析之后直接调用。 Basedirbasedir设置为所有下面的loadpano（）动作调用定义了基本目录。这可以是相对路径或绝对路径，也可以在这里使用 url占位符。默认值是％FIRSTXML％，这意味着所有下面的loadpano（）动作调用的所有相对xml路径都是相对于第一个加载的xml文件。 关于vars和initva">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">krpano学习笔记--干货</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">krpano学习笔记--干货</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-19T16:46:27.000Z" itemprop="datePublished" class="page-time">
+  2019-03-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/全景/">全景</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-Krpano-xml"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.Krpano xml</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#值得注意的属性"><span class="post-toc-number">2.</span> <span class="post-toc-text">值得注意的属性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Javascript-krpano操作-（仅限HTML5）"><span class="post-toc-number">3.</span> <span class="post-toc-text">Javascript krpano操作 （仅限HTML5）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#笔记"><span class="post-toc-number">4.</span> <span class="post-toc-text">笔记</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-krpano-learn-note" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">krpano学习笔记--干货</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-20 00:46:27" datetime="2019-03-19T16:46:27.000Z" itemprop="datePublished">2019-03-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/全景/">全景</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1-Krpano-xml"><a href="#1-Krpano-xml" class="headerlink" title="1.Krpano xml"></a>1.Krpano xml</h1><ol>
+<li>Onstart<br>onstart事件将在xml加载和解析之后直接调用。</li>
+<li>Basedir<br>basedir设置为所有下面的loadpano（）动作调用定义了基本目录。这可以是相对路径或绝对路径，也可以在这里使用 url占位符。默认值是％FIRSTXML％，这意味着所有下面的loadpano（）动作调用的所有相对xml路径都是相对于第一个加载的xml文件。</li>
+<li>关于vars和initvars区别<br>vars在加载xml后加载图像前赋值，而initvars在加载xml前赋值，一般用于构建url。由于get:variable或calc:variable中的变量值需要在加载xml中定义，所以使用vars不能在开始加载时控制krpano的某些设置，但是可以在之后动态的修改其显示状态。</li>
+<li>Action: 参数/参数传递/解析<br>当调用一个动作时，可以将参数/参数传递给它。<br>为了访问参数/参数，有两种可能性：</li>
+</ol>
+<ul>
+<li>通过占位符替换：（ 旧版本的方法）<br>  可以使用从％0到％99形式的操作代码中的数字占位符来获取给定的参数。<br>  其中％0是操作本身的名称， ％1表示第一个参数， ％2表示第二个参数，依此类推。<br>  这些占位符可以在代码中的任何地方使用。<br>  在实际的操作代码将被解析并执行之前，所有的占位符将被其参数值替换。<br>  当给定的占位符不会有参数时，将使用值’null’。<br>  要在动作中使用％字符，需要使用%%</li>
+<li>通过参数到变量映射:( 推荐，新的）<br>  对于具有本地作用域的操作，可以将args属性添加到&lt;action>元素。例如：<br>  <code>&lt;action ... args =“var1，var2，var3”&gt;</code><br>  在那里可以定义给定动作参数/参数的args属性变量名称（用逗号分隔）。<br>  每个动作参数将被映射到本地作用域中的一个新变量，其名称是在args属性中设置的。<br>  这些变量可以像操作代码中的任何其他变量一样正常使用（例如，通过get / calc / copy读取）。<br>  当给定变量没有动作参数时，将使用值’null’。<br>  处理包含引号或逗号字符的值时，使用变量映射非常有用。在这种情况下，正常的占位符替换可能会产生问题<br>  注意 - 建议尽可能使用参数变量映射。没有％N占位符的动作可以在内部进行缓存，这使得进一步调用的执行速度更快。</li>
+</ul>
+<h1 id="值得注意的属性"><a href="#值得注意的属性" class="headerlink" title="值得注意的属性"></a>值得注意的属性</h1><ol>
+<li>Name属性：每个名字都需要以字母字符开头！这意味着不允许使用数字作为名字！当名称仍然以数字字符开头时，名称将被解释为数组索引。这对于动作内部基于动态索引的访问没有问题，但不能用于定义元素！所有名称将自动转换为小写字母，以便直接区分大小写访问！</li>
+<li>URL属性：<br>当一个相对路径被用作url值时，路径将被自动调整为相对于定义了url属性的xml文件。这意味着xml中的相对路径总是相对于xml本身，但是请注意 - 当动态设置/更改url属性时，则不再有与xml的自动关系！要使路径相对于某些特定的预定义路径，可以 在url路径中使用这些占位符中的一些：<br>％FIRSTXML％ - 第一个加载的xml文件的路径。<br>％CURRENTXML％ - 当前加载的主要xml文件的路径（不是包含的）。<br>％SWFPATH％ - krpano查看器文件的路径。<br>％HTMLPATH％ - html文件的路径。<br>％BASEDIR％ - 使用basedir路径。<br>％$ VARIABLE％ - 使用给定’VARIABLE’的值 - 这可以是任何krpano变量，但必须在加载当前xml或场景之前定义它，例如，在嵌入过程中（通过initvars）或在loadpano（），loadscene（）调用之前。</li>
+<li>Style属性<br>&lt;style>元素是任何类型属性的集合/存储元素。<br>每个其他具有name属性的xml元素也可以有一个style属性。当xml元素首次被创建时，在&lt;style>元素处定义的所有属性将被复制到元素本身。这将在xml元素本身定义的属性被应用之前完成。<br>这意味着可以在&lt;style>元素中预先定义一些设置，然后使用直接在元素上定义的属性稍后覆盖它们。</li>
+<li>Get:|Calc方法<br>当xml属性的值以get：或calc：开头时：<br>在这种情况下，xml属性的值将从其他变量获取或使用表达式计算。<br>在get：或calc：中使用的变量需要在当前xml元素之前（=上方）定义。此外，这里有一个特殊情况 - 在&lt;include>元素上使用它时，那么在那里使用的变量需要在当前xml加载之前定义。这可以在嵌入期间通过使用initvars设置或在xml中进行loadpano（）调用之前在html文件中完成。</li>
+</ol>
+<h1 id="Javascript-krpano操作-（仅限HTML5）"><a href="#Javascript-krpano操作-（仅限HTML5）" class="headerlink" title="Javascript krpano操作 （仅限HTML5）"></a>Javascript krpano操作 （仅限HTML5）</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;action name =“...” type =“ Javascript ” &gt; &lt;！[CDATA [     ... autorun =“”</span><br><span class="line"></span><br><span class="line">    Javascript代码</span><br><span class="line">    ... </span><br><span class="line">]]&gt; &lt;/ action&gt;</span><br></pre></td></tr></table></figure>
+<p>Action type krpano操作的类型：<br>type =“”（默认） - 正常krpano操作 - 适用于Flash和HTML5<br>type =“Javascript” - JavaScript krpano操作 - 仅限HTML5</p>
+<p>Action scope<br>在操作中为新生成的变量定义范围：<br>全局或未设置（默认）<br>新变量将被添加到全局变量作用域中。<br>其他任何行为或代码也可以使用它们。<br>这在再使用变量名称时可能会有问题，特别是当变量类型在用法之间会有所不同时。<br>本地<br>新变量将被添加到仅存在于当前操作调用中的局部变量作用域中。<br>当动作完成或调用其他动作时，局部作用域和其中定义的所有变量将不再可用。<br>动作越复杂，它使用的临时变量越多，使用本地作用域进行此操作越有意义，以避免干扰其他动作的问题。<br>设置LocalOnly<br>有些作为scope = local，但区别在于，默认情况下，所有访问仅引用本地作用域本身。<br>全局范围的访问只能由全局对象来实现。<br>亲<br>使用调用者的范围。<br>当调用当前动作的动作具有局部范围时，则可以在当前动作中使用/访问该动作。<br>私人：NAME<br>为该操作定义一个私有本地范围。<br>范围将由自定义的唯一名称进行参考。<br>该范围在多个操作调用之间保持活动状态，并可以在多个操作中共享。<br>有些作为范围= localonly所有访问只涉及本地范围本身。</p>
+<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><p>全局范围访问 - 搜索变量时，首先搜索本地范围，然后搜索全局范围。为了能够将变量添加到全局范围，即使在使用本地范围或直接访问全局范围内的变量时，也存在全局对象。<br>本地范围访问 - 为了能够确保访问本地范围（例如，当可能已经存在具有相同名称的全局变量时定义本地变量），当前本地范围也可用作 操作代码中的本地对象。例如使用def（local.i，integer，0）; 定义一个名为’i’的局部整型变量。为了稍后访问动作代码，只需使用’i’来解决该变量就足够了。<br>延期代码 - 稍后调用其他代码的操作（例如delayedcall，tween，asyncloop等）将使用与该代码中当前操作相同的范围。<br>调用者范围 - 从插件/图层/热点事件调用的代码<br>对于非localscope动作：<br>当一个动作（或任何代码）将从plugin / layer / hotspot事件中被调用时，plugin / layer / hotspot对象本身也将作为搜索变量的范围。但仅限于访问现有的变量！新生成的变量将始终添加到全局范围中。<br>对于localscope动作：<br>在localscope动作中总是有预定义的局部变量调用者。当动作将从插件/图层/热点事件（或通过使用callwith）被调用时，那么该 调用者变量将引用该元素。否则，调用者变量将为空。</p>
+<p>本地作用域操作中的 预定义变量：<br>actionname - 当前操作的名称。<br>args - 参数的值数组。<br>访问者：args [index]。<br>通过以下方式获取数字或参数：args.length。<br>调用者 - 从那里调用插件/图层/热点对象，否则为null。<br>全球 - 参考全球范围。<br>本地 - 对当前本地范围本身的引用。<br>parentscope - 父行为的范围引用，当没有父范围时，这指的是全局范围。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-20T02:34:26.645Z" itemprop="dateUpdated">2019-03-20 10:34:26</time>
+</span><br>
+
+
+        
+        <a href="/2019/03/20/krpano-learn-note/" target="_blank" rel="external">http://11wy11.github.io/2019/03/20/krpano-learn-note/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/krpano/">krpano</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/20/krpano-learn-note/&title=《krpano学习笔记--干货》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/20/krpano-learn-note/&title=《krpano学习笔记--干货》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/20/krpano-learn-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《krpano学习笔记--干货》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/20/krpano-learn-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/20/krpano-learn-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/19/arcengine-first/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">VS2013/VS2015/VS2017下使用ArcEngine10.1/10.2（一）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/20/krpano-learn-note/&title=《krpano学习笔记--干货》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/20/krpano-learn-note/&title=《krpano学习笔记--干货》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/20/krpano-learn-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《krpano学习笔记--干货》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/20/krpano-learn-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/20/krpano-learn-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aQW4CMQwFUO5/abqtVBq+44CU5M0KdWCSN5UsO/bjEV/P4fX7O3+/nzx5/JdlFwYGxraMfIvjJcdbT56c332xCgYGxgWMcSgcb7cffMe/TcI0BgYGRv45CY4JGwMDA2NVwH2TrgX1Zs7DwMDAqB6l5U+YC9YfrMUxMDA2ZOQh8vufP9LfwMDA2IrxLF5J6zEJmp09vHgaBgbG0Yw8wCWp3tpWZbkMxsDAOJqRDE9Ul0zuVl9iK5PFwMDYnJEPgc0NUvRTwGhdDAyMoxlJs7Bz3D/3IvJXiYGBcQMjOUrLqXPDGdU9RLU4BgbGoYwk8OVlbbVAbR3DYWBgXMDIl89TwyTFrGL+DcoYGBiHMsa+PKWbuzuXXL74CwYGxtGMarNwrmEZlaDtuxgYGKcyqilgJxD38a13j4GBsS1jFax6oFZtZJaHPDAwMA5izA1YJOVlXsTOHd4tmBPBwMDYltE/7u8couWJKQYGxj2MfksyTxn7Yxxv1sLAwLiAMZeWdZLI/PAu2S0GBsYNjOrPlg1GLAr6GBgY9zDyuYy5tmWnMTmmYmBgnMp4Fq9qu3EcNKtHeJP/BwwMjM0Z/WCXNAaq4bgznIGBgXEqIw+ynaJ3rqAtBFkMDIwLGNUNVVPAauJYRWJgYGAkSWGnJbAgWGNgYGAUG5Z5MZwH2Y8EXAwMjK0Y1dCZj3DNlazV4z8MDIyzGdWQlzcGJqc/isEXAwPjaMYPlByyUBI48KUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

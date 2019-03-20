@@ -29,13 +29,10 @@
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
 <meta property="og:description" content="GDAL(Geospatial Data Abstraction Library)是一个在X/MIT许可协议下的开源栅格空间数据转换库持续更新中">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://11wy11.github.io/2019/03/18/cpp-gdal/pic2.png">
-<meta property="og:image" content="http://11wy11.github.io/2019/03/18/cpp-gdal/pic1.png">
-<meta property="og:updated_time" content="2019-03-18T14:56:40.723Z">
+<meta property="og:updated_time" content="2019-03-19T08:28:30.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GDAL简介及函数">
 <meta name="twitter:description" content="GDAL(Geospatial Data Abstraction Library)是一个在X/MIT许可协议下的开源栅格空间数据转换库持续更新中">
-<meta name="twitter:image" content="http://11wy11.github.io/2019/03/18/cpp-gdal/pic2.png">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -170,7 +167,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#功能特征"><span class="post-toc-number">2.</span> <span class="post-toc-text">功能特征</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OGR体系结构编辑"><span class="post-toc-number">3.</span> <span class="post-toc-text">OGR体系结构编辑</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GDAL中OGR的使用"><span class="post-toc-number">4.</span> <span class="post-toc-text">GDAL中OGR的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#读数据"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">读数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#写数据"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">写数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GDAL-基本使用函数"><span class="post-toc-number">5.</span> <span class="post-toc-text">GDAL 基本使用函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDALAllRegister"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">GDALAllRegister</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDALOpenEx"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">GDALOpenEx</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDALDataSet"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">GDALDataSet</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GetLayerByName"><span class="post-toc-number">5.3.1.</span> <span class="post-toc-text">GetLayerByName</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OGR类或函数"><span class="post-toc-number">6.</span> <span class="post-toc-text">OGR类或函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OGRLayer"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">OGRLayer</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OGREnvelope"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">OGREnvelope</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#功能特征"><span class="post-toc-number">2.</span> <span class="post-toc-text">功能特征</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OGR体系结构编辑"><span class="post-toc-number">3.</span> <span class="post-toc-text">OGR体系结构编辑</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GDAL中OGR的使用"><span class="post-toc-number">4.</span> <span class="post-toc-text">GDAL中OGR的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#读数据"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">读数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#写数据"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">写数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GDAL-基本使用函数"><span class="post-toc-number">5.</span> <span class="post-toc-text">GDAL 基本使用函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDALAllRegister"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">GDALAllRegister</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDALOpenEx"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">GDALOpenEx</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料："><span class="post-toc-number">6.</span> <span class="post-toc-text">参考资料：</span></a></li></ol>
         </nav>
     </aside>
 
@@ -215,9 +212,11 @@
 </li>
 <li><a href="#ogr%E7%B1%BB%E6%88%96%E5%87%BD%E6%95%B0">OGR类或函数</a><ul>
 <li><a href="#ogrlayer">OGRLayer</a></li>
+<li><a href="#ogrgeometry">OGRGEometry</a></li>
 <li><a href="#ogrenvelope">OGREnvelope</a></li>
 </ul>
 </li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料：</a></li>
 </ul>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>它利用抽象数据模型来表达所支持的各种文件格式。它还有一系列命令行工具来进行数据转换和处理。</p>
@@ -329,1090 +328,75 @@
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GDALDataset       *poDS;</span><br><span class="line">poDS = (GDALDataset*) GDALOpenEx( &quot;point.shp&quot;, GDAL_OF_VECTOR, NULL, NULL, NULL );</span><br><span class="line">if( poDS == NULL )</span><br><span class="line">&#123;</span><br><span class="line">    printf( &quot;Open failed.\n&quot; );</span><br><span class="line">    exit( 1 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>使用实例： </p>
-<pre><code>GDALDataset       *poDS;
-poDS = (GDALDataset*) GDALOpenEx( &quot;point.shp&quot;, GDAL_OF_VECTOR, NULL, NULL, NULL );
-if( poDS == NULL )
-{
-    printf( &quot;Open failed.\n&quot; );
-    exit( 1 );
+<p>使用实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br></pre></td><td class="code"><pre><span class="line">GDALDataset       *poDS;</span><br><span class="line">poDS = (GDALDataset*) GDALOpenEx( &quot;point.shp&quot;, GDAL_OF_VECTOR, NULL, NULL, NULL );</span><br><span class="line">if( poDS == NULL )</span><br><span class="line">&#123;</span><br><span class="line">    printf( &quot;Open failed.\n&quot; );</span><br><span class="line">    exit( 1 );</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line">## GDALDataSet</span><br><span class="line">帮助文档https://www.gdal.org/classGDALDataset.html</span><br><span class="line">![类图](cpp-gdal/pic2.png)  </span><br><span class="line">部分函数介绍</span><br><span class="line">### GetLayerByName</span><br><span class="line">Fetch a layer by name.</span><br><span class="line"></span><br><span class="line">The returned layer remains owned by the GDALDataset and should not be deleted by the application.</span><br><span class="line"></span><br><span class="line">This method is the same as the C function GDALDatasetGetLayerByName() and the deprecated OGR_DS_GetLayerByName().</span><br><span class="line"></span><br><span class="line">In GDAL 1.X, this method used to be in the OGRDataSource class.</span><br><span class="line"></span><br><span class="line">Parameters</span><br><span class="line">pszName	the layer name of the layer to fetch.</span><br><span class="line">Returns</span><br><span class="line">the layer, or NULL if Layer is not found or an error occurs.</span><br><span class="line"># OGR类或函数</span><br><span class="line">## OGRLayer</span><br><span class="line">帮助文档https://www.gdal.org/classOGRLayer.html</span><br><span class="line">![类图](cpp-gdal/pic1.png)</span><br><span class="line"></span><br><span class="line">| 返回值                         | 函数                                                                                                                                                              |   |   |   |</span><br><span class="line">|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|---|</span><br><span class="line">| FeatureIterator                | begin ()                                                                                                                                                          |   |   |   |</span><br><span class="line">| 　                             | Return   begin of feature iterator. More...                                                                                                                       |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| FeatureIterator                | end ()                                                                                                                                                            |   |   |   |</span><br><span class="line">| 　                             | Return   end of feature iterator. More...                                                                                                                         |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRGeometry *          | GetSpatialFilter ()                                                                                                                                               |   |   |   |</span><br><span class="line">| 　                             | This   method returns the current spatial filter for this layer. More...                                                                                          |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual void                   | SetSpatialFilter (OGRGeometry *)                                                                                                                                  |   |   |   |</span><br><span class="line">| 　                             | Set   a new spatial filter. More...                                                                                                                               |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual void                   | SetSpatialFilterRect (double dfMinX, double dfMinY, double dfMaxX, double   dfMaxY)                                                                               |   |   |   |</span><br><span class="line">| 　                             | Set   a new rectangular spatial filter. More...                                                                                                                   |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual void                   | SetSpatialFilter (int iGeomField, OGRGeometry *)                                                                                                                  |   |   |   |</span><br><span class="line">| 　                             | Set   a new spatial filter. More...                                                                                                                               |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual void                   | SetSpatialFilterRect (int iGeomField, double dfMinX, double dfMinY, double   dfMaxX, double dfMaxY)                                                               |   |   |   |</span><br><span class="line">| 　                             | Set   a new rectangular spatial filter. More...                                                                                                                   |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | SetAttributeFilter (const char *)                                                                                                                                 |   |   |   |</span><br><span class="line">| 　                             | Set   a new attribute query. More...                                                                                                                              |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual void                   | ResetReading ()=0                                                                                                                                                 |   |   |   |</span><br><span class="line">| 　                             | Reset   feature reading to start on the first feature. More...                                                                                                    |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRFeature *           | GetNextFeature () CPL_WARN_UNUSED_RESULT=0                                                                                                                        |   |   |   |</span><br><span class="line">| 　                             | Fetch   the next available feature from this layer. More...                                                                                                       |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | SetNextByIndex (GIntBig nIndex)                                                                                                                                   |   |   |   |</span><br><span class="line">| 　                             | Move   read cursor to the nIndex&apos;th feature in the current resultset. More...                                                                                     |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRFeature *           | GetFeature (GIntBig nFID) CPL_WARN_UNUSED_RESULT                                                                                                                  |   |   |   |</span><br><span class="line">| 　                             | Fetch   a feature by its identifier. More...                                                                                                                      |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| OGRErr                         | SetFeature (OGRFeature *poFeature) CPL_WARN_UNUSED_RESULT                                                                                                         |   |   |   |</span><br><span class="line">| 　                             | Rewrite   an existing feature. More...                                                                                                                            |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| OGRErr                         | CreateFeature (OGRFeature *poFeature) CPL_WARN_UNUSED_RESULT                                                                                                      |   |   |   |</span><br><span class="line">| 　                             | Create   and write a new feature within a layer. More...                                                                                                          |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | DeleteFeature (GIntBig nFID) CPL_WARN_UNUSED_RESULT                                                                                                               |   |   |   |</span><br><span class="line">| 　                             | Delete   feature from layer. More...                                                                                                                              |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual const char *           | GetName ()                                                                                                                                                        |   |   |   |</span><br><span class="line">| 　                             | Return   the layer name. More...                                                                                                                                  |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRwkbGeometryType     | GetGeomType ()                                                                                                                                                    |   |   |   |</span><br><span class="line">| 　                             | Return   the layer geometry type. More...                                                                                                                         |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRFeatureDefn *       | GetLayerDefn ()=0                                                                                                                                                 |   |   |   |</span><br><span class="line">| 　                             | Fetch   the schema information for this layer. More...                                                                                                            |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual int                    | FindFieldIndex (const char *pszFieldName, int bExactMatch)                                                                                                        |   |   |   |</span><br><span class="line">| 　                             | Find   the index of field in the layer. More...                                                                                                                   |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRSpatialReference *  | GetSpatialRef ()                                                                                                                                                  |   |   |   |</span><br><span class="line">| 　                             | Fetch   the spatial reference system for this layer. More...                                                                                                      |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual GIntBig                | GetFeatureCount (int bForce=TRUE)                                                                                                                                 |   |   |   |</span><br><span class="line">| 　                             | Fetch   the feature count in this layer. More...                                                                                                                  |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | GetExtent (OGREnvelope   *psExtent, int bForce=TRUE) CPL_WARN_UNUSED_RESULT                                                                                       |   |   |   |</span><br><span class="line">| 　                             | Fetch   the extent of this layer. More...                                                                                                                         |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | GetExtent (int   iGeomField, OGREnvelope *psExtent, int bForce=TRUE) CPL_WARN_UNUSED_RESULT                                                                       |   |   |   |</span><br><span class="line">| 　                             | Fetch   the extent of this layer, on the specified geometry field. More...                                                                                        |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual int                    | TestCapability (const char *)=0                                                                                                                                   |   |   |   |</span><br><span class="line">| 　                             | Test   if this layer supported the named capability. More...                                                                                                      |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | CreateField (OGRFieldDefn *poField, int   bApproxOK=TRUE)                                                                                                         |   |   |   |</span><br><span class="line">| 　                             | Create   a new field on a layer. More...                                                                                                                          |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | DeleteField (int iField)                                                                                                                                          |   |   |   |</span><br><span class="line">| 　                             | Delete   an existing field on a layer. More...                                                                                                                    |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | ReorderFields (int *panMap)                                                                                                                                       |   |   |   |</span><br><span class="line">| 　                             | Reorder   all the fields of a layer. More...                                                                                                                      |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | AlterFieldDefn (int   iField, OGRFieldDefn *poNewFieldDefn,   int nFlagsIn)                                                                                       |   |   |   |</span><br><span class="line">| 　                             | Alter   the definition of an existing field on a layer. More...                                                                                                   |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | CreateGeomField (OGRGeomFieldDefn *poField, int bApproxOK=TRUE)                                                                                                   |   |   |   |</span><br><span class="line">| 　                             | Create   a new geometry field on a layer. More...                                                                                                                 |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | SyncToDisk ()                                                                                                                                                     |   |   |   |</span><br><span class="line">| 　                             | Flush   pending changes to disk. More...                                                                                                                          |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRStyleTable *        | GetStyleTable ()                                                                                                                                                  |   |   |   |</span><br><span class="line">| 　                             | Returns   layer style table. More...                                                                                                                              |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual void                   | SetStyleTableDirectly (OGRStyleTable *poStyleTable)                                                                                                               |   |   |   |</span><br><span class="line">| 　                             | Set   layer style table. More...                                                                                                                                  |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual void                   | SetStyleTable (OGRStyleTable *poStyleTable)                                                                                                                       |   |   |   |</span><br><span class="line">| 　                             | Set   layer style table. More...                                                                                                                                  |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | StartTransaction () CPL_WARN_UNUSED_RESULT                                                                                                                        |   |   |   |</span><br><span class="line">| 　                             | For   datasources which support transactions, StartTransaction creates a   transaction. More...                                                                   |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | CommitTransaction () CPL_WARN_UNUSED_RESULT                                                                                                                       |   |   |   |</span><br><span class="line">| 　                             | For   datasources which support transactions, CommitTransaction commits a   transaction. More...                                                                  |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | RollbackTransaction ()                                                                                                                                            |   |   |   |</span><br><span class="line">| 　                             | For   datasources which support transactions, RollbackTransaction will roll back a   datasource to its state before the start of the current transaction. More... |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual const char *           | GetFIDColumn ()                                                                                                                                                   |   |   |   |</span><br><span class="line">| 　                             | This   method returns the name of the underlying database column being used as the   FID column, or &quot;&quot; if not supported. More...                                  |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual const char *           | GetGeometryColumn ()                                                                                                                                              |   |   |   |</span><br><span class="line">| 　                             | This   method returns the name of the underlying database column being used as the   geometry column, or &quot;&quot; if not supported. More...                             |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| virtual OGRErr                 | SetIgnoredFields (const char **papszFields)                                                                                                                       |   |   |   |</span><br><span class="line">| 　                             | Set   which fields can be omitted when retrieving features from the layer. More...                                                                                |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| OGRErr                         | Intersection (OGRLayer *pLayerMethod, OGRLayer *pLayerResult, char   **papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   *pProgressArg=nullptr)  |   |   |   |</span><br><span class="line">| 　                             | Intersection   of two layers. More...                                                                                                                             |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| OGRErr                         | Union (OGRLayer *pLayerMethod, OGRLayer *pLayerResult, char   **papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   *pProgressArg=nullptr)         |   |   |   |</span><br><span class="line">| 　                             | Union   of two layers. More...                                                                                                                                    |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| OGRErr                         | SymDifference (OGRLayer *pLayerMethod, OGRLayer *pLayerResult, char   **papszOptions, GDALProgressFunc pfnProgress, void *pProgressArg)                           |   |   |   |</span><br><span class="line">| 　                             | Symmetrical   difference of two layers. More...                                                                                                                   |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| OGRErr                         | Identity (OGRLayer *pLayerMethod, OGRLayer *pLayerResult, char   **papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   *pProgressArg=nullptr)      |   |   |   |</span><br><span class="line">| 　                             | Identify   the features of this layer with the ones from the identity layer. More...                                                                              |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| OGRErr                         | Update (OGRLayer *pLayerMethod, OGRLayer *pLayerResult, char   **papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   *pProgressArg=nullptr)        |   |   |   |</span><br><span class="line">| 　                             | Update   this layer with features from the update layer. More...                                                                                                  |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| OGRErr                         | Clip (OGRLayer *pLayerMethod, OGRLayer *pLayerResult, char   **papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   *pProgressArg=nullptr)          |   |   |   |</span><br><span class="line">| 　                             | Clip   off areas that are not covered by the method layer. More...                                                                                                |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| OGRErr                         | Erase (OGRLayer *pLayerMethod, OGRLayer *pLayerResult, char   **papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   *pProgressArg=nullptr)         |   |   |   |</span><br><span class="line">| 　                             | Remove   areas that are covered by the method layer. More...                                                                                                      |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| int                            | Reference ()                                                                                                                                                      |   |   |   |</span><br><span class="line">| 　                             | Increment   layer reference count. More...                                                                                                                        |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| int                            | Dereference ()                                                                                                                                                    |   |   |   |</span><br><span class="line">| 　                             | Decrement   layer reference count. More...                                                                                                                        |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| int                            | GetRefCount () const                                                                                                                                              |   |   |   |</span><br><span class="line">| 　                             | Fetch   reference count. More...                                                                                                                                  |   |   |   |</span><br><span class="line">| 　                             |                                                                                                                                                                   |   |   |   |</span><br><span class="line">| OGRErr                         | ReorderField (int iOldFieldPos, int iNewFieldPos)                                                                                                                 |   |   |   |</span><br><span class="line">| 　                             | Reorder   an existing field on a layer. More...                                                                                                                   |   |   |   |</span><br><span class="line">## OGRGEometry</span><br><span class="line"></span><br><span class="line">## OGREnvelope</span><br></pre></td></tr></table></figure></p>
+<p>class CPL_DLL OGREnvelope<br>{<br>  public:<br>        OGREnvelope() : MinX(std::numeric_limits<double>::infinity()),<br>                        MaxX(-std::numeric_limits<double>::infinity()),<br>                        MinY(std::numeric_limits<double>::infinity()),<br>                        MaxY(-std::numeric_limits<double>::infinity())<br>        {<br>        }</double></double></double></double></p>
+<pre><code>    OGREnvelope(const OGREnvelope&amp; oOther) :
+        MinX(oOther.MinX),MaxX(oOther.MaxX), MinY(oOther.MinY), MaxY(oOther.MaxY)
+    {
+    }
+
+double      MinX;
+double      MaxX;
+double      MinY;
+double      MaxY;
+</code></pre><p>#ifdef HAVE_GCC_DIAGNOSTIC_PUSH</p>
+<p>#pragma GCC diagnostic push</p>
+<p>#pragma GCC diagnostic ignored “-Wfloat-equal”</p>
+<p>#endif<br>    int  IsInit() const { return MinX != std::numeric_limits<double>::infinity(); }</double></p>
+<p>#ifdef HAVE_GCC_DIAGNOSTIC_PUSH</p>
+<p>#pragma GCC diagnostic pop</p>
+<p>#endif</p>
+<pre><code>void Merge( OGREnvelope const&amp; sOther ) {
+    MinX = MIN(MinX,sOther.MinX);
+    MaxX = MAX(MaxX,sOther.MaxX);
+    MinY = MIN(MinY,sOther.MinY);
+    MaxY = MAX(MaxY,sOther.MaxY);
 }
-</code></pre><h2 id="GDALDataSet"><a href="#GDALDataSet" class="headerlink" title="GDALDataSet"></a>GDALDataSet</h2><p>帮助文档<a href="https://www.gdal.org/classGDALDataset.html" target="_blank" rel="noopener">https://www.gdal.org/classGDALDataset.html</a><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/03/18/cpp-gdal/pic2.png" alt="类图" title>
-                </div>
-                <div class="image-caption">类图</div>
-            </figure><br>部分函数介绍</p>
-<h3 id="GetLayerByName"><a href="#GetLayerByName" class="headerlink" title="GetLayerByName"></a>GetLayerByName</h3><p>Fetch a layer by name.</p>
-<p>The returned layer remains owned by the GDALDataset and should not be deleted by the application.</p>
-<p>This method is the same as the C function GDALDatasetGetLayerByName() and the deprecated OGR_DS_GetLayerByName().</p>
-<p>In GDAL 1.X, this method used to be in the OGRDataSource class.</p>
-<p>Parameters<br>pszName    the layer name of the layer to fetch.<br>Returns<br>the layer, or NULL if Layer is not found or an error occurs.</p>
-<h1 id="OGR类或函数"><a href="#OGR类或函数" class="headerlink" title="OGR类或函数"></a>OGR类或函数</h1><h2 id="OGRLayer"><a href="#OGRLayer" class="headerlink" title="OGRLayer"></a>OGRLayer</h2><p>帮助文档<a href="https://www.gdal.org/classOGRLayer.html" target="_blank" rel="noopener">https://www.gdal.org/classOGRLayer.html</a><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/03/18/cpp-gdal/pic1.png" alt="类图" title>
-                </div>
-                <div class="image-caption">类图</div>
-            </figure></p>
-<table>
-<thead>
-<tr>
-<th>返回值</th>
-<th>函数</th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>FeatureIterator</td>
-<td>begin ()</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Return   begin of feature iterator. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>FeatureIterator</td>
-<td>end ()</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Return   end of feature iterator. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRGeometry *</td>
-<td>GetSpatialFilter ()</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>This   method returns the current spatial filter for this layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual void</td>
-<td>SetSpatialFilter (OGRGeometry *)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Set   a new spatial filter. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual void</td>
-<td>SetSpatialFilterRect (double dfMinX, double dfMinY, double dfMaxX, double   dfMaxY)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Set   a new rectangular spatial filter. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual void</td>
-<td>SetSpatialFilter (int iGeomField, OGRGeometry *)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Set   a new spatial filter. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual void</td>
-<td>SetSpatialFilterRect (int iGeomField, double dfMinX, double dfMinY, double   dfMaxX, double dfMaxY)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Set   a new rectangular spatial filter. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>SetAttributeFilter (const char *)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Set   a new attribute query. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual void</td>
-<td>ResetReading ()=0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Reset   feature reading to start on the first feature. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRFeature *</td>
-<td>GetNextFeature () CPL_WARN_UNUSED_RESULT=0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Fetch   the next available feature from this layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>SetNextByIndex (GIntBig nIndex)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Move   read cursor to the nIndex’th feature in the current resultset. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRFeature *</td>
-<td>GetFeature (GIntBig nFID) CPL_WARN_UNUSED_RESULT</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Fetch   a feature by its identifier. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>OGRErr</td>
-<td>SetFeature (OGRFeature *poFeature) CPL_WARN_UNUSED_RESULT</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Rewrite   an existing feature. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>OGRErr</td>
-<td>CreateFeature (OGRFeature *poFeature) CPL_WARN_UNUSED_RESULT</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Create   and write a new feature within a layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>DeleteFeature (GIntBig nFID) CPL_WARN_UNUSED_RESULT</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Delete   feature from layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual const char *</td>
-<td>GetName ()</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Return   the layer name. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRwkbGeometryType</td>
-<td>GetGeomType ()</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Return   the layer geometry type. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRFeatureDefn *</td>
-<td>GetLayerDefn ()=0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Fetch   the schema information for this layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual int</td>
-<td>FindFieldIndex (const char *pszFieldName, int bExactMatch)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Find   the index of field in the layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRSpatialReference *</td>
-<td>GetSpatialRef ()</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Fetch   the spatial reference system for this layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual GIntBig</td>
-<td>GetFeatureCount (int bForce=TRUE)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Fetch   the feature count in this layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>GetExtent (OGREnvelope   *psExtent, int bForce=TRUE) CPL_WARN_UNUSED_RESULT</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Fetch   the extent of this layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>GetExtent (int   iGeomField, OGREnvelope *psExtent, int bForce=TRUE) CPL_WARN_UNUSED_RESULT</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Fetch   the extent of this layer, on the specified geometry field. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual int</td>
-<td>TestCapability (const char *)=0</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Test   if this layer supported the named capability. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>CreateField (OGRFieldDefn *poField, int   bApproxOK=TRUE)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Create   a new field on a layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>DeleteField (int iField)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Delete   an existing field on a layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>ReorderFields (int *panMap)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Reorder   all the fields of a layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>AlterFieldDefn (int   iField, OGRFieldDefn *poNewFieldDefn,   int nFlagsIn)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Alter   the definition of an existing field on a layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>CreateGeomField (OGRGeomFieldDefn *poField, int bApproxOK=TRUE)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Create   a new geometry field on a layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>SyncToDisk ()</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Flush   pending changes to disk. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRStyleTable *</td>
-<td>GetStyleTable ()</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Returns   layer style table. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual void</td>
-<td>SetStyleTableDirectly (OGRStyleTable *poStyleTable)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Set   layer style table. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual void</td>
-<td>SetStyleTable (OGRStyleTable *poStyleTable)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Set   layer style table. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>StartTransaction () CPL_WARN_UNUSED_RESULT</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>For   datasources which support transactions, StartTransaction creates a   transaction. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>CommitTransaction () CPL_WARN_UNUSED_RESULT</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>For   datasources which support transactions, CommitTransaction commits a   transaction. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>RollbackTransaction ()</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>For   datasources which support transactions, RollbackTransaction will roll back a   datasource to its state before the start of the current transaction. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual const char *</td>
-<td>GetFIDColumn ()</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>This   method returns the name of the underlying database column being used as the   FID column, or “” if not supported. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual const char *</td>
-<td>GetGeometryColumn ()</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>This   method returns the name of the underlying database column being used as the   geometry column, or “” if not supported. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>virtual OGRErr</td>
-<td>SetIgnoredFields (const char **papszFields)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Set   which fields can be omitted when retrieving features from the layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>OGRErr</td>
-<td>Intersection (OGRLayer <em>pLayerMethod, OGRLayer </em>pLayerResult, char   *<em>papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   </em>pProgressArg=nullptr)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Intersection   of two layers. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>OGRErr</td>
-<td>Union (OGRLayer <em>pLayerMethod, OGRLayer </em>pLayerResult, char   *<em>papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   </em>pProgressArg=nullptr)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Union   of two layers. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>OGRErr</td>
-<td>SymDifference (OGRLayer <em>pLayerMethod, OGRLayer </em>pLayerResult, char   *<em>papszOptions, GDALProgressFunc pfnProgress, void </em>pProgressArg)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Symmetrical   difference of two layers. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>OGRErr</td>
-<td>Identity (OGRLayer <em>pLayerMethod, OGRLayer </em>pLayerResult, char   *<em>papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   </em>pProgressArg=nullptr)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Identify   the features of this layer with the ones from the identity layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>OGRErr</td>
-<td>Update (OGRLayer <em>pLayerMethod, OGRLayer </em>pLayerResult, char   *<em>papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   </em>pProgressArg=nullptr)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Update   this layer with features from the update layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>OGRErr</td>
-<td>Clip (OGRLayer <em>pLayerMethod, OGRLayer </em>pLayerResult, char   *<em>papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   </em>pProgressArg=nullptr)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Clip   off areas that are not covered by the method layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>OGRErr</td>
-<td>Erase (OGRLayer <em>pLayerMethod, OGRLayer </em>pLayerResult, char   *<em>papszOptions=nullptr, GDALProgressFunc pfnProgress=nullptr, void   </em>pProgressArg=nullptr)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Remove   areas that are covered by the method layer. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>int</td>
-<td>Reference ()</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Increment   layer reference count. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>int</td>
-<td>Dereference ()</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Decrement   layer reference count. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>int</td>
-<td>GetRefCount () const</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Fetch   reference count. More…</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>OGRErr</td>
-<td>ReorderField (int iOldFieldPos, int iNewFieldPos)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>　</td>
-<td>Reorder   an existing field on a layer. More…</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="OGREnvelope"><a href="#OGREnvelope" class="headerlink" title="OGREnvelope"></a>OGREnvelope</h2><p>#参考资料：</p>
-<ol>
+
+void Merge( double dfX, double dfY ) {
+    MinX = MIN(MinX,dfX);
+    MaxX = MAX(MaxX,dfX);
+    MinY = MIN(MinY,dfY);
+    MaxY = MAX(MaxY,dfY);
+}
+
+void Intersect( OGREnvelope const&amp; sOther ) {
+    if(Intersects(sOther))
+    {
+        if( IsInit() )
+        {
+            MinX = MAX(MinX,sOther.MinX);
+            MaxX = MIN(MaxX,sOther.MaxX);
+            MinY = MAX(MinY,sOther.MinY);
+            MaxY = MIN(MaxY,sOther.MaxY);
+        }
+        else
+        {
+            MinX = sOther.MinX;
+            MaxX = sOther.MaxX;
+            MinY = sOther.MinY;
+            MaxY = sOther.MaxY;
+        }
+    }
+    else
+    {
+        *this = OGREnvelope();
+    }
+}
+
+int Intersects(OGREnvelope const&amp; other) const
+{
+    return MinX &lt;= other.MaxX &amp;&amp; MaxX &gt;= other.MinX &amp;&amp;
+           MinY &lt;= other.MaxY &amp;&amp; MaxY &gt;= other.MinY;
+}
+
+int Contains(OGREnvelope const&amp; other) const
+{
+    return MinX &lt;= other.MinX &amp;&amp; MinY &lt;= other.MinY &amp;&amp;
+           MaxX &gt;= other.MaxX &amp;&amp; MaxY &gt;= other.MaxY;
+}
+</code></pre><p>};<br><code>`</code></p>
+<h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1><ol>
 <li>百度百科：<a href="https://baike.baidu.com/item/GDAL/4004525?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/GDAL/4004525?fr=aladdin</a></li>
 <li>官方网站：<a href="https://www.gdal.org/" target="_blank" rel="noopener">https://www.gdal.org/</a></li>
 </ol>
@@ -1424,7 +408,7 @@ if( poDS == NULL )
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-18T14:56:40.723Z" itemprop="dateUpdated">2019-03-18 22:56:40</time>
+    最后更新时间：<time datetime="2019-03-19T08:28:30.158Z" itemprop="dateUpdated">2019-03-19 16:28:30</time>
 </span><br>
 
 
@@ -1501,7 +485,14 @@ if( poDS == NULL )
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/19/arcengine-first/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">VS2013/VS2015/VS2017下使用ArcEngine10.1/10.2（一）</h4>
+      </a>
+    </div>
   
 
   
