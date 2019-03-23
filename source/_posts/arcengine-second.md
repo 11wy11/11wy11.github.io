@@ -76,7 +76,23 @@ break;
 ```
 # 尝试读取或写入受保护的内存，这通常指示其他内存已损坏【解决方法】
 以__管理员的身份__运行CMD   执行netsh winsock reset    然后提示你重新启动计算机   重启后错误就没有了
+
+但这样太过复杂，没有从程序自身角度解决这个问题，继续查阅资料，最终找到了有效的方法，释放程序锁
+# 最佳解决方法
+使用IWorkspaceFactoryLockControl接口的SchemaLockingEnabled和DisableSchemaLocking，分别获得工作空间锁状态，并关闭，具体代码如下：
+```
+IWorkspaceFactory pWsFactory = new ShapefileWorkspaceFactory();
+//关闭资源锁定   
+IWorkspaceFactoryLockControl ipWsFactoryLock = (IWorkspaceFactoryLockControl)pWsFactory;
+if (ipWsFactoryLock.SchemaLockingEnabled)
+{
+  ipWsFactoryLock.DisableSchemaLocking();
+            }
+```
+  
+
 # 错误原因分析
    AE中非托管变量未释放，这些有Icursor，IFeatureCursor，IEnumStyleGalleryItem，IEnumBSTR，IStyleGallery；AGS里面有IServerContext等，释放方法System.Runtime.InteropServices.Marshal.ReleaseComObject(o);或者使用ESRI.ArcGIS.ADF.COMSupport.AOUninitialize.Shutdown()  
 
-参考：https://blog.csdn.net/mattran/article/details/47149077 
+参考：[1] https://blog.csdn.net/mattran/article/details/47149077   
+      [2] https://blog.csdn.net/u011116642/article/details/17960135  
