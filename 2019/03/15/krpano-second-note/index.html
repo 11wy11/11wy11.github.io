@@ -21,20 +21,20 @@
     
     
     <meta name="keywords" content="krpano">
-    <meta name="description" content="vtour全景漫游及vtour文件夹介绍使用MAKE VTOUR (MULTIRES) droplet工具生成全景漫游">
+    <meta name="description" content="主要介绍全景漫游及vtour文件夹介绍">
 <meta name="keywords" content="krpano">
 <meta property="og:type" content="article">
 <meta property="og:title" content="krpano快速入门教程（二）">
 <meta property="og:url" content="http://11wy11.github.io/2019/03/15/krpano-second-note/index.html">
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
-<meta property="og:description" content="vtour全景漫游及vtour文件夹介绍使用MAKE VTOUR (MULTIRES) droplet工具生成全景漫游">
+<meta property="og:description" content="主要介绍全景漫游及vtour文件夹介绍">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://11wy11.github.io/2019/03/15/krpano-second-note/pic1.png">
-<meta property="og:updated_time" content="2019-03-20T02:34:26.646Z">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/15/krpano-second-note/krpano-second-note/pic1.png">
+<meta property="og:updated_time" content="2019-03-24T01:32:04.216Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="krpano快速入门教程（二）">
-<meta name="twitter:description" content="vtour全景漫游及vtour文件夹介绍使用MAKE VTOUR (MULTIRES) droplet工具生成全景漫游">
-<meta name="twitter:image" content="http://11wy11.github.io/2019/03/15/krpano-second-note/pic1.png">
+<meta name="twitter:description" content="主要介绍全景漫游及vtour文件夹介绍">
+<meta name="twitter:image" content="http://11wy11.github.io/2019/03/15/krpano-second-note/krpano-second-note/pic1.png">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -194,7 +194,8 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="vtour全景漫游及vtour文件夹介绍"><a href="#vtour全景漫游及vtour文件夹介绍" class="headerlink" title="vtour全景漫游及vtour文件夹介绍"></a>vtour全景漫游及vtour文件夹介绍</h3><p>使用MAKE VTOUR (MULTIRES) droplet工具生成全景漫游<br><a id="more"></a></p>
+            <p>主要介绍全景漫游及vtour文件夹介绍<br><a id="more"></a></p>
+<h3 id="vtour全景漫游及vtour文件夹介绍"><a href="#vtour全景漫游及vtour文件夹介绍" class="headerlink" title="vtour全景漫游及vtour文件夹介绍"></a>vtour全景漫游及vtour文件夹介绍</h3><p>使用MAKE VTOUR (MULTIRES) droplet工具生成全景漫游<br><!--more--></p>
 <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在初始学习krpano时，可以借助krpano的工具生成全景漫游文件，之后可以根据需要修改tour.xml,定制skin等；<br>上节简单介绍了krpano使用Make pano的工具创建单场景应用，但大多数应用中场景数量不只一个，彼此之间可以跳转，这就需要借助MAKE VTOUR droplet工具了。而具体选择三种中的哪一种，根据应用场景需要选择，multires支持将全景切片分级，能够达到更好的展示效果，但会使全景文件大小增加，normal生成普通的pano_f.jpg,pano_b.jpg,pano_l.jpg，pano_r.jpg，pano_u.jpg，pano_d.jpg,preview.jpg，分别为全景图的前后左右上下，以及菜单中的预览图。</p>
 <h3 id="生成vtour"><a href="#生成vtour" class="headerlink" title="生成vtour"></a>生成vtour</h3><p>使用MAKE VTOUR (MULTIRES) droplet工具生成的全景漫游场景，场景彼此之间相互连接，能够从一个场景跳转到另一个场景。<br>可以同时选择多张全景图片拖放在该工具上，输入全景图类型，和全景角度，执行切片，等待完成。显示<strong>done</strong>之后，在全景图文件夹中生成vtour文件夹。</p>
 <h3 id="vtour文件夹内容介绍"><a href="#vtour文件夹内容介绍" class="headerlink" title="vtour文件夹内容介绍"></a>vtour文件夹内容介绍</h3><pre><code>1. tour.html文件--嵌入全景的网页
@@ -206,7 +207,7 @@
 </code></pre><h3 id="场景Scene"><a href="#场景Scene" class="headerlink" title="场景Scene"></a>场景Scene</h3><p>它们可用于在当前xml文件中再次定义完整krpano xml文件的内容。它就像一个外部的xml，但只是内联/嵌入到当前的xml中。 在调用具有场景名称的loadscene（）</p>
 <p>典型的用法是在一个xml文件中定义几个panos。</p>
 <p>使用loadpano（）动作加载新的外部xml文件时，将删除所有当前定义的场景元素。</p>
-<p>可以在&lt;scene>元素中存储任何自定义属性 - 查看器本身将忽略它们，但它们可用于自定义操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;scene name=&quot;scene_20171106193359&quot; title=&quot;20171106193359&quot; onstart=&quot;&quot; thumburl=&quot;panos/20171106193359.tiles/thumb.jpg&quot; lat=&quot;51.51500000&quot; lng=&quot;-0.08050000&quot; heading=&quot;0.0&quot;&gt;</span><br><span class="line"></span><br><span class="line">		&lt;view hlookat=&quot;0.0&quot; vlookat=&quot;0.0&quot; fovtype=&quot;MFOV&quot; fov=&quot;120&quot; maxpixelzoom=&quot;2.0&quot; fovmin=&quot;70&quot; fovmax=&quot;140&quot; limitview=&quot;range&quot; vlookatmin=&quot;-56.055&quot; vlookatmax=&quot;56.055&quot; /&gt;</span><br><span class="line"></span><br><span class="line">		&lt;preview url=&quot;panos/20171106193359.tiles/preview.jpg&quot; /&gt;</span><br><span class="line"></span><br><span class="line">		&lt;image prealign=&quot;0|0.0|0&quot;&gt;</span><br><span class="line">			&lt;cube url=&quot;panos/20171106193359.tiles/pano_%s.jpg&quot; /&gt;</span><br><span class="line">		&lt;/image&gt;</span><br><span class="line"></span><br><span class="line">	&lt;/scene&gt;</span><br></pre></td></tr></table></figure></p>
+<p>可以在&lt;scene>元素中存储任何自定义属性 - 查看器本身将忽略它们，但它们可用于自定义操作。<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;scene name=&quot;scene_20171106193359&quot; title=&quot;20171106193359&quot; onstart=&quot;&quot; thumburl=&quot;panos/20171106193359.tiles/thumb.jpg&quot; lat=&quot;51.51500000&quot; lng=&quot;-0.08050000&quot; heading=&quot;0.0&quot;&gt;</span><br><span class="line"></span><br><span class="line">		&lt;view hlookat=&quot;0.0&quot; vlookat=&quot;0.0&quot; fovtype=&quot;MFOV&quot; fov=&quot;120&quot; maxpixelzoom=&quot;2.0&quot; fovmin=&quot;70&quot; fovmax=&quot;140&quot; limitview=&quot;range&quot; vlookatmin=&quot;-56.055&quot; vlookatmax=&quot;56.055&quot; /&gt;</span><br><span class="line"></span><br><span class="line">		&lt;preview url=&quot;panos/20171106193359.tiles/preview.jpg&quot; /&gt;</span><br><span class="line"></span><br><span class="line">		&lt;image prealign=&quot;0|0.0|0&quot;&gt;</span><br><span class="line">			&lt;cube url=&quot;panos/20171106193359.tiles/pano_%s.jpg&quot; /&gt;</span><br><span class="line">		&lt;/image&gt;</span><br><span class="line"></span><br><span class="line">	&lt;/scene&gt;</span><br></pre></td></tr></table></figure></p>
 <p>说明：      </p>
 <ol>
 <li>name<br>场景名称，命名规则：每个名字都需要以字母字符开头！这意味着不允许使用数字作为名字！当名称仍然以数字字符开头时，名称将被解释为数组索引。这对于动作内部基于动态索引的访问没有问题，但不能用于定义元素！所有名称将自动转换为小写字母，以便直接区分大小写访问！也是loadscene时设置的参数</li>
@@ -255,7 +256,7 @@
 <p> 允许使用立体图像（仅限HTML5和WebGL）。</p>
 <p> 使用立方体图像时，图像URL应包含％t占位符。此占位符将替换为stereolabels设置中的值。对于左图像，将使用第一个值，对于右图像，将使用第二个值。</p>
 <p> 对于球形或圆柱形图像或视频，可以使用“帧封装”立体图像。该stereoformat设置定义的打包顺序：<br> stereoformat =“TB” - 上/下<br> stereoformat =“SBS” - Side-By-Side<br> 示例 - 立体立方体图像：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;image stereo =“true”stereolabels =“1 | 2” &gt; </span><br><span class="line">  &lt;cube url =“pano_％s_ ％t .jpg”/&gt; </span><br><span class="line">&lt;/ image&gt;</span><br><span class="line">示例 - 立体全景视频：</span><br><span class="line">&lt;image stereo =“true”stereoformat =“TB” &gt; </span><br><span class="line">  &lt;sphere url =“ plugin：video ”/&gt; </span><br><span class="line">&lt;/ image&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;image stereo =“true”stereolabels =“1 | 2” &gt; </span><br><span class="line">  &lt;cube url =“pano_％s_ ％t .jpg”/&gt; </span><br><span class="line">&lt;/ image&gt;</span><br><span class="line">示例 - 立体全景视频：</span><br><span class="line">&lt;image stereo =“true”stereoformat =“TB” &gt; </span><br><span class="line">  &lt;sphere url =“ plugin：video ”/&gt; </span><br><span class="line">&lt;/ image&gt;</span><br></pre></td></tr></table></figure>
 <p> 注意 - 根据全景图像或视频的像素大小（和侧面），可能需要手动设置hfov，vfov和voffset设置。</p>
 </li>
 <li><p>fisheye.fov fisheye.align fisheye.crop fisheye.lenscp<br> 鱼眼图像支持（仅限HTML5和WebGL）。</p>
@@ -298,13 +299,7 @@
 <li>每个占位符可以在url中多次使用 - 例如，作为文件名的一部分，也作为foldername的一部分。</li>
 <li>平铺索引填充：<br>通过在％字符和tile-index占位符的字符之间插入一个或多个0个字符，可以为数字定义自定义填充。<br>比如:<br>％H  ⇒  1,2,3，…，9,10,11<br>％0H  ⇒  01,02,03，…，09,10,11<br>％00H  ⇒  001,002,003，……，009010011</li>
 </ul>
-<h3 id="预览效果"><a href="#预览效果" class="headerlink" title="预览效果"></a>预览效果</h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/03/15/krpano-second-note/pic1.png" alt="效果图" title>
-                </div>
-                <div class="image-caption">效果图</div>
-            </figure>
+<h3 id="预览效果"><a href="#预览效果" class="headerlink" title="预览效果"></a>预览效果</h3><p><img src="krpano-second-note/pic1.png" alt="效果图"></p>
 <h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>之后的主要工作为：定制skin，定制plugins，定制xml，一些动态操作全景图配置使编辑js文件，能够实现动态配置全景图程序，能够更好的融入到Web应用程序中，作为其中一个子功能模块。后续结合实际案例介绍具体实现方式。历史文章</p>
 <h3 id="历史文章"><a href="#历史文章" class="headerlink" title="历史文章"></a>历史文章</h3><p><a href="/2019/03/14/krpano-first-note">krpano快速入门教程（一) 使用krpano工具构建即用型panos</a></p>
 
@@ -315,7 +310,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-20T02:34:26.646Z" itemprop="dateUpdated">2019-03-20 10:34:26</time>
+    最后更新时间：<time datetime="2019-03-24T01:32:04.216Z" itemprop="dateUpdated">2019-03-24 09:32:04</time>
 </span><br>
 
 
@@ -357,7 +352,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/15/krpano-second-note/&title=《krpano快速入门教程（二）》 — WeiYuan's Blog&source=vtour全景漫游及vtour文件夹介绍使用MAKE VTOUR (MULTIRES) droplet工具生成全景漫游" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/15/krpano-second-note/&title=《krpano快速入门教程（二）》 — WeiYuan's Blog&source=主要介绍全景漫游及vtour文件夹介绍" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -514,7 +509,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/15/krpano-second-note/&title=《krpano快速入门教程（二）》 — WeiYuan's Blog&source=vtour全景漫游及vtour文件夹介绍使用MAKE VTOUR (MULTIRES) droplet工具生成全景漫游" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/15/krpano-second-note/&title=《krpano快速入门教程（二）》 — WeiYuan's Blog&source=主要介绍全景漫游及vtour文件夹介绍" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

@@ -21,18 +21,18 @@
     
     
     <meta name="keywords" content="Vue">
-    <meta name="description" content="一. 背景在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。 二. 具体实现方法1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建">
+    <meta name="description" content="Vue全局添加组件，方便重复使用的功能一次性定义">
 <meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue全局添加组件">
 <meta property="og:url" content="http://11wy11.github.io/2019/03/09/Vue-global-component/index.html">
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
-<meta property="og:description" content="一. 背景在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。 二. 具体实现方法1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建">
+<meta property="og:description" content="Vue全局添加组件，方便重复使用的功能一次性定义">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-17T16:43:47.662Z">
+<meta property="og:updated_time" content="2019-03-24T01:36:27.024Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue全局添加组件">
-<meta name="twitter:description" content="一. 背景在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。 二. 具体实现方法1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建">
+<meta name="twitter:description" content="Vue全局添加组件，方便重复使用的功能一次性定义">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -192,7 +192,8 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="一-背景"><a href="#一-背景" class="headerlink" title="一. 背景"></a>一. 背景</h3><p>在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。</p>
+            <p>Vue全局添加组件，方便重复使用的功能一次性定义<br><a id="more"></a></p>
+<h3 id="一-背景"><a href="#一-背景" class="headerlink" title="一. 背景"></a>一. 背景</h3><p>在项目中有时需要反复用到如区域选择器等组件，每次使用时都需要在对应的vue中添加import,并在component中注册，为了避免多次书写引用代码，可以自定义全局组件，只需要在main.js中一次性注册在vue项目中，可以自定义组件像vue-resource一样使用Vue.use（）方法来使用。</p>
 <h3 id="二-具体实现方法"><a href="#二-具体实现方法" class="headerlink" title="二. 具体实现方法"></a>二. 具体实现方法</h3><p>1、首先建一个自定义组件的文件夹，比如叫loading，在该文件夹下新建一个index.js，一个自定义组件loading.vue,在这个loading.vue里面就是这个组件的具体的内容，</p>
 <p>2、在index.js中，规定使用这个组件的名字，以及使用方法，如：</p>
 <pre><code>import loadingComponent from &apos;./loading.vue&apos;
@@ -214,7 +215,7 @@ Vue.use(loading）
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-17T16:43:47.662Z" itemprop="dateUpdated">2019-03-18 00:43:47</time>
+    最后更新时间：<time datetime="2019-03-24T01:36:27.024Z" itemprop="dateUpdated">2019-03-24 09:36:27</time>
 </span><br>
 
 
@@ -256,7 +257,7 @@ Vue.use(loading）
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/09/Vue-global-component/&title=《Vue全局添加组件》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/09/Vue-global-component/&title=《Vue全局添加组件》 — WeiYuan's Blog&source=Vue全局添加组件，方便重复使用的功能一次性定义" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -413,7 +414,7 @@ Vue.use(loading）
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/09/Vue-global-component/&title=《Vue全局添加组件》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/09/Vue-global-component/&title=《Vue全局添加组件》 — WeiYuan's Blog&source=Vue全局添加组件，方便重复使用的功能一次性定义" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

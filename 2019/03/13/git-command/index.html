@@ -21,18 +21,18 @@
     
     
     <meta name="keywords" content="git">
-    <meta name="description" content="强制本地覆盖远程分支     1234567    git push origin *** --force      ```  2. 放弃本地分支，远程分支强制覆盖本地  git fetch --all    //只是下载代码到本地，不进行合并操作git reset --hard origin/分支名如master    //把HEAD指向最新下载的版本3. 删除远程分支和本地分支 git br">
+    <meta name="description" content="记录一些常用的git命令，目前理解还不是很深，有点进一步查阅资料">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git常用命令">
 <meta property="og:url" content="http://11wy11.github.io/2019/03/13/git-command/index.html">
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
-<meta property="og:description" content="强制本地覆盖远程分支     1234567    git push origin *** --force      ```  2. 放弃本地分支，远程分支强制覆盖本地  git fetch --all    //只是下载代码到本地，不进行合并操作git reset --hard origin/分支名如master    //把HEAD指向最新下载的版本3. 删除远程分支和本地分支 git br">
+<meta property="og:description" content="记录一些常用的git命令，目前理解还不是很深，有点进一步查阅资料">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-14T02:18:56.852Z">
+<meta property="og:updated_time" content="2019-03-24T01:30:11.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git常用命令">
-<meta name="twitter:description" content="强制本地覆盖远程分支     1234567    git push origin *** --force      ```  2. 放弃本地分支，远程分支强制覆盖本地  git fetch --all    //只是下载代码到本地，不进行合并操作git reset --hard origin/分支名如master    //把HEAD指向最新下载的版本3. 删除远程分支和本地分支 git br">
+<meta name="twitter:description" content="记录一些常用的git命令，目前理解还不是很深，有点进一步查阅资料">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -185,13 +185,14 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <ol>
+            <p>记录一些常用的git命令，目前理解还不是很深，有点进一步查阅资料<br><a id="more"></a></p>
+<ol>
 <li><p>强制本地覆盖远程分支   </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    git push origin *** --force  </span><br><span class="line">    ```  </span><br><span class="line">2. 放弃本地分支，远程分支强制覆盖本地</span><br><span class="line">  </span><br><span class="line">git fetch --all    //只是下载代码到本地，不进行合并操作</span><br><span class="line">git reset --hard origin/分支名如master    //把HEAD指向最新下载的版本</span><br><span class="line">3. 删除远程分支和本地分支</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    git push origin *** --force  </span><br><span class="line">    ```  </span><br><span class="line">2. 放弃本地分支，远程分支强制覆盖本地</span><br><span class="line">  </span><br><span class="line">git fetch --all    //只是下载代码到本地，不进行合并操作</span><br><span class="line">git reset --hard origin/分支名如master    //把HEAD指向最新下载的版本</span><br><span class="line">3. 删除远程分支和本地分支</span><br></pre></td></tr></table></figure>
 <p>git branch -a//查看分支<br>git push origin –delete <strong><em>// 删除远程分支<br>git branch -d </em></strong>//删除本地分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">4. git diff</span><br><span class="line">    检查文件更改内容</span><br><span class="line">5. 撤销未提交的修改git checkout</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">4. git diff</span><br><span class="line">    检查文件更改内容</span><br><span class="line">5. 撤销未提交的修改git checkout</span><br></pre></td></tr></table></figure>
 <p>  git checkout app/src/main/../MainActivity </p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6、git reset</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6、git reset</span><br></pre></td></tr></table></figure>
 <p>git log #找到需要退回的commit版本号，可以只复制前几位<br>git reset &lt;刚查找到的版本号&gt;<br><code>`</code><br>7、git log</p>
 </li>
 </ol>
@@ -203,7 +204,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-14T02:18:56.852Z" itemprop="dateUpdated">2019-03-14 10:18:56</time>
+    最后更新时间：<time datetime="2019-03-24T01:30:11.348Z" itemprop="dateUpdated">2019-03-24 09:30:11</time>
 </span><br>
 
 
@@ -245,7 +246,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/13/git-command/&title=《git常用命令》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/13/git-command/&title=《git常用命令》 — WeiYuan's Blog&source=记录一些常用的git命令，目前理解还不是很深，有点进一步查阅资料" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -402,7 +403,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/13/git-command/&title=《git常用命令》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/13/git-command/&title=《git常用命令》 — WeiYuan's Blog&source=记录一些常用的git命令，目前理解还不是很深，有点进一步查阅资料" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
 <meta property="og:description" content="在VS2013中安装InstallShield打包程序，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-24T01:19:41.121Z">
+<meta property="og:updated_time" content="2019-03-24T02:10:28.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VS2013打包C#项目">
 <meta name="twitter:description" content="在VS2013中安装InstallShield打包程序，">
@@ -221,8 +221,13 @@
 <h1 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h1><p>生成解决方案后会在安装程序集下面生成一个名为Setup（当时添加安装部署项目的项目名）的文件夹，安装文件就保存在下面的目录中。Install在生成安装文件后会有Setup.exe和.msi两中安装文件，exe文件是安装的引导文件，核心文件是msi文件，里面封存了程序的组件。在里面找到Setup.exe文件及msi文件即可进行安装。</p>
 <p>点击Setup.exe，进行安装，如果想卸载，点击Uninstall卸载</p>
 <h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ol>
-<li>有时打包之后，项目更新之后，重新再生成解决方案来打包,遇到exe文件找不到时<br>清理，重新生成解决方案</li>
-<li>重新打包遇到DVD5无法覆盖<br>原因是通过打开了相关文件夹，关闭文件浏览即可</li>
+<li>有时打包之后，项目更新之后，重新再生成解决方案来打包,遇到exe文件找不到时<br>【解决方案】<ul>
+<li>清理，重新生成解决方案</li>
+<li>如果还是不行，运行一次，然后点击生成解决方案</li>
+</ul>
+</li>
+<li>重新打包遇到DVD5无法覆盖<br>【解决方案】原因是通过打开了相关文件夹，关闭文件浏览即可</li>
+<li>设置了应用的ico图标后，生成解决方案提示 error : -3204: Cannot extract icon with index 0 from file…<br>【解决方案】把图标添加进工程。</li>
 </ol>
 </li>
 </ul>
@@ -235,7 +240,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-24T01:19:41.121Z" itemprop="dateUpdated">2019-03-24 09:19:41</time>
+    最后更新时间：<time datetime="2019-03-24T02:10:28.856Z" itemprop="dateUpdated">2019-03-24 10:10:28</time>
 </span><br>
 
 
