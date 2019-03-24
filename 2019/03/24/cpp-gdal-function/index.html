@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>GDAL相关类及函数 | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="GDAL">
+    <meta name="description" content="主要介绍GDAL基本类及OGR相关类">
+<meta name="keywords" content="GDAL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GDAL相关类及函数">
+<meta property="og:url" content="http://11wy11.github.io/2019/03/24/cpp-gdal-function/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="主要介绍GDAL基本类及OGR相关类">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/24/cpp-gdal-function/cpp-gdal/pic2.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/24/cpp-gdal-function/cpp-gdal/pic1.png">
+<meta property="og:updated_time" content="2019-03-24T06:38:53.288Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GDAL相关类及函数">
+<meta name="twitter:description" content="主要介绍GDAL基本类及OGR相关类">
+<meta name="twitter:image" content="http://11wy11.github.io/2019/03/24/cpp-gdal-function/cpp-gdal/pic2.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">GDAL相关类及函数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">GDAL相关类及函数</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-24T06:27:22.000Z" itemprop="datePublished" class="page-time">
+  2019-03-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GDAL-基本使用函数"><span class="post-toc-number">1.</span> <span class="post-toc-text">GDAL 基本使用函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CPLSetConfigOption"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">CPLSetConfigOption</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDALAllRegister"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">GDALAllRegister</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDALOpenEx"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">GDALOpenEx</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDALDataSet"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">GDALDataSet</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OGR类或函数"><span class="post-toc-number">2.</span> <span class="post-toc-text">OGR类或函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OGRLayer"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">OGRLayer</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OGRFeature"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">OGRFeature</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OGRGeometry"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">OGRGeometry</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OGRPoint"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">OGRPoint</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OGRLineString"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">OGRLineString</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OGRMultiLineString"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">OGRMultiLineString</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OGRPolygon"><span class="post-toc-number">2.3.4.</span> <span class="post-toc-text">OGRPolygon</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OGRFeatureDefn"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">OGRFeatureDefn</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OGRFieldDefn"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">OGRFieldDefn</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OGREnvelope"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">OGREnvelope</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OGRwkbGeometryType"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">OGRwkbGeometryType</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料："><span class="post-toc-number">3.</span> <span class="post-toc-text">参考资料：</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-cpp-gdal-function" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">GDAL相关类及函数</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-24 14:27:22" datetime="2019-03-24T06:27:22.000Z" itemprop="datePublished">2019-03-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>主要介绍GDAL基本类及OGR相关类<br><a id="more"></a></p>
+<h1 id="GDAL-基本使用函数"><a href="#GDAL-基本使用函数" class="headerlink" title="GDAL 基本使用函数"></a>GDAL 基本使用函数</h1><h2 id="CPLSetConfigOption"><a href="#CPLSetConfigOption" class="headerlink" title="CPLSetConfigOption"></a>CPLSetConfigOption</h2><p>void CPLSetConfigOption    （    const char <em>     pszKey，<br>const char </em>     pszValue<br>）<br>为GDAL / OGR使用设置配置选项。</p>
+<p>这些选项被定义为（键，值）对。稍后可以使用CPLGetConfigOption（）方法获取与密钥对应的值。</p>
+<p>此机制类似于环境变量，但使用CPLSetConfigOption（）设置的选项会覆盖CPLGetConfigOption（）的观点，即环境中定义的值。</p>
+<p>如果使用相同的密钥多次调用CPLSetConfigOption（），则将使用上次调用期间提供的值。</p>
+<p>也可以使用带有’-config KEY VALUE’的大多数GDAL实用程序的命令行传递选项。例如，ogrinfo -config CPL_DEBUG ON~ / data / test / point.shp</p>
+<p>此函数也可用于通过传递NULL作为值来清除设置（注意：传递NULL不会取消设置现有环境变量;它将取消设置先前由CPLSetConfigOption（）设置的值）。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CPLSetConfigOption(&quot;MDB_DRIVER_TEMPLATE&quot;, &quot;DRIVER=Microsoft Access Driver (*.mdb, *.accdb);DBQ=%s&quot;);</span><br><span class="line">CPLSetConfigOption(&quot;PGEO_DRIVER_TEMPLATE&quot;, &quot;DRIVER=Microsoft Access Driver (*.mdb, *.accdb);DBQ=%s&quot;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="GDALAllRegister"><a href="#GDALAllRegister" class="headerlink" title="GDALAllRegister"></a>GDALAllRegister</h2><p>   最初需要注册所需的所有格式驱动程序。这通常通过调用GDALAllRegister（）来完成，该寄存器注册GDAL / OGR中内置的所有格式驱动程序。<br>    原型：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void GDALAllRegister(void)	</span><br><span class="line">//Register all known configured GDAL drivers.</span><br><span class="line">//注册所有已知配置的GDAL驱动程序。</span><br><span class="line"> //This function will drive any of the following that are configured into GDAL. See raster list and vector full list       </span><br><span class="line">//此功能将驱动配置为GDAL的以下任何内容。请参阅栅格列表和矢量完整列表    </span><br><span class="line">//This function should generally be called once at the beginning of the application.</span><br><span class="line">//通常应在应用程序开始时调用此函数一次。 </span><br><span class="line">  </span><br><span class="line">//使用</span><br><span class="line">#include“ ogrsf_frmts.h ”</span><br><span class="line">    int main（）</span><br><span class="line">    &#123;</span><br><span class="line">        GDALAllRegister（）;</span><br></pre></td></tr></table></figure></p>
+<h2 id="GDALOpenEx"><a href="#GDALOpenEx" class="headerlink" title="GDALOpenEx"></a>GDALOpenEx</h2><p>以GDALDataset打开栅格或矢量文件。</p>
+<p>此函数将尝试依次调用每个已注册的GDALDriver的Open方法来打开传递的文件或虚拟数据集名称。第一次成功打开将导致返回的数据集。如果所有驱动程序都失败，则返回NULL并发出错误。</p>
+<p>几条建议：</p>
+<ul>
+<li>如果打开具有GDAL_OF_UPDATE访问权限的数据集对象，则不建议在同一基础文件上打开新数据集。</li>
+<li>返回的数据集一次只能由一个线程访问。如果要从不同的线程中使用它，则必须添加所有必需的代码（互斥锁等）以避免并发使用该对象。（某些驱动程序，如GeoTIFF，维护每次读取新块时更新的内部状态变量，从而防止并发使用。）</li>
+</ul>
+<p>原型：<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GDALDatasetH GDALOpenEx	（	const char * 	pszFilename，</span><br><span class="line">unsigned int 	nOpenFlags，</span><br><span class="line">const char * const * 	papszAllowedDrivers，</span><br><span class="line">const char * const * 	papszOpenOptions，</span><br><span class="line">const char * const * 	papszSiblingFiles </span><br><span class="line">）</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>参数  </p>
+<ul>
+<li><p><strong>pszFilename</strong>    要访问的文件的名称。在外来驱动程序的情况下，这可能不是指物理文件，而是包含驱动程序有关如何访问数据集的信息。它应该是UTF-8编码。</p>
+</li>
+<li><p><strong>nOpenFlags</strong> GDAL_OF_标志的组合，可以通过逻辑或运算符组合。  </p>
+<ul>
+<li>驱动程序类型：用于光栅驱动程序的GDAL_OF_RASTER，用于矢量驱动程序的GDAL_OF_VECTOR，用于地理网络模型驱动程序的GDAL_OF_GNM。如果未指定任何值，则隐含所有类型。</li>
+<li>访问模式：GDAL_OF_READONLY（独占）或GDAL_OF_UPDATE。</li>
+<li>共享模式：GDAL_OF_SHARED。如果设置，它允许与已设置GDAL_OF_SHARED的其他调用者共享数据集的GDALDataset句柄。特别是，GDALOpenEx（）将首先查询其当前打开和共享GDALDataset的列表，如果一个GetDescription（）名称与传递给GDALOpenEx（）的pszFilename完全匹配，则将引用并返回它，如果GDALOpenEx（）是从同一个线程调用。</li>
+<li>详细错误：GDAL_OF_VERBOSE_ERROR。如果设置，则尝试打开文件失败将导致报告错误消息。</li>
+</ul>
+</li>
+<li><p><strong>papszAllowedDrivers</strong>    NULL考虑所有候选驱动程序，或NULL终止的字符串列表，其中包含必须考虑的驱动程序短名称。</p>
+</li>
+<li><p><strong>papszOpenOptions</strong>    NULL或NULL终止的字符串列表，其中打开选项传递给候选驱动程序。所有驱动程序OVERVIEW_LEVEL = level都存在一个选项，用于选择数据集的特定概述级别。级别索引从0开始。级别编号可以以“仅”为后缀，以指定只有此概述级别必须可见，而不是子级别。默认情况下会验证打开选项，如果无法识别选项，则会发出警告。在某些情况下，可能不需要（例如，当不知道哪个驱动程序将打开文件时），因此可以将特殊打开选项VALIDATE_OPEN_OPTIONS设置为NO以避免此类警告。或者，从GDAL 2.1开始，选项名称前面可以加上@字符，表示如果驱动程序没有声明此选项，它可能不会引发警告。</p>
+</li>
+<li><p><strong>papszSiblingFiles</strong>    NULL或NULL终止的字符串列表，这些字符串是主文件名的辅助文件名。如果传递NULL，则将完成对文件系统的探测。</p>
+</li>
+</ul>
+</li>
+<li><p>返回<br>一个GDALDatasetH句柄或失败时为NULL。对于C ++应用程序，此句柄可以转换为GDALDataset *。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GDALDataset       *poDS;</span><br><span class="line">poDS = (GDALDataset*) GDALOpenEx( &quot;point.shp&quot;, GDAL_OF_VECTOR, NULL, NULL, NULL );</span><br><span class="line">if( poDS == NULL )</span><br><span class="line">&#123;</span><br><span class="line">    printf( &quot;Open failed.\n&quot; );</span><br><span class="line">    exit( 1 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>使用实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GDALDataset       *poDS;</span><br><span class="line">poDS = (GDALDataset*) GDALOpenEx( &quot;point.shp&quot;, GDAL_OF_VECTOR, NULL, NULL, NULL );</span><br><span class="line">if( poDS == NULL )</span><br><span class="line">&#123;</span><br><span class="line">    printf( &quot;Open failed.\n&quot; );</span><br><span class="line">    exit( 1 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="GDALDataSet"><a href="#GDALDataSet" class="headerlink" title="GDALDataSet"></a>GDALDataSet</h2><p>帮助文档<a href="https://www.gdal.org/classGDALDataset.html" target="_blank" rel="noopener">https://www.gdal.org/classGDALDataset.html</a><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="cpp-gdal/pic2.png" alt="类图" title>
+                </div>
+                <div class="image-caption">类图</div>
+            </figure><br>部分函数介绍</p>
+<ul>
+<li><p>GetLayerByName<br>  Fetch a layer by name.</p>
+<p>  The returned layer remains owned by the GDALDataset and should not be deleted by the application.</p>
+<p>  This method is the same as the C function GDALDatasetGetLayerByName() and the deprecated OGR_DS_GetLayerByName().</p>
+<p>  In GDAL 1.X, this method used to be in the OGRDataSource class.</p>
+<p>  Parameters<br>  pszName    the layer name of the layer to fetch.<br>  Returns<br>  the layer, or NULL if Layer is not found or an error occurs.</p>
+</li>
+<li>GetLayerCount</li>
+</ul>
+<h1 id="OGR类或函数"><a href="#OGR类或函数" class="headerlink" title="OGR类或函数"></a>OGR类或函数</h1><h2 id="OGRLayer"><a href="#OGRLayer" class="headerlink" title="OGRLayer"></a>OGRLayer</h2><p>帮助文档<a href="https://www.gdal.org/classOGRLayer.html" target="_blank" rel="noopener">https://www.gdal.org/classOGRLayer.html</a><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="cpp-gdal/pic1.png" alt="类图" title>
+                </div>
+                <div class="image-caption">类图</div>
+            </figure>  </p>
+<ul>
+<li>GetLayerDefn</li>
+<li>GetExtent</li>
+<li>ResetReading</li>
+<li>GetNextFeature</li>
+<li>GetName                                                <h2 id="OGRFeature"><a href="#OGRFeature" class="headerlink" title="OGRFeature"></a>OGRFeature</h2> 包括geometry和attributes</li>
+<li>GetDefRef</li>
+<li>GetGeometryRef<br> 返回指向内部要素几何的指针。不应修改此对象</li>
+<li>GetFieldAsString 将字段值作为字符串获取</li>
+<li>OGRFeature::DestroyFeature<br><code>void OGRFeature :: DestroyFeature    （    OGRFeature *     poFeature    ）</code><br> poFeatur要删除的Feature。<h2 id="OGRGeometry"><a href="#OGRGeometry" class="headerlink" title="OGRGeometry"></a>OGRGeometry</h2>所有几何类的抽象基类。</li>
+</ul>
+<p>一些空间分析方法要求在GEOS库上构建OGR才能正常工作。描述几何之间空间关系的方法的精确含义在SFCOM或其他简单特征接口规范中描述，例如“OpenGIS®地理信息实现规范 - 简单特征访问 - 第1部分：通用体系结构”：&lt;a href =“ <a href="http://www.opengeospatial.org/standards/sfa" target="_blank" rel="noopener">http://www.opengeospatial.org/standards/sfa</a> “&gt; OGC 06-103r4</p>
+<p>在GDAL 2.0中，类的层次结构已经扩展为（工作草案）ISO SQL / MM第3部分（ISO / IEC 13249-3）曲线几何：CIRCULARSTRING（OGRCircularString），COMPOUNDCURVE（OGRCompoundCurve），CURVEPOLYGON（OGRCurvePolygon），MULTICURVE（OGRMultiCurve）和MULTISURFACE（OGRMultiSurface）。</p>
+<h3 id="OGRPoint"><a href="#OGRPoint" class="headerlink" title="OGRPoint"></a>OGRPoint</h3><h3 id="OGRLineString"><a href="#OGRLineString" class="headerlink" title="OGRLineString"></a>OGRLineString</h3><p>多顶点线的具体表示。继承OGRSimpleCurve</p>
+<ul>
+<li>getPoints<br><code>void OGRSimpleCurve::getPoints    (    OGRRawPoint *     paoPointsOut,double *     padfZOut = nullptr )</code></li>
+<li>getPoint<br><code>void OGRSimpleCurve::getPoint    (    int     i,OGRPoint *     poPoint )</code><br>获取行字符串中的一个点。<br>i:要获取的顶点，从0到getNumPoints（） - 1<br>poPoint    用获取的点初始化的点。</li>
+<li>getNumPoints<br>获得线上点的个数<h3 id="OGRMultiLineString"><a href="#OGRMultiLineString" class="headerlink" title="OGRMultiLineString"></a>OGRMultiLineString</h3></li>
+<li>getNumGeometries<br>获得几何要素格个数<h3 id="OGRPolygon"><a href="#OGRPolygon" class="headerlink" title="OGRPolygon"></a>OGRPolygon</h3></li>
+<li>getExteriorRing<br> 获取对外部多边形环的引用   </li>
+<li>getNumInteriorRings<br>获取指示内部环的数量</li>
+<li>getInteriorRing<br>获取指示内部环的引用<h2 id="OGRFeatureDefn"><a href="#OGRFeatureDefn" class="headerlink" title="OGRFeatureDefn"></a>OGRFeatureDefn</h2> 要素类或要素图层的定义。<ul>
+<li>GetFieldCount 获取字段数</li>
+<li>GetFieldDefn 获得字段 参数：字段索引<h2 id="OGRFieldDefn"><a href="#OGRFieldDefn" class="headerlink" title="OGRFieldDefn"></a>OGRFieldDefn</h2></li>
+<li>GetNameRef 字段名称</li>
+</ul>
+</li>
+</ul>
+<h2 id="OGREnvelope"><a href="#OGREnvelope" class="headerlink" title="OGREnvelope"></a>OGREnvelope</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">class CPL_DLL OGREnvelope</span><br><span class="line">&#123;</span><br><span class="line">  public:</span><br><span class="line">        OGREnvelope() : MinX(std::numeric_limits&lt;double&gt;::infinity()),</span><br><span class="line">                        MaxX(-std::numeric_limits&lt;double&gt;::infinity()),</span><br><span class="line">                        MinY(std::numeric_limits&lt;double&gt;::infinity()),</span><br><span class="line">                        MaxY(-std::numeric_limits&lt;double&gt;::infinity())</span><br><span class="line">        &#123;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        OGREnvelope(const OGREnvelope&amp; oOther) :</span><br><span class="line">            MinX(oOther.MinX),MaxX(oOther.MaxX), MinY(oOther.MinY), MaxY(oOther.MaxY)</span><br><span class="line">        &#123;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    double      MinX;</span><br><span class="line">    double      MaxX;</span><br><span class="line">    double      MinY;</span><br><span class="line">    double      MaxY;</span><br><span class="line"></span><br><span class="line">#ifdef HAVE_GCC_DIAGNOSTIC_PUSH</span><br><span class="line">#pragma GCC diagnostic push</span><br><span class="line">#pragma GCC diagnostic ignored &quot;-Wfloat-equal&quot;</span><br><span class="line">#endif</span><br><span class="line">    int  IsInit() const &#123; return MinX != std::numeric_limits&lt;double&gt;::infinity(); &#125;</span><br><span class="line"></span><br><span class="line">#ifdef HAVE_GCC_DIAGNOSTIC_PUSH</span><br><span class="line">#pragma GCC diagnostic pop</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    void Merge( OGREnvelope const&amp; sOther ) &#123;</span><br><span class="line">        MinX = MIN(MinX,sOther.MinX);</span><br><span class="line">        MaxX = MAX(MaxX,sOther.MaxX);</span><br><span class="line">        MinY = MIN(MinY,sOther.MinY);</span><br><span class="line">        MaxY = MAX(MaxY,sOther.MaxY);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void Merge( double dfX, double dfY ) &#123;</span><br><span class="line">        MinX = MIN(MinX,dfX);</span><br><span class="line">        MaxX = MAX(MaxX,dfX);</span><br><span class="line">        MinY = MIN(MinY,dfY);</span><br><span class="line">        MaxY = MAX(MaxY,dfY);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void Intersect( OGREnvelope const&amp; sOther ) &#123;</span><br><span class="line">        if(Intersects(sOther))</span><br><span class="line">        &#123;</span><br><span class="line">            if( IsInit() )</span><br><span class="line">            &#123;</span><br><span class="line">                MinX = MAX(MinX,sOther.MinX);</span><br><span class="line">                MaxX = MIN(MaxX,sOther.MaxX);</span><br><span class="line">                MinY = MAX(MinY,sOther.MinY);</span><br><span class="line">                MaxY = MIN(MaxY,sOther.MaxY);</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                MinX = sOther.MinX;</span><br><span class="line">                MaxX = sOther.MaxX;</span><br><span class="line">                MinY = sOther.MinY;</span><br><span class="line">                MaxY = sOther.MaxY;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            *this = OGREnvelope();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    int Intersects(OGREnvelope const&amp; other) const</span><br><span class="line">    &#123;</span><br><span class="line">        return MinX &lt;= other.MaxX &amp;&amp; MaxX &gt;= other.MinX &amp;&amp;</span><br><span class="line">               MinY &lt;= other.MaxY &amp;&amp; MaxY &gt;= other.MinY;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    int Contains(OGREnvelope const&amp; other) const</span><br><span class="line">    &#123;</span><br><span class="line">        return MinX &lt;= other.MinX &amp;&amp; MinY &lt;= other.MinY &amp;&amp;</span><br><span class="line">               MaxX &gt;= other.MaxX &amp;&amp; MaxY &gt;= other.MaxY;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="OGRwkbGeometryType"><a href="#OGRwkbGeometryType" class="headerlink" title="OGRwkbGeometryType"></a>OGRwkbGeometryType</h2><p>几何类型代码。<br>在下面这类中实现：<br> OGRMultiLineString, OGRMultiCurve, OGRMultiPoint, OGRTriangulatedSurface, OGRPolyhedralSurface, OGRMultiPolygon, OGRMultiSurface, OGRGeometryCollection, OGRTriangle, OGRPolygon, OGRCurvePolygon, OGRCompoundCurve, OGRCircularString, OGRLineString, and OGRPoint.  </p>
+<p> 常亮值如：wkbPoint，wkbMultiPoint，wkbLineString,wkbMultiLineString，wkbPolygon，wkbCurvePolygon，wkbMultiPolygon</p>
+<h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1><ol>
+<li>百度百科：<a href="https://baike.baidu.com/item/GDAL/4004525?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/GDAL/4004525?fr=aladdin</a></li>
+<li>官方网站：<a href="https://www.gdal.org/" target="_blank" rel="noopener">https://www.gdal.org/</a></li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-24T06:38:53.288Z" itemprop="dateUpdated">2019-03-24 14:38:53</time>
+</span><br>
+
+
+        
+        <a href="/2019/03/24/cpp-gdal-function/" target="_blank" rel="external">http://11wy11.github.io/2019/03/24/cpp-gdal-function/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GDAL/">GDAL</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/24/cpp-gdal-function/&title=《GDAL相关类及函数》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/24/cpp-gdal-function/&title=《GDAL相关类及函数》 — WeiYuan's Blog&source=主要介绍GDAL基本类及OGR相关类" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/24/cpp-gdal-function/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GDAL相关类及函数》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/24/cpp-gdal-function/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/24/cpp-gdal-function/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/22/winform-release/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">VS2013打包C#项目</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/24/cpp-gdal-function/&title=《GDAL相关类及函数》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/24/cpp-gdal-function/&title=《GDAL相关类及函数》 — WeiYuan's Blog&source=主要介绍GDAL基本类及OGR相关类" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/24/cpp-gdal-function/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GDAL相关类及函数》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/24/cpp-gdal-function/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/24/cpp-gdal-function/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aQW7EIBAEwP3/p51rDjHbDdkohuJkee2YItJohuH1isf1bYzv3P06/svjO782MDAwHsu4huPumXbqK39//C4GBsY5jHEovLteD77Ju0mYxsDAwMivk+CYTx0DAwPjE4y5kjjhYWBgYCRF5nrA/Re1OAYGxgMZeYj8++uP9DcwMDAexbjKMYYlQXN9Dj98BQMDY2tGHuCSlHG92dke0cDAwDiB0YbR8f18Qm0i+OYZDAyMYxh5Mpdj8ufzBPRNwMXAwNiOkTcy24K2bUC2aeLtwmFgYGzNyD+WbKjNtTbnlhUDA+MERv75/AMrBWpOqktZDAyMhzPy8DeXtLVHzfJGAgYGxt6M9WZkMtF2866GYWBgbM1ot7fmfs2fz5sHb3YNMTAwNmWsTH3uk2378zU3MDAwHs5ok7k2vcsbnCvNBgwMjNMYSdOxZc8dCFtqCWBgYBzDyGG/lbPNzQ0DA2NvRlKarofUZGlW7mBgYJzAmCsyV5LINpQn1xgYGCcw2lQsn24euJP4efsWBgbGYYxxyGuPkSWNyfz5IuBiYGBswbjK0YbIdqJJKK//DxgYGA9nrBwRmys42wVqi2oMDIxdGXMbXm3yl7+bp6dFTwMDA2MLxlyR2bY5P5c4YmBgYLRb/3N5aLvBtxRwMTAwDmDMhc65GjpZMgwMjBMY7aGuthxtG5/1cmBgYGzNaENeXr4WJWg8xaVGJgYGxvMYX1Rmapg2yI8zAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
