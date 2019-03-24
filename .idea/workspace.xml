@@ -4,115 +4,9 @@
     <list default="true" id="704667ab-c375-4856-9b06-343fa8e82a32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scaffolds/post.md" beforeDir="false" afterPath="$PROJECT_DIR$/scaffolds/post.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Vue-global-component.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Vue-global-component.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/ai-first-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ai-first-note.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/arcengine-second.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/arcengine-second.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/create-blog-process.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/create-blog-process.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/csdn-markdown-grammar.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/csdn-markdown-grammar.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/git-command.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/git-command.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/krpano-forth-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/krpano-forth-note.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/krpano-learn-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/krpano-learn-note.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/krpano-second-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/krpano-second-note.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/krpano-third-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/krpano-third-note.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/markdown-first-skill.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/markdown-first-skill.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/oracle-st-geometry.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/oracle-st-geometry.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/qt-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/qt-note.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/tools.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/tools.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/_posts/winform-release.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/winform-release.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/_config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/after-footer.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/archive.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/cnzz.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/footer.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/google-analytics.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/head.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/header.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/index-item.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/loading.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/mathjax.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/menu.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/post.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/post/category.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/post/comment.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/post/date.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/post/duoshuo.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/post/head-meta.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/post/nav.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/post/reward.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/post/share.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/post/tag.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/post/title.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/script.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/_partial/search.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/archive.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/category.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/index.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/layout.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/page.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/post.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/tag.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/layout/tags.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/screenshots/hexo-theme-archive.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/screenshots/hexo-theme-pad.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/screenshots/hexo-theme-pc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/screenshots/hexo-theme-phone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/screenshots/hexo-theme-search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/archives.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/article.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/fontawesome.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/gotop.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/header.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/highlight.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/layout.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/loading.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/postlist.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/reward.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/roboto.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/search.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/share.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/tags.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/variable.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/_partial/waves.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/fontawesome/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/fontawesome/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/fontawesome/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/fontawesome/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/fontawesome/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/fontawesome/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Bold.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Bold.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Light.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Light.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Light.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Medium.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Medium.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Medium.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Thin.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Thin.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Thin.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/fonts/roboto/Roboto-Thin.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/css/style.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/img/alipay.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/img/brand.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/img/cc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/img/img-err.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/img/img-loading.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/img/logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/img/wechat.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/indigo1/source/js/search.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -216,40 +110,40 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="ejs" value="7" />
+          <entry key="ejs" value="9" />
           <entry key="html" value="3" />
           <entry key="jpg" value="1" />
           <entry key="js" value="2" />
-          <entry key="json" value="1" />
+          <entry key="json" value="4" />
           <entry key="less" value="9" />
           <entry key="md" value="48" />
-          <entry key="yml" value="7" />
+          <entry key="yml" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="EJS" value="7" />
+          <entry key="EJS" value="9" />
           <entry key="HTML" value="3" />
           <entry key="Image" value="1" />
-          <entry key="JSON" value="1" />
+          <entry key="JSON" value="4" />
           <entry key="JavaScript" value="2" />
           <entry key="Less" value="9" />
           <entry key="Markdown" value="48" />
-          <entry key="YAML" value="7" />
+          <entry key="YAML" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="less" value="50" />
-          <entry key="md" value="10283" />
-          <entry key="yml" value="164" />
+          <entry key="md" value="10365" />
+          <entry key="yml" value="215" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Less" value="50" />
-          <entry key="Markdown" value="10283" />
-          <entry key="YAML" value="164" />
+          <entry key="Markdown" value="10365" />
+          <entry key="YAML" value="215" />
         </counts>
       </usages-collector>
     </session>
@@ -280,12 +174,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/winform-release.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="25">
-                <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+              <first_editor relative-caret-position="301">
+                <caret line="75" column="21" lean-forward="true" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
               </first_editor>
               <second_editor />
             </state>
@@ -293,25 +187,52 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/markdown-first-skill.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="175">
-                <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/themes/hexo-theme-icarus/_config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2659">
+              <caret line="111" column="47" selection-start-line="111" selection-start-column="47" selection-end-line="111" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1641">
+              <caret line="115" selection-start-line="115" selection-start-column="1" selection-end-line="115" selection-end-column="26" />
+              <folding>
+                <element signature="e#2123#2416#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/oracle-st-geometry.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="200">
-                <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/themes/indigo/_config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="135" column="29" lean-forward="true" selection-start-line="135" selection-start-column="29" selection-end-line="135" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/indigo/layout/_partial/plugins/page-visit.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="1" column="60" lean-forward="true" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/indigo/layout/_partial/plugins/site-visit.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -340,40 +261,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scaffolds/page.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/krpano-third-note.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="150">
-                <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scaffolds/post.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="150">
-                <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -382,6 +269,8 @@
       <find>&lt;username&gt;</find>
       <find>skip_render</find>
       <find>hight</find>
+      <find>visit_counter</find>
+      <find>leancloud</find>
     </findStrings>
     <replaceStrings>
       <replace>&amp;lt;username&amp;gt;</replace>
@@ -402,14 +291,11 @@
         <option value="$PROJECT_DIR$/themes/indigo/source/css/_partial/header.less" />
         <option value="$PROJECT_DIR$/source/categories/index.md" />
         <option value="$PROJECT_DIR$/source/tags/index.md" />
-        <option value="$PROJECT_DIR$/themes/indigo/_config.yml" />
         <option value="$PROJECT_DIR$/themes/indigo/README.md" />
         <option value="$PROJECT_DIR$/source/_posts/sqlite-first-note.md" />
         <option value="$PROJECT_DIR$/source/_posts/cpp-function.md" />
         <option value="$PROJECT_DIR$/source/_posts/cpp-gdal.md" />
         <option value="$PROJECT_DIR$/source/_posts/arcengine-first.md" />
-        <option value="$PROJECT_DIR$/source/_posts/winform-release.md" />
-        <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/source/_posts/ai-first-note.md" />
         <option value="$PROJECT_DIR$/source/_posts/ai-second-note.md" />
         <option value="$PROJECT_DIR$/source/_posts/arcengine-second.md" />
@@ -426,6 +312,10 @@
         <option value="$PROJECT_DIR$/source/_posts/qt-note.md" />
         <option value="$PROJECT_DIR$/source/_posts/tools.md" />
         <option value="$PROJECT_DIR$/source/_posts/Vue-global-component.md" />
+        <option value="$PROJECT_DIR$/themes/hexo-theme-icarus/_config.yml" />
+        <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/themes/indigo/_config.yml" />
+        <option value="$PROJECT_DIR$/source/_posts/winform-release.md" />
       </list>
     </option>
   </component>
@@ -473,19 +363,7 @@
             <path>
               <item name="11wy11.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="11wy11.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="_posts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="11wy11.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="11wy11.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="themes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="11wy11.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="11wy11.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="hexo-theme-icarus" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -557,12 +435,12 @@
       <workItem from="1553240836188" duration="597000" />
       <workItem from="1553243017900" duration="602000" />
       <workItem from="1553262403597" duration="156000" />
-      <workItem from="1553318283315" duration="5478000" />
+      <workItem from="1553318283315" duration="9225000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97113000" />
+    <option name="totallyTimeSpent" value="100860000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -575,9 +453,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -589,7 +466,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32899022" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.33116177" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.33116177" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -603,25 +480,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/themes/indigo/layout/_partial/post/head-meta.ejs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/indigo/languages/ja.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/indigo/source/css/_partial/tags.less">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/indigo/layout/tags.ejs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/indigo/layout/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -697,13 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/indigo/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3400">
-          <caret line="136" column="12" selection-start-line="136" selection-start-column="10" selection-end-line="136" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/tags/index.html" />
     <entry file="file://$PROJECT_DIR$/source/categories/index.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -748,13 +599,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/categories/C/index.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/ai-first-note.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -909,7 +753,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="150">
-            <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <caret line="6" selection-start-line="6" selection-end-line="6" />
           </first_editor>
           <second_editor />
         </state>
@@ -980,13 +824,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/themes/hexo-theme-icarus/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/indigo/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="51" lean-forward="true" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/hexo-theme-icarus/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2659">
+          <caret line="111" column="47" selection-start-line="111" selection-start-column="47" selection-end-line="111" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/indigo/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="135" column="29" lean-forward="true" selection-start-line="135" selection-start-column="29" selection-end-line="135" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/indigo/layout/_partial/plugins/page-visit.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="60" lean-forward="true" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/indigo/layout/_partial/plugins/site-visit.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/winform-release.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="25">
-            <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <first_editor relative-caret-position="301">
+            <caret line="75" column="21" lean-forward="true" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1641">
+          <caret line="115" selection-start-line="115" selection-start-column="1" selection-end-line="115" selection-end-column="26" />
+          <folding>
+            <element signature="e#2123#2416#0" />
+          </folding>
         </state>
       </provider>
     </entry>
