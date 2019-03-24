@@ -1,5 +1,5 @@
 ---
-title: krpano快速入门教程（一）
+title: krpano快速入门教程（一）之构建panos应用
 date: 2019-03-14 15:54:54
 tags: krpano
 categories: 全景
