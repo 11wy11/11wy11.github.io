@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="704667ab-c375-4856-9b06-343fa8e82a32" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/arcengine-second.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/arcengine-second.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/winform-release.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/winform-release.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -132,14 +131,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="less" value="50" />
-          <entry key="md" value="9771" />
+          <entry key="md" value="9865" />
           <entry key="yml" value="147" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Less" value="50" />
-          <entry key="Markdown" value="9771" />
+          <entry key="Markdown" value="9865" />
           <entry key="YAML" value="147" />
         </counts>
       </usages-collector>
@@ -226,8 +225,8 @@
         <entry file="file://$PROJECT_DIR$/source/_posts/winform-release.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="351">
-                <caret line="68" column="32" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
+              <first_editor relative-caret-position="451">
+                <caret line="72" column="6" selection-start-line="72" selection-start-column="6" selection-end-line="72" selection-end-column="6" />
               </first_editor>
               <second_editor />
             </state>
@@ -442,12 +441,12 @@
       <workItem from="1553240836188" duration="597000" />
       <workItem from="1553243017900" duration="602000" />
       <workItem from="1553262403597" duration="156000" />
-      <workItem from="1553318283315" duration="2891000" />
+      <workItem from="1553318283315" duration="4087000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94526000" />
+    <option name="totallyTimeSpent" value="95722000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -462,7 +461,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -474,7 +473,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32899022" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.33116177" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.33116177" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -842,8 +841,8 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/winform-release.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="351">
-            <caret line="68" column="32" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
+          <first_editor relative-caret-position="451">
+            <caret line="72" column="6" selection-start-line="72" selection-start-column="6" selection-end-line="72" selection-end-column="6" />
           </first_editor>
           <second_editor />
         </state>
