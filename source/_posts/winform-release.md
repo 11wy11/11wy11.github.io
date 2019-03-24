@@ -2,8 +2,8 @@
 title: VS2013打包C#项目
 date: 2019-03-22 21:54:22
 tags: 
-    -VS
-    -打包
+    - VS
+    - 打包
 categories: 应用
 ---
 在VS2013中安装InstallShield打包程序，

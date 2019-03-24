@@ -5,6 +5,8 @@ tags:
 	- markdown
 categories: 语言
 ---
+记录CSDN 的markdown语法，备查
+<!--more-->
 @[TOC](这里写自定义目录标题)
 
 # 欢迎使用Markdown编辑器

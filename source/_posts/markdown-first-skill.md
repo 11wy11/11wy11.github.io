@@ -5,6 +5,8 @@ tags:
 	- markdown
 categories: 语言
 ---
+markdown编写技巧,转义字符及部分基本语法
+<!--more-->
 # 常用转义字符
 + \\\ 反斜杠  
 + \\` 反引号  

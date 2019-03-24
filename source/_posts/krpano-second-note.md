@@ -4,6 +4,8 @@ date: 2019-03-15 23:19:51
 tags: krpano
 categories: 全景
 ---
+主要介绍全景漫游及vtour文件夹介绍
+<!--more-->
 ### vtour全景漫游及vtour文件夹介绍
 使用MAKE VTOUR (MULTIRES) droplet工具生成全景漫游
 <!--more-->

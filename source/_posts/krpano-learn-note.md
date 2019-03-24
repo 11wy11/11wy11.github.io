@@ -4,7 +4,8 @@ date: 2019-03-20 00:46:27
 tags: krpano
 categories: 全景
 ---
-
+介绍krpano开发中的一些注意事项和重要属性等
+<!--more-->
 # 1.Krpano xml
 1.	Onstart  
 onstart事件将在xml加载和解析之后直接调用。

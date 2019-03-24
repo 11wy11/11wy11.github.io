@@ -5,6 +5,8 @@ tags:
     - tools
 categories: 工具  
 ---
+主要介绍doctoc插件自动生成文章目录
+<!--more-->
 # markdown相关
 ## doctoc(markdown目录自动生成)
 GitHub中的markdown文件直接写[TOC]是无法生成目录的，可以使用工具doctoc

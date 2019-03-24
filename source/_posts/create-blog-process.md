@@ -6,6 +6,8 @@ tags:
    - git
 categories: 工具   
 ---
+最基础的hexo+github搭建个人博客的教程
+<!--more-->
 ### 一、准备
 1. 安装[node.js](https://nodejs.org/en/)
 2. 安装[git-windows](https://gitforwindows.org/)

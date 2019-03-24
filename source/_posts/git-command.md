@@ -5,6 +5,8 @@ tags:
    - git
 categories: 使用技巧
 ---
+记录一些常用的git命令，目前理解还不是很深，有点进一步查阅资料
+<!--more-->
 1. 强制本地覆盖远程分支   
     ```
     git push origin *** --force  

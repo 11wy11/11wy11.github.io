@@ -6,6 +6,8 @@ tags:
     - ArcGIS
     - Oracle
 ---
+ Oracle配置SDE支持空间查询,配置oracle外部链接库
+<!--more-->
 ### 配置oracle外部链接库
 1. 将ArcGIS Desktop安装目录下DatabaseSupport文件夹下的st_shapelib.dll拷贝到装有oracle的服务器上，可以放置在任意地方，这里推荐放在Oracle安装目录下的bin文件夹下。  
     例如：st_shapelib.dll所在文件夹路径：

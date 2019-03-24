@@ -5,6 +5,8 @@ tags:
   - AI  
 categories: AI组件开发
 ---
+Adobe Illustrator 组件开发 AIRealMatrixSet介绍及使用方法，参数及原理分析
+<!--more-->
 ## SDK官方帮助文档
 AIAPI void(* AIRealMathSuite::AIRealMatrixSet)(AIRealMatrix *m, AIReal a, AIReal b, AIReal c, AIReal d, AIReal tx, AIReal ty)
 Sets the scale, rotation, and translation values of a transformation matrix. 
