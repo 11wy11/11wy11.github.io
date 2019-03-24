@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>AI组件开发（四）--AIDocumentSuite | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="AI">
+    <meta name="description" content="获取和设置有关当前文档的信息。">
+<meta name="keywords" content="AI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI组件开发（四）--AIDocumentSuite">
+<meta property="og:url" content="http://11wy11.github.io/2019/03/24/ai-forth-document-note/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="获取和设置有关当前文档的信息。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-24T12:57:07.179Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI组件开发（四）--AIDocumentSuite">
+<meta name="twitter:description" content="获取和设置有关当前文档的信息。">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">AI组件开发（四）--AIDocumentSuite</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">AI组件开发（四）--AIDocumentSuite</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-24T12:19:52.000Z" itemprop="datePublished" class="page-time">
+  2019-03-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/AI组件开发/">AI组件开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AIDocumentSuite"><span class="post-toc-number">1.</span> <span class="post-toc-text">AIDocumentSuite</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用实例"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">使用实例</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-ai-forth-document-note" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">AI组件开发（四）--AIDocumentSuite</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-24 20:19:52" datetime="2019-03-24T12:19:52.000Z" itemprop="datePublished">2019-03-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/AI组件开发/">AI组件开发</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>获取和设置有关当前文档的信息。<br><a id="more"></a></p>
+<h1 id="AIDocumentSuite"><a href="#AIDocumentSuite" class="headerlink" title="AIDocumentSuite"></a>AIDocumentSuite</h1><p>使用这些函数可以获取和设置有关当前文档的信息。<br>某些功能仅在读取文件格式时适用。有些是在文件格式写入期间使用，但可以随时使用。</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>AIAPI AIErr（*     GetDocumentFileSpecification）（ai :: FilePath＆file）<br>   获得当前文档的文件规范。 </li>
+<li>AIAPI AIErr（*     GetDocumentPageOrigin）（AIRealPoint * origin）<br>   获得相对于标尺原点指定的可成像页面左下角的坐标。 </li>
+<li>AIAPI AIErr（*     SetDocumentPageOrigin）（AIRealPoint * origin）<br>   设置可成像页面左下角的坐标。 </li>
+<li>AIAPI AIErr（*     SetDocumentRulerOrigin）（AIRealPoint * origin）<br>   设置当前文档的标尺原点。 </li>
+<li>AIAPI AIErr（*     GetDocumentRulerUnits）（ai :: int16 *units）<br>   获得当前测量单位，显示在标尺中并显示在对话框中。 </li>
+<li>AIAPI AIErr（*     SetDocumentRulerUnits）（ai :: int16 units）<br>   设置当前测量单位，显示在标尺中并显示在对话框中。 </li>
+<li>AIAPI AIErr（*     GetDocumentCropStyle）（AICropMarkStyle * cropStyle）<br>   获得由“创建裁剪标记”命令和过滤器创建的裁剪标记的样式。 </li>
+<li>AIAPI AIErr（*     SetDocumentCropStyle）（AICropMarkStyle cropStyle）<br>   设置“创建裁剪标记”命令和过滤器创建的裁剪标记的样式。 </li>
+<li>AIAPI AIErr（*     GetDocumentSetup）（AIDocumentSetup * setup）<br>   获得有关通过文档“设置”对话框设置的当前文档的信息。 </li>
+<li>AIAPI AIErr（*     SetDocumentSetup）（AIDocumentSetup * setup）<br>   设置文档设置信息，通过文档设置对话框设置。 </li>
+<li>AIAPI AIErr（*     GetDocumentModified）（AIBoolean * modified）<br>   获得文档自上次保存以来是否已被编辑。 </li>
+<li>AIAPI AIErr（*     SetDocumentModified）（AIBoolean修改）<br>   设置当前文档的修改状态。 </li>
+<li>AIAPI AIErr（*     GetDocumentFileFormat）（AIFileFormatHandle * fileFormat）<br>   获得保存当前文档时要使用的文件格式。 </li>
+<li>AIAPI AIErr（*     SetDocumentFileFormat）（AIFileFormatHandle fileFormat）<br>   设置保存当前文档时要使用的文件格式。 </li>
+<li>AIAPI AIErr（*     GetDocumentFileFormatParameters）（AIDocumentFileFormatParameters *参数）<br>   获得与当前文档的关联文件格式关联的用户参数块。 </li>
+<li>AIAPI AIErr（*     SetDocumentFileFormatParameters）（AIDocumentFileFormatParameters参数）<br>   设置与当前文档的关联文件格式关联的用户参数块。 </li>
+<li>AIAPI AIErr（*     GetDocument）（AIDocumentHandle *文件）<br>   获得当前文档的不透明引用，以便与可以对当前文档以外的文档进行操作的函数一起使用。 </li>
+<li>AIAPI AIErr（*     WriteDocument）（const ai :: FilePath＆file，const char * fileFormatName，AIBoolean askForParms）<br>   将当前文档写入文件而不修改文档或更改其修改状态。 </li>
+<li>AIAPI AIErr（*     GetDocumentMiPrintRecord）（AIDocumentMiPrintRecordPtr打印）<br>   获得当前文档的打印记录。 </li>
+<li>AIAPI AIErr（*     GetDocumentRulerOrigin）（AIRealPoint * origin）<br>   获得当前文档的标尺原点。 </li>
+<li>AIAPI AIErr（*     UpdateLinks）（AIBoolean * updatedSomething）<br>   如果需要，更新当前文档中的链接对象。 </li>
+<li>AIAPI AIErr（*     GetDocumentZoomLimit）（AIReal * min，AIReal * max）<br>   获得缩放的限制作为比例因子。 </li>
+<li>AIAPI AIErr（*     GetDocumentMaxArtboardBounds）（AIRealRect * bounds）<br>   获得任何画板的最大有效范围，相对于当前文档的标尺原点表示，而不管文档画板的当前大小。 </li>
+<li>AIAPI AIErr（*     DocumentExists）（AIDocumentHandle文档，AIBoolean *exists）<br>   报告文件是否存在; 也就是说，是一个打开的文档或剪贴板文档。 </li>
+<li>AIAPI AIErr（*     GetDictionary）（struct _AIDictionary **Dictionary）<br>   获得与当前文档关联的录制Dictionary。 </li>
+<li>AIAPI AIErr（*     GetDocumentColorModel）（ai :: int16 * colorModel）<br>   获得文档颜色模型。 </li>
+<li>AIAPI AIErr（*     SetDocumentColorModel）（ai :: int16 colorModel）<br>   在加载时设置文档的预期颜色模型。 </li>
+<li>AIAPI AIErr（*     GetDocumentProfiles）（AIColorProfile * rgbProfile，AIColorProfile * cmykProfile，AIColorProfile * grayProfile）<br>   获得当前文档的颜色校准配置文件。 </li>
+<li>AIAPI AIErr（*     SetDocumentProfiles）（AIColorProfile rgbProfile，AIColorProfile cmykProfile，AIColorProfile grayProfile）<br>   设置当前文档的颜色校准配置文件。 </li>
+<li>AIAPI AIErr（*     Copy）（）<br>   将当前选定的对象复制到剪贴板。 </li>
+<li>AIAPI AIErr（*     Cut）（）<br>   将当前选定的对象剪切到剪贴板。 </li>
+<li>AIAPI AIErr（*     Paste）（）<br>   将剪贴板的内容粘贴到文档中。 </li>
+<li>AIAPI AIErr（* AIDocumentSuite :: SyncDocument）<br>更新缓存的图稿属性。<br>例如，组的选择状态被缓存，并根据其子项的状态确定。您通常不需要调用此函数。Illustrator会根据需要重新计算缓存的属性。</li>
+<li>AIAPI AIErr（*     GetNonRecordedDictionary）（struct _AIDictionary **Dictionary）<br>   获得与当前文档关联的未记录Dictionary。 </li>
+<li>AIAPI int（*     GetAIVersion）（）<br>   获得上次保存当前文档的Illustrator文件格式的版本。 </li>
+<li>AIAPI AIErr（*     DocumentHasTransparency）（AIBoolean * hasTransparency，AIBoolean detectOverprint）<br>   报告是否根据当前视图设置渲染当前文档需要任何非不透明的绘制操作。 </li>
+<li>AIAPI AIErr（*     DocumentHasSpotColorArt）（AIBoolean * hasSpotColorArt）<br>   报告是否根据当前视图设置渲染当前文档需要绘制任何专色。 </li>
+<li>AIAPI AIErr（*     GetDocumentAssetMgmtInfo）（AIBoolean * managed，ai :: int32 * pNAlternates，AIBoolean * checkedOut，const char ** URL，AIBoolean * canEdit，char * fileType）<br>   获得资产管理信息。 </li>
+<li>AIAPI AIErr（*     SetDocumentAssetMgmtInfo）（AIBoolean * managed，AIBoolean * checkedOut，const char * URL，AIBoolean * canEdit）<br>   设置资产管理信息。 </li>
+<li>AIAPI AIErr（*     GetDocumentURL）（AIDocumentHandle文档，const char ** URL）<br>   获得与文档关联的URL。 </li>
+<li>AIAPI AIErr（*     GetDocumentXAP）（const char ** xap）<br>   获得当前文档的XMP元数据。 </li>
+<li>AIAPI AIErr（*     SetDocumentXAP）（const char * xap）<br>   设置当前文档的XMP元数据。 </li>
+<li>AIAPI AIErr（*     SuspendTextReflow）（）<br>   暂停当前​​文档中所有文本对象的任何文本重排。 </li>
+<li>AIAPI AIErr（*     ResumeTextReflow）（）<br>   恢复文本重排。 </li>
+<li>AIAPI AIErr（*     GetTextSelection）（TextRangesRef * pTextSelection）<br>   获得当前文档的文本选择对象。 </li>
+<li>AIAPI AIErr（*     HasTextFocus）（AIBoolean * focus）<br>   报告当前文档是否处于文本编辑模式。 </li>
+<li>AIAPI AIErr（*     HasTextCaret）（AIBoolean * caret）<br>   报告当前文档是处于文本编辑模式还是插入符号闪烁（与选择的文本范围相反）。 </li>
+<li>AIAPI AIErr（*     GetTextFocus）（StoryRef * pStory）<br>   获得处于编辑模式的当前故事。 </li>
+<li>AIAPI AIErr（*     SetTextFocus）（StoryRef故事）<br>   将故事设置为处于编辑模式。 </li>
+<li>AIAPI AIErr（*     LoseTextFocus）（）<br>   退出文本编辑模式。 </li>
+<li>AIAPI AIErr（*     GetDocumentTextResources）（DocumentTextResourcesRef * pDocResources）<br>   获得当前文档的文本资源对象。 </li>
+<li>AIAPI AIErr（*     WriteDocumentMacInformationResource）（const ai :: FilePath＆file）</li>
+<li>AIAPI AIErr（*     WriteDocumentWithOptions）（const ai :: FilePath＆file，const char * fileFormatName，ai :: int32 options，AIBoolean askForParms）<br>   将当前文档写入具有指定写入选项的文件，而不修改文档或更改其修改状态。 </li>
+<li>AIAPI AIErr（*     DocumentHasOverprint）（AIBoolean * hasOverprint）<br>   报告是否根据当前视图设置呈现当前文档需要绘制任何叠印对象。 </li>
+<li>AIAPI AIErr（*     DocumentHasManagedLinks）（AIDocumentHandle文档，AIBoolean * hasManagedLinks）<br>   报告文档是否包含任何托管链接。 </li>
+<li>AIAPI AIErr（*     GetDocumentSpotColorMode）（AIDocumentHandle文档，AISpotColorMode *模式）<br>   获得文档的专色模式，该模式控制添加到文档的新专色的外观定义。 </li>
+<li>AIAPI AIErr（*     SetDocumentSpotColorMode）（AIDocumentHandle文档，AISpotColorMode模式，AIBoolean转换，AIBoolean *转换）<br>   设置文档的专色模式，该模式控制添加到文档的新专色的外观定义。 </li>
+<li>AIAPI AIErr（*     撤消）（）<br>   撤消最近的可撤消事务。 </li>
+<li>AIAPI AIErr（*     重做）（）<br>   重做最近的可重做事务。 </li>
+<li>AIAPI AIErr（*     DocumentRasterAttributes）（AIBoolean * hasDeviceNRasters，AIBoolean * hasOverprint）<br>   报告当前文档是否包含任何DeviceN或叠印栅格。 </li>
+<li>AIAPI AIErr（*     GetDocumentStartupProfile）（AIDocumentHandle文档，AIDocumentStartupProfile * startupProfile）<br>   获得文档启动配置文件。 </li>
+<li>AIAPI AIErr（*     GetDocumentBleeds）（AIRealRect * bleedOffset）<br>   获得文档的bleedOffset。 </li>
+<li>AIAPI AIErr（*     SetDocumentBleeds）（const AIRealRect＆bleedOffset）<br>   设置文档的bleedOffset。 </li>
+<li>AIAPI AIErr（*     SetDocumentPixelPerfectStatus）（AIBoolean isPixelPerfect）<br>   打开或关闭文档的Pixel Perfect模式。 </li>
+<li>AIAPI AIBoolean（*     GetDocumentPixelPerfectStatus）（）<br>   报告文档当前是否处于Pixel Perfect模式。 <h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//xxxSuites.h</span><br><span class="line">#include &lt;AIDocument.h&gt;</span><br><span class="line">extern	&quot;C&quot; AIDocumentSuite*			sAIDocument;</span><br><span class="line"></span><br><span class="line">//xxxSuites.cpp</span><br><span class="line">extern &quot;C&quot;&#123;</span><br><span class="line">AIDocumentSuite*			sAIDocument = NULL;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ImportSuite gImportSuites[] = &#123;</span><br><span class="line">    IMPORT_TEXT_SUITES</span><br><span class="line">    kAIDocumentSuite, kAIDocumentSuiteVersion, &amp;sAIDocument,</span><br><span class="line">        nil, 0, nil</span><br><span class="line">      &#125;;</span><br><span class="line">//XXXPlugin.cpp</span><br><span class="line">//绘制操作</span><br><span class="line">sAIDocument-&gt;SyncDocument();//更新图稿属性</span><br><span class="line">TextRangesRef rangesRef = NULL;</span><br><span class="line">sAIDocument-&gt;GetTextSelection(&amp;rangesRef);//获得当前文档的文本选择对象</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-24T12:57:07.179Z" itemprop="dateUpdated">2019-03-24 20:57:07</time>
+</span><br>
+
+
+        
+        <a href="/2019/03/24/ai-forth-document-note/" target="_blank" rel="external">http://11wy11.github.io/2019/03/24/ai-forth-document-note/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/">AI</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/24/ai-forth-document-note/&title=《AI组件开发（四）--AIDocumentSuite》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/24/ai-forth-document-note/&title=《AI组件开发（四）--AIDocumentSuite》 — WeiYuan's Blog&source=获取和设置有关当前文档的信息。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/24/ai-forth-document-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AI组件开发（四）--AIDocumentSuite》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/24/ai-forth-document-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/24/ai-forth-document-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/24/ai-fifth-ailayer-note/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">AI组件开发（五）--AILayerSuite</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/24/ai-third-note/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">AI组件开发（三）--AIArtboardSuite</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/24/ai-forth-document-note/&title=《AI组件开发（四）--AIDocumentSuite》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/24/ai-forth-document-note/&title=《AI组件开发（四）--AIDocumentSuite》 — WeiYuan's Blog&source=获取和设置有关当前文档的信息。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/24/ai-forth-document-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AI组件开发（四）--AIDocumentSuite》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/24/ai-forth-document-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/24/ai-forth-document-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aS47DIBAFwNz/0p7tSCMxrxscCShWkZ1YlBcd+vP5xOv5s35fH38/efL4yrKFgYGxLeMZrvG2ku2On5y8puQJGBgYNzDGoXBMSu7moTkP6BgYGBjJRvMjY/VFYGBgYMwwxleqKW7Ow8DAwJgJoEmiW01WX8zFMTAwNmTkVffvf36lv4GBgbEV4ymu/FczLYHyrjAwMI5m5AEuKe73inQzIxoYGBg3MN4u6FfLbfnoWKELioGBcRAjGe3qhdHkm9UmwT8nXAwMjMsY1WS12ipYMGyBgYFxNOObaWp+rOwNamBgYNzDqKamU6MPrbR5Wa8VAwNjW0Y17PbA+W+TRgIGBsbZjJkhiTzJrJbzlpXbMDAwDmXkpbeZpmM+IhbdxcDAuIyRh86kWLZgkGLVsAUGBsbmjCQgzjQye2ltofCHgYFxASPfXDWhXZsMF/43MDAwDmJUBx3yRLQ6irEAhoGBcTQjT1arKWt18GtBmwEDA+NQRjX85UGz2gzojWVgYGDcw6g2DKqhtleMKxwcMTAwrmTkwbeXguabjl4HBgbGoYynuKqtyvlDZPlsi4GBcRwjXz1Yj5RsvfpqMDAwdmfkQTZPYpNS2kzA/fQiPQYGxuaM+WS1OX5aPOr9k8piYGBgTAfNmQLc4oCLgYFxGSPPjHtlsmgQDQMD4wJGXlDrFfrz42NzyAMDA+NoxhtbyRPR6hlvqpGJgYGxH+MHaPF0crPEFwcAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
