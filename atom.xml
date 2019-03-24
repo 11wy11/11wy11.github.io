@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://11wy11.github.io/"/>
-  <updated>2019-03-24T01:13:21.550Z</updated>
+  <updated>2019-03-24T01:19:41.121Z</updated>
   <id>http://11wy11.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://11wy11.github.io/2019/03/22/winform-release/"/>
     <id>http://11wy11.github.io/2019/03/22/winform-release/</id>
     <published>2019-03-22T13:54:22.000Z</published>
-    <updated>2019-03-24T01:13:21.550Z</updated>
+    <updated>2019-03-24T01:19:41.121Z</updated>
     
     <content type="html"><![CDATA[<p>在VS2013中安装InstallShield打包程序，<br><a id="more"></a></p><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>vs2010打包时，在其他项目类型中找到安装和部署的模板，即可新建安装项目，而在vs2013中需要先在线搜索InstallShield，然后按照网页提示一步步下载，之后添加安装项目，配置打包设置完成打包<br> 在vs2010 选择“新建项目”→“ 其他项目类型”→“ Visual Studio Installer→“安装项目”：</p><h1 id="1-打包前的准备"><a href="#1-打包前的准备" class="headerlink" title="1. 打包前的准备"></a>1. 打包前的准备</h1><p>在我们准备好的项目中右击“解决方案”，在弹出的菜单中选择添加 - 新建项目：</p><p>在弹出的新建对话框中依次选择 其他项目 - 安装和部署 - 安装项目，你可以改名字，也可以使用默认的名字setup1</p><p>新建一个打包部署项目，点OK，如果是第一次使用的话，会打开一个网页，按照提示的步骤来做，</p><p>点击<strong>Go to the download web site</strong>,进入下载网站，填写完信息，点击“download ”即会收到一封邮件，里面有下载地址和激活码。</p><p>之后会下载一个<strong>InstallShield2015LimitedEdition.exe</strong>的安装包,用管理员权限运行安装完后。重新启动VS2013</p><p>重新新建一个这样的项目：</p><p>点OK，这时候不再是打开网页，这时打开会提示激活或者是试用，选第一项，下一步</p><p>输入收到的邮件里的激活码，激活,待激活完成</p><p>卸载功能：找到C:\Windows\System32目录下的msiexec.exe文件，右击 选择 “msiexec.exe 的快捷方式”，然后改名为：你想叫名称（卸载、uninstall都可以），移动到你需要打包的程序菜单的文件夹下面。</p><h1 id="2-开始部署"><a href="#2-开始部署" class="headerlink" title="2. 开始部署"></a>2. 开始部署</h1><h2 id="2-1-基本配置Application-Information"><a href="#2-1-基本配置Application-Information" class="headerlink" title="2.1 基本配置Application Information"></a>2.1 基本配置Application Information</h2><p>   可以设置公司名称，点击右侧General Information 可以设置语言为中文，可以设置应用名称</p><h2 id="2-2-Installation-Requirements"><a href="#2-2-Installation-Requirements" class="headerlink" title="2.2 Installation Requirements"></a>2.2 Installation Requirements</h2><p>   一般可以默认设置，如果需要,选择安装如.NET Framework 4.5等依赖同时打包，勾选所需依赖</p><h2 id="2-3-Installation-Architecture"><a href="#2-3-Installation-Architecture" class="headerlink" title="2.3 Installation Architecture"></a>2.3 Installation Architecture</h2><p>   默认即可</p><h2 id="2-4-Application-Files"><a href="#2-4-Application-Files" class="headerlink" title="2.4 Application Files"></a>2.4 Application Files</h2><p>   添加程序所需文件，这里有两种方式经过测试均可实现</p><h3 id="2-4-1方式一"><a href="#2-4-1方式一" class="headerlink" title="2.4.1方式一"></a>2.4.1方式一</h3><p>   点击到ProgramFilesFolder&gt;Microsoft&gt; &lt;你的工程名&gt;[INSRALLDIR]，点击<strong>Add Folders</strong>，选择工程bin目录下的Debug或Release文件夹，一般选择Release</p><h3 id="2-4-2-方式二"><a href="#2-4-2-方式二" class="headerlink" title="2.4.2 方式二"></a>2.4.2 方式二</h3><p>   点击到ProgramFilesFolder&gt;Microsoft&gt; &lt;你的工程名&gt;[INSRALLDIR]，点击<strong>Add Project Outputs</strong>,选择主输出</p><p>   点击Ok后，选中主输出，右键Resolve Project OutPut</p><p>   点击OK后，在左边菜单CatcheScreen下新建目录source，然后同上步骤添加源文件，然后选中资源，右键Resolve Project OutPut</p><p>   在创建一个文件命名“uninstall”，然后同上步骤添加源文件，然后选中资源，右键Resolve Project OutPut</p><h2 id="2-5-Application-Shortcuts"><a href="#2-5-Application-Shortcuts" class="headerlink" title="2.5 Application Shortcuts"></a>2.5 Application Shortcuts</h2><ul><li>2.4如果选择方式一，这是默认后有两个Launch xxx.exe,Launch xxx.vshost.exe,可以将第二个删掉，然后重命名第一个<br> 勾选use alternate shortcut icon可以选择自定义的程序图标<br> 然后创建卸载程序的快捷方式<br> 点击Create an unistallation shortcut，选择uninstall</li><li><p>2.4如果选择方式二，<br>  点击左侧的new,弹出对话框后点击最后一项，一直点到最后,点击Open，重命名Built（这里的重命名实际上就是你的程序在桌面上的名称) 选择在桌面上创建快捷方式：<br> 勾选use alternate shortcut icon可以选择自定义的程序图标</p><pre><code>然后创建卸载程序的快捷方式</code></pre><h2 id="2-6-Application-Registry"><a href="#2-6-Application-Registry" class="headerlink" title="2.6  Application Registry"></a>2.6  Application Registry</h2><p>配置是否允许用户修改安装地址等</p><h2 id="2-7-在右侧找到第六步Prepare-for-Release，双击下面的Releases"><a href="#2-7-在右侧找到第六步Prepare-for-Release，双击下面的Releases" class="headerlink" title="2.7 在右侧找到第六步Prepare for Release，双击下面的Releases"></a>2.7 在右侧找到第六步Prepare for Release，双击下面的Releases</h2><p>点击选中“SingleImage”–选项卡点击“Setup.exe”–找到 “InstallShield PrerequisitesLocation”，把它设置为“Extract From Setup.exe”   </p><h1 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h1><p>生成解决方案后会在安装程序集下面生成一个名为Setup（当时添加安装部署项目的项目名）的文件夹，安装文件就保存在下面的目录中。Install在生成安装文件后会有Setup.exe和.msi两中安装文件，exe文件是安装的引导文件，核心文件是msi文件，里面封存了程序的组件。在里面找到Setup.exe文件及msi文件即可进行安装。</p><p>点击Setup.exe，进行安装，如果想卸载，点击Uninstall卸载</p><h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ol><li>有时打包之后，项目更新之后，重新再生成解决方案来打包,遇到exe文件找不到时<br>清理，重新生成解决方案</li><li>重新打包遇到DVD5无法覆盖<br>原因是通过打开了相关文件夹，关闭文件浏览即可</li></ol></li></ul><p>参考：<a href="https://blog.csdn.net/qq_38122230/article/details/80470699" target="_blank" rel="noopener">https://blog.csdn.net/qq_38122230/article/details/80470699</a><br><a href="https://blog.csdn.net/u010872301/article/details/80509405" target="_blank" rel="noopener">https://blog.csdn.net/u010872301/article/details/80509405</a></p>]]></content>
     
@@ -34,7 +34,9 @@
       <category term="应用" scheme="http://11wy11.github.io/categories/%E5%BA%94%E7%94%A8/"/>
     
     
-      <category term="-VS -打包" scheme="http://11wy11.github.io/tags/VS-%E6%89%93%E5%8C%85/"/>
+      <category term="VS" scheme="http://11wy11.github.io/tags/VS/"/>
+    
+      <category term="打包" scheme="http://11wy11.github.io/tags/%E6%89%93%E5%8C%85/"/>
     
   </entry>
   
@@ -473,9 +475,9 @@
       <category term="工具" scheme="http://11wy11.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="hexo" scheme="http://11wy11.github.io/tags/hexo/"/>
-    
       <category term="git" scheme="http://11wy11.github.io/tags/git/"/>
+    
+      <category term="hexo" scheme="http://11wy11.github.io/tags/hexo/"/>
     
   </entry>
   
