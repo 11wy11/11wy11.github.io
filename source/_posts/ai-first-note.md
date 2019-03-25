@@ -79,3 +79,12 @@ ad缩放bc旋转tx,ty位移，基础的2D矩阵
                             | 0       0       1 |
 
 可见，这个时候，ɵ就是倾斜的角度，逆时针为正，顺时针为负
+# 相关文章
+[AI组件开发（一）--注记旋转矩阵](/2019/03/14/ai-first-note)  
+[AI组件开发（二）--AIRealMathSuite](/2019/03/18/ai-second-note)
+[AI组件开发（三）--AIArtboardSuite](/2019/03/24/ai-third-note)
+[AI组件开发（四）--AIDocumentSuite](/2019/03/24/ai-forth-document-note)  
+[AI组件开发（五）--AILayerSuite](/2019/03/24/ai-fifth-ailayer-note)
+[AI组件开发（六）--AIArtSuite](/2019/03/24/ai-six-aiart-note)
+[AI组件开发（七）--AIPathSuite&&AIPathfinderSuite](/2019/03/25/ai-seven-path-note)  
+[AI组件开发（八）--AIArtStyleSuite](/2019/03/25/ai-eight-style-note)

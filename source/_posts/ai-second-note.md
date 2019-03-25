@@ -51,3 +51,12 @@ Sets the coordinate values in a rectangle. 设置矩形中的坐标值
 注意：Illustrator的坐标系原点位于页面左下角，X和Y值向上和向右增加。
 # 参考资料
   Adobe Illustrator SDK，下载地址：https://www.adobe.com/devnet/illustrator/sdk.html
+# 相关文章
+[AI组件开发（一）--注记旋转矩阵](/2019/03/14/ai-first-note)  
+[AI组件开发（二）--AIRealMathSuite](/2019/03/18/ai-second-note)
+[AI组件开发（三）--AIArtboardSuite](/2019/03/24/ai-third-note)
+[AI组件开发（四）--AIDocumentSuite](/2019/03/24/ai-forth-document-note)  
+[AI组件开发（五）--AILayerSuite](/2019/03/24/ai-fifth-ailayer-note)
+[AI组件开发（六）--AIArtSuite](/2019/03/24/ai-six-aiart-note)
+[AI组件开发（七）--AIPathSuite&&AIPathfinderSuite](/2019/03/25/ai-seven-path-note)  
+[AI组件开发（八）--AIArtStyleSuite](/2019/03/25/ai-eight-style-note)
