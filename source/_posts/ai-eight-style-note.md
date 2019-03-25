@@ -144,19 +144,19 @@ AIArtStyleSuite.
 完整样式完全指定绘画信息。  
 一个部分款式可以指定的绘画信息的子集。例如，它可用于表示选择的常见绘制属性，或修改属性的子集而不影响其他属性。在这种情况下，路径样式与样式映射配对，AIPathStyleMap指定具有有效值的属性子集。  
 注意不要将部分样式传递给需要完整样式的函数; 未指定的字段可以包含无效值。  
-AIBoolean 	fillPaint  
+- AIBoolean 	fillPaint  
  	Whether or not to fill the path.   
-AIBoolean 	strokePaint  
+- AIBoolean 	strokePaint  
  	Whether or not to stroke the path.   
-struct AIFillStyle 	fill  
+- struct AIFillStyle 	fill  
  	Fill style, if fillPaint is true.   
-struct AIStrokeStyle 	stroke  
+- struct AIStrokeStyle 	stroke  
  	Stroke style, if strokePaint is true.    
-AIBoolean 	clip  
-AIBoolean 	lockClip  
-AIBoolean 	evenodd  
+- AIBoolean 	clip  
+- AIBoolean 	lockClip  
+- AIBoolean 	evenodd  
  	When true, use the even-odd rule to determine path insideness.   
-AIReal 	resolution  
+- AIReal 	resolution  
  	Path's resolution.   
 ## AIStrokeStyle
 - AIColor 	color  
@@ -171,7 +171,6 @@ AIReal 	resolution
  	Line cap.
     ```
     Types of line caps for strokes.
-        
         Enumerator:
         kAIButtCap 	
         Butt line caps.
@@ -181,7 +180,7 @@ AIReal 	resolution
         
         kAIProjectingCap 	
         Projecting line caps.
-    ```   
+    ```
 - enum AILineJoin 	join  
  	Line join
     ```
@@ -193,7 +192,7 @@ AIReal 	resolution
     
     kAIRoundJoin 	
     Round line joins.
-    ```    	   
+    ```
 - AIReal 	miterLimit  
  	Line miter limit.   
 ## AIFillStyle
@@ -201,6 +200,7 @@ AIReal 	resolution
  	Fill color. 
 - AIBoolean overprint
  	When true, print any art beneath this, then print the fill of this object over it. 
+ 	
 # 使用实例
 ```
 bool isArtStyle=true;//是否使用图形样式库设置样式

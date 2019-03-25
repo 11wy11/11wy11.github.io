@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="704667ab-c375-4856-9b06-343fa8e82a32" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/source/_posts/ai-fifth-ailayer-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ai-fifth-ailayer-note.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/ai-first-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ai-first-note.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/ai-forth-document-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ai-forth-document-note.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/ai-second-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ai-second-note.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/ai-six-aiart-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ai-six-aiart-note.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/ai-third-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ai-third-note.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/cpp-function.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/cpp-function.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ai-eight-style-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ai-eight-style-note.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -138,14 +132,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="less" value="50" />
-          <entry key="md" value="13349" />
+          <entry key="md" value="13353" />
           <entry key="yml" value="215" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Less" value="50" />
-          <entry key="Markdown" value="13349" />
+          <entry key="Markdown" value="13353" />
           <entry key="YAML" value="215" />
         </counts>
       </usages-collector>
@@ -193,11 +187,9 @@
         <entry file="file://$PROJECT_DIR$/source/_posts/ai-eight-style-note.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="303">
-                <caret line="243" column="1" lean-forward="true" selection-start-line="243" selection-start-column="1" selection-end-line="243" selection-end-column="1" />
+              <first_editor relative-caret-position="409">
+                <caret line="181" column="29" lean-forward="true" selection-start-line="181" selection-start-column="29" selection-end-line="181" selection-end-column="29" />
                 <folding>
-                  <element signature="e#5426#5440#0" />
-                  <element signature="e#6059#6075#0" />
                   <element signature="e#6830#6844#0" />
                 </folding>
               </first_editor>
@@ -503,12 +495,12 @@
       <workItem from="1553243017900" duration="602000" />
       <workItem from="1553262403597" duration="156000" />
       <workItem from="1553318283315" duration="31636000" />
-      <workItem from="1553475796442" duration="12010000" />
+      <workItem from="1553475796442" duration="12797000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135281000" />
+    <option name="totallyTimeSpent" value="136068000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -967,11 +959,9 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/ai-eight-style-note.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="303">
-            <caret line="243" column="1" lean-forward="true" selection-start-line="243" selection-start-column="1" selection-end-line="243" selection-end-column="1" />
+          <first_editor relative-caret-position="409">
+            <caret line="181" column="29" lean-forward="true" selection-start-line="181" selection-start-column="29" selection-end-line="181" selection-end-column="29" />
             <folding>
-              <element signature="e#5426#5440#0" />
-              <element signature="e#6059#6075#0" />
               <element signature="e#6830#6844#0" />
             </folding>
           </first_editor>
