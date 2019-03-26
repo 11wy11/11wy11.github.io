@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
 <meta property="og:description" content="Art Style套件中的功能用于访问和修改Illustrator文档中图稿的art样式">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-25T06:21:13.861Z">
+<meta property="og:updated_time" content="2019-03-25T09:12:22.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AI组件开发（八）--AIArtStyleSuite">
 <meta name="twitter:description" content="Art Style套件中的功能用于访问和修改Illustrator文档中图稿的art样式">
@@ -269,12 +269,12 @@
 <li>AIReal     width<br>   Line width in points.   </li>
 <li>struct AIDashStyle     dash<br>   Stroke dash.   </li>
 <li><p>enum AILineCap     cap<br>   Line cap.</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Types of line caps for strokes.</span><br><span class="line">    Enumerator:</span><br><span class="line">    kAIButtCap 	</span><br><span class="line">    Butt line caps.</span><br><span class="line">    </span><br><span class="line">    kAIRoundCap 	</span><br><span class="line">    Round line caps.</span><br><span class="line">    </span><br><span class="line">    kAIProjectingCap 	</span><br><span class="line">    Projecting line caps.</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Types of line caps for strokes.</span><br><span class="line">    Enumerator:</span><br><span class="line">    kAIButtCap 	</span><br><span class="line">    Butt line caps.//平头</span><br><span class="line">    </span><br><span class="line">    kAIRoundCap 	</span><br><span class="line">    Round line caps.//圆头</span><br><span class="line">    </span><br><span class="line">    kAIProjectingCap 	</span><br><span class="line">    Projecting line caps.//方头</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>enum AILineJoin     join<br>   Line join</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Types of line joins for strokes.</span><br><span class="line"></span><br><span class="line">Enumerator:</span><br><span class="line">kAIMiterJoin 	</span><br><span class="line">Miter line joins.</span><br><span class="line"></span><br><span class="line">kAIRoundJoin 	</span><br><span class="line">Round line joins.</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Types of line joins for strokes.</span><br><span class="line"></span><br><span class="line">Enumerator:</span><br><span class="line">kAIMiterJoin 	</span><br><span class="line">Miter line joins.//斜接连接</span><br><span class="line"></span><br><span class="line">kAIRoundJoin 	</span><br><span class="line">Round line joins.//圆角连接</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>AIReal     miterLimit<br>   Line miter limit.   </p>
+<li><p>AIReal     miterLimit<br>   Line miter limit. </p>
 <h2 id="AIFillStyle"><a href="#AIFillStyle" class="headerlink" title="AIFillStyle"></a>AIFillStyle</h2></li>
 <li>AIColor     color<br>   Fill color. </li>
 <li>AIBoolean overprint<br>   When true, print any art beneath this, then print the fill of this object over it. </li>
@@ -289,7 +289,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-25T06:21:13.861Z" itemprop="dateUpdated">2019-03-25 14:21:13</time>
+    最后更新时间：<time datetime="2019-03-25T09:12:22.322Z" itemprop="dateUpdated">2019-03-25 17:12:22</time>
 </span><br>
 
 
@@ -364,7 +364,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/25/ai-dash-line-note/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">ai组件开发--虚线定义原理及编程实现</h4>
+      </a>
+    </div>
   
 
   

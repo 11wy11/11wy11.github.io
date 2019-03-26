@@ -14,25 +14,25 @@
     
     
     
-    <title>AI组件开发（二）--AIRealMathSuite | WeiYuan&#39;s Blog | 学习随记</title>
+    <title>ai组件开发--虚线定义原理及编程实现 | WeiYuan&#39;s Blog | 学习随记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="AI">
-    <meta name="description" content="主要介绍AIRealMathSuite中使用到的函数，以及部分应用场景，持续更新中">
+    <meta name="description" content="illustrator中定义虚线形式可以最多设置三个虚线长度和三个间隙长度">
 <meta name="keywords" content="AI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AI组件开发（二）--AIRealMathSuite">
-<meta property="og:url" content="http://11wy11.github.io/2019/03/18/ai-second-note/index.html">
+<meta property="og:title" content="ai组件开发--虚线定义原理及编程实现">
+<meta property="og:url" content="http://11wy11.github.io/2019/03/25/ai-dash-line-note/index.html">
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
-<meta property="og:description" content="主要介绍AIRealMathSuite中使用到的函数，以及部分应用场景，持续更新中">
+<meta property="og:description" content="illustrator中定义虚线形式可以最多设置三个虚线长度和三个间隙长度">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-25T08:38:49.151Z">
+<meta property="og:updated_time" content="2019-03-25T10:57:50.309Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AI组件开发（二）--AIRealMathSuite">
-<meta name="twitter:description" content="主要介绍AIRealMathSuite中使用到的函数，以及部分应用场景，持续更新中">
+<meta name="twitter:title" content="ai组件开发--虚线定义原理及编程实现">
+<meta name="twitter:description" content="illustrator中定义虚线形式可以最多设置三个虚线长度和三个间隙长度">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -120,7 +120,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">AI组件开发（二）--AIRealMathSuite</div>
+        <div class="flex-col header-title ellipsis">ai组件开发--虚线定义原理及编程实现</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -142,11 +142,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">AI组件开发（二）--AIRealMathSuite</h1>
+        <h1 class="title">ai组件开发--虚线定义原理及编程实现</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-03-18T02:50:27.000Z" itemprop="datePublished" class="page-time">
-  2019-03-18
+                <time datetime="2019-03-25T07:41:27.000Z" itemprop="datePublished" class="page-time">
+  2019-03-25
 </time>
 
 
@@ -167,17 +167,17 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AIRealRectOverlap"><span class="post-toc-number">1.</span> <span class="post-toc-text">AIRealRectOverlap</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AIRealRectInAIRealRect"><span class="post-toc-number">2.</span> <span class="post-toc-text">AIRealRectInAIRealRect</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AIRealRectSet"><span class="post-toc-number">3.</span> <span class="post-toc-text">AIRealRectSet</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AIRealPointInterpolate"><span class="post-toc-number">4.</span> <span class="post-toc-text">AIRealPointInterpolate</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考资料</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#相关文章"><span class="post-toc-number">6.</span> <span class="post-toc-text">相关文章</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#虚线定义"><span class="post-toc-number">1.</span> <span class="post-toc-text">虚线定义</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#illustrator-SDK接口实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">illustrator SDK接口实现</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-ai-second-note" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-ai-dash-line-note" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">AI组件开发（二）--AIRealMathSuite</h1>
+        <h1 class="post-card-title">ai组件开发--虚线定义原理及编程实现</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-03-18 10:50:27" datetime="2019-03-18T02:50:27.000Z" itemprop="datePublished">2019-03-18</time>
+            <time class="post-time" title="2019-03-25 15:41:27" datetime="2019-03-25T07:41:27.000Z" itemprop="datePublished">2019-03-25</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/AI组件开发/">AI组件开发</a></li></ul>
@@ -192,43 +192,20 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>主要介绍AIRealMathSuite中使用到的函数，以及部分应用场景，持续更新中<br><a id="more"></a></p>
-<h1 id="AIRealRectOverlap"><a href="#AIRealRectOverlap" class="headerlink" title="AIRealRectOverlap"></a>AIRealRectOverlap</h1><p>AIAPI AIBoolean(* AIRealMathSuite::AIRealRectOverlap)(const AIRealRect *a, const AIRealRect *b)<br>Tests whether two rectangles overlap (have any points in common).<br>测试两个矩形是否重叠（有任何共同点）  </p>
-<ul>
-<li>参数:<ul>
-<li>a<br>The first rectangle.</li>
-<li>b<br>The second rectangle.  </li>
-</ul>
-</li>
-<li>返回值：<br>如果矩形重叠，则为真。</li>
-</ul>
-<h1 id="AIRealRectInAIRealRect"><a href="#AIRealRectInAIRealRect" class="headerlink" title="AIRealRectInAIRealRect"></a>AIRealRectInAIRealRect</h1><p>AIAPI AIBoolean(* AIRealMathSuite::AIRealRectInAIRealRect)(const AIRealRect *a, const AIRealRect *b)<br>Tests whether one rectangle is inside (entirely contained in) another rectangle.<br>测试一个矩形是否在另一个矩形内（完全包含在内）。  </p>
-<p>Both must be open or both closed.<br>两者都必须是开放的或都是封闭的。</p>
-<ul>
-<li>参数:<ul>
-<li>a<br>The first rectangle.  </li>
-<li>b<br>The second rectangle.</li>
-</ul>
-</li>
-<li>返回值：<br>True if the set of points contained by a is also contained by b.<br>如果a包含的点集也包含在b内，则为真。</li>
-</ul>
-<h1 id="AIRealRectSet"><a href="#AIRealRectSet" class="headerlink" title="AIRealRectSet"></a>AIRealRectSet</h1><p>AIAPI void(* AIRealMathSuite::AIRealRectSet)(AIRealRect *a, AIReal left, AIReal top, AIReal right, AIReal bottom)<br>Sets the coordinate values in a rectangle. 设置矩形中的坐标值<br>(In the Illustrator art coordinate system, the origin, (0, 0), is at the bottom left corner of a page. X and Y values increase upward and to the right.) </p>
-<ul>
-<li>参数:<ul>
-<li>a<br>The rectangle object. ///AI的矩形对象指针</li>
-<li>left<br>The left side location.///xmin</li>
-<li>top<br>The top side location. ///ymax</li>
-<li>right<br>The right side location.///xmax</li>
-<li>bottom<br>The bottom side location.///ymin</li>
-</ul>
-</li>
-</ul>
-<p>注意：Illustrator的坐标系原点位于页面左下角，X和Y值向上和向右增加。</p>
-<h1 id="AIRealPointInterpolate"><a href="#AIRealPointInterpolate" class="headerlink" title="AIRealPointInterpolate"></a>AIRealPointInterpolate</h1><p>AIAPI void（* AIRealMathSuite :: AIRealPointInterpolate）（const AIRealPoint * a，const AIRealPoint * b，AIReal t，AIRealPoint * result）<br>通过在点的相应坐标之间插入新坐标值来计算两点之间的点的位置。<br>原理就是向量<br>结果是 a <em> t + b </em> (1-t)</p>
-<p>参数：<br>a 第一点。<br>b 第二点。<br>t（b-a）的百分比，表示为0到1之间的数字。<br>result     [out]用于返回结果的缓冲区。</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>  Adobe Illustrator SDK，下载地址：<a href="https://www.adobe.com/devnet/illustrator/sdk.html" target="_blank" rel="noopener">https://www.adobe.com/devnet/illustrator/sdk.html</a></p>
-<h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><p><a href="/2019/03/14/ai-first-note">AI组件开发（一）–注记旋转矩阵</a><br><a href="/2019/03/18/ai-second-note">AI组件开发（二）–AIRealMathSuite</a><br><a href="/2019/03/24/ai-third-note">AI组件开发（三）–AIArtboardSuite</a><br><a href="/2019/03/24/ai-forth-document-note">AI组件开发（四）–AIDocumentSuite</a><br><a href="/2019/03/24/ai-fifth-ailayer-note">AI组件开发（五）–AILayerSuite</a><br><a href="/2019/03/24/ai-six-aiart-note">AI组件开发（六）–AIArtSuite</a><br><a href="/2019/03/25/ai-seven-path-note">AI组件开发（七）–AIPathSuite&amp;&amp;AIPathfinderSuite</a><br><a href="/2019/03/25/ai-eight-style-note">AI组件开发（八）–AIArtStyleSuite</a></p>
-
+            <p>illustrator中定义虚线形式可以最多设置三个虚线长度和三个间隙长度<br><a id="more"></a></p>
+<h1 id="虚线定义"><a href="#虚线定义" class="headerlink" title="虚线定义"></a>虚线定义</h1><p>illustrator中定义虚线形式可以最多设置三个虚线长度和三个间隙长度<br>__需要特别注意如果定义奇数个参数，即没有定义spaceA，spaceB，spaceC时的情况,其中spaceB和spaceC的循环情况原理一致<br>依次标记为dashA,spaceA,dashB,spaceB,dashC,spaceC<br>为更明显的展示，定义：<br>dashA: 3<br>spaceA: 5</p>
+<p>dashB: 4<br>spaceB:6</p>
+<p>dashC: 2<br>spaceC: 1<br>虚线：—表示一个pt<br>间隙：#表示一个pt<br>结果形式：展示两次循环，每次循环间为区分明显添加了一个空格<br>下面简单介绍定义规则</p>
+<ol>
+<li>设置dashA，其他值为空<br>一次循环：此时按照dashA的长度绘制实部，此时，illustrator默认spaceA=dashA，因此间隙也是dashA的长度<br>结果形式:———### ———###  </li>
+<li>设置dashA，spaceA,其他值为空<br>一次循环：此时按照dashA的长度绘制实部，间隙是spaceA的长度<br>结果形式:———##### ———#####</li>
+<li>设置dashA，spaceA,dashB,其他值为空，<strong>需注意</strong><br>一次循环：此时按照dashA的长度绘制第一个实部，间隙是spaceA的长度,按照dashB的长度绘制第二个实部，按照dashA绘制间隙，按照spaceA绘制第三个实部，按照dashB绘制间隙<br>结果形式:———#####————####—————#### ———#####————####—————####</li>
+<li>设置dashA，spaceA,dashB,spaceB,其他值为空<br> 一次循环：此时按照dashA的长度绘制第一个实部，间隙是spaceA的长度,按照dashB的长度绘制第二个实部，间隙是spaceB的长度,<br> 结果形式:———#####————###### ———#####————######</li>
+<li>设置dashA，spaceA,dashB,spaceB,dashC,其他值为空<br> 一次循环：此时按照dashA的长度绘制第一个实部，间隙是spaceA的长度,按照dashB的长度绘制第二个实部，间隙是spaceB的长度,按照dashC的长度绘制第三个实部,间隙是spaceC的长度，按照dashA绘制间隙，按照spaceA绘制第四个实部，按照dashB绘制间隙，按照spaceB绘制第五个实部，按照dashC绘制间隙,按照spaceC绘制第六个实部<br> 结果形式:———#####————######——###—————####——————## ———#####————######——###—————####——————##</li>
+<li>设置dashA，spaceA,dashB,spaceB,dashC,spaceC<br> 原理同4一致，不再赘述</li>
+</ol>
+<p><strong>概括来说，AI本身每次循环使用六个参数定义虚线，如果不足就会重复前面定义的参数</strong></p>
+<h1 id="illustrator-SDK接口实现"><a href="#illustrator-SDK接口实现" class="headerlink" title="illustrator SDK接口实现"></a>illustrator SDK接口实现</h1>
         </div>
 
         <blockquote class="post-copyright">
@@ -236,12 +213,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-25T08:38:49.151Z" itemprop="dateUpdated">2019-03-25 16:38:49</time>
+    最后更新时间：<time datetime="2019-03-25T10:57:50.309Z" itemprop="dateUpdated">2019-03-25 18:57:50</time>
 </span><br>
 
 
         
-        <a href="/2019/03/18/ai-second-note/" target="_blank" rel="external">http://11wy11.github.io/2019/03/18/ai-second-note/</a>
+        <a href="/2019/03/25/ai-dash-line-note/" target="_blank" rel="external">http://11wy11.github.io/2019/03/25/ai-dash-line-note/</a>
         
     </div>
     
@@ -268,7 +245,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/18/ai-second-note/&title=《AI组件开发（二）--AIRealMathSuite》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/25/ai-dash-line-note/&title=《ai组件开发--虚线定义原理及编程实现》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -278,22 +255,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/18/ai-second-note/&title=《AI组件开发（二）--AIRealMathSuite》 — WeiYuan's Blog&source=主要介绍AIRealMathSuite中使用到的函数，以及部分应用场景，持续更新中" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/25/ai-dash-line-note/&title=《ai组件开发--虚线定义原理及编程实现》 — WeiYuan's Blog&source=illustrator中定义虚线形式可以最多设置三个虚线长度和三个间隙长度" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/18/ai-second-note/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/25/ai-dash-line-note/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AI组件开发（二）--AIRealMathSuite》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/18/ai-second-note/&via=http://11wy11.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ai组件开发--虚线定义原理及编程实现》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/25/ai-dash-line-note/&via=http://11wy11.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/18/ai-second-note/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/25/ai-dash-line-note/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -313,21 +290,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/03/18/tools/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">常用工具</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/03/17/markdown-first-skill/" id="post-next" class="post-nav-link">
+      <a href="/2019/03/25/ai-eight-style-note/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">markdown编写技巧</h4>
+        <h4 class="title">AI组件开发（八）--AIArtStyleSuite</h4>
       </a>
     </div>
   
@@ -425,7 +395,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/18/ai-second-note/&title=《AI组件开发（二）--AIRealMathSuite》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/25/ai-dash-line-note/&title=《ai组件开发--虚线定义原理及编程实现》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -435,22 +405,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/18/ai-second-note/&title=《AI组件开发（二）--AIRealMathSuite》 — WeiYuan's Blog&source=主要介绍AIRealMathSuite中使用到的函数，以及部分应用场景，持续更新中" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/25/ai-dash-line-note/&title=《ai组件开发--虚线定义原理及编程实现》 — WeiYuan's Blog&source=illustrator中定义虚线形式可以最多设置三个虚线长度和三个间隙长度" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/18/ai-second-note/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/25/ai-dash-line-note/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AI组件开发（二）--AIRealMathSuite》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/18/ai-second-note/&via=http://11wy11.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ai组件开发--虚线定义原理及编程实现》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/25/ai-dash-line-note/&via=http://11wy11.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/18/ai-second-note/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/25/ai-dash-line-note/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -461,7 +431,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3aMXLDMAxEUd//0nSbmZjULgAVBD4rjexYeikwBBefj7zWn/X/vv79zG8WLBgwYFzLWMd1/k7mKcqnyrvBgAFjDmP34PP17tMYUnnW9j4MGDBgHK93hVLfAsKAAQNGLUNvSpUtoM6DAQMGDKWJ1YtvprC+3ovDgAHjQkZVk/nG9Sv5BgwYMK5iLHOdt4CxY/2VXjBgwOjNiDWoCknf5CkBpzSoAQMGjKaMfHlVgkx9tELZmBYMhMGAAeNahnvE7458VW0iHwouDBgwmjLOpU2PAfTCqpRv/d8HAwaM3gx3o6a/kNusKkX/4W1hwIDRlOG2pvodt9PUI4fttAgMGDBaM6SvmqOu7nbQLdw/drgwYMBoytDDxdhhmdKmusX3IYmFAQNGO0bskMvFxzJHuwuHAQPGMIYbTBoNp4AJDlvAgAGjKSMz6OA+MtbWFuxwYcCA0YjhDoRlgkkFr5djGDBgzGHoZVQvqbGEMdhgw4ABozXj/KLua7l/mx/IgAEDxgRG7MDLbXFj5dhop2HAgDGAkQ8j3fIa24BuP4UBA8YAhltkjXAxE0zqESkMGDCaMpa53HDRLbh6zGBksDBgwLickSl2mYGJWAjh/g4MGDA6MTKHXOfXqg0PpPASBgwYrRlu4asKA9ytXqoXhwEDxhiGe/Tvlu/g0R4MGDBgJI7b8kGCNEAGAwaMAQw3DKg60I8FCTBgwJjGyA9GxNrazLBFsHzDgAHjPsYXNAgi4IyYXFwAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3awa7jIAwF0P7/T3e2I02b3mvSkQqH1dNLYzhZWAbzeMTj+de4/s+7p0nMf+PcPDAwMH6W8bwc737TLj2PnDx9MQsGBsYBjHcTJ0nwruSbz4uBgYGRh37Go2VjYGBg3MXIU2pbJmJgYGDMNrEJYxZnltAxMDDOYeQp8v///ZX+BgYGxk8xnuW4Ls7apsJsDS+iYWBgbM3IE1xels1ale1mGAMD4xxGm/7yKWcXL5LCNHqMgYGxKaPdOs6W0rYEogscGBgYBzBWtpfrVyXaTe+LyBgYGMcwksIuD922IZPjvLdIDAyMrRl52m0naA/y8gJxWKtiYGBswZgdw7XlYNs2qAtEDAyM7RjtZjLf7uZty6+cGmJgYGzE+EZLcr0MnT3FwMA4gdG+cNeUN1y2wMDA2JqxcvQ/O/Vqt7h1hYuBgbEpo71msZJ28w80LAExMDC2Y8wuTLTptT4yC1IzBgbGaYx2KbOLESsptWgJYGBgHMC43nC2ReT65ygudmBgYBzAaBsAdyXi/JN9eAsDA+MAxqz1OHt31l+9Tr4YGBi7Mp7lyI/ePny5sp1ZFIUYGBjbMVaSXd7CnKXyWaMCAwNjV0Z7JStvMc6aAfkaHu0NEQwMjB9ntAtqD8XawrFFYmBgYCQtxvWWwCzFY2BgYLQTtO2EPMl+iIOBgXEAo02ds6JwtoWOImNgYGzNWEl5s6AraXepkYmBgfF7jD99MAPx97jdKwAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

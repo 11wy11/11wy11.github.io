@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
 <meta property="og:description" content="在VS2013中安装InstallShield打包程序，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-24T05:09:19.656Z">
+<meta property="og:updated_time" content="2019-03-26T13:23:34.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VS2013打包C#项目">
 <meta name="twitter:description" content="在VS2013中安装InstallShield打包程序，">
@@ -167,7 +167,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-打包前的准备"><span class="post-toc-number">2.</span> <span class="post-toc-text">1. 打包前的准备</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-开始部署"><span class="post-toc-number">3.</span> <span class="post-toc-text">2. 开始部署</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-基本配置Application-Information"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">2.1 基本配置Application Information</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-Installation-Requirements"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.2 Installation Requirements</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-Installation-Architecture"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">2.3 Installation Architecture</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-Application-Files"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">2.4 Application Files</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-1方式一"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">2.4.1方式一</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-2-方式二"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text">2.4.2 方式二</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-Application-Shortcuts"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">2.5 Application Shortcuts</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-6-Application-Registry"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">2.6  Application Registry</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-7-在右侧找到第六步Prepare-for-Release，双击下面的Releases"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">2.7 在右侧找到第六步Prepare for Release，双击下面的Releases</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#发布"><span class="post-toc-number">4.</span> <span class="post-toc-text">发布</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#常见问题"><span class="post-toc-number">5.</span> <span class="post-toc-text">常见问题</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-打包前的准备"><span class="post-toc-number">2.</span> <span class="post-toc-text">1. 打包前的准备</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#InstallShield安装"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">InstallShield安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#winform设置项目图标"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">winform设置项目图标</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-开始部署"><span class="post-toc-number">3.</span> <span class="post-toc-text">2. 开始部署</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-基本配置Application-Information"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">2.1 基本配置Application Information</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-Installation-Requirements"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.2 Installation Requirements</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-Installation-Architecture"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">2.3 Installation Architecture</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-Application-Files"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">2.4 Application Files</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-1方式一"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">2.4.1方式一</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-2-方式二"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text">2.4.2 方式二</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-Application-Shortcuts"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">2.5 Application Shortcuts</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-6-Application-Registry"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">2.6  Application Registry</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-7-在右侧找到第六步Prepare-for-Release，双击下面的Releases"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">2.7 在右侧找到第六步Prepare for Release，双击下面的Releases</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#发布"><span class="post-toc-number">4.</span> <span class="post-toc-text">发布</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#更换用installshield打包生成exe文件的图标"><span class="post-toc-number">5.</span> <span class="post-toc-text">更换用installshield打包生成exe文件的图标</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#常见问题"><span class="post-toc-number">6.</span> <span class="post-toc-text">常见问题</span></a></li></ol>
         </nav>
     </aside>
 
@@ -194,7 +194,7 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>在VS2013中安装InstallShield打包程序，<br><a id="more"></a></p>
 <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>vs2010打包时，在其他项目类型中找到安装和部署的模板，即可新建安装项目，而在vs2013中需要先在线搜索InstallShield，然后按照网页提示一步步下载，之后添加安装项目，配置打包设置完成打包<br> 在vs2010 选择“新建项目”→“ 其他项目类型”→“ Visual Studio Installer→“安装项目”：</p>
-<h1 id="1-打包前的准备"><a href="#1-打包前的准备" class="headerlink" title="1. 打包前的准备"></a>1. 打包前的准备</h1><p>在我们准备好的项目中右击“解决方案”，在弹出的菜单中选择添加 - 新建项目：</p>
+<h1 id="1-打包前的准备"><a href="#1-打包前的准备" class="headerlink" title="1. 打包前的准备"></a>1. 打包前的准备</h1><h2 id="InstallShield安装"><a href="#InstallShield安装" class="headerlink" title="InstallShield安装"></a>InstallShield安装</h2><p>在我们准备好的项目中右击“解决方案”，在弹出的菜单中选择添加 - 新建项目：</p>
 <p>在弹出的新建对话框中依次选择 其他项目 - 安装和部署 - 安装项目，你可以改名字，也可以使用默认的名字setup1</p>
 <p>新建一个打包部署项目，点OK，如果是第一次使用的话，会打开一个网页，按照提示的步骤来做，</p>
 <p>点击<strong>Go to the download web site</strong>,进入下载网站，填写完信息，点击“download ”即会收到一封邮件，里面有下载地址和激活码。</p>
@@ -203,6 +203,10 @@
 <p>点OK，这时候不再是打开网页，这时打开会提示激活或者是试用，选第一项，下一步</p>
 <p>输入收到的邮件里的激活码，激活,待激活完成</p>
 <p>卸载功能：找到C:\Windows\System32目录下的msiexec.exe文件，右击 选择 “msiexec.exe 的快捷方式”，然后改名为：你想叫名称（卸载、uninstall都可以），移动到你需要打包的程序菜单的文件夹下面。</p>
+<h2 id="winform设置项目图标"><a href="#winform设置项目图标" class="headerlink" title="winform设置项目图标"></a>winform设置项目图标</h2><ul>
+<li>首先可以在你的窗体属性中找到icon选择你准备好的图标；</li>
+<li>右键项目点击属性，找到应用程序中的<strong>图标和清单</strong></li>
+</ul>
 <h1 id="2-开始部署"><a href="#2-开始部署" class="headerlink" title="2. 开始部署"></a>2. 开始部署</h1><h2 id="2-1-基本配置Application-Information"><a href="#2-1-基本配置Application-Information" class="headerlink" title="2.1 基本配置Application Information"></a>2.1 基本配置Application Information</h2><p>   可以设置公司名称，点击右侧General Information 可以设置语言为中文，可以设置应用名称</p>
 <h2 id="2-2-Installation-Requirements"><a href="#2-2-Installation-Requirements" class="headerlink" title="2.2 Installation Requirements"></a>2.2 Installation Requirements</h2><p>   一般可以默认设置，如果需要,选择安装如.NET Framework 4.5等依赖同时打包，勾选所需依赖</p>
 <h2 id="2-3-Installation-Architecture"><a href="#2-3-Installation-Architecture" class="headerlink" title="2.3 Installation Architecture"></a>2.3 Installation Architecture</h2><p>   默认即可</p>
@@ -220,7 +224,14 @@
 <h2 id="2-7-在右侧找到第六步Prepare-for-Release，双击下面的Releases"><a href="#2-7-在右侧找到第六步Prepare-for-Release，双击下面的Releases" class="headerlink" title="2.7 在右侧找到第六步Prepare for Release，双击下面的Releases"></a>2.7 在右侧找到第六步Prepare for Release，双击下面的Releases</h2><p>点击选中“SingleImage”–选项卡点击“Setup.exe”–找到 “InstallShield PrerequisitesLocation”，把它设置为“Extract From Setup.exe”   </p>
 <h1 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h1><p>生成解决方案后会在安装程序集下面生成一个名为Setup（当时添加安装部署项目的项目名）的文件夹，安装文件就保存在下面的目录中。Install在生成安装文件后会有Setup.exe和.msi两中安装文件，exe文件是安装的引导文件，核心文件是msi文件，里面封存了程序的组件。在里面找到Setup.exe文件及msi文件即可进行安装。</p>
 <p>点击Setup.exe，进行安装，如果想卸载，点击Uninstall卸载</p>
-<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ol>
+<h1 id="更换用installshield打包生成exe文件的图标"><a href="#更换用installshield打包生成exe文件的图标" class="headerlink" title="更换用installshield打包生成exe文件的图标"></a>更换用installshield打包生成exe文件的图标</h1><ul>
+<li>打开Visio studio,选择文件方式打开你生成的exe文件</li>
+<li>在Icon下右键添加资源》点击导入选择准备好的项目图标等</li>
+<li>删除原来的100资源</li>
+<li>设置你导入的资源ID为100</li>
+<li>保存<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1></li>
+</ul>
+<ol>
 <li>有时打包之后，项目更新之后，重新再生成解决方案来打包,遇到exe文件找不到时<br>【解决方案】<ul>
 <li>清理，重新生成解决方案</li>
 <li>如果还是不行，运行一次，然后点击生成解决方案</li>
@@ -240,7 +251,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-24T05:09:19.656Z" itemprop="dateUpdated">2019-03-24 13:09:19</time>
+    最后更新时间：<time datetime="2019-03-26T13:23:34.500Z" itemprop="dateUpdated">2019-03-26 21:23:34</time>
 </span><br>
 
 
