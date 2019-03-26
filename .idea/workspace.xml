@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="704667ab-c375-4856-9b06-343fa8e82a32" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/_posts/ai-eight-style-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ai-eight-style-note.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ai-second-note.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/ai-second-note.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/cpp-function.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/cpp-function.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/winform-release.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/winform-release.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -84,8 +88,8 @@
     <session id="638097572">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
-          <entry key="project.open.time.0" value="2" />
+          <entry key="project.closed" value="14" />
+          <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.109" value="1" />
           <entry key="project.open.time.14" value="1" />
@@ -93,6 +97,7 @@
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.24" value="2" />
+          <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.48" value="1" />
@@ -102,7 +107,7 @@
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.87" value="1" />
-          <entry key="project.opened" value="19" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -113,7 +118,7 @@
           <entry key="js" value="2" />
           <entry key="json" value="4" />
           <entry key="less" value="9" />
-          <entry key="md" value="67" />
+          <entry key="md" value="70" />
           <entry key="yml" value="10" />
         </counts>
       </usages-collector>
@@ -125,21 +130,21 @@
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="2" />
           <entry key="Less" value="9" />
-          <entry key="Markdown" value="67" />
+          <entry key="Markdown" value="70" />
           <entry key="YAML" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="less" value="50" />
-          <entry key="md" value="13353" />
+          <entry key="md" value="14536" />
           <entry key="yml" value="215" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Less" value="50" />
-          <entry key="Markdown" value="13353" />
+          <entry key="Markdown" value="14536" />
           <entry key="YAML" value="215" />
         </counts>
       </usages-collector>
@@ -148,22 +153,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/ai-second-note.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="614">
-                <caret line="61" column="61" selection-start-line="61" selection-start-column="61" selection-end-line="61" selection-end-column="61" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/ai-seven-path-note.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="553">
+              <first_editor relative-caret-position="8800">
                 <caret line="352" column="61" selection-start-line="352" selection-start-column="61" selection-end-line="352" selection-end-column="61" />
               </first_editor>
               <second_editor />
@@ -175,7 +168,7 @@
         <entry file="file://$PROJECT_DIR$/source/_posts/ai-third-note.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="614">
+              <first_editor relative-caret-position="7450">
                 <caret line="298" column="61" selection-start-line="298" selection-start-column="61" selection-end-line="298" selection-end-column="61" />
               </first_editor>
               <second_editor />
@@ -183,15 +176,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/ai-eight-style-note.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="409">
-                <caret line="181" column="29" lean-forward="true" selection-start-line="181" selection-start-column="29" selection-end-line="181" selection-end-column="29" />
-                <folding>
-                  <element signature="e#6830#6844#0" />
-                </folding>
+              <first_editor relative-caret-position="3800">
+                <caret line="152" column="30" selection-start-line="152" selection-start-column="24" selection-end-line="152" selection-end-column="30" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/_posts/cpp-function.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="3825">
+                <caret line="153" column="12" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="12" />
               </first_editor>
               <second_editor />
             </state>
@@ -202,7 +204,7 @@
         <entry file="file://$PROJECT_DIR$/source/_posts/ai-forth-document-note.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="614">
+              <first_editor relative-caret-position="4375">
                 <caret line="175" column="61" selection-start-line="175" selection-start-column="61" selection-end-line="175" selection-end-column="61" />
               </first_editor>
               <second_editor />
@@ -214,7 +216,7 @@
         <entry file="file://$PROJECT_DIR$/source/_posts/ai-fifth-ailayer-note.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="614">
+              <first_editor relative-caret-position="4825">
                 <caret line="193" column="61" selection-start-line="193" selection-start-column="61" selection-end-line="193" selection-end-column="61" />
               </first_editor>
               <second_editor />
@@ -226,8 +228,32 @@
         <entry file="file://$PROJECT_DIR$/source/_posts/ai-first-note.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="275">
-                <caret line="81" selection-start-line="81" selection-end-line="89" selection-end-column="61" />
+              <first_editor relative-caret-position="125">
+                <caret line="5" column="18" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="5" selection-end-column="18" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/_posts/ai-dash-line-note.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="1125">
+                <caret line="45" column="21" lean-forward="true" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/_posts/winform-release.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="600">
+                <caret line="78" column="6" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
               </first_editor>
               <second_editor />
             </state>
@@ -238,32 +264,8 @@
         <entry file="file://$PROJECT_DIR$/source/_posts/ai-six-aiart-note.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="614">
+              <first_editor relative-caret-position="7725">
                 <caret line="309" column="61" selection-start-line="309" selection-start-column="61" selection-end-line="309" selection-end-column="61" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/krpano-learn-note.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="150">
-                <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/krpano-forth-note.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="425">
-                <caret line="140" selection-start-line="140" selection-end-line="142" selection-end-column="58" />
               </first_editor>
               <second_editor />
             </state>
@@ -288,13 +290,13 @@
       <find>17</find>
       <find>SyncDocument</find>
       <find>孩子</find>
-      <find>*</find>
       <find>AIArtHandleArt</find>
       <find>\*</find>
       <find>ai :: int16计数</find>
       <find>无效</find>
-      <find>艺术</find>
+      <find>*</find>
       <find>-</find>
+      <find>艺术</find>
     </findStrings>
     <replaceStrings>
       <replace>&amp;lt;username&amp;gt;</replace>
@@ -306,13 +308,13 @@
       <replace>AIArtHandle art</replace>
       <replace>*</replace>
       <replace>ai :: int16 count</replace>
-      <replace>\*</replace>
       <replace>- AIAPI AIErr</replace>
       <replace>AIPathfinderData \*data</replace>
       <replace>获得</replace>
       <replace>void</replace>
-      <replace>art</replace>
+      <replace>\*</replace>
       <replace>###</replace>
+      <replace>art</replace>
     </replaceStrings>
     <dirStrings>
       <dir>J:\B_我的资料\site\blog</dir>
@@ -350,18 +352,19 @@
         <option value="$PROJECT_DIR$/themes/hexo-theme-icarus/_config.yml" />
         <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/themes/indigo/_config.yml" />
-        <option value="$PROJECT_DIR$/source/_posts/winform-release.md" />
         <option value="$PROJECT_DIR$/source/_posts/cpp-gdal.md" />
         <option value="$PROJECT_DIR$/source/_posts/cpp-gdal-function.md" />
-        <option value="$PROJECT_DIR$/source/_posts/cpp-function.md" />
         <option value="$PROJECT_DIR$/source/_posts/ai-first-note.md" />
-        <option value="$PROJECT_DIR$/source/_posts/ai-second-note.md" />
         <option value="$PROJECT_DIR$/source/_posts/ai-third-note.md" />
         <option value="$PROJECT_DIR$/source/_posts/ai-forth-document-note.md" />
         <option value="$PROJECT_DIR$/source/_posts/ai-fifth-ailayer-note.md" />
         <option value="$PROJECT_DIR$/source/_posts/ai-six-aiart-note.md" />
         <option value="$PROJECT_DIR$/source/_posts/ai-seven-path-note.md" />
+        <option value="$PROJECT_DIR$/source/_posts/cpp-function.md" />
+        <option value="$PROJECT_DIR$/source/_posts/ai-second-note.md" />
         <option value="$PROJECT_DIR$/source/_posts/ai-eight-style-note.md" />
+        <option value="$PROJECT_DIR$/source/_posts/ai-dash-line-note.md" />
+        <option value="$PROJECT_DIR$/source/_posts/winform-release.md" />
       </list>
     </option>
   </component>
@@ -383,8 +386,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="619" />
-    <option name="y" value="-16" />
+    <option name="x" value="408" />
+    <option name="y" value="-8" />
     <option name="width" value="1089" />
     <option name="height" value="722" />
   </component>
@@ -394,7 +397,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -429,11 +431,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../笔记本数据备份/课程学习/课程工程/WYWebGIS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -495,12 +498,14 @@
       <workItem from="1553243017900" duration="602000" />
       <workItem from="1553262403597" duration="156000" />
       <workItem from="1553318283315" duration="31636000" />
-      <workItem from="1553475796442" duration="12797000" />
+      <workItem from="1553475796442" duration="20776000" />
+      <workItem from="1553589897646" duration="1429000" />
+      <workItem from="1553606411681" duration="802000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136068000" />
+    <option name="totallyTimeSpent" value="146278000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -513,9 +518,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21601686" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21601686" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -527,7 +531,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32899022" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.22366993" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.22366993" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -541,9 +545,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/themes/indigo/source/img/avatar.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/indigo/layout/layout.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -727,17 +728,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/oracle-st-geometry.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="200">
             <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -839,30 +840,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/winform-release.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1825">
-            <caret line="73" column="35" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="35" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2875">
           <caret line="115" selection-start-line="115" selection-start-column="1" selection-end-line="115" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/cpp-function.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="675">
-            <caret line="147" column="17" selection-start-line="147" selection-start-column="17" selection-end-line="147" selection-end-column="17" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -886,21 +867,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/ai-first-note.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/ai-second-note.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="275">
-            <caret line="81" selection-start-line="81" selection-end-line="89" selection-end-column="61" />
+          <first_editor relative-caret-position="1425">
+            <caret line="57" column="6" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/ai-second-note.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/ai-seven-path-note.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="614">
-            <caret line="61" column="61" selection-start-line="61" selection-start-column="61" selection-end-line="61" selection-end-column="61" />
+          <first_editor relative-caret-position="8800">
+            <caret line="352" column="61" selection-start-line="352" selection-start-column="61" selection-end-line="352" selection-end-column="61" />
           </first_editor>
           <second_editor />
         </state>
@@ -909,8 +890,28 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/ai-third-note.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="614">
+          <first_editor relative-caret-position="7450">
             <caret line="298" column="61" selection-start-line="298" selection-start-column="61" selection-end-line="298" selection-end-column="61" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/ai-eight-style-note.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="3800">
+            <caret line="152" column="30" selection-start-line="152" selection-start-column="24" selection-end-line="152" selection-end-column="30" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/cpp-function.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="3825">
+            <caret line="153" column="12" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="12" />
           </first_editor>
           <second_editor />
         </state>
@@ -919,7 +920,7 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/ai-forth-document-note.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="614">
+          <first_editor relative-caret-position="4375">
             <caret line="175" column="61" selection-start-line="175" selection-start-column="61" selection-end-line="175" selection-end-column="61" />
           </first_editor>
           <second_editor />
@@ -929,8 +930,28 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/ai-fifth-ailayer-note.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="614">
+          <first_editor relative-caret-position="4825">
             <caret line="193" column="61" selection-start-line="193" selection-start-column="61" selection-end-line="193" selection-end-column="61" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/ai-first-note.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="125">
+            <caret line="5" column="18" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="5" selection-end-column="18" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/ai-dash-line-note.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1125">
+            <caret line="45" column="21" lean-forward="true" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
           </first_editor>
           <second_editor />
         </state>
@@ -939,31 +960,18 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/ai-six-aiart-note.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="614">
+          <first_editor relative-caret-position="7725">
             <caret line="309" column="61" selection-start-line="309" selection-start-column="61" selection-end-line="309" selection-end-column="61" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/ai-seven-path-note.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/winform-release.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="553">
-            <caret line="352" column="61" selection-start-line="352" selection-start-column="61" selection-end-line="352" selection-end-column="61" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/ai-eight-style-note.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="409">
-            <caret line="181" column="29" lean-forward="true" selection-start-line="181" selection-start-column="29" selection-end-line="181" selection-end-column="29" />
-            <folding>
-              <element signature="e#6830#6844#0" />
-            </folding>
+          <first_editor relative-caret-position="600">
+            <caret line="78" column="6" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
           </first_editor>
           <second_editor />
         </state>

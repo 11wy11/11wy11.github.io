@@ -173,13 +173,13 @@ AIArtStyleSuite.
     Types of line caps for strokes.
         Enumerator:
         kAIButtCap 	
-        Butt line caps.
+        Butt line caps.//平头
         
         kAIRoundCap 	
-        Round line caps.
+        Round line caps.//圆头
         
         kAIProjectingCap 	
-        Projecting line caps.
+        Projecting line caps.//方头
     ```
 - enum AILineJoin 	join  
  	Line join
@@ -188,13 +188,13 @@ AIArtStyleSuite.
     
     Enumerator:
     kAIMiterJoin 	
-    Miter line joins.
+    Miter line joins.//斜接连接
     
     kAIRoundJoin 	
-    Round line joins.
+    Round line joins.//圆角连接
     ```
 - AIReal 	miterLimit  
- 	Line miter limit.   
+ 	Line miter limit. 
 ## AIFillStyle
 - AIColor 	color
  	Fill color. 
