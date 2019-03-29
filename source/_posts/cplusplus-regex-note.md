@@ -1,8 +1,10 @@
 ---
-title: cplusplus-regex-note
+title: C# Regex正则表达式
 date: 2019-03-29 20:30:30
-tags:
-categories:
+tags: 
+    - C#
+    - Regex
+categories: C# 
 ---
 正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。
 <!--more-->
@@ -10,7 +12,7 @@ categories:
 正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。正则表达式无疑是处理文本最有力的工具，而.NET提供的Regex类实现了验证正则表达式的方法。Regex 类表示不可变（只读）的正则表达式。它还包含各种静态方法，允许在不显式创建其他类的实例的情况下使用其他正则表达式类。
 # 基础
 ![基础1](cplusplus-regex-note/pic1.png)
-![基础1](cplusplus-regex-note/pic2.png)
+![基础2](cplusplus-regex-note/pic2.png)
 # 数字常用表达式
 ```
 //数字
