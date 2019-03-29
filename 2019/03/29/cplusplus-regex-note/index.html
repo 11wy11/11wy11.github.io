@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>cplusplus-regex-note | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。">
+<meta name="keywords" content="vue,javascript,java,C#,C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cplusplus-regex-note">
+<meta property="og:url" content="http://11wy11.github.io/2019/03/29/cplusplus-regex-note/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/29/cplusplus-regex-note/cplusplus-regex-note/pic1.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/29/cplusplus-regex-note/cplusplus-regex-note/pic2.png">
+<meta property="og:updated_time" content="2019-03-29T13:38:36.466Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cplusplus-regex-note">
+<meta name="twitter:description" content="正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。">
+<meta name="twitter:image" content="http://11wy11.github.io/2019/03/29/cplusplus-regex-note/cplusplus-regex-note/pic1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">cplusplus-regex-note</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">cplusplus-regex-note</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-29T12:30:30.000Z" itemprop="datePublished" class="page-time">
+  2019-03-29
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Regex-正则表达式"><span class="post-toc-number">1.</span> <span class="post-toc-text">Regex 正则表达式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基础"><span class="post-toc-number">2.</span> <span class="post-toc-text">基础</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数字常用表达式"><span class="post-toc-number">3.</span> <span class="post-toc-text">数字常用表达式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#字符"><span class="post-toc-number">4.</span> <span class="post-toc-text">字符</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他表达式"><span class="post-toc-number">5.</span> <span class="post-toc-text">其他表达式</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-cplusplus-regex-note" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">cplusplus-regex-note</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-29 20:30:30" datetime="2019-03-29T12:30:30.000Z" itemprop="datePublished">2019-03-29</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。<br><a id="more"></a></p>
+<h1 id="Regex-正则表达式"><a href="#Regex-正则表达式" class="headerlink" title="Regex 正则表达式"></a>Regex 正则表达式</h1><p>正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。正则表达式无疑是处理文本最有力的工具，而.NET提供的Regex类实现了验证正则表达式的方法。Regex 类表示不可变（只读）的正则表达式。它还包含各种静态方法，允许在不显式创建其他类的实例的情况下使用其他正则表达式类。</p>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="cplusplus-regex-note/pic1.png" alt="基础1" title>
+                </div>
+                <div class="image-caption">基础1</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="cplusplus-regex-note/pic2.png" alt="基础1" title>
+                </div>
+                <div class="image-caption">基础1</div>
+            </figure>
+<h1 id="数字常用表达式"><a href="#数字常用表达式" class="headerlink" title="数字常用表达式"></a>数字常用表达式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">//数字</span><br><span class="line">    Regex reg = new Regex(@&quot;^[0-9]*$&quot;);</span><br><span class="line">    //n位的数字</span><br><span class="line">    Regex reg = new Regex(@&quot;^\d&#123;n&#125;$&quot;);</span><br><span class="line">    //至少n位的数字</span><br><span class="line">    Regex reg = new Regex(@&quot;^\d&#123;n,&#125;$&quot;);</span><br><span class="line">    //m-n位的数字</span><br><span class="line">    Regex reg = new Regex(@&quot;^\d&#123;m,n&#125;$&quot;);</span><br><span class="line">    //零和非零开头的数字</span><br><span class="line">    Regex reg = new Regex(@&quot;^(0|[1-9][0-9]*)$&quot;);</span><br><span class="line">    //非零开头的最多带两位小数的数字</span><br><span class="line">    Regex reg = new Regex(@&quot;^([1-9][0-9]*)+(.[0-9]&#123;1,2&#125;)?$&quot;);</span><br><span class="line">    //带1-2位小数的正数或负数</span><br><span class="line">    Regex reg = new Regex(@&quot;^(\-)?\d+(\.\d&#123;1,2&#125;)?$&quot;);</span><br><span class="line">    //正数、负数、和小数</span><br><span class="line">    Regex reg = new Regex(@&quot;^(\-|\+)?\d+(\.\d+)?$&quot;);</span><br><span class="line">    //有两位小数的正实数</span><br><span class="line">    Regex reg = new Regex(@&quot;^[0-9]+(.[0-9]&#123;2&#125;)?$&quot;);</span><br><span class="line">    //有1~3位小数的正实数</span><br><span class="line">    Regex reg = new Regex(@&quot;^[0-9]+(.[0-9]&#123;1,3&#125;)?$&quot;);</span><br><span class="line">    //非零的正整数</span><br><span class="line">    Regex reg = new Regex(@&quot;^[1-9]\d*$ 或 ^([1-9][0-9]*)&#123;1,3&#125;$ 或 ^\+?[1-9][0-9]*$&quot;);</span><br><span class="line">    //非零的负整数</span><br><span class="line">    Regex reg = new Regex(@&quot;^\-[1-9][]0-9″*$ 或 ^-[1-9]\d*$&quot;);</span><br><span class="line">    //非负整数</span><br><span class="line">    Regex reg = new Regex(@&quot;^\d+$ 或 ^[1-9]\d*|0$&quot;);</span><br><span class="line">    //非正整数</span><br><span class="line">    Regex reg = new Regex(@&quot;^-[1-9]\d*|0$ 或 ^((-\d+)|(0+))$&quot;);</span><br><span class="line">    //非负浮点数</span><br><span class="line">    Regex reg = new Regex(@&quot;^\d+(\.\d+)?$ 或 ^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$&quot;);</span><br><span class="line">    //非正浮点数</span><br><span class="line">    Regex reg = new Regex(@&quot;^((-\d+(\.\d+)?)|(0+(\.0+)?))$ 或 ^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$&quot;);</span><br><span class="line">    //正浮点数</span><br><span class="line">    Regex reg = new Regex(@&quot;^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$ 或 ^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$&quot;);</span><br><span class="line">    //负浮点数</span><br><span class="line">    Regex reg = new Regex(@&quot;^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$ 或 ^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$&quot;);</span><br><span class="line">    //浮点数</span><br><span class="line">    Regex reg = new Regex(@&quot;^(-?\d+)(\.\d+)?$ 或 ^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$&quot;);</span><br></pre></td></tr></table></figure>
+<h1 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//汉字</span><br><span class="line">    Regex reg = new Regex(@&quot;^[\u4e00-\u9fa5]&#123;0,&#125;$&quot;);</span><br><span class="line">    //英文和数字</span><br><span class="line">    Regex reg = new Regex(@&quot;^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]&#123;4,40&#125;$&quot;);</span><br><span class="line">    //长度为3-20的所有字符</span><br><span class="line">    Regex reg = new Regex(@&quot;^.&#123;3,20&#125;$&quot;);</span><br><span class="line">    //由26个英文字母组成的字符串</span><br><span class="line">    Regex reg = new Regex(@&quot;^[A-Za-z]+$&quot;);</span><br><span class="line">    //由26个大写英文字母组成的字符串</span><br><span class="line">    Regex reg = new Regex(@&quot;^[A-Z]+$&quot;);</span><br><span class="line">    //由26个小写英文字母组成的字符串</span><br><span class="line">    Regex reg = new Regex(@&quot;^[a-z]+$&quot;);</span><br><span class="line">    //由数字和26个英文字母组成的字符串</span><br><span class="line">    Regex reg = new Regex(@&quot;^[A-Za-z0-9]+$&quot;);</span><br><span class="line">    //由数字、26个英文字母或者下划线组成的字符串</span><br><span class="line">    Regex reg = new Regex(@&quot;^\w+$ 或 ^\w&#123;3,20&#125;$&quot;);</span><br><span class="line">    //中文、英文、数字包括下划线</span><br><span class="line">    Regex reg = new Regex(@&quot;^[\u4E00-\u9FA5A-Za-z0-9_]+$&quot;);</span><br><span class="line">    //中文、英文、数字但不包括下划线等符号</span><br><span class="line">    Regex reg = new Regex(@&quot;^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]&#123;2,20&#125;$&quot;);</span><br><span class="line">    //可以输入含有^%&amp;’,;=?$\”等字符</span><br><span class="line">    Regex reg = new Regex(@&quot;[^%&amp;’,;=?$\x22]+&quot;);</span><br><span class="line">    //禁止输入含有~的字符</span><br><span class="line">    Regex reg = new Regex(@&quot;[^~\x22]+&quot;);</span><br></pre></td></tr></table></figure>
+<h1 id="其他表达式"><a href="#其他表达式" class="headerlink" title="其他表达式"></a>其他表达式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">//Email地址</span><br><span class="line">    Regex reg = new Regex(@&quot;^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$&quot;);</span><br><span class="line">    //域名</span><br><span class="line">    Regex reg = new Regex(@&quot;[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;(/.[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;)+/.?&quot;);</span><br><span class="line">    //InternetURL</span><br><span class="line">    Regex reg = new Regex(@&quot;[a-zA-z]+://[^\s]* 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$&quot;);</span><br><span class="line">    //手机号码</span><br><span class="line">    Regex reg = new Regex(@&quot;^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d&#123;8&#125;$&quot;);</span><br><span class="line">    //电话号码(“XXX-XXXXXXX”、”XXXX-XXXXXXXX”、”XXX-XXXXXXX”、”XXX-XXXXXXXX”、”XXXXXXX”和”XXXXXXXX)</span><br><span class="line">    Regex reg = new Regex(@&quot;^($$\d&#123;3,4&#125;-)|\d&#123;3.4&#125;-)?\d&#123;7,8&#125;$&quot;);</span><br><span class="line">    //国内电话号码(0511-4405222、021-87888822)</span><br><span class="line">    Regex reg = new Regex(@&quot;\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;&quot;);</span><br><span class="line">    //身份证号(15位、18位数字)</span><br><span class="line">    Regex reg = new Regex(@&quot;^\d&#123;15&#125;|\d&#123;18&#125;$&quot;);</span><br><span class="line">    //短身份证号码(数字、字母x结尾)</span><br><span class="line">    Regex reg = new Regex(@&quot;^([0-9])&#123;7,18&#125;(x|X)?$ 或 ^\d&#123;8,18&#125;|[0-9x]&#123;8,18&#125;|[0-9X]&#123;8,18&#125;?$&quot;);</span><br><span class="line">    //帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)</span><br><span class="line">    Regex reg = new Regex(@&quot;^[a-zA-Z][a-zA-Z0-9_]&#123;4,15&#125;$&quot;);</span><br><span class="line">    //密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)</span><br><span class="line">    Regex reg = new Regex(@&quot;^[a-zA-Z]\w&#123;5,17&#125;$&quot;);</span><br><span class="line">    //强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)</span><br><span class="line">    Regex reg = new Regex(@&quot;^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).&#123;8,10&#125;$&quot;);</span><br><span class="line">    //日期格式</span><br><span class="line">    Regex reg = new Regex(@&quot;^\d&#123;4&#125;-\d&#123;1,2&#125;-\d&#123;1,2&#125;&quot;);</span><br><span class="line">    //一年的12个月(01～09和1～12)</span><br><span class="line">    Regex reg = new Regex(@&quot;^(0?[1-9]|1[0-2])$&quot;);</span><br><span class="line">    //一个月的31天(01～09和1～31)</span><br><span class="line">    Regex reg = new Regex(@&quot;^((0?[1-9])|((1|2)[0-9])|30|31)$&quot;);</span><br><span class="line">    //钱的输入格式：</span><br><span class="line">    //有四种钱的表示形式我们可以接受:”10000.00″ 和 “10,000.00”, 和没有 “分” 的 “10000” 和 “10,000”</span><br><span class="line">    Regex reg = new Regex(@&quot;^[1-9][0-9]*$&quot;);</span><br><span class="line">    //这表示任意一个不以0开头的数字，但是，这也意味着一个字符”0″不通过，所以我们采用下面的形式</span><br><span class="line">    Regex reg = new Regex(@&quot;^(0|[1-9][0-9]*)$&quot;);</span><br><span class="line">    //一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号</span><br><span class="line">    Regex reg = new Regex(@&quot;^(0|-?[1-9][0-9]*)$&quot;);</span><br><span class="line">    //这表示一个0或者一个可能为负的开头不为0的数字.让用户以0开头好了.把负号的也去掉，因为钱总不能是负的吧.下面我们要加的是说明可能的小数部分</span><br><span class="line">    Regex reg = new Regex(@&quot;^[0-9]+(.[0-9]+)?$&quot;);</span><br><span class="line">    //必须说明的是，小数点后面至少应该有1位数，所以”10.”是不通过的，但是 “10” 和 “10.2” 是通过的</span><br><span class="line">    Regex reg = new Regex(@&quot;^[0-9]+(.[0-9]&#123;2&#125;)?$&quot;);</span><br><span class="line">    //这样我们规定小数点后面必须有两位，如果你认为太苛刻了，可以这样</span><br><span class="line">    Regex reg = new Regex(@&quot;^[0-9]+(.[0-9]&#123;1,2&#125;)?$&quot;);</span><br><span class="line">    //这样就允许用户只写一位小数。下面我们该考虑数字中的逗号了，我们可以这样</span><br><span class="line">    Regex reg = new Regex(@&quot;^[0-9]&#123;1,3&#125;(,[0-9]&#123;3&#125;)*(.[0-9]&#123;1,2&#125;)?$&quot;);</span><br><span class="line">    //1到3个数字，后面跟着任意个 逗号+3个数字，逗号成为可选，而不是必须</span><br><span class="line">    Regex reg = new Regex(@&quot;^([0-9]+|[0-9]&#123;1,3&#125;(,[0-9]&#123;3&#125;)*)(.[0-9]&#123;1,2&#125;)?$&quot;);</span><br><span class="line">    //备注：这就是最终结果了，别忘了”+”可以用”*”替代。如果你觉得空字符串也可以接受的话(奇怪，为什么?)最后，别忘了在用函数时去掉去掉那个反斜杠，一般的错误都在这里</span><br><span class="line">    //xml文件</span><br><span class="line">    Regex reg = new Regex(@&quot;^([a-zA-Z]+-?)+[a-zA-Z0-9]+\\.[x|X][m|M][l|L]$&quot;);</span><br><span class="line">    //中文字符的正则表达式</span><br><span class="line">    Regex reg = new Regex(@&quot;[\u4e00-\u9fa5]&quot;);</span><br><span class="line">    //双字节字符</span><br><span class="line">    Regex reg = new Regex(@&quot;[^\x00-\xff] (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))&quot;);</span><br><span class="line">    //空白行的正则表达式，可用来删除空白行</span><br><span class="line">    Regex reg = new Regex(@&quot;\n\s*\r&quot;);</span><br><span class="line">    //HTML标记的正则表达式</span><br><span class="line">    Regex reg = new Regex(@&quot;&lt;(\S*?)[^&gt;]*&gt;.*?&lt;/\1&gt;|&lt;.*? /&gt;&quot;);// (网上流传的版本太糟糕，上面这个也仅仅能部分，对于复杂的嵌套标记依旧无能为力)</span><br><span class="line">    //首尾空白字符的正则表达式</span><br><span class="line">    Regex reg = new Regex(@&quot;^\s*|\s*$或(^\s*)|(\s*$)&quot;);// (可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)</span><br><span class="line">    //腾讯QQ号</span><br><span class="line">    Regex reg = new Regex(@&quot;[1-9][0-9]&#123;4,&#125;&quot;); //(腾讯QQ号从10000开始)</span><br><span class="line">    //中国邮政编码</span><br><span class="line">    Regex reg = new Regex(@&quot;[1-9]\d&#123;5&#125;(?!\d)&quot;);// (中国邮政编码为6位数字)</span><br><span class="line">    //IP地址</span><br><span class="line">    Regex reg = new Regex(@&quot;\d+\.\d+\.\d+\.\d+&quot;);// (提取IP地址时有用)</span><br><span class="line">    //IP地址</span><br><span class="line">    Regex reg = new Regex(@&quot;((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.)&#123;3&#125;(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))&quot;);</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-29T13:38:36.466Z" itemprop="dateUpdated">2019-03-29 21:38:36</time>
+</span><br>
+
+
+        
+        <a href="/2019/03/29/cplusplus-regex-note/" target="_blank" rel="external">http://11wy11.github.io/2019/03/29/cplusplus-regex-note/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&title=《cplusplus-regex-note》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&title=《cplusplus-regex-note》 — WeiYuan's Blog&source=正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《cplusplus-regex-note》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/26/cplusplus-pdf-note/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">cplusplus-pdf-note</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&title=《cplusplus-regex-note》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&title=《cplusplus-regex-note》 — WeiYuan's Blog&source=正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《cplusplus-regex-note》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIElEQVR42u3aQW7DMAwEwPz/0+kDUrtLUilgaXQKbCPy+LAQRb1e8Xh/jM+7V88n/3n/b8sGBgbGYxnv25E8k0ycfIjqvBgYGKcxria+/3119/7KZK7L6xgYGBi3IbiKioGBgfENxn1RmsOSeTEwMDCSIjYvU5Oo7V1fUItjYGA8kJHvuv//76/0NzAwMB7FeBdHEqBJjObtz+itMDAwtmbMl32TSK2C/3gfDAyMwxhJ0TiJ2l55/Ko+hIGBsRGjGql5Y3JeY1abExgYGPsx8kjNt+8nrYLmZ8XAwDiGkcdrr9HYi9ckvjEwMPZmVJdu+SGweXM0L6cxMDD2ZvRalT38vBV6+QkwMDC2ZlRjNy8ve0cuFu8aYmBgbMHotRKrJW6PWi5fMTAwNmVUl2jVzbictPjMCAYGxtaM+UZYOSiLrYXL6MfAwDiMkQfuZBOtmpblwMXAwNiI0Tsidv8JJrOMYBgYGAcwJkVmtfWYPF9tS2BgYOzKyJdfvQ215NWry81f3hwDA+MARr4cTAJxsiVX3ezDwMA4jTE57FXdGus9XzjXhoGBsQXjXRz5MjEvaHslLgYGxjmMXthFRx8WtTOrM2JgYOzK6MVlzqguIpuRjYGBcQCjGny90rd6tKJcymJgYGC0jkEk8ZrPuCxwMTAwDmAk18uvElOXBS4GBsajGEkRWy1cq8HdK3QxMDBOYPQORkwK1/8vfTEwMB7L+AEQjomHh6BKvAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
