@@ -14,26 +14,26 @@
     
     
     
-    <title>cplusplus-regex-note | WeiYuan&#39;s Blog | 学习随记</title>
+    <title>C# Regex正则表达式 | WeiYuan&#39;s Blog | 学习随记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content>
+    <meta name="keywords" content="C#,Regex">
     <meta name="description" content="正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。">
-<meta name="keywords" content="vue,javascript,java,C#,C++">
+<meta name="keywords" content="C#,Regex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cplusplus-regex-note">
+<meta property="og:title" content="C# Regex正则表达式">
 <meta property="og:url" content="http://11wy11.github.io/2019/03/29/cplusplus-regex-note/index.html">
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
 <meta property="og:description" content="正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://11wy11.github.io/2019/03/29/cplusplus-regex-note/cplusplus-regex-note/pic1.png">
 <meta property="og:image" content="http://11wy11.github.io/2019/03/29/cplusplus-regex-note/cplusplus-regex-note/pic2.png">
-<meta property="og:updated_time" content="2019-03-29T13:38:36.466Z">
+<meta property="og:updated_time" content="2019-03-29T13:42:11.444Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cplusplus-regex-note">
+<meta name="twitter:title" content="C# Regex正则表达式">
 <meta name="twitter:description" content="正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。">
 <meta name="twitter:image" content="http://11wy11.github.io/2019/03/29/cplusplus-regex-note/cplusplus-regex-note/pic1.png">
     
@@ -123,7 +123,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">cplusplus-regex-note</div>
+        <div class="flex-col header-title ellipsis">C# Regex正则表达式</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -145,13 +145,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">cplusplus-regex-note</h1>
+        <h1 class="title">C# Regex正则表达式</h1>
         <h5 class="subtitle">
             
                 <time datetime="2019-03-29T12:30:30.000Z" itemprop="datePublished" class="page-time">
   2019-03-29
 </time>
 
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C#</a></li></ul>
 
             
         </h5>
@@ -176,11 +178,13 @@
 <article id="post-cplusplus-regex-note" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">cplusplus-regex-note</h1>
+        <h1 class="post-card-title">C# Regex正则表达式</h1>
         <div class="post-meta">
             <time class="post-time" title="2019-03-29 20:30:30" datetime="2019-03-29T12:30:30.000Z" itemprop="datePublished">2019-03-29</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C#</a></li></ul>
+
 
 
             
@@ -203,9 +207,9 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="cplusplus-regex-note/pic2.png" alt="基础1" title>
+                    <img src="cplusplus-regex-note/pic2.png" alt="基础2" title>
                 </div>
-                <div class="image-caption">基础1</div>
+                <div class="image-caption">基础2</div>
             </figure>
 <h1 id="数字常用表达式"><a href="#数字常用表达式" class="headerlink" title="数字常用表达式"></a>数字常用表达式</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">//数字</span><br><span class="line">    Regex reg = new Regex(@&quot;^[0-9]*$&quot;);</span><br><span class="line">    //n位的数字</span><br><span class="line">    Regex reg = new Regex(@&quot;^\d&#123;n&#125;$&quot;);</span><br><span class="line">    //至少n位的数字</span><br><span class="line">    Regex reg = new Regex(@&quot;^\d&#123;n,&#125;$&quot;);</span><br><span class="line">    //m-n位的数字</span><br><span class="line">    Regex reg = new Regex(@&quot;^\d&#123;m,n&#125;$&quot;);</span><br><span class="line">    //零和非零开头的数字</span><br><span class="line">    Regex reg = new Regex(@&quot;^(0|[1-9][0-9]*)$&quot;);</span><br><span class="line">    //非零开头的最多带两位小数的数字</span><br><span class="line">    Regex reg = new Regex(@&quot;^([1-9][0-9]*)+(.[0-9]&#123;1,2&#125;)?$&quot;);</span><br><span class="line">    //带1-2位小数的正数或负数</span><br><span class="line">    Regex reg = new Regex(@&quot;^(\-)?\d+(\.\d&#123;1,2&#125;)?$&quot;);</span><br><span class="line">    //正数、负数、和小数</span><br><span class="line">    Regex reg = new Regex(@&quot;^(\-|\+)?\d+(\.\d+)?$&quot;);</span><br><span class="line">    //有两位小数的正实数</span><br><span class="line">    Regex reg = new Regex(@&quot;^[0-9]+(.[0-9]&#123;2&#125;)?$&quot;);</span><br><span class="line">    //有1~3位小数的正实数</span><br><span class="line">    Regex reg = new Regex(@&quot;^[0-9]+(.[0-9]&#123;1,3&#125;)?$&quot;);</span><br><span class="line">    //非零的正整数</span><br><span class="line">    Regex reg = new Regex(@&quot;^[1-9]\d*$ 或 ^([1-9][0-9]*)&#123;1,3&#125;$ 或 ^\+?[1-9][0-9]*$&quot;);</span><br><span class="line">    //非零的负整数</span><br><span class="line">    Regex reg = new Regex(@&quot;^\-[1-9][]0-9″*$ 或 ^-[1-9]\d*$&quot;);</span><br><span class="line">    //非负整数</span><br><span class="line">    Regex reg = new Regex(@&quot;^\d+$ 或 ^[1-9]\d*|0$&quot;);</span><br><span class="line">    //非正整数</span><br><span class="line">    Regex reg = new Regex(@&quot;^-[1-9]\d*|0$ 或 ^((-\d+)|(0+))$&quot;);</span><br><span class="line">    //非负浮点数</span><br><span class="line">    Regex reg = new Regex(@&quot;^\d+(\.\d+)?$ 或 ^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$&quot;);</span><br><span class="line">    //非正浮点数</span><br><span class="line">    Regex reg = new Regex(@&quot;^((-\d+(\.\d+)?)|(0+(\.0+)?))$ 或 ^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$&quot;);</span><br><span class="line">    //正浮点数</span><br><span class="line">    Regex reg = new Regex(@&quot;^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$ 或 ^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$&quot;);</span><br><span class="line">    //负浮点数</span><br><span class="line">    Regex reg = new Regex(@&quot;^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$ 或 ^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$&quot;);</span><br><span class="line">    //浮点数</span><br><span class="line">    Regex reg = new Regex(@&quot;^(-?\d+)(\.\d+)?$ 或 ^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$&quot;);</span><br></pre></td></tr></table></figure>
 <h1 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//汉字</span><br><span class="line">    Regex reg = new Regex(@&quot;^[\u4e00-\u9fa5]&#123;0,&#125;$&quot;);</span><br><span class="line">    //英文和数字</span><br><span class="line">    Regex reg = new Regex(@&quot;^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]&#123;4,40&#125;$&quot;);</span><br><span class="line">    //长度为3-20的所有字符</span><br><span class="line">    Regex reg = new Regex(@&quot;^.&#123;3,20&#125;$&quot;);</span><br><span class="line">    //由26个英文字母组成的字符串</span><br><span class="line">    Regex reg = new Regex(@&quot;^[A-Za-z]+$&quot;);</span><br><span class="line">    //由26个大写英文字母组成的字符串</span><br><span class="line">    Regex reg = new Regex(@&quot;^[A-Z]+$&quot;);</span><br><span class="line">    //由26个小写英文字母组成的字符串</span><br><span class="line">    Regex reg = new Regex(@&quot;^[a-z]+$&quot;);</span><br><span class="line">    //由数字和26个英文字母组成的字符串</span><br><span class="line">    Regex reg = new Regex(@&quot;^[A-Za-z0-9]+$&quot;);</span><br><span class="line">    //由数字、26个英文字母或者下划线组成的字符串</span><br><span class="line">    Regex reg = new Regex(@&quot;^\w+$ 或 ^\w&#123;3,20&#125;$&quot;);</span><br><span class="line">    //中文、英文、数字包括下划线</span><br><span class="line">    Regex reg = new Regex(@&quot;^[\u4E00-\u9FA5A-Za-z0-9_]+$&quot;);</span><br><span class="line">    //中文、英文、数字但不包括下划线等符号</span><br><span class="line">    Regex reg = new Regex(@&quot;^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]&#123;2,20&#125;$&quot;);</span><br><span class="line">    //可以输入含有^%&amp;’,;=?$\”等字符</span><br><span class="line">    Regex reg = new Regex(@&quot;[^%&amp;’,;=?$\x22]+&quot;);</span><br><span class="line">    //禁止输入含有~的字符</span><br><span class="line">    Regex reg = new Regex(@&quot;[^~\x22]+&quot;);</span><br></pre></td></tr></table></figure>
@@ -218,7 +222,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-29T13:38:36.466Z" itemprop="dateUpdated">2019-03-29 21:38:36</time>
+    最后更新时间：<time datetime="2019-03-29T13:42:11.444Z" itemprop="dateUpdated">2019-03-29 21:42:11</time>
 </span><br>
 
 
@@ -240,6 +244,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Regex/">Regex</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -248,7 +254,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&title=《cplusplus-regex-note》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&title=《C# Regex正则表达式》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -258,7 +264,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&title=《cplusplus-regex-note》 — WeiYuan's Blog&source=正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&title=《C# Regex正则表达式》 — WeiYuan's Blog&source=正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -268,7 +274,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《cplusplus-regex-note》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&via=http://11wy11.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C# Regex正则表达式》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&via=http://11wy11.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -298,9 +304,9 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/03/26/cplusplus-pdf-note/" id="post-next" class="post-nav-link">
+      <a href="/2019/03/25/ai-dash-line-note/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">cplusplus-pdf-note</h4>
+        <h4 class="title">ai组件开发--虚线定义原理及编程实现</h4>
       </a>
     </div>
   
@@ -398,7 +404,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&title=《cplusplus-regex-note》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&title=《C# Regex正则表达式》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -408,7 +414,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&title=《cplusplus-regex-note》 — WeiYuan's Blog&source=正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&title=《C# Regex正则表达式》 — WeiYuan's Blog&source=正则表达式的本质是使用一系列特殊字符模式，来表示某一类字符串。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -418,7 +424,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《cplusplus-regex-note》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&via=http://11wy11.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C# Regex正则表达式》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/29/cplusplus-regex-note/&via=http://11wy11.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
