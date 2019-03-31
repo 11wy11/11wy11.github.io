@@ -1,5 +1,5 @@
 ---
-title: krpano快速入门教程（三）
+title: krpano快速入门教程（三）之热点Hotspot
 date: 2019-03-16 22:54:57
 tags: krpano
 categories: 全景
