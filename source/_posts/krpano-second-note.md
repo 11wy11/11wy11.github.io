@@ -1,5 +1,5 @@
 ---
-title: krpano快速入门教程（二）
+title: krpano快速入门教程（二）之vtour简介
 date: 2019-03-15 23:19:51
 tags: krpano
 categories: 全景
