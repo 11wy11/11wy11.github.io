@@ -86,6 +86,10 @@ vs2010打包时，在其他项目类型中找到安装和部署的模板，即�
       【解决方案】原因是通过打开了相关文件夹，关闭文件资源管理器即可
   3. 设置了应用的ico图标后，生成解决方案提示 error : -3204: Cannot extract icon with index 0 from file...
       【解决方案】把图标添加进工程。
+  4. 重新打包遇到错误-1014：     
+     错误	29	-1014: Cannot rename directory XXX\Express\SingleImage to XXX\Express\SingleImage.Bak. 
+     Windows Explorer or a DOS prompt may be pointing to a subfolder of the release output folder (Disk1) or to the Interm folder, locking it. Change the current directory. Close any open files in the Disk1 folder. Close Msidb.exe if it is open.  
+    【解决方案】将工程文件夹下的当时创建的SetUp应用程序中SetUp（当初新建的工程名）的文件夹删除，保留,isl，isproj文件，点击 生成解决方案即可，在XXX\Express\SingleImage\DiskImages\DISK1下生成可执行文件
       
 参考：https://blog.csdn.net/qq_38122230/article/details/80470699
 https://blog.csdn.net/u010872301/article/details/80509405
