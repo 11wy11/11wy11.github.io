@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>C#读取txt和xml文件等 | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C#">
+    <meta name="description" content="读取txt和xml等，生成Dictionary等">
+<meta name="keywords" content="C#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#读取txt和xml文件等">
+<meta property="og:url" content="http://11wy11.github.io/2019/04/10/cplusplus-txt-xml-read-note/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="读取txt和xml等，生成Dictionary等">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-10T03:16:33.421Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C#读取txt和xml文件等">
+<meta name="twitter:description" content="读取txt和xml等，生成Dictionary等">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">C#读取txt和xml文件等</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">C#读取txt和xml文件等</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-10T03:05:59.000Z" itemprop="datePublished" class="page-time">
+  2019-04-10
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C#</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#TXT文件读取"><span class="post-toc-number">1.</span> <span class="post-toc-text">TXT文件读取</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#XML读取"><span class="post-toc-number">2.</span> <span class="post-toc-text">XML读取</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-cplusplus-txt-xml-read-note" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">C#读取txt和xml文件等</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-10 11:05:59" datetime="2019-04-10T03:05:59.000Z" itemprop="datePublished">2019-04-10</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C#</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>读取txt和xml等，生成Dictionary等<br><a id="more"></a></p>
+<h1 id="TXT文件读取"><a href="#TXT文件读取" class="headerlink" title="TXT文件读取"></a>TXT文件读取</h1><p>pac文件格式：<br>11000,XX省<br>11100,XX市<br>11101,XXXX区<br>11102,XXXX1区    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public static Dictionary&lt;string, string&gt; countyPacMap = new Dictionary&lt;string, string&gt;();//存储区域PAC码对应信息</span><br><span class="line"> FileStream file = new FileStream(&quot;Config/PAC.txt&quot;, FileMode.OpenOrCreate);</span><br><span class="line">            StreamReader reader = new StreamReader(file, UnicodeEncoding.GetEncoding(&quot;UTF-8&quot;));</span><br><span class="line">            string strLine = string.Empty;</span><br><span class="line">            while ((strLine = reader.ReadLine()) != null)</span><br><span class="line">            &#123;</span><br><span class="line">                strLine = strLine.Trim().ToString();</span><br><span class="line">                string[] nameAndCode = strLine.Split(&apos;,&apos;);</span><br><span class="line">                string name = nameAndCode[1];</span><br><span class="line">                string pac = nameAndCode[0];</span><br><span class="line">                countyPacMap.Add(name, pac);</span><br><span class="line">            &#125;</span><br><span class="line">            file.Close();</span><br></pre></td></tr></table></figure>
+<h1 id="XML读取"><a href="#XML读取" class="headerlink" title="XML读取"></a>XML读取</h1><p>XML格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory Name=&quot;XX&quot; &gt;</span><br><span class="line">  &lt;Directory Name=&quot;1-采样数据&quot; &gt;</span><br><span class="line">    &lt;File DestinationDirectory=&quot;1-采样数据&quot; isCheckAttribute=&quot;true&quot; type=&quot;1&quot; sheetNum=&quot;1&quot; &gt;XXX.txt&lt;/File&gt;</span><br><span class="line">    &lt;File DestinationDirectory=&quot;1-采样数据&quot;&gt;2-登记表.pdf&lt;/File&gt;</span><br><span class="line">    &lt;File DestinationDirectory=&quot;1-采样数据&quot;&gt;3-送样单.pdf&lt;/File&gt;</span><br><span class="line">  &lt;/Directory&gt;</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure></p>
+<p>读取XML<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"> public static List&lt;FieldModel&gt; getFieldsFromXml(String xmlName, int index)</span><br><span class="line">         &#123;</span><br><span class="line">             string m_strConfig = &quot;Tables/&quot;;</span><br><span class="line">             List&lt;FieldModel&gt; result = new List&lt;FieldModel&gt;();</span><br><span class="line">             XmlDocument doc = new XmlDocument();</span><br><span class="line">             doc.Load(m_strConfig + xmlName + &quot;.xml&quot;);             </span><br><span class="line">             XmlNode root = doc.SelectSingleNode(&quot;Table&quot;);</span><br><span class="line">             XmlNode sheet = root.ChildNodes[index];</span><br><span class="line">             // 得到根节点的所有子节点</span><br><span class="line">             XmlNodeList xnl = sheet.ChildNodes;</span><br><span class="line">             foreach (XmlNode xn in xnl)</span><br><span class="line">             &#123;</span><br><span class="line">                 FieldModel fieldModel = new FieldModel();</span><br><span class="line">                 // 将节点转换为元素，便于得到节点的属性值</span><br><span class="line">                 XmlElement xe = (XmlElement)xn;</span><br><span class="line">                 fieldModel.FieldName = xe.GetAttribute(&quot;Name&quot;).ToString();</span><br><span class="line">                 fieldModel.FieldType = xe.GetAttribute(&quot;Type&quot;).ToString();</span><br><span class="line">                 fieldModel.RuleType = xe.GetAttribute(&quot;RuleType&quot;).ToString();</span><br><span class="line">                 fieldModel.RuleParms = xe.GetAttribute(&quot;RuleParms&quot;).ToString();</span><br><span class="line">                 result.Add(fieldModel);</span><br><span class="line">             &#125;</span><br><span class="line">             return result;</span><br><span class="line">         &#125;</span><br><span class="line">         public static string[] getFieldCNames(ArrayList array)</span><br><span class="line">         &#123;</span><br><span class="line">             int nums = array.Count;</span><br><span class="line">             string[] names = new string[nums];</span><br><span class="line">             for (int i = 0; i &lt; nums; i++)</span><br><span class="line">             &#123;</span><br><span class="line">                 FieldModel fieldModel = (FieldModel)array[i];</span><br><span class="line">                 names[i] = fieldModel.FieldName;</span><br><span class="line">             &#125;</span><br><span class="line">             return names;</span><br><span class="line">         &#125;</span><br><span class="line">//FieldModel类</span><br><span class="line">class FieldModel</span><br><span class="line">    &#123;</span><br><span class="line">        public FieldModel()</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        private string fieldName;</span><br><span class="line"></span><br><span class="line">        public string FieldName</span><br><span class="line">        &#123;</span><br><span class="line">            get &#123; return fieldName; &#125;</span><br><span class="line">            set &#123; fieldName = value; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">       </span><br><span class="line">        private string ruleType;</span><br><span class="line"></span><br><span class="line">        public string RuleType</span><br><span class="line">        &#123;</span><br><span class="line">            get &#123; return ruleType; &#125;</span><br><span class="line">            set &#123; ruleType = value; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        private string fieldType;</span><br><span class="line"></span><br><span class="line">        public string FieldType</span><br><span class="line">        &#123;</span><br><span class="line">            get &#123; return fieldType; &#125;</span><br><span class="line">            set &#123; fieldType = value; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        private string ruleParms;</span><br><span class="line"></span><br><span class="line">        public string RuleParms</span><br><span class="line">        &#123;</span><br><span class="line">            get &#123; return ruleParms; &#125;</span><br><span class="line">            set &#123; ruleParms = value; &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-10T03:16:33.421Z" itemprop="dateUpdated">2019-04-10 11:16:33</time>
+</span><br>
+
+
+        
+        <a href="/2019/04/10/cplusplus-txt-xml-read-note/" target="_blank" rel="external">http://11wy11.github.io/2019/04/10/cplusplus-txt-xml-read-note/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/04/10/cplusplus-txt-xml-read-note/&title=《C#读取txt和xml文件等》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/04/10/cplusplus-txt-xml-read-note/&title=《C#读取txt和xml文件等》 — WeiYuan's Blog&source=读取txt和xml等，生成Dictionary等" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/04/10/cplusplus-txt-xml-read-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C#读取txt和xml文件等》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/04/10/cplusplus-txt-xml-read-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/04/10/cplusplus-txt-xml-read-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/10/cplusplus-log-note/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">C# 使用NLog显示和输出日志</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/10/cplusplus-excel-note/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">C#读取，生成Excel</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/04/10/cplusplus-txt-xml-read-note/&title=《C#读取txt和xml文件等》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/04/10/cplusplus-txt-xml-read-note/&title=《C#读取txt和xml文件等》 — WeiYuan's Blog&source=读取txt和xml等，生成Dictionary等" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/04/10/cplusplus-txt-xml-read-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C#读取txt和xml文件等》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/04/10/cplusplus-txt-xml-read-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/04/10/cplusplus-txt-xml-read-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACs0lEQVR42u3aS3LCQAwFQO5/aXIAMDx9BkhVe5UKAdReWMob3W7xdX+4rl59/fvHv7n6ff7ehQsPDw9vXPrVR18xHr/+dVn3+Hr9+cm78PDw8M7x8nKTlpC8OmkeeYPBw8PD+wXeBJO0h2SUx8PDw/tfvOoX5+HF1i3Gw8PD+wwvCSPyaKBaYj58H8xa8PDw8GJePv7+zs9Hzvfw8PDwxqfq+eM+H6Crx2x5M3jyLjw8PLwDvPyBWy1ud3GqGl7g4eHhneZNYoLqX84f98k34uHh4Z3jVQfo3vhbvdP5gdlCPo2Hh4dX5M0P7JMDs/xorVdu+V14eHh4S7xeEfl4nbeKaJUqfhUPDw9vl5c8UqtRbFL0JJAdne/h4eHhrfJ6C0/JwD0PFPIKn5zs4eHh4X2cl4cRzVk+bkLlgAMPDw/vAG9yRfsI4/aThyNrMDw8PLyXn5CHrdW4oRpk9Ja6mn0PDw8Pb8DrFd0rNCk6Xx0oj9F4eHh4q7zeomr+ldUjsV5EUtjJxcPDwxvz8qOmHNZrBr1Vg8IiFx4eHt6YN8+A82igukYwCSDw8PDwzvF6sezpW9BrElEYgYeHhzfmbTWGpNzqI76674CHh4f3GV7yKJ83kvnO1ySqwMPDwzvBq0YG1YT4Pr6Ssf5NzXh4eHirvPw4Ki8lGdarbakQ3SZF4+Hh4Y15yYM+L/fcCkJ5cMfDw8M7zNuKG3prAb3rTWvBw8PDW+X1QoH81d4Kwtp6AR4eHt4B3nxs7bWQfEwvRw+T3oKHh4cX8/JmMI8PJmFEcjAWbZbh4eHhLfHywbcQocaD8sJYnGcteHh4eF/lVUvMx+X8ppQPwPDw8PC+xJuM3fNIohAf4+Hh4R3jVY+1kiXXSVSRr7Hi4eHhfZ5X/fe+Fx9U8clNXz7fw8PDw3t//QEKSYdcNjWtogAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
