@@ -1,15 +1,16 @@
 ---
 title: C#利用itextSharp直接生成pdf
-date: 2019-03-26 22:52:53
-tags: - C#
-       - itextSharp
-categories: C# 
+date: 2019-04-10 09:16:23
+tags:
+    - VS打包
+    - C#
+categories: C#
 ---
-有时我们使用Microsoft.office.Interop.Word引用时，存在版本兼容性等问题，借助itextsharp第三方开源库能够直接使用C#生成pdf,并添加水印，页眉页脚页码等
+C#使用开源第三方库itextsharp直接生成pdf,相较于Microsoft Office 的COM组件，不需要依赖office环境，程序兼容性好，更轻量。  
+但也存在一些不足，对于复杂模板的实现较为复杂，介绍一个使用实例
 <!--more-->
-
-# pdf生成工具类
-```cpp
+# pdf工具类
+```
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
@@ -48,7 +49,7 @@ namespace GDZLCHECK.Utils
         public static void GeneratePDF(DataTable tableSource, string pac, bool isPassed,string managerName,string contactNum,string unitName,string outputFilePath = "", int type = 1, string watermarkPicPath = "")
         {
             doc = new Document(PageSize.A4);
-            doc.AddAuthor("whu");
+            doc.AddAuthor("XXXXXX");
             doc.AddCreationDate();
             doc.AddHeader("isPass", isPassed.ToString());
             try
@@ -83,7 +84,7 @@ namespace GDZLCHECK.Utils
                 doc.Add(HeaderAndFooterEvent.AddParagraph("TEST  REPORT", 1, 1.5f));
                 doc.Add(HeaderAndFooterEvent.AddParagraph(" ", 1, 50, 0, 1.5f));
                 HeaderAndFooterEvent.SetFont(BaseColor.BLACK, "宋体", 28, Font.BOLD);//空行
-                string projectName="贵州省" + pac+"耕地质量地球化学调查评价";
+                string projectName="项目名称";
                 //检测信息             
                 bool isChangeRow = false;//对于项目名称过长需要换行截断
                 string anotherStr = "";
@@ -126,10 +127,10 @@ namespace GDZLCHECK.Utils
                 //AddHeaderTitleContent("汇交数据检查报告");//添加表头
                 CreateEmptyRow(1);//生成一行空行
                 //AddPartnerContent("生产单位", pac, 30);//添加合作单位
-                //AddPartnerContent("检查单位","贵州省第二测绘院",25);//添加合作单位
+                //AddPartnerContent("检查单位","WHU",25);//添加合作单位
                 //AddPageNumberContent(1,1);//添加页码
                 HeaderAndFooterEvent.SetFont(BaseColor.BLACK, "宋体1", 12);
-                doc.Add(HeaderAndFooterEvent.AddParagraph("项目名称: 贵州省" + pac+"耕地质量地球化学调查评价", 0, 1.5f));
+                doc.Add(HeaderAndFooterEvent.AddParagraph("项目名称:  XXXXXX", 0, 1.5f));
                 doc.Add(HeaderAndFooterEvent.AddParagraph("项目负责人:"+managerName+"              ", 0, 1.5f));
                 doc.Add(HeaderAndFooterEvent.AddParagraph("联系电话:"+contactNum+"         ", 0, 1.5f));
                 doc.Add(HeaderAndFooterEvent.AddParagraph("承担单位:" + unitName + "          ", 0, 1.5f));
@@ -178,7 +179,7 @@ namespace GDZLCHECK.Utils
                 #endregion
 
                 #region 添加水印
-                string waterMarkName = "汇交成果检查:"+(isPassed?"通过":"未通过");
+                string waterMarkName = "检查:"+(isPassed?"通过":"未通过");
                 string waterMarkAddr = pac;              
                 #endregion
 
@@ -658,8 +659,10 @@ namespace GDZLCHECK.Utils
         #endregion
     }
 }
+
 ```
-# 生成页眉页脚
+
+# 页眉页脚生成类
 ```
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -968,7 +971,8 @@ namespace GDZLCHECK.Utils
 }
 
 ```
-# 主函数调用
+
+# 主函数调用方式
 ```
 if (this.tbManagerName.Text.ToString() == "" || this.tbContact.Text.ToString() == "" || this.tbUnit.Text.ToString() == "")
             {
@@ -984,22 +988,20 @@ if (this.tbManagerName.Text.ToString() == "" || this.tbContact.Text.ToString() =
                 outputFilePath = dialog.SelectedPath;
                 string managerName = this.tbManagerName.Text.ToString();
                 string contactNum = this.tbContact.Text.ToString();
-                string unitName = this.tbUnit.Text.ToString();
-                //水印1
-                //PdfUtils.GeneratePDF(resultDt, strPacName, isPassed, managerName, contactNum, unitName, outputFilePath, 1);
-                //水印2
-                // PdfUtils.GeneratePDF(resultDt, strPac,isPassed,outputFilePath, 2);
-                //图片水印 
-                // string picPath = string.Format("{0}/Resource/{1}", AppDomain.CurrentDomain.BaseDirectory,"logo.png");
-                //PdfUtils.GeneratePDF(resultDt, strPac,isPassed,outputFilePath, 3,picPath);  
-                //读取word模板生成数据，转为PDF，然后添加水印，删除临时文件
+                string unitName = this.tbUnit.Text.ToString();                            
                 this.lbShowProcess.Text = "正在准备统计数据...";
                 this.pbProgress.Visible = true;
                 statisticNum();
                 this.pbProgress.Position = 30; 
                 this.lbShowProcess.Text = "开始生成检查报告...";
-                           
-                savePdf(outputFilePath, managerName, contactNum, unitName);
+                //文字水印1
+                PdfUtils.GeneratePDF(resultDt, strPacName, isPassed, managerName, contactNum, unitName, outputFilePath, 1);
+                //水印2
+                // PdfUtils.GeneratePDF(resultDt, strPac,isPassed,outputFilePath, 2);
+                //图片水印 
+                // string picPath = string.Format("{0}/Resource/{1}", AppDomain.CurrentDomain.BaseDirectory,"logo.png");
+                //PdfUtils.GeneratePDF(resultDt, strPac,isPassed,outputFilePath, 3,picPath);  
                 this.lbShowProcess.Text = "检查报告导出完成";
             }
 ```
+
