@@ -29,13 +29,13 @@
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
 <meta property="og:description" content="最基础的hexo+github搭建个人博客的教程">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://11wy11.github.io/2019/03/09/create-blog-process/create-blog-process/res2.png">
-<meta property="og:image" content="http://11wy11.github.io/2019/03/09/create-blog-process/create-blog-process/res1.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/09/create-blog-process/res2.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/09/create-blog-process/res1.png">
 <meta property="og:updated_time" content="2019-03-24T01:28:25.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hexo+github创建个人博客并备份源码">
 <meta name="twitter:description" content="最基础的hexo+github搭建个人博客的教程">
-<meta name="twitter:image" content="http://11wy11.github.io/2019/03/09/create-blog-process/create-blog-process/res2.png">
+<meta name="twitter:image" content="http://11wy11.github.io/2019/03/09/create-blog-process/res2.png">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -207,7 +207,7 @@
 </code></pre></li>
 <li><p>配置SSH key<br>打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开，执行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -keygen -t rsa -C &apos;D:/id.txt&apos;</span><br></pre></td></tr></table></figure>
-<p>然后连续按3次回车，最终会在用户目录下生成一个文件，找到<strong>目录.ssh/id_rsa.pub</strong>文件，用记事本打开全选复制。<br>在你的github上点击头像&gt;设置进入设置页面，选择SSH and GPG keys, 点击<strong>New SSH key</strong>按钮，名称随意填写，将刚复制的内容粘贴到key,添加<br><img src="create-blog-process/res2.png" alt="添加ssh key"></p>
+<p>然后连续按3次回车，最终会在用户目录下生成一个文件，找到<strong>目录.ssh/id_rsa.pub</strong>文件，用记事本打开全选复制。<br>在你的github上点击头像&gt;设置进入设置页面，选择SSH and GPG keys, 点击<strong>New SSH key</strong>按钮，名称随意填写，将刚复制的内容粘贴到key,添加<br><img src="/2019/03/09/create-blog-process/res2.png" alt="添加ssh key"></p>
 <h3 id="二、搭建流程"><a href="#二、搭建流程" class="headerlink" title="二、搭建流程"></a>二、搭建流程</h3></li>
 <li>本地创建&lt;username&gt;.github.io</li>
 <li><p>在本地&lt;username&gt;.github.io文件夹下初始化hexo项目并安装依赖</p>
@@ -218,7 +218,7 @@
 <li><p>以indigo为例，在本地&lt;username&gt;.github.io文件夹下执行以下命令安装主题</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:yscoder/hexo-theme-indigo.git themes/indigo</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>修改工程中的_config.yml配置文件，将themes: landscope改为themes: indigo<br><img src="create-blog-process/res1.png" alt="修改配置"></p>
+<li><p>修改工程中的_config.yml配置文件，将themes: landscope改为themes: indigo<br><img src="/2019/03/09/create-blog-process/res1.png" alt="修改配置"></p>
 </li>
 <li><p>依赖安装分别安装Less,Feed,Json-content依赖，执行如下命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-renderer-less --save</span><br><span class="line">$ npm install hexo-generator-feed --save</span><br><span class="line">$ npm install hexo-generator-json-content --save</span><br></pre></td></tr></table></figure>
