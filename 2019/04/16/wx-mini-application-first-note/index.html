@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>微信小程序初探(一) | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="微信小程序">
+    <meta name="description" content="按钮绑定事件传参数使用自定义属性，然后获取 列表嵌套或指定子项设置属性值对于json数组中的某个属性赋值微信小程序云开发第一步  在使用开发者工具创建一个新的小程序并勾选小程序-云开发，会生成一个小程序云开发的QuickStart的小程序应用  按照官方提示要将cloudfunctions下的login 创建并部署到云端，然后才能获取到用户的Openid  刚开始尝试发现，不管是点击创建并部署云">
+<meta name="keywords" content="微信小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序初探(一)">
+<meta property="og:url" content="http://11wy11.github.io/2019/04/16/wx-mini-application-first-note/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="按钮绑定事件传参数使用自定义属性，然后获取 列表嵌套或指定子项设置属性值对于json数组中的某个属性赋值微信小程序云开发第一步  在使用开发者工具创建一个新的小程序并勾选小程序-云开发，会生成一个小程序云开发的QuickStart的小程序应用  按照官方提示要将cloudfunctions下的login 创建并部署到云端，然后才能获取到用户的Openid  刚开始尝试发现，不管是点击创建并部署云">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-18T03:49:58.838Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序初探(一)">
+<meta name="twitter:description" content="按钮绑定事件传参数使用自定义属性，然后获取 列表嵌套或指定子项设置属性值对于json数组中的某个属性赋值微信小程序云开发第一步  在使用开发者工具创建一个新的小程序并勾选小程序-云开发，会生成一个小程序云开发的QuickStart的小程序应用  按照官方提示要将cloudfunctions下的login 创建并部署到云端，然后才能获取到用户的Openid  刚开始尝试发现，不管是点击创建并部署云">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">微信小程序初探(一)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">微信小程序初探(一)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-16T12:47:24.000Z" itemprop="datePublished" class="page-time">
+  2019-04-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/微信小程序/">微信小程序</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#按钮绑定事件传参数"><span class="post-toc-number">1.</span> <span class="post-toc-text">按钮绑定事件传参数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#列表嵌套或指定子项"><span class="post-toc-number">2.</span> <span class="post-toc-text">列表嵌套或指定子项</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#设置属性值对于json数组中的某个属性赋值"><span class="post-toc-number">3.</span> <span class="post-toc-text">设置属性值对于json数组中的某个属性赋值</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#微信小程序云开发第一步"><span class="post-toc-number">4.</span> <span class="post-toc-text">微信小程序云开发第一步</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#需要用到的帮助文档"><span class="post-toc-number">5.</span> <span class="post-toc-text">需要用到的帮助文档</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-wx-mini-application-first-note" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">微信小程序初探(一)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-16 20:47:24" datetime="2019-04-16T12:47:24.000Z" itemprop="datePublished">2019-04-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/微信小程序/">微信小程序</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <a id="more"></a>
+<h1 id="按钮绑定事件传参数"><a href="#按钮绑定事件传参数" class="headerlink" title="按钮绑定事件传参数"></a>按钮绑定事件传参数</h1><p>使用自定义属性，然后获取</p>
+<h1 id="列表嵌套或指定子项"><a href="#列表嵌套或指定子项" class="headerlink" title="列表嵌套或指定子项"></a>列表嵌套或指定子项</h1><h1 id="设置属性值对于json数组中的某个属性赋值"><a href="#设置属性值对于json数组中的某个属性赋值" class="headerlink" title="设置属性值对于json数组中的某个属性赋值"></a>设置属性值对于json数组中的某个属性赋值</h1><h1 id="微信小程序云开发第一步"><a href="#微信小程序云开发第一步" class="headerlink" title="微信小程序云开发第一步"></a>微信小程序云开发第一步</h1><p>  在使用开发者工具创建一个新的小程序并勾选小程序-云开发，会生成一个小程序云开发的QuickStart的小程序应用<br>  按照官方提示要将cloudfunctions下的login 创建并部署到云端，然后才能获取到用户的Openid<br>  刚开始尝试发现，不管是点击创建并部署云端安装依赖，还是创建并部署所有文件，点击页面中获得用户id的按钮还是会报<br>  errcode -404011，-504002的错误，提示你云函数没有部署成功<br>  【解决方案】 在开发者工具中点击云开发，在云函数中创建同名函数，在右键login部署后，发现功能可以正常使用了</p>
+<h1 id="需要用到的帮助文档"><a href="#需要用到的帮助文档" class="headerlink" title="需要用到的帮助文档"></a>需要用到的帮助文档</h1><ol>
+<li>云开发Server API文档 <a href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-server-api/" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-server-api/</a></li>
+<li>云开发指引文档 <a href="https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html</a></li>
+<li>服务端接口文档 <a href="https://developers.weixin.qq.com/miniprogram/dev/api-backend/" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/api-backend/</a></li>
+<li>小程序API文档  <a href="https://developers.weixin.qq.com/miniprogram/dev/api/" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/api/</a></li>
+<li>小程序组件文档 <a href="https://developers.weixin.qq.com/miniprogram/dev/component/" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/component/</a></li>
+<li>小程序基础指南 <a href="https://developers.weixin.qq.com/miniprogram/dev/" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/</a></li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-18T03:49:58.838Z" itemprop="dateUpdated">2019-04-18 11:49:58</time>
+</span><br>
+
+
+        
+        <a href="/2019/04/16/wx-mini-application-first-note/" target="_blank" rel="external">http://11wy11.github.io/2019/04/16/wx-mini-application-first-note/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序/">微信小程序</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/04/16/wx-mini-application-first-note/&title=《微信小程序初探(一)》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/04/16/wx-mini-application-first-note/&title=《微信小程序初探(一)》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/04/16/wx-mini-application-first-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《微信小程序初探(一)》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/04/16/wx-mini-application-first-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/04/16/wx-mini-application-first-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/19/cplusplus-release-update-note/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">C#打包更新设置</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/15/mysql-install-note/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">mysql安装步骤（备忘）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/04/16/wx-mini-application-first-note/&title=《微信小程序初探(一)》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/04/16/wx-mini-application-first-note/&title=《微信小程序初探(一)》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/04/16/wx-mini-application-first-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《微信小程序初探(一)》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/04/16/wx-mini-application-first-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/04/16/wx-mini-application-first-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3awU4jQQwEUP7/p1lprwtMld2dsNKb0ygE0q+Rxp2yPz7i6/Pv9d3ryU//fc9ncCVrOHDh4eHhjZb+8wckS8w36Lv7fIPyTcHDw8O7x0sWNHvE539hdv9gwcPDw3srLz9S5+D8uIyHh4f3//I28UF7mMbDw8P7zbzZQ7yNLdoAd7/FeHh4eDd4bQPsN9xf7O/h4eHhLbrqyQM3KQxta60tId/+fTw8PLwLvKQ938YEybG7jYDbKlBMH+Dh4eGNeD8vcT8UlZeTfD15acHDw8M7y2uPtpvDdNJya8vMw6rw8PDwrvFmyLP58ewI/rB9eHh4eNd4eRloF5e/PjtwP2wrHh4e3kt4s1A1P+aeLSEP/yo8PDy8C7zZQmdLPxVVrKJnPDw8vDVv1tw625dPDuX5iBUeHh7eK3ntKFXdjioP6LPt+2JQFQ8PD+8orz1Gz94zG1fNC9VD7IuHh4d3mZdHAMkiZkMGbZl5+F08PDy8o7z2q34+LnBqie0gwhf9PTw8PLyjvFl7aX/fBhZ5CFIUOTw8PLw1b/bYzXduVhLyuPmhmOHh4eEd4uULzQOFWaS7H0QoRgfw8PDwFrx83Kodijrbu99HwHh4eHj3eG08mj/o29GB2XjWw0bg4eHhHeW1YURePA7serCqwzEuHh4eXjmVlEQM+eF70wwrRgHw8PDw3spLGk55CNu+3pai4vsBHh4e3pp3NjiYvb6aCyubc3h4eHh73md55eUk393Z2FY09ICHh4d3gZdf7aM/jy1afPtOPDw8vBu8TUNrM2rQPtyH/T08PDy8a7xN0+v141bFoRwPDw/vrbxNMDGLKmah8Mfsg/Hw8PBewis+ZhTabrYbDw8P7zZvH0ZsNmIzTPBQhPDw8PAu8PYNsKRNtWll5WMNwwsPDw8v5f0BXlBK3+f3zNYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
