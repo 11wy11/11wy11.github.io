@@ -1,8 +1,8 @@
 ---
-title: mysql安装步骤（备忘）
-date: 2019-04-15 14:48:18
-tags: - MySQL
-categories:MySQL
+title:  mysql安装步骤（备忘）
+date: 2019-04-15 15:24:52
+tags: MySQL
+categories: MySQL
 ---
 使用archive 解压版安装
 <!--more-->
@@ -65,6 +65,7 @@ categories:MySQL
   若密码存在, 输入密码登录, 不存在则直接按回车登录。登录成功后你将会看到 Welecome to the MySQL monitor... 的提示语。
   
   然后命令提示符会一直以 mysq> 加一个闪烁的光标等待命令的输入, 输入 exit 或 quit 退出登录。
+  
 # 修改默认密码
   进入数据库后，执行
   ```
@@ -81,3 +82,16 @@ categories:MySQL
     select * from 表名;//sql查询
     exit 退出
    ```
+# 常见问题及解决方案
+  1. navicat连接mysql8后报1251的错误
+     【解决方案1】：
+     原因：
+     在网上查的是,出现这个原因是mysql8 之前的版本中加密规则是mysql_native_password,而在mysql8之后,加密规则是caching_sha2_password,   
+     解决问题方法有两种,一种是升级navicat驱动,一种是把mysql用户登录密码加密规则还原成mysql_native_password.  
+     第二种：   
+     ALTER USER 'root'@'localhost' IDENTIFIED BY 'password' PASSWORD EXPIRE NEVER; #修改加密规则     
+     ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; #更新一下用户的密码   
+     FLUSH PRIVILEGES; #刷新权限   
+          
+
+

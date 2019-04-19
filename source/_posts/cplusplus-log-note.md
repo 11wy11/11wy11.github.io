@@ -4,7 +4,7 @@ date: 2019-04-10 11:15:48
 tags: C#
 categories: C#
 ---
-
+使用NLog插件显示和输出日志，记录用户使用情况等
 <!--more-->
 ```
  public static Logger logger;
