@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>日常整理之mysql密码重置 | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="mysql">
+    <meta name="description" content="本人没有保管号自己mysql的密码，致使无法登陆上">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日常整理之mysql密码重置">
+<meta property="og:url" content="http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="本人没有保管号自己mysql的密码，致使无法登陆上">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/1560692598969.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/1560693166712.png">
+<meta property="og:updated_time" content="2019-06-16T14:33:37.443Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="日常整理之mysql密码重置">
+<meta name="twitter:description" content="本人没有保管号自己mysql的密码，致使无法登陆上">
+<meta name="twitter:image" content="http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/1560692598969.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">日常整理之mysql密码重置</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">日常整理之mysql密码重置</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-16T13:29:36.000Z" itemprop="datePublished" class="page-time">
+  2019-06-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/日常/">日常</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mysql密码重置"><span class="post-toc-number">1.</span> <span class="post-toc-text">mysql密码重置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-修改my-ini-文件"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 修改my.ini 文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-使用cd指令切换到mysql的bin目录"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. 使用cd指令切换到mysql的bin目录</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-执行mysqld-–console-–skip-grant-tables-–shared-memory"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. 执行mysqld  –console –skip-grant-tables –shared-memory</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-在以管理员身份打开一个cmd命令行工具，输入mysql"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4. 在以管理员身份打开一个cmd命令行工具，输入mysql</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-使用-use-mysql-然后执行一下命令可以查看密码"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5.  使用 use mysql,然后执行一下命令可以查看密码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-修改密码-ALTER-USER-39-root-39-39-localhost-39-IDENTIFIED-BY-39-新密码-39"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">6. 修改密码 ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;新密码&#39;;</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-执行flush-privileges"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">7. 执行flush privileges</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8-quit-退出"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">8. quit 退出</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#9-回到第一个命名行窗口-ctrl-c，停止，可以将my-ini中skip-grant-tables删除，之后再使用net-start-mysql启动"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">9. 回到第一个命名行窗口 ctrl+c，停止，可以将my.ini中skip-grant-tables删除，之后再使用net start mysql启动</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#10-mysql-u-root-p-输入新密码登录"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">10. mysql -u root -p 输入新密码登录</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-daily-mysql-reset-password" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">日常整理之mysql密码重置</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-16 21:29:36" datetime="2019-06-16T13:29:36.000Z" itemprop="datePublished">2019-06-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/日常/">日常</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>本人没有保管号自己mysql的密码，致使无法登陆上</p>
+<a id="more"></a>
+<h3 id="mysql密码重置"><a href="#mysql密码重置" class="headerlink" title="mysql密码重置"></a>mysql密码重置</h3><h4 id="1-修改my-ini-文件"><a href="#1-修改my-ini-文件" class="headerlink" title="1. 修改my.ini 文件"></a>1. 修改my.ini 文件</h4><p>在安装目录（如 I:\Program Files\mysql-8.0.15-winx64）下找到或新建my.ini；在[mysqld]段下面加入skip-grant-tables，并关闭mysql服务</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysql]</span></span><br><span class="line"><span class="comment"># 设置mysql客户端默认字符集</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8</span><br><span class="line"> </span><br><span class="line"><span class="section">[mysqld]</span></span><br><span class="line">skip-grant-tables</span><br><span class="line"><span class="comment"># 设置3306端口</span></span><br><span class="line"><span class="attr">port</span> = <span class="number">3306</span></span><br><span class="line"><span class="comment"># 设置mysql的安装目录</span></span><br><span class="line"><span class="attr">basedir</span>=I:\\Program Files\\mysql-<span class="number">8.0</span>.<span class="number">15</span>-winx64</span><br><span class="line"><span class="comment"># 设置 mysql数据库的数据的存放目录，MySQL 8+ 不需要以下配置，系统自己生成即可，否则有可能报错</span></span><br><span class="line"><span class="attr">datadir</span>=I:\\Program Files\\mysql-<span class="number">8.0</span>.<span class="number">15</span>-winx64\data</span><br><span class="line"><span class="comment"># datadir=C:\\web\\sqldata</span></span><br><span class="line"><span class="comment"># 允许最大连接数</span></span><br><span class="line"><span class="attr">max_connections</span>=<span class="number">20</span></span><br><span class="line"><span class="comment"># 服务端使用的字符集默认为8比特编码的latin1字符集</span></span><br><span class="line"><span class="attr">character-set-server</span>=utf8</span><br><span class="line"><span class="comment"># 创建新表时将使用的默认存储引擎</span></span><br><span class="line"><span class="attr">default-storage-engine</span>=INNODB</span><br></pre></td></tr></table></figure>
+<h4 id="2-使用cd指令切换到mysql的bin目录"><a href="#2-使用cd指令切换到mysql的bin目录" class="headerlink" title="2. 使用cd指令切换到mysql的bin目录"></a>2. 使用cd指令切换到mysql的bin目录</h4><h4 id="3-执行mysqld-–console-–skip-grant-tables-–shared-memory"><a href="#3-执行mysqld-–console-–skip-grant-tables-–shared-memory" class="headerlink" title="3. 执行mysqld  –console –skip-grant-tables –shared-memory"></a>3. 执行mysqld  –console –skip-grant-tables –shared-memory</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/06/16/daily-mysql-reset-password/1560692598969.png" alt="1560692598969" title>
+                </div>
+                <div class="image-caption">1560692598969</div>
+            </figure>
+<h4 id="4-在以管理员身份打开一个cmd命令行工具，输入mysql"><a href="#4-在以管理员身份打开一个cmd命令行工具，输入mysql" class="headerlink" title="4. 在以管理员身份打开一个cmd命令行工具，输入mysql"></a>4. 在以管理员身份打开一个cmd命令行工具，输入mysql</h4><p>此时不需要密码几个直接进入</p>
+<h4 id="5-使用-use-mysql-然后执行一下命令可以查看密码"><a href="#5-使用-use-mysql-然后执行一下命令可以查看密码" class="headerlink" title="5.  使用 use mysql,然后执行一下命令可以查看密码"></a>5.  使用 use mysql,然后执行一下命令可以查看密码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user,host,authentication_string from user</span><br></pre></td></tr></table></figure>
+<h4 id="6-修改密码-ALTER-USER-39-root-39-39-localhost-39-IDENTIFIED-BY-39-新密码-39"><a href="#6-修改密码-ALTER-USER-39-root-39-39-localhost-39-IDENTIFIED-BY-39-新密码-39" class="headerlink" title="6. 修改密码 ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;新密码&#39;;"></a>6. 修改密码 <code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;新密码&#39;;</code></h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/06/16/daily-mysql-reset-password/1560693166712.png" alt="1560693166712" title>
+                </div>
+                <div class="image-caption">1560693166712</div>
+            </figure>
+<h4 id="7-执行flush-privileges"><a href="#7-执行flush-privileges" class="headerlink" title="7. 执行flush privileges"></a>7. 执行<code>flush privileges</code></h4><h4 id="8-quit-退出"><a href="#8-quit-退出" class="headerlink" title="8. quit 退出"></a>8. quit 退出</h4><h4 id="9-回到第一个命名行窗口-ctrl-c，停止，可以将my-ini中skip-grant-tables删除，之后再使用net-start-mysql启动"><a href="#9-回到第一个命名行窗口-ctrl-c，停止，可以将my-ini中skip-grant-tables删除，之后再使用net-start-mysql启动" class="headerlink" title="9. 回到第一个命名行窗口 ctrl+c，停止，可以将my.ini中skip-grant-tables删除，之后再使用net start mysql启动"></a>9. 回到第一个命名行窗口 ctrl+c，停止，可以将my.ini中skip-grant-tables删除，之后再使用net start mysql启动</h4><h4 id="10-mysql-u-root-p-输入新密码登录"><a href="#10-mysql-u-root-p-输入新密码登录" class="headerlink" title="10. mysql -u root -p 输入新密码登录"></a>10. mysql -u root -p 输入新密码登录</h4>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-06-16T14:33:37.443Z" itemprop="dateUpdated">2019-06-16 22:33:37</time>
+</span><br>
+
+
+        
+        <a href="/2019/06/16/daily-mysql-reset-password/" target="_blank" rel="external">http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/&title=《日常整理之mysql密码重置》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/&title=《日常整理之mysql密码重置》 — WeiYuan's Blog&source=本人没有保管号自己mysql的密码，致使无法登陆上" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《日常整理之mysql密码重置》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/15/daily-nodejs/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">日常知识--初识NodeJS</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/&title=《日常整理之mysql密码重置》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/&title=《日常整理之mysql密码重置》 — WeiYuan's Blog&source=本人没有保管号自己mysql的密码，致使无法登陆上" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《日常整理之mysql密码重置》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/06/16/daily-mysql-reset-password/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNklEQVR42u3aQZLDIAwF0dz/0p5tFoH0l5ypsmhWqTA2vCw0COn1wuN6G6vv32dXf7968/6b24YMGTIey7i2g2yLz+7fzGc/rCVDhowDGPtQuPqcboWE3f1ay+9lyJAho3Qo3G8ufUqGDBky0iBIxv5tJDTLkCFDRprE1jaRPvvzXFyGDBkPZPBb9////JP6hgwZMh7FuMJBeJ0jY3FXMmTIGM3gAa4Dq5Uq4+YPGTJkDGWk7RF84c4sulzj94UyZMh4OKPTvJUG633jBS8nfGngkCFDxjjGfhOdIkG6udoxUYYMGScw0u2maeqexIum6FgpQ4aMoYz+wp3UlBQv0dtkyJBxDIMAyCxfq1b+/PAGGTJkjGakbRNpCsoDMW/CQLeGMmTIGMQgR73OMp3DaDArQ4aM0QxysEuPfftgHSeovNlChgwZoxm8Uaz26k4gjntGZMiQMY6RFil5qCWz5GeK/2PIkCHjAEYt4NYayGpF0OCmUIYMGSMYteDLS4+1q/+08CBDhowTGOm1V3qttl+l02CxrHLIkCFjNCM9LPLyJymI8kT6S8CVIUPGUEanSaJWEE0Lk8WzrQwZMh7OuMJBXl07OHbKmTJkyJjN6Ac7nnCm5YFWz4gMGTLGMWqXXJ1Np0+hgCtDhowDGHc1jXXaNXjoX55zZciQISNMYnmB4YY0VYYMGTLwAp1ZnkIvk1gZMmSMZpBUk1yT3ZWyxtd/MmTIGM349fHxrqYN8qPIkCFjHOMP6ezRP+pwZMEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
