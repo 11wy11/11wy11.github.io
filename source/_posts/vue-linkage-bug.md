@@ -3,6 +3,7 @@ title: VueAreaLinkage 设置默认值无效修改办法
 date: 2020-03-28 19:01:48
 tags: Vue 组件 
 categories: 前端
+typora-copy-images-to: vue-linkage-bug
 ---
 
 <!--more-->
@@ -314,7 +315,7 @@ pca: pca,
 
    ### 效果
 
-   
+   ![](vue-linkage-bug/citypicker-1585403838216.gif)
 
    
 
