@@ -1,8 +1,7 @@
 ---
 title: 前端基础复习-JavaScript-1
 date: 2020-04-03 18:36:11
-tags:
-   - js基础
+tags: js基础
 categories: 前端
 ---
 前端自检清单JavaScript基础1--变量和类型
