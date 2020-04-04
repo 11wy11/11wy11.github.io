@@ -1,8 +1,7 @@
 ---
 title: 前端基础复习-JavaScript-2
 date: 2020-04-03 18:43:24
-tags:
-   - js基础
+tags: js基础
 categories: 前端
 ---
 前端自检清单JavaScript基础2--原型原型链

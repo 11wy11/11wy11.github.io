@@ -1,7 +1,7 @@
 ---
-title: js-base-knowledge3
+title: 前端基础复习-JavaScript-3
 date: 2020-04-04 23:04:57
-tags:js基础
+tags: js基础
 categories: 前端
 ---
 前端自检清单JavaScript基础3--作用域和闭包

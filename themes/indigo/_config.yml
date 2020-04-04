@@ -27,8 +27,8 @@ menu:
 #    url: http://www.weibo.com/ysweb
 #    target: _blank
   link:
-    text: 测试
-    url: /custom
+    text: CSDN
+    url: https://blog.csdn.net/weiyuan_player
 
 # 你的头像url
 avatar: /img/avatar.jpg

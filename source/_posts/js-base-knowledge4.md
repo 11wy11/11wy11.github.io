@@ -1,7 +1,7 @@
 ---
-title: js-base-knowledge4
+title: 前端基础复习-JavaScript-4
 date: 2020-04-04 23:05:04
-tags:js基础
+tags: js基础
 categories: 前端
 ---
 前端自检清单JavaScript基础4--执行机制
