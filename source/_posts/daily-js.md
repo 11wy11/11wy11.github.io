@@ -1,29 +1,21 @@
 ---
 title: 日常知识点整理——js基础
 date: 2019-06-13 11:43:50
-tags: 
-    - js
+tags: js
 categories: 日常
 ---
 
-正则表达式
+手写图片瀑布流及图片懒加载
 
 <!--more-->
 
-使用正则表达式 提取网址协议，域名，IP, 端口等参数
+#### 随机获得照片地址
 
-```
-var url = "http://192.168.1.111:8888/#/statistic/htmel/dkdkd/dksdkldsl.html";
-var patt = /(\w+):\/\/([^/:]+):(\d*)\/#\/(\S+)/;
-arr = url.match(patt);
-for (let i = 0; i < arr.length; i++) {
-  console.log(arr[i])
-}
-var index = arr[arr.length - 1];
-// var arrIndex = index.split("/")
-var arrIndex = index.match(/(\w+)/g);
-for (let i = 0; i < arrIndex.length; i++) {
-  console.log(arrIndex[i])
-}
-```
+http://lorempixel.com/1600/900
+
+https://unsplash.it/1600/900?random（国内加载略慢）
+
+https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture【返回必应图片】
+
+http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1（必应返回JSON数据，具体百度
 

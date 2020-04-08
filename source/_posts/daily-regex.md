@@ -120,6 +120,25 @@ categories: 前端
 ^\d{1,3}\(.\d{1,3}){3}$
 ```
 
+使用正则表达式 提取网址协议，域名，IP, 端口等参数
+
+```
+var url = "http://192.168.1.111:8888/#/statistic/htmel/dkdkd/dksdkldsl.html";
+var patt = /(\w+):\/\/([^/:]+):(\d*)\/#\/(\S+)/;
+arr = url.match(patt);
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i])
+}
+var index = arr[arr.length - 1];
+// var arrIndex = index.split("/")
+var arrIndex = index.match(/(\w+)/g);
+for (let i = 0; i < arrIndex.length; i++) {
+  console.log(arrIndex[i])
+}
+```
+
+
+
 ## JavaScript 中使用正则表达式
 
 ### 创建正则对象
