@@ -21,18 +21,18 @@
     
     
     <meta name="keywords" content="js">
-    <meta name="description" content="正则表达式">
+    <meta name="description" content="手写图片瀑布流及图片懒加载">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日常知识点整理——js基础">
 <meta property="og:url" content="http://11wy11.github.io/2019/06/13/daily-js/index.html">
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
-<meta property="og:description" content="正则表达式">
+<meta property="og:description" content="手写图片瀑布流及图片懒加载">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-16T14:36:42.870Z">
+<meta property="og:updated_time" content="2020-09-19T08:18:54.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常知识点整理——js基础">
-<meta name="twitter:description" content="正则表达式">
+<meta name="twitter:description" content="手写图片瀑布流及图片懒加载">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -103,9 +103,9 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/custom">
+              <a href="https://blog.csdn.net/weiyuan_player">
                 <i class="icon icon-lg icon-link"></i>
-                测试
+                CSDN
               </a>
             </li>
         
@@ -164,6 +164,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#随机获得照片地址"><span class="post-toc-number">1.</span> <span class="post-toc-text">随机获得照片地址</span></a></li></ol>
+        </nav>
+    </aside>
+
 
 <article id="post-daily-js" class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -185,10 +192,12 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>正则表达式</p>
+            <p>手写图片瀑布流及图片懒加载</p>
 <a id="more"></a>
-<p>使用正则表达式 提取网址协议，域名，IP, 端口等参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var url = &quot;http://192.168.1.111:8888/#/statistic/htmel/dkdkd/dksdkldsl.html&quot;;</span><br><span class="line">var patt = /(\w+):\/\/([^/:]+):(\d*)\/#\/(\S+)/;</span><br><span class="line">arr = url.match(patt);</span><br><span class="line">for (let i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">  console.log(arr[i])</span><br><span class="line">&#125;</span><br><span class="line">var index = arr[arr.length - 1];</span><br><span class="line">// var arrIndex = index.split(&quot;/&quot;)</span><br><span class="line">var arrIndex = index.match(/(\w+)/g);</span><br><span class="line">for (let i = 0; i &lt; arrIndex.length; i++) &#123;</span><br><span class="line">  console.log(arrIndex[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="随机获得照片地址"><a href="#随机获得照片地址" class="headerlink" title="随机获得照片地址"></a>随机获得照片地址</h4><p><a href="http://lorempixel.com/1600/900" target="_blank" rel="noopener">http://lorempixel.com/1600/900</a></p>
+<p><a href="https://unsplash.it/1600/900?random（国内加载略慢）" target="_blank" rel="noopener">https://unsplash.it/1600/900?random（国内加载略慢）</a></p>
+<p><a href="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture【返回必应图片】" target="_blank" rel="noopener">https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture【返回必应图片】</a></p>
+<p><a href="http://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1（必应返回JSON数据，具体百度" target="_blank" rel="noopener">http://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1（必应返回JSON数据，具体百度</a></p>
 
         </div>
 
@@ -197,7 +206,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-16T14:36:42.870Z" itemprop="dateUpdated">2019-06-16 22:36:42</time>
+    最后更新时间：<time datetime="2020-09-19T08:18:54.293Z" itemprop="dateUpdated">2020-09-19 16:18:54</time>
 </span><br>
 
 
@@ -239,7 +248,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/06/13/daily-js/&title=《日常知识点整理——js基础》 — WeiYuan's Blog&source=正则表达式" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/06/13/daily-js/&title=《日常知识点整理——js基础》 — WeiYuan's Blog&source=手写图片瀑布流及图片懒加载" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -368,7 +377,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>11wy11 &copy; 2019</span>
+        <p><span>11wy11 &copy; 2019 - 2020</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
@@ -396,7 +405,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/06/13/daily-js/&title=《日常知识点整理——js基础》 — WeiYuan's Blog&source=正则表达式" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/06/13/daily-js/&title=《日常知识点整理——js基础》 — WeiYuan's Blog&source=手写图片瀑布流及图片懒加载" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

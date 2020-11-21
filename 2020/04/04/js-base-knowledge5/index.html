@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>前端基础复习-JavaScript-5 | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="js基础">
+    <meta name="description" content="前端自检清单JavaScript基础5–语法和API">
+<meta name="keywords" content="js基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端基础复习-JavaScript-5">
+<meta property="og:url" content="http://11wy11.github.io/2020/04/04/js-base-knowledge5/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="前端自检清单JavaScript基础5–语法和API">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-09-19T08:18:54.320Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端基础复习-JavaScript-5">
+<meta name="twitter:description" content="前端自检清单JavaScript基础5–语法和API">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/weiyuan_player">
+                <i class="icon icon-lg icon-link"></i>
+                CSDN
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">前端基础复习-JavaScript-5</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">前端基础复习-JavaScript-5</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-04T15:07:00.000Z" itemprop="datePublished" class="page-time">
+  2020-04-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#语法和API"><span class="post-toc-number">1.</span> <span class="post-toc-text">语法和API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-理解ECMAScript和JavaScript的关系"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.理解ECMAScript和JavaScript的关系</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-熟练运用es5、es6提供的语法规范"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.熟练运用es5、es6提供的语法规范</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-熟练掌握JavaScript提供的全局对象（例如Date、Math）、全局函数（例如decodeURI、isNaN）、全局属性（例如Infinity、undefined）"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3.熟练掌握JavaScript提供的全局对象（例如Date、Math）、全局函数（例如decodeURI、isNaN）、全局属性（例如Infinity、undefined）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-熟练应用map、reduce、filter-等高阶函数解决问题"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4.熟练应用map、reduce、filter 等高阶函数解决问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-setInterval需要注意的点，使用settimeout实现setInterval"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5.setInterval需要注意的点，使用settimeout实现setInterval</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-JavaScript提供的正则表达式API、可以使用正则表达式（邮箱校验、URL解析、去重等）解决常见问题"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">6.JavaScript提供的正则表达式API、可以使用正则表达式（邮箱校验、URL解析、去重等）解决常见问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-JavaScript异常处理的方式，统一的异常处理方案"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">7.JavaScript异常处理的方式，统一的异常处理方案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#业务场景-统一的异常处理方案："><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">业务场景 统一的异常处理方案：</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-js-base-knowledge5" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">前端基础复习-JavaScript-5</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-04 23:07:00" datetime="2020-04-04T15:07:00.000Z" itemprop="datePublished">2020-04-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>前端自检清单JavaScript基础5–语法和API</p>
+<a id="more"></a>
+<h3 id="语法和API"><a href="#语法和API" class="headerlink" title="语法和API"></a>语法和API</h3><h4 id="1-理解ECMAScript和JavaScript的关系"><a href="#1-理解ECMAScript和JavaScript的关系" class="headerlink" title="1.理解ECMAScript和JavaScript的关系"></a>1.理解<code>ECMAScript</code>和<code>JavaScript</code>的关系</h4><p><code>JavaScript</code>包括核心语法，DOM，BOM，而核心语法实际上就是指ECMAScript，而JS又是不断在发展的, 而这个发展实际上最主要的就是ECMAScript版本的更新, 而DOM 和 BOM的更新较少, 因此, 可以认为 ECMAScript是JavaScript的参照, 而JavaScript是ECMAScript的一个实现. </p>
+<p>例如ECMAScript2015简称ES6</p>
+<h4 id="2-熟练运用es5、es6提供的语法规范"><a href="#2-熟练运用es5、es6提供的语法规范" class="headerlink" title="2.熟练运用es5、es6提供的语法规范"></a>2.熟练运用<code>es5</code>、<code>es6</code>提供的语法规范</h4><h4 id="3-熟练掌握JavaScript提供的全局对象（例如Date、Math）、全局函数（例如decodeURI、isNaN）、全局属性（例如Infinity、undefined）"><a href="#3-熟练掌握JavaScript提供的全局对象（例如Date、Math）、全局函数（例如decodeURI、isNaN）、全局属性（例如Infinity、undefined）" class="headerlink" title="3.熟练掌握JavaScript提供的全局对象（例如Date、Math）、全局函数（例如decodeURI、isNaN）、全局属性（例如Infinity、undefined）"></a>3.熟练掌握<code>JavaScript</code>提供的全局对象（例如<code>Date</code>、<code>Math</code>）、全局函数（例如<code>decodeURI</code>、<code>isNaN</code>）、全局属性（例如<code>Infinity</code>、<code>undefined</code>）</h4><h4 id="4-熟练应用map、reduce、filter-等高阶函数解决问题"><a href="#4-熟练应用map、reduce、filter-等高阶函数解决问题" class="headerlink" title="4.熟练应用map、reduce、filter 等高阶函数解决问题"></a>4.熟练应用<code>map</code>、<code>reduce</code>、<code>filter</code> 等高阶函数解决问题</h4><h4 id="5-setInterval需要注意的点，使用settimeout实现setInterval"><a href="#5-setInterval需要注意的点，使用settimeout实现setInterval" class="headerlink" title="5.setInterval需要注意的点，使用settimeout实现setInterval"></a>5.<code>setInterval</code>需要注意的点，使用<code>settimeout</code>实现<code>setInterval</code></h4><p>回调函数在计时之后才开始执行, 如果主线程执行时间过长，时间间隔未必准确，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myInterval</span>(<span class="params">callback,delay</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">interval</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        setTimeout(interval, delay);</span><br><span class="line">        callback();</span><br><span class="line">      &#125;</span><br><span class="line">      setTimeout(interval, delay)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="6-JavaScript提供的正则表达式API、可以使用正则表达式（邮箱校验、URL解析、去重等）解决常见问题"><a href="#6-JavaScript提供的正则表达式API、可以使用正则表达式（邮箱校验、URL解析、去重等）解决常见问题" class="headerlink" title="6.JavaScript提供的正则表达式API、可以使用正则表达式（邮箱校验、URL解析、去重等）解决常见问题"></a>6.<code>JavaScript</code>提供的正则表达式<code>API</code>、可以使用正则表达式（邮箱校验、<code>URL</code>解析、去重等）解决常见问题</h4><p>手机号码正则表达式<br>正则验证手机号，忽略前面的0，支持130-139，150-159。忽略前面0之后判断它是11位的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">0</span>*<span class="number">1</span>(<span class="number">3</span>|<span class="number">5</span>)\d&#123;<span class="number">9</span>&#125;$/</span><br></pre></td></tr></table></figure>
+<p>使用正则表达式实现删除字符串中的空格</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">funtion trim(str) &#123;</span><br><span class="line">  <span class="keyword">let</span> reg = <span class="regexp">/^\s+|\s+$/g</span></span><br><span class="line">  <span class="keyword">return</span> str.replace(reg, <span class="string">''</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>限制文本框只能输入数字和两位小数点等等</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\d*\.\d&#123;<span class="number">0</span>,<span class="number">2</span>&#125;$/</span><br></pre></td></tr></table></figure>
+<p>只能输入小写的英文字母和小数点，和冒号，正反斜杠(：./)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[a-z\.:\/\\]*$/</span><br></pre></td></tr></table></figure>
+<p>替换小数点前内容为指定内容<br>例如：infomarket.php?id=197 替换为 test.php?id=197</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^[^\.]+/</span>;</span><br><span class="line"><span class="keyword">var</span> target = <span class="string">'---------'</span>;</span><br><span class="line">str = str.replace(reg, target)</span><br></pre></td></tr></table></figure>
+<p>只匹配中文的正则表达式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/[\u4E00-\u9FA5\uf900-\ufa2d]/ig</span><br></pre></td></tr></table></figure>
+<p>返回字符串的中文字符个数<br>先去掉非中文字符，再返回length属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cLength</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="regexp">/[^\u4E00-\u9FA5\uf900-\ufa2d]/g</span>;</span><br><span class="line">  <span class="comment">//匹配非中文的正则表达式</span></span><br><span class="line">  <span class="keyword">var</span> temp = str.replace(reg,<span class="string">''</span>);</span><br><span class="line">  <span class="keyword">return</span> temp.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>正则表达式取得匹配IP地址前三段<br>只要匹配掉最后一段并且替换为空字符串就行了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPreThrstr</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> reg = <span class="regexp">/\.\d&#123;1,3&#125;$/</span>;</span><br><span class="line">  <span class="keyword">return</span> str.replace(reg,<span class="string">''</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>匹配<ul>与</ul>之间的内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/<span class="xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span>[\s\S]+?<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><span class="regexp">/i</span></span><br></pre></td></tr></table></figure>
+<p>用正则表达式获得文件名<br>c:\images\tupian\006.jpg<br>可能是直接在盘符根目录下，也可能在好几层目录下，要求替换到只剩文件名。<br>首先匹配非左右斜线字符0或多个，然后是左右斜线一个或者多个。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFileName</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="regexp">/[^\\\/]*[\\\/]+/g</span>;</span><br><span class="line">  <span class="comment">// xxx\ 或是 xxx/</span></span><br><span class="line">  str = str.replace(reg,<span class="string">''</span>);</span><br><span class="line">  <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>绝对路径变相对路径<br>“<a href="http://23.123.22.12/image/somepic.gif&quot;转换为：&quot;/image/somepic.gif&quot;" target="_blank" rel="noopener">http://23.123.22.12/image/somepic.gif&quot;转换为：&quot;/image/somepic.gif&quot;</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/http:\/\/[^\/]+/</span>;</span><br><span class="line">str = str.replace(reg,<span class="string">""</span>);</span><br></pre></td></tr></table></figure>
+<p>用户名正则<br>用于用户名注册，，用户名只 能用 中文、英文、数字、下划线、4-16个字符。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[\u4E00-\u9FA5\uf900-\ufa2d\w]&#123;<span class="number">4</span>,<span class="number">16</span>&#125;$/</span><br></pre></td></tr></table></figure>
+<p>匹配英文地址<br>规则如下:<br>包含 “点”, “字母”,”空格”,”逗号”,”数字”，但开头和结尾不能是除字母外任何字符。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[a-zA-Z][\.a-zA-Z,<span class="number">0</span><span class="number">-9</span>]*[a-zA-Z]$/</span><br></pre></td></tr></table></figure>
+<p>正则匹配价格<br>开头数字若干位，可能有一个小数点，小数点后面可以有两位数字。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\d+(\.\d&#123;<span class="number">2</span>&#125;)?$/</span><br></pre></td></tr></table></figure>
+<p>身份证号码的匹配<br>身份证号码可以是15位或者是18位，其中最后一位可以是X。其它全是数字</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(\d&#123;<span class="number">14</span>&#125;|\d&#123;<span class="number">17</span>&#125;)(X|x)$/</span><br></pre></td></tr></table></figure>
+<p>单词首字母大写<br>每单词首字大写，其他小写。如blue idea转换为Blue Idea，BLUE IDEA也转换为Blue Idea</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">firstCharUpper</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  str = str.toLowerCase();</span><br><span class="line">  <span class="keyword">let</span> reg = <span class="regexp">/\b(\w)/g</span>;</span><br><span class="line">  <span class="keyword">return</span> str.replace(reg, m =&gt; m.toUpperCase());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>正则验证日期格式<br>yyyy-mm-dd格式<br>4位数字，横线，1或者2位数字，再横线，最后又是1或者2位数字。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\d&#123;<span class="number">4</span>&#125;-\d&#123;<span class="number">1</span>,<span class="number">2</span>&#125;-\d&#123;<span class="number">1</span>,<span class="number">2</span>&#125;$/</span><br></pre></td></tr></table></figure>
+<p>去掉文件的后缀名<br><a href="http://www.abc.com/dc/fda.asp" target="_blank" rel="noopener">www.abc.com/dc/fda.asp</a> 变为 <a href="http://www.abc.com/dc/fda" target="_blank" rel="noopener">www.abc.com/dc/fda</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeExp</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.replace(<span class="regexp">/\.\w$/</span>,<span class="string">''</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>验证邮箱的正则表达式<br>开始必须是一个或者多个单词字符或者是-，加上@，然后又是一个或者多个单词字符或者是-。然后是点“.”和单词字符和-的组合，可以有一个或者<br>多个组合。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[\w-]+@\w+\.\w+$/</span><br></pre></td></tr></table></figure>
+<p>正则判断标签是否闭合<br>例如：&lt;img xxx=”xxx” 就是没有闭合的标签；</p>
+<p></p><p>p的内容，同样也是没闭合的标签。</p>
+<p>标签可能有两种方式闭合，<img xxx="xxx"> 或者是</p><p> xxx </p>。<p></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/<span class="xml"><span class="tag">&lt;<span class="name">([a-z]+)(\s*\w*?\s*=\s*".+?")*(\s*?</span>&gt;</span>[\s\S]*?(<span class="tag">&lt;<span class="name">\</span>/\<span class="attr">1</span>&gt;</span>)+|\s*\/&gt;)/i</span></span><br></pre></td></tr></table></figure>
+<p>正则判断是否为数字与字母的混合<br>不能小于12位，且必须为字母和数字的混</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(([a-z]+[<span class="number">0</span><span class="number">-9</span>]+)|([<span class="number">0</span><span class="number">-9</span>]+[a-z]+))[a-z0<span class="number">-9</span>]*$/i</span><br></pre></td></tr></table></figure>
+<p>将阿拉伯数字替换为中文大写形式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">replaceReg</span>(<span class="params">reg,str</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arr=[<span class="string">"零"</span>,<span class="string">"壹"</span>,<span class="string">"贰"</span>,<span class="string">"叁"</span>,<span class="string">"肆"</span>,<span class="string">"伍"</span>,<span class="string">"陆"</span>,<span class="string">"柒"</span>,<span class="string">"捌"</span>,<span class="string">"玖"</span>];</span><br><span class="line">  <span class="keyword">let</span> reg = <span class="regexp">/\d/g</span>;</span><br><span class="line">  <span class="keyword">return</span> str.replace(reg,<span class="function"><span class="keyword">function</span>(<span class="params">m</span>)</span>&#123;<span class="keyword">return</span> arr[m];&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>去掉标签的所有属性</p>
+<p><td style="width: 23px; height: 26px;" align="left">***</td><br>变成没有任何属性的</p>
+<p><td>***</td><br>思路：非捕获匹配属性，捕获匹配标签，使用捕获结果替换掉字符串。正则如下：</p>
+<h4 id="7-JavaScript异常处理的方式，统一的异常处理方案"><a href="#7-JavaScript异常处理的方式，统一的异常处理方案" class="headerlink" title="7.JavaScript异常处理的方式，统一的异常处理方案"></a>7.<code>JavaScript</code>异常处理的方式，统一的异常处理方案</h4><p>Javascript 异常处理的演进<a href="https://zhuanlan.zhihu.com/p/25245932" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25245932</a></p>
+<p><strong>Promise 异常处理</strong></p>
+<p>不仅是 reject，抛出的异常也会被作为拒绝状态被 Promise 捕获。在微任务中抛出的异常能够被捕获，宏任务中抛出异常无法被捕获，因为已经离开了函数的执行上下文</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fetch</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">'用户不存在'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetch().then(<span class="function"><span class="params">result</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'请求处理'</span>, result) <span class="comment">// 永远不会执行</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'请求处理异常'</span>, error) <span class="comment">// 请求处理异常 用户不存在</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fetch</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">             <span class="keyword">throw</span> <span class="built_in">Error</span>(<span class="string">'用户不存在'</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetch().then(<span class="function"><span class="params">result</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'请求处理'</span>, result) <span class="comment">// 永远不会执行</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'请求处理异常'</span>, error) <span class="comment">// 永远不会执行</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 程序崩溃</span></span><br><span class="line"><span class="comment">// Uncaught Error: 用户不存在</span></span><br></pre></td></tr></table></figure>
+<p>Promise 的异常处理有了比较清晰的答案，只要注意在 macrotask 级别回调中使用 reject，就没有抓不住的异常。</p>
+<p><strong>Async Await 异常</strong></p>
+<p>不论是同步、异步的异常，await 都不会自动捕获，但好处是可以自动中断函数，我们大可放心编写业务逻辑，而不用担心异步异常后会被执行引发雪崩.</p>
+<p>我们可以使用 try catch 捕获异常。</p>
+<p>因为此时的异步其实在一个作用域中，通过 generator 控制执行顺序，所以可以将异步看做同步的代码去编写，包括使用 try catch 捕获异常。</p>
+<p>try..catch</p>
+<p>但无法捕获异步的错误</p>
+<h5 id="业务场景-统一的异常处理方案："><a href="#业务场景-统一的异常处理方案：" class="headerlink" title="业务场景 统一的异常处理方案："></a>业务场景 统一的异常处理方案：</h5><p>我们来编写类级别装饰器，专门捕获 async 函数抛出的异常：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const asyncClass = (errorHandler?: (error?: Error) =&gt; void) =&gt; (target: any) =&gt; &#123;</span><br><span class="line">    Object.getOwnPropertyNames(target.prototype).forEach(key =&gt; &#123;</span><br><span class="line">        const func = target.prototype[key]</span><br><span class="line">        target.prototype[key] = async (...args: any[]) =&gt; &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                await func.apply(this, args)</span><br><span class="line">            &#125; catch (error) &#123;</span><br><span class="line">                errorHandler &amp;&amp; errorHandler(error)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    return target</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将类所有方法都用 try catch 包裹住，将异常交给业务方统一的 errorHandler 处理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">const successRequest = () =&gt; Promise.resolve(&apos;a&apos;)</span><br><span class="line">const failRequest = () =&gt; Promise.reject(&apos;b&apos;)</span><br><span class="line"></span><br><span class="line">const iAsyncClass = asyncClass(error =&gt; &#123;</span><br><span class="line">    console.log(&apos;统一异常处理&apos;, error) // 统一异常处理 b</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">@iAsyncClass</span><br><span class="line">class Action &#123;</span><br><span class="line">    async successReuqest() &#123;</span><br><span class="line">        const result = await successRequest()</span><br><span class="line">        console.log(&apos;successReuqest&apos;, &apos;处理返回值&apos;, result)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    async failReuqest() &#123;</span><br><span class="line">        const result = await failRequest()</span><br><span class="line">        console.log(&apos;failReuqest&apos;, &apos;处理返回值&apos;, result) // 永远不会执行</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    async allReuqest() &#123;</span><br><span class="line">        const result1 = await successRequest()</span><br><span class="line">        console.log(&apos;allReuqest&apos;, &apos;处理返回值 success&apos;, result1)</span><br><span class="line">        const result2 = await failRequest()</span><br><span class="line">        console.log(&apos;allReuqest&apos;, &apos;处理返回值 success&apos;, result2) // 永远不会执行</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const action = new Action()</span><br><span class="line">action.successReuqest()</span><br><span class="line">action.failReuqest()</span><br><span class="line">action.allReuqest()</span><br></pre></td></tr></table></figure>
+<p>我们也可以编写方法级别的异常处理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const asyncMethod = (errorHandler?: (error?: Error) =&gt; void) =&gt; (target: any, propertyKey: string, descriptor: PropertyDescriptor) =&gt; &#123;</span><br><span class="line">    const func = descriptor.value</span><br><span class="line">    return &#123;</span><br><span class="line">        get() &#123;</span><br><span class="line">            return (...args: any[]) =&gt; &#123;</span><br><span class="line">                return Promise.resolve(func.apply(this, args)).catch(error =&gt; &#123;</span><br><span class="line">                    errorHandler &amp;&amp; errorHandler(error)</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        set(newValue: any) &#123;</span><br><span class="line">            return newValue</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>业务方用法类似，只是装饰器需要放在函数上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">const successRequest = () =&gt; Promise.resolve(&apos;a&apos;)</span><br><span class="line">const failRequest = () =&gt; Promise.reject(&apos;b&apos;)</span><br><span class="line"></span><br><span class="line">const asyncAction = asyncMethod(error =&gt; &#123;</span><br><span class="line">    console.log(&apos;统一异常处理&apos;, error) // 统一异常处理 b</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">class Action &#123;</span><br><span class="line">    @asyncAction async successReuqest() &#123;</span><br><span class="line">        const result = await successRequest()</span><br><span class="line">        console.log(&apos;successReuqest&apos;, &apos;处理返回值&apos;, result)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @asyncAction async failReuqest() &#123;</span><br><span class="line">        const result = await failRequest()</span><br><span class="line">        console.log(&apos;failReuqest&apos;, &apos;处理返回值&apos;, result) // 永远不会执行</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @asyncAction async allReuqest() &#123;</span><br><span class="line">        const result1 = await successRequest()</span><br><span class="line">        console.log(&apos;allReuqest&apos;, &apos;处理返回值 success&apos;, result1)</span><br><span class="line">        const result2 = await failRequest()</span><br><span class="line">        console.log(&apos;allReuqest&apos;, &apos;处理返回值 success&apos;, result2) // 永远不会执行</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const action = new Action()</span><br><span class="line">action.successReuqest()</span><br><span class="line">action.failReuqest()</span><br><span class="line">action.allReuqest()</span><br></pre></td></tr></table></figure>
+<p>在 nodejs 端，记得监听全局错误，兜住落网之鱼：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">process.on(&apos;uncaughtException&apos;, (error: any) =&gt; &#123;</span><br><span class="line">    logger.error(&apos;uncaughtException&apos;, error)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">process.on(&apos;unhandledRejection&apos;, (error: any) =&gt; &#123;</span><br><span class="line">    logger.error(&apos;unhandledRejection&apos;, error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>在浏览器端，记得监听 window 全局错误，兜住漏网之鱼：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&apos;unhandledrejection&apos;, (event: any) =&gt; &#123;</span><br><span class="line">    logger.error(&apos;unhandledrejection&apos;, event)</span><br><span class="line">&#125;)</span><br><span class="line">window.addEventListener(&apos;onrejectionhandled&apos;, (event: any) =&gt; &#123;</span><br><span class="line">    logger.error(&apos;onrejectionhandled&apos;, event)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-09-19T08:18:54.320Z" itemprop="dateUpdated">2020-09-19 16:18:54</time>
+</span><br>
+
+
+        
+        <a href="/2020/04/04/js-base-knowledge5/" target="_blank" rel="external">http://11wy11.github.io/2020/04/04/js-base-knowledge5/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js基础/">js基础</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2020/04/04/js-base-knowledge5/&title=《前端基础复习-JavaScript-5》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2020/04/04/js-base-knowledge5/&title=《前端基础复习-JavaScript-5》 — WeiYuan's Blog&source=前端自检清单JavaScript基础5–语法和API" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2020/04/04/js-base-knowledge5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端基础复习-JavaScript-5》 — WeiYuan's Blog&url=http://11wy11.github.io/2020/04/04/js-base-knowledge5/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2020/04/04/js-base-knowledge5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/05/css-base-knowledge-1/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">css-base-knowledge-1</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/04/js-base-knowledge4/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">前端基础复习-JavaScript-4</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2020/04/04/js-base-knowledge5/&title=《前端基础复习-JavaScript-5》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2020/04/04/js-base-knowledge5/&title=《前端基础复习-JavaScript-5》 — WeiYuan's Blog&source=前端自检清单JavaScript基础5–语法和API" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2020/04/04/js-base-knowledge5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端基础复习-JavaScript-5》 — WeiYuan's Blog&url=http://11wy11.github.io/2020/04/04/js-base-knowledge5/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2020/04/04/js-base-knowledge5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aOW7EMBAEQP//03LqwNJ2D2UDoorRYnWWgsEc/PqK1/FjteefXXV2NH9KvTAwMB7LOC7X9TnJg2f3z6/FwMB4D+Ps8WfnXIfLs1dJwm7ygTAwMDBaRhuCr++PgYGBsc44gpXcOQnNGBgYGG2Rmb/cLLD+Uy2OgYHxQEbedf//338y38DAwHgU4yjXdXLWjhPa8vj0bhgYGFsz2tZYvoUiL31nWzowMDDewzgWVgJo221JYnpDaoiBgfFYRjskyFPDfOTZtvx+CbgYGBjbMZLDbZGZjyrbdl6R4WJgYGzEWHlMO4BcgX34NBgYGK9hzFK0tk3W9gKjO2NgYGzNaLdnzdLHlRK3GH9iYGBsypgVqLPf10FzhY2BgfEGRtv0z1+rHV4Oj2JgYLyA0bbmZ4ngcCNFvtkCAwNjU8bs4vx17ypiZ+kmBgbGHozZqHLWk8/vcMP3xsDA2I6xtNEhSN3yRv8MjIGBsTfjtpA3Kj5nhe6HqzAwMDZlrJegeUHbbkRLklcMDIz3MOrLFppoSfBthxMYGBhvYLTl63ppmpfBUdDHwMDYlLHycivDyPWm3oekEAMDYyNG2zhbIeUttnyzWo3BwMB4LOPenWUrm73agIuBgfE2Rh742n/aJl07zsTAwMCYvWI72lx5IgYGBsYsNWxbbG0JfUNqiIGB8UBGUmrmKd0sjLajUAwMjPcw2tIxCZ2zcLxUxGJgYOzJ+AbDKPoIp2egmgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

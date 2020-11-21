@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>前端基础复习-JavaScript-4 | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="js基础">
+    <meta name="description" content="前端自检清单JavaScript基础4–执行机制">
+<meta name="keywords" content="js基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端基础复习-JavaScript-4">
+<meta property="og:url" content="http://11wy11.github.io/2020/04/04/js-base-knowledge4/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="前端自检清单JavaScript基础4–执行机制">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://11wy11.github.io/2020/04/04/js-base-knowledge4/img/node-libuv.png">
+<meta property="og:updated_time" content="2020-09-19T08:18:54.318Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端基础复习-JavaScript-4">
+<meta name="twitter:description" content="前端自检清单JavaScript基础4–执行机制">
+<meta name="twitter:image" content="http://11wy11.github.io/2020/04/04/js-base-knowledge4/img/node-libuv.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/weiyuan_player">
+                <i class="icon icon-lg icon-link"></i>
+                CSDN
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">前端基础复习-JavaScript-4</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">前端基础复习-JavaScript-4</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-04T15:05:04.000Z" itemprop="datePublished" class="page-time">
+  2020-04-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#执行机制"><span class="post-toc-number">1.</span> <span class="post-toc-text">执行机制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-为何try里面放return，finally还会执行，理解其内部机制"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.为何try里面放return，finally还会执行，理解其内部机制</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-JavaScript如何实现异步编程，可以详细描述EventLoop机制"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.JavaScript如何实现异步编程，可以详细描述EventLoop机制</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-宏任务和微任务分别有哪些"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3.宏任务和微任务分别有哪些</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-可以快速分析一个复杂的异步嵌套逻辑，并掌握分析方法"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4.可以快速分析一个复杂的异步嵌套逻辑，并掌握分析方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-使用Promise实现串行"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5.使用Promise实现串行</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-Node与浏览器EventLoop的差异"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">6.Node与浏览器EventLoop的差异</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-如何在保证页面运行流畅的情况下处理海量数据"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">7.如何在保证页面运行流畅的情况下处理海量数据</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8-js的单线程模式"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">8.js的单线程模式</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-js-base-knowledge4" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">前端基础复习-JavaScript-4</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-04 23:05:04" datetime="2020-04-04T15:05:04.000Z" itemprop="datePublished">2020-04-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>前端自检清单JavaScript基础4–执行机制</p>
+<a id="more"></a>
+<h3 id="执行机制"><a href="#执行机制" class="headerlink" title="执行机制"></a>执行机制</h3><h4 id="1-为何try里面放return，finally还会执行，理解其内部机制"><a href="#1-为何try里面放return，finally还会执行，理解其内部机制" class="headerlink" title="1.为何try里面放return，finally还会执行，理解其内部机制"></a>1.为何<code>try</code>里面放<code>return</code>，<code>finally</code>还会执行，理解其内部机制</h4><p>当try和finally里都有return时，会忽略try的return，而使用finally的return。</p>
+<ul>
+<li>JVM 采用异常表的方式来处理 try catch 的跳转逻辑</li>
+<li>finally 的实现采用拷贝 finally 语句块的方式来实现 finally 一定会执行的语义逻辑</li>
+</ul>
+<h4 id="2-JavaScript如何实现异步编程，可以详细描述EventLoop机制"><a href="#2-JavaScript如何实现异步编程，可以详细描述EventLoop机制" class="headerlink" title="2.JavaScript如何实现异步编程，可以详细描述EventLoop机制"></a>2.<code>JavaScript</code>如何实现异步编程，可以详细描述<code>EventLoop</code>机制</h4><p>一个 Event Loop 中，可以有一个或者多个任务队列(task queue)，一个任务队列便是一系列有序任务(task)的集合；<strong>每个任务都有一个任务源(task source)，源自同一个任务源的 task 必须放到同一个任务队列，从不同源来的则被添加到不同队列。</strong> setTimeout/Promise 等API便是任务源，而进入任务队列的是他们指定的具体执行任务。</p>
+<p>浏览器为了能够使得JS内部(macro)task与DOM任务能够有序的执行，<strong>会在一个(macro)task执行结束后，在下一个(macro)task 执行开始前，对页面进行重新渲染</strong>，流程如下：</p>
+<pre><code>(macro)task-&gt;渲染-&gt;(macro)task-&gt;...
+</code></pre><p>microtask（又称为微任务），<strong>可以理解是在当前 task 执行结束后立即执行的任务</strong>。也就是说，在当前task任务后，下一个task之前，在渲染之前，执行所有microtask</p>
+<ul>
+<li>执行一个宏任务（栈中没有就从事件队列中获取）</li>
+<li>执行过程中如果遇到微任务，就将它添加到微任务的任务队列中</li>
+<li>宏任务执行完毕后，立即执行当前微任务队列中的所有微任务（依次执行）</li>
+<li>当前宏任务执行完毕，开始检查渲染，然后GUI线程接管渲染</li>
+<li>渲染完毕后，JS线程继续接管，开始下一个宏任务（从事件队列中获取）</li>
+</ul>
+<h4 id="3-宏任务和微任务分别有哪些"><a href="#3-宏任务和微任务分别有哪些" class="headerlink" title="3.宏任务和微任务分别有哪些"></a>3.宏任务和微任务分别有哪些</h4><p><strong>宏任务</strong>(macro)task主要包含：script(整体代码)、setTimeout、setInterval、I/O、UI交互事件、postMessage、MessageChannel、setImmediate(Node.js 环境)</p>
+<p><strong>微任务</strong>：Promise.then、MutationObserver(在指定的DOM发生变化时被调用)、process.nextTick(Node.js 环境)</p>
+<h4 id="4-可以快速分析一个复杂的异步嵌套逻辑，并掌握分析方法"><a href="#4-可以快速分析一个复杂的异步嵌套逻辑，并掌握分析方法" class="headerlink" title="4.可以快速分析一个复杂的异步嵌套逻辑，并掌握分析方法"></a>4.可以快速分析一个复杂的异步嵌套逻辑，并掌握分析方法</h4><p>理解好任务队列，宏任务和微任务</p>
+<h4 id="5-使用Promise实现串行"><a href="#5-使用Promise实现串行" class="headerlink" title="5.使用Promise实现串行"></a>5.使用<code>Promise</code>实现串行</h4><p>在promise中返回一个promise对象就是一个串行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实现Promise串行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makePromise</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span>=&gt;</span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">            resolve(value)</span><br><span class="line">        &#125;,<span class="built_in">Math</span>.random()*<span class="number">1000</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> promises = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>].map(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> makePromise(item)</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">// 串行执行</span></span><br><span class="line"><span class="keyword">let</span> parallelPromises = promises.reduce(</span><br><span class="line">    (total, currentValue) =&gt; total.then(<span class="function"><span class="params">()</span> =&gt;</span> currentValue.then(print)),<span class="built_in">Promise</span>.resolve()</span><br><span class="line">  )</span><br><span class="line">  parallelPromises</span><br><span class="line">.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'total then done'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'done'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="6-Node与浏览器EventLoop的差异"><a href="#6-Node与浏览器EventLoop的差异" class="headerlink" title="6.Node与浏览器EventLoop的差异"></a>6.<code>Node</code>与浏览器<code>EventLoop</code>的差异</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/04/04/js-base-knowledge4/img/node-libuv.png" alt="img" title>
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+<ul>
+<li><p><strong>timers 阶段</strong>：这个阶段执行timer（<code>setTimeout</code>、<code>setInterval</code>）的回调</p>
+</li>
+<li><p><strong>I/O callbacks 阶段</strong>：执行一些系统调用错误，比如网络通信的错误回调</p>
+</li>
+<li><p><strong>idle, prepare 阶段</strong>：仅node内部使用</p>
+</li>
+<li><p><strong>poll 阶段</strong>：获取新的I/O事件, 适当的条件下node将阻塞在这里，当已有超时timer，执行它的回调函数</p>
+</li>
+<li><p><strong>check 阶段</strong>：执行 <code>setImmediate()</code> 的回调</p>
+</li>
+<li><p><strong>close callbacks 阶段</strong>：执行 <code>socket</code> 的 <code>close</code> 事件回调</p>
+</li>
+</ul>
+<p>浏览器环境下，<code>microtask</code>的任务队列是每个<code>macrotask</code>执行完之后执行。</p>
+<p>而在Node.js中，<code>microtask</code>会在事件循环的各个阶段之间执行，也就是一个阶段执行完毕，就会去执行<code>microtask</code>队列的任务。</p>
+<p>在nodejs中递归的调用<code>process.nextTick()</code>会导致I/O starving，官方推荐使用<code>setImmediate()</code></p>
+<h4 id="7-如何在保证页面运行流畅的情况下处理海量数据"><a href="#7-如何在保证页面运行流畅的情况下处理海量数据" class="headerlink" title="7.如何在保证页面运行流畅的情况下处理海量数据"></a>7.如何在保证页面运行流畅的情况下处理海量数据</h4><h4 id="8-js的单线程模式"><a href="#8-js的单线程模式" class="headerlink" title="8.js的单线程模式"></a>8.js的单线程模式</h4><p>单线程，js的主要用途是与用户互动，以及操作DOM，如果使用多线程，容易产生复杂的同步问题。</p>
+<ul>
+<li>所有的同步任务都在主线程上执行，形成一个执行栈，</li>
+<li>主线程之外，存在一个任务队列，当异步任务有了运行结果，则会在任务队列中放置一个事件</li>
+<li><p>一旦”执行栈”中的所有同步任务执行完毕，系统就会读取”任务队列”，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。</p>
+<ul>
+<li>主线程不断重复上面的第三步。</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-09-19T08:18:54.318Z" itemprop="dateUpdated">2020-09-19 16:18:54</time>
+</span><br>
+
+
+        
+        <a href="/2020/04/04/js-base-knowledge4/" target="_blank" rel="external">http://11wy11.github.io/2020/04/04/js-base-knowledge4/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js基础/">js基础</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2020/04/04/js-base-knowledge4/&title=《前端基础复习-JavaScript-4》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2020/04/04/js-base-knowledge4/&title=《前端基础复习-JavaScript-4》 — WeiYuan's Blog&source=前端自检清单JavaScript基础4–执行机制" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2020/04/04/js-base-knowledge4/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端基础复习-JavaScript-4》 — WeiYuan's Blog&url=http://11wy11.github.io/2020/04/04/js-base-knowledge4/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2020/04/04/js-base-knowledge4/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/04/js-base-knowledge5/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">前端基础复习-JavaScript-5</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/04/04/js-base-knowledge3/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">前端基础复习-JavaScript-3</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2020/04/04/js-base-knowledge4/&title=《前端基础复习-JavaScript-4》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2020/04/04/js-base-knowledge4/&title=《前端基础复习-JavaScript-4》 — WeiYuan's Blog&source=前端自检清单JavaScript基础4–执行机制" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2020/04/04/js-base-knowledge4/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端基础复习-JavaScript-4》 — WeiYuan's Blog&url=http://11wy11.github.io/2020/04/04/js-base-knowledge4/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2020/04/04/js-base-knowledge4/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGklEQVR42u3aSY6DQAwF0Nz/0ukDRKBvG1rCPFYoQ1GPheWhPp/4+v5c898ffZus37wwMDAey/ieXsm2zh88WT/5LwYGxnsYR4/P74/CaI5M1j/8HAMDA2Nwfw7orYOBgYGRLD0JtUkiiIGBgdErMpN08LzETV7N7bU4BgbGAxl51/3/72+Zb2BgYDyK8S1e83Z/MlQo7woDA2M1o9oaq26rR6ruBwMDYzdjHi7PAdV2W7Jy4R1jYGCsYyRN/8lgoPfKouEEBgbGakYvgeuleslooXrYAgMD4z2M6tKTDK0HK6SVGBgY6xhXpXFXTVDzVLV8fg0DA+OxjGSImI8Ve8G3OrY83DkGBsZSRi+LTArOatCcsDEwMN7AuGP0OHlB5W8xMDBWM/IH9z654CBFtTzGwMBYx0jCa+8wWZIg3nhmBAMDYxGjGl6rsOpgsheyMTAwdjPytn61iO0he2AMDIzdjHzr+X3+yF6hGyWFGBgY6xjVNK6XzOWHzHoDVAwMjHcyeulgssUk+J4H9ELAxcDAWMSYNNR6pWny3JyKgYGxldHb3HwYWX1lhaQQAwNjHaM62pwcy8hbbL2jGxgYGLsZvSNZ1U0nK1cDLgYGxtsYk4IzTyKjqrrYzsPAwMCYhMVqWjlZBwMDA2PSbssPcCQl9OH6GBgYL2Dkw4Bkc5O0Mm/JYWBgvIdRLR2vGhVMgm8zfGNgYDyP8QfkOmqYe8K/zgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

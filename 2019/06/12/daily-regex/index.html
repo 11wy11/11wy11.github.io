@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
 <meta property="og:description" content="转载 开心师姐的博客">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-12T09:43:49.073Z">
+<meta property="og:updated_time" content="2020-09-19T08:18:54.309Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日常知识点整理——正则表达式regex">
 <meta name="twitter:description" content="转载 开心师姐的博客">
@@ -103,9 +103,9 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/custom">
+              <a href="https://blog.csdn.net/weiyuan_player">
                 <i class="icon icon-lg icon-link"></i>
-                测试
+                CSDN
               </a>
             </li>
         
@@ -312,6 +312,8 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^\w+@\w+\.\w+$</span><br></pre></td></tr></table></figure>
 <p>验证IP地址 192.168.1.10</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^\d&#123;<span class="number">1</span>,<span class="number">3</span>&#125;\(.\d&#123;<span class="number">1</span>,<span class="number">3</span>&#125;)&#123;<span class="number">3</span>&#125;$</span><br></pre></td></tr></table></figure>
+<p>使用正则表达式 提取网址协议，域名，IP, 端口等参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var url = &quot;http://192.168.1.111:8888/#/statistic/htmel/dkdkd/dksdkldsl.html&quot;;</span><br><span class="line">var patt = /(\w+):\/\/([^/:]+):(\d*)\/#\/(\S+)/;</span><br><span class="line">arr = url.match(patt);</span><br><span class="line">for (let i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">  console.log(arr[i])</span><br><span class="line">&#125;</span><br><span class="line">var index = arr[arr.length - 1];</span><br><span class="line">// var arrIndex = index.split(&quot;/&quot;)</span><br><span class="line">var arrIndex = index.match(/(\w+)/g);</span><br><span class="line">for (let i = 0; i &lt; arrIndex.length; i++) &#123;</span><br><span class="line">  console.log(arrIndex[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="JavaScript-中使用正则表达式"><a href="#JavaScript-中使用正则表达式" class="headerlink" title="JavaScript 中使用正则表达式"></a>JavaScript 中使用正则表达式</h2><h3 id="创建正则对象"><a href="#创建正则对象" class="headerlink" title="创建正则对象"></a>创建正则对象</h3><p>方式1：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> Regex(<span class="string">'\d'</span>, <span class="string">'i'</span>);</span><br><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> Regex(<span class="string">'\d'</span>, <span class="string">'gi'</span>);</span><br></pre></td></tr></table></figure>
 <p>方式2：</p>
@@ -395,7 +397,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-12T09:43:49.073Z" itemprop="dateUpdated">2019-06-12 17:43:49</time>
+    最后更新时间：<time datetime="2020-09-19T08:18:54.309Z" itemprop="dateUpdated">2020-09-19 16:18:54</time>
 </span><br>
 
 
@@ -566,7 +568,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>11wy11 &copy; 2019</span>
+        <p><span>11wy11 &copy; 2019 - 2020</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>

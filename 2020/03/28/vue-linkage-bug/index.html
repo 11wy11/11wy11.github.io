@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>VueAreaLinkage 设置默认值无效修改办法 | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Vue 组件">
+    <meta name="description" content="关于使用VueAreaLinkage，自定义数据，动态设置绑定的数组后，行政区划组件上的label不发生变化的解决办法。 组件基本介绍及使用场景 [vueAreaLinkage]https://www.npmjs.com/package/vue-area-linkage    “vueAreaLinkage”  VueAreaLinkage安装使用5.0版本之后，可以通过npm install">
+<meta name="keywords" content="Vue 组件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VueAreaLinkage 设置默认值无效修改办法">
+<meta property="og:url" content="http://11wy11.github.io/2020/03/28/vue-linkage-bug/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="关于使用VueAreaLinkage，自定义数据，动态设置绑定的数组后，行政区划组件上的label不发生变化的解决办法。 组件基本介绍及使用场景 [vueAreaLinkage]https://www.npmjs.com/package/vue-area-linkage    “vueAreaLinkage”  VueAreaLinkage安装使用5.0版本之后，可以通过npm install">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://11wy11.github.io/2020/03/28/vue-linkage-bug/image-20200328205049168.png">
+<meta property="og:image" content="http://11wy11.github.io/2020/03/28/vue-linkage-bug/image-20200328204808766.png">
+<meta property="og:image" content="http://11wy11.github.io/2020/03/28/vue-linkage-bug/citypicker-1585403838216.gif">
+<meta property="og:updated_time" content="2020-09-19T08:18:54.322Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VueAreaLinkage 设置默认值无效修改办法">
+<meta name="twitter:description" content="关于使用VueAreaLinkage，自定义数据，动态设置绑定的数组后，行政区划组件上的label不发生变化的解决办法。 组件基本介绍及使用场景 [vueAreaLinkage]https://www.npmjs.com/package/vue-area-linkage    “vueAreaLinkage”  VueAreaLinkage安装使用5.0版本之后，可以通过npm install">
+<meta name="twitter:image" content="http://11wy11.github.io/2020/03/28/vue-linkage-bug/image-20200328205049168.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/weiyuan_player">
+                <i class="icon icon-lg icon-link"></i>
+                CSDN
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">VueAreaLinkage 设置默认值无效修改办法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">VueAreaLinkage 设置默认值无效修改办法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-28T11:01:48.000Z" itemprop="datePublished" class="page-time">
+  2020-03-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#组件基本介绍及使用场景"><span class="post-toc-number">1.</span> <span class="post-toc-text">组件基本介绍及使用场景</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#VueAreaLinkage安装使用"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">VueAreaLinkage安装使用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用场景"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">使用场景</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#VueAreaLinkage修改绑定Label不更新解决方案"><span class="post-toc-number">2.</span> <span class="post-toc-text">VueAreaLinkage修改绑定Label不更新解决方案</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#项目使用实例代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">项目使用实例代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#效果"><span class="post-toc-number">4.</span> <span class="post-toc-text">效果</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-vue-linkage-bug" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">VueAreaLinkage 设置默认值无效修改办法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-28 19:01:48" datetime="2020-03-28T11:01:48.000Z" itemprop="datePublished">2020-03-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <a id="more"></a>
+<p>关于使用VueAreaLinkage，自定义数据，动态设置绑定的数组后，行政区划组件上的label不发生变化的解决办法。</p>
+<h3 id="组件基本介绍及使用场景"><a href="#组件基本介绍及使用场景" class="headerlink" title="组件基本介绍及使用场景"></a>组件基本介绍及使用场景</h3><blockquote>
+<p>[vueAreaLinkage]<a href="https://www.npmjs.com/package/vue-area-linkage" target="_blank" rel="noopener">https://www.npmjs.com/package/vue-area-linkage</a>    “vueAreaLinkage”</p>
+</blockquote>
+<h4 id="VueAreaLinkage安装使用"><a href="#VueAreaLinkage安装使用" class="headerlink" title="VueAreaLinkage安装使用"></a>VueAreaLinkage安装使用</h4><p>5.0版本之后，可以通过<code>npm install vue-area-linkage --save</code>和<code>npm install area-data --save</code>安装依赖，在main.js种引入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueAreaLinkage <span class="keyword">from</span> <span class="string">'vue-area-linkage'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'vue-area-linkage/dist/index.css'</span></span><br><span class="line"> Vue.use(VueAreaLinkage)</span><br><span class="line">    在页面组件内</span><br><span class="line"><span class="keyword">import</span> &#123; pca, pcaa &#125; <span class="keyword">from</span> <span class="string">'area-data'</span>; <span class="comment">// 城市数据</span></span><br><span class="line">    </span><br><span class="line">   <span class="comment">// 在data中定义数据：</span></span><br><span class="line">selected: [],</span><br><span class="line">pca: pca,</span><br><span class="line"> pcaa: pcaa</span><br></pre></td></tr></table></figure>
+<p>下面主要介绍之前版本直接将源代码引入项目中并根据需要修改代码，符合自己的应用场景。</p>
+<h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><p>实现市，县，乡三级联动，并通过点击地图区域，动态设置行政区划选择默认值。未修改的代码使用是，第一次设置默认值是生效的，之后通过修改绑定的selected数组，无法改变行政区划选择器上的label显示，下面主要介绍如何通过修改组件源码，实现设置默认值，行政区划自动更新。</p>
+<p>自定义的region数据结构如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/03/28/vue-linkage-bug/image-20200328205049168.png" alt="image-20200328205049168" title>
+                </div>
+                <div class="image-caption">image-20200328205049168</div>
+            </figure>
+<h3 id="VueAreaLinkage修改绑定Label不更新解决方案"><a href="#VueAreaLinkage修改绑定Label不更新解决方案" class="headerlink" title="VueAreaLinkage修改绑定Label不更新解决方案"></a>VueAreaLinkage修改绑定Label不更新解决方案</h3><p>以area-cascader组件为例</p>
+<ol>
+<li><p><strong>根据自己的region数据，修改area-cascader中index.vue中的getActiveLabels函数，将获取provinces的Key设置为自己的，以贵阳市为例，修改源代码中的86为52.area-select组件做类似处理</strong></p>
+<p><img src="/2020/03/28/vue-linkage-bug/image-20200328204808766.png" alt="image-20200328204808766"></p>
+</li>
+<li><p><strong>修改area-cascader&gt;index.vue,修改SetDefaultValue函数，源代码中setDefaultValue只动态设置provinceCode和province，但因为业务需求只有一个市，所以动态设置selected数组时，label不及时更新，因为不会激活设置SetDefaultCode函数，因此，这里首先需要修改动态添加默认值所选中的县和乡。修改代码如下：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">setDefaultValue() &#123;</span><br><span class="line">      <span class="keyword">let</span> provinceCode = <span class="string">""</span>;</span><br><span class="line">      <span class="keyword">let</span> cityCode = <span class="string">""</span>;</span><br><span class="line">      <span class="keyword">let</span> areaCode = <span class="string">""</span>;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.isCode) &#123;</span><br><span class="line">        provinceCode = <span class="keyword">this</span>.defaults[<span class="number">0</span>];</span><br><span class="line">        cityCode = <span class="keyword">this</span>.defaults[<span class="number">1</span>];</span><br><span class="line">        areaCode = <span class="keyword">this</span>.defaults[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">this</span>.curCityCode = cityCode;</span><br><span class="line">        <span class="keyword">this</span>.curAreaCode = areaCode;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> province = find(</span><br><span class="line">          <span class="keyword">this</span>.provinces,</span><br><span class="line">          item =&gt; item === <span class="keyword">this</span>.defaults[<span class="number">0</span>]</span><br><span class="line">        );</span><br><span class="line">        assert(province, <span class="string">`城市 <span class="subst">$&#123;<span class="keyword">this</span>.defaults[<span class="number">0</span>]&#125;</span> 不存在`</span>);</span><br><span class="line">        provinceCode = find(</span><br><span class="line">          <span class="built_in">Object</span>.keys(<span class="keyword">this</span>.provinces),</span><br><span class="line">          item =&gt; <span class="keyword">this</span>.provinces[item] === <span class="keyword">this</span>.defaults[<span class="number">0</span>]</span><br><span class="line">        );</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">this</span>.curProvinceCode = provinceCode;</span><br><span class="line">      <span class="comment">//-------------------------修改start</span></span><br><span class="line">      <span class="comment">//手动激活县变化</span></span><br><span class="line">      <span class="keyword">this</span>.citys = <span class="keyword">this</span>.data[<span class="keyword">this</span>.curProvinceCode];</span><br><span class="line">      <span class="keyword">if</span> (!<span class="keyword">this</span>.citys) &#123;</span><br><span class="line">        <span class="keyword">this</span>.citys = &#123;</span><br><span class="line">          [<span class="keyword">this</span>.curProvinceCode]: <span class="keyword">this</span>.curProvince</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">this</span>.curCity = <span class="keyword">this</span>.curProvince;</span><br><span class="line">        <span class="keyword">this</span>.curCityCode = <span class="keyword">this</span>.curCityCode;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> curCity = <span class="built_in">Object</span>.values(<span class="keyword">this</span>.citys)[<span class="number">0</span>];</span><br><span class="line">      <span class="keyword">let</span> curCityCode = <span class="built_in">Object</span>.keys(<span class="keyword">this</span>.citys)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.defaults[<span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.isCode) &#123;</span><br><span class="line">          curCityCode = find(</span><br><span class="line">            <span class="built_in">Object</span>.keys(<span class="keyword">this</span>.citys),</span><br><span class="line">            item =&gt; item === <span class="keyword">this</span>.defaults[<span class="number">1</span>]</span><br><span class="line">          );</span><br><span class="line">          assert(</span><br><span class="line">            curCityCode,</span><br><span class="line">            <span class="string">`城市 <span class="subst">$&#123;<span class="keyword">this</span>.defaults[<span class="number">1</span>]&#125;</span> 不存在于省份 <span class="subst">$&#123;<span class="keyword">this</span>.defaults[<span class="number">0</span>]&#125;</span> 中`</span></span><br><span class="line">          );</span><br><span class="line">          curCity = <span class="keyword">this</span>.citys[curCityCode];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          curCity = find(<span class="keyword">this</span>.citys, item =&gt; item === <span class="keyword">this</span>.defaults[<span class="number">1</span>]);</span><br><span class="line">          assert(</span><br><span class="line">            curCity,</span><br><span class="line">            <span class="string">`城市 <span class="subst">$&#123;<span class="keyword">this</span>.defaults[<span class="number">1</span>]&#125;</span> 不存在于省份 <span class="subst">$&#123;<span class="keyword">this</span>.defaults[<span class="number">0</span>]&#125;</span> 中`</span></span><br><span class="line">          );</span><br><span class="line">          curCityCode = find(</span><br><span class="line">            <span class="built_in">Object</span>.keys(<span class="keyword">this</span>.citys),</span><br><span class="line">            item =&gt; <span class="keyword">this</span>.citys[item] === <span class="keyword">this</span>.defaults[<span class="number">1</span>]</span><br><span class="line">          );</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">this</span>.curCity = curCity;</span><br><span class="line">      <span class="keyword">this</span>.curCityCode = curCityCode;</span><br><span class="line">      <span class="comment">//手动添加镇</span></span><br><span class="line">      <span class="keyword">this</span>.areas = <span class="keyword">this</span>.data[<span class="keyword">this</span>.curCityCode];</span><br><span class="line">      <span class="keyword">if</span> (!<span class="keyword">this</span>.areas) &#123;</span><br><span class="line">        <span class="keyword">this</span>.areas = &#123;</span><br><span class="line">          [<span class="keyword">this</span>.curCityCode]: <span class="keyword">this</span>.curCity</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">this</span>.curArea = <span class="keyword">this</span>.curCity;</span><br><span class="line">        <span class="keyword">this</span>.curAreaCode = <span class="keyword">this</span>.curCityCode;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">let</span> curArea = <span class="built_in">Object</span>.values(<span class="keyword">this</span>.areas)[<span class="number">0</span>];</span><br><span class="line">      <span class="keyword">let</span> curAreaCode = <span class="built_in">Object</span>.keys(<span class="keyword">this</span>.areas)[<span class="number">0</span>];</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.defaults[<span class="number">2</span>]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.isCode) &#123;</span><br><span class="line">          curAreaCode = find(</span><br><span class="line">            <span class="built_in">Object</span>.keys(<span class="keyword">this</span>.areas),</span><br><span class="line">            item =&gt; item == <span class="keyword">this</span>.defaults[<span class="number">2</span>]</span><br><span class="line">          );</span><br><span class="line">          assert(</span><br><span class="line">            curAreaCode,</span><br><span class="line">            <span class="string">`乡镇 <span class="subst">$&#123;<span class="keyword">this</span>.defaults[<span class="number">2</span>]&#125;</span> 不存在于县区 <span class="subst">$&#123;<span class="keyword">this</span>.defaults[<span class="number">1</span>]&#125;</span> 中`</span></span><br><span class="line">          );</span><br><span class="line">          curArea = <span class="keyword">this</span>.areas[curAreaCode];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          curArea = find(<span class="keyword">this</span>.areas, item =&gt; item == <span class="keyword">this</span>.defaults[<span class="number">2</span>]);</span><br><span class="line">          assert(</span><br><span class="line">            curArea,</span><br><span class="line">            <span class="string">`乡镇 <span class="subst">$&#123;<span class="keyword">this</span>.defaults[<span class="number">2</span>]&#125;</span> 不存在于县区 <span class="subst">$&#123;<span class="keyword">this</span>.defaults[<span class="number">1</span>]&#125;</span> 中`</span></span><br><span class="line">          );</span><br><span class="line">          curAreaCode = find(</span><br><span class="line">            <span class="built_in">Object</span>.keys(<span class="keyword">this</span>.areas),</span><br><span class="line">            item =&gt; <span class="keyword">this</span>.areas[item] === <span class="keyword">this</span>.defaults[<span class="number">2</span>]</span><br><span class="line">          );</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">this</span>.curArea = curArea;</span><br><span class="line">      <span class="keyword">this</span>.curAreaCode = curAreaCode;</span><br><span class="line">		<span class="comment">//-------------------------修改end</span></span><br><span class="line">      <span class="comment">//this.$refs.cascader.setValue(this.defaultsAreaCodes)</span></span><br><span class="line">      <span class="comment">// 还原默认值，避免用户选择出错</span></span><br><span class="line">      <span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.defaults = [];</span><br><span class="line">        <span class="comment">// this.isCode = false;</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="3">
+<li><p><strong>源代码为了避免循环调用SetDefaultCode函数，有一个<code>isSetDefault</code>的变量，标识是否已经更新设置行政区划，这里也需要改一下，因为源代码中<code>curAreaCode</code>的watch监听中没有将其设置为false，因此，即使手动设置了<code>curAreaCode</code>值，但因为没有改变绑定的defaultAreaCodes因此组件内部没有更新。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curAreaCode(val) &#123;</span><br><span class="line">     <span class="keyword">this</span>.curArea = <span class="keyword">this</span>.areas[val];</span><br><span class="line">     <span class="keyword">this</span>.curAreaCode = val;</span><br><span class="line">     <span class="comment">//0328 add by weiyuan to resolve setDefault not to change</span></span><br><span class="line">     <span class="keyword">this</span>.isSetDefault=<span class="literal">false</span></span><br><span class="line">     <span class="keyword">this</span>.setDefaultsCodes();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>至此，完美解决修改绑定的数组值，VueAreaLinkage组件Label不更新问题。</p>
+<h3 id="项目使用实例代码"><a href="#项目使用实例代码" class="headerlink" title="项目使用实例代码"></a>项目使用实例代码</h3><p><strong>首先main.js中注册组件并初始化region，</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import region from &apos;./assets/area-data/region&apos;</span><br><span class="line">import VueAreaLinkage from &apos;./components/area-utils/index&apos;</span><br><span class="line">Vue.use(VueAreaLinkage)</span><br><span class="line">Vue.prototype.$region = region</span><br></pre></td></tr></table></figure>
+<p><strong>使用area-cascader封装cityPicker组件,这里还增加了根据权限过滤region数据，实现行政区划选择性显示</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;area-cascader :level=&quot;level&quot; v-model=&quot;valueArray&quot; :data=&quot;permissionData&quot; v-if=&quot;Object.keys(permissionData).length&quot; /&gt;</span><br><span class="line">    &lt;!--&lt;div&gt;&#123;&#123;selected&#125;&#125;&lt;/div&gt;--&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import AreaCascader from &quot;./area-cascader/cascader&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;CityPicker&quot;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    level: &#123;</span><br><span class="line">      type: Number,</span><br><span class="line">      required: false,</span><br><span class="line">      default: 0</span><br><span class="line">    &#125;,</span><br><span class="line">    selected: &#123;</span><br><span class="line">      type: Array,</span><br><span class="line">      default: [&quot;5201&quot;, &quot;520100&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  component: &#123; &quot;area-cascader&quot;: AreaCascader &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      valueArray: [],</span><br><span class="line">      permissionData: &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  created() &#123;</span><br><span class="line">    this.valueArray = [].concat(this.selected);</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    //需要根据权限筛选region数据</span><br><span class="line">    let user = JSON.parse(window.sessionStorage.getItem(&quot;access-user&quot;));</span><br><span class="line">    if(!user)&#123;</span><br><span class="line">       this.permissionData = this.$region;</span><br><span class="line">       return</span><br><span class="line">    &#125;</span><br><span class="line">    this.userName = user.username;</span><br><span class="line">    this.role = user.role;</span><br><span class="line">    this.regionid = user.pac;</span><br><span class="line">    if (this.regionid != undefined &amp;&amp; this.regionid != &quot;5201&quot;) &#123;</span><br><span class="line">      let allRegion = Object.assign(&#123;&#125;, this.$region);</span><br><span class="line">      if (this.regionid.length == 6) &#123;</span><br><span class="line">        //县级</span><br><span class="line">        let city = allRegion[&quot;5201&quot;];</span><br><span class="line">        for (var key in city) &#123;</span><br><span class="line">          if (key != this.regionid) &#123;</span><br><span class="line">            delete city[key];</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (var key in allRegion) &#123;</span><br><span class="line">          if (key.length &lt; 6) &#123;</span><br><span class="line">            continue;</span><br><span class="line">          &#125;</span><br><span class="line">          if (key != this.regionid) &#123;</span><br><span class="line">            delete allRegion[key];</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        this.permissionData = allRegion;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        //镇级</span><br><span class="line">        this.permissionData = [];</span><br><span class="line">        let countyId = this.regionid.substring(0, 6);</span><br><span class="line">        let city = allRegion[&quot;5201&quot;];</span><br><span class="line">        let county = allRegion[countyId];</span><br><span class="line">        for (var key in city) &#123;</span><br><span class="line">          if (key != countyId) &#123;</span><br><span class="line">            delete city[key];</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (var key in allRegion) &#123;</span><br><span class="line">          if (key.length &lt; 6) &#123;</span><br><span class="line">            continue;</span><br><span class="line">          &#125;</span><br><span class="line">          if (key != countyId) &#123;</span><br><span class="line">            delete allRegion[key];</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (var key in county) &#123;</span><br><span class="line">          if (key != this.regionid) &#123;</span><br><span class="line">            delete county[key];</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        this.permissionData = allRegion;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      this.permissionData = this.$region;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    valueArray(curVal, oldVal) &#123;</span><br><span class="line">      if(curVal!=oldVal)&#123;</span><br><span class="line">this.$emit(&quot;selected&quot;, curVal);</span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">    &#125;,</span><br><span class="line">    selected(curVal, oldVal) &#123;</span><br><span class="line">      this.valueArray = [].concat(this.selected);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>使用</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;CityPicker</span><br><span class="line">                style=&quot;width:100%&quot;</span><br><span class="line">                @selected=&quot;selectSearchRegion&quot;</span><br><span class="line">                :selected=&quot;searchRegionArray&quot;</span><br><span class="line">                :level=&quot;1&quot;</span><br><span class="line">              /&gt;</span><br><span class="line">//需要动态修改是直接给searchRegionArray赋值即可，注意数组长度需要和联动级数匹配，即三级联动，数组需要长度为三</span><br></pre></td></tr></table></figure>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="/2020/03/28/vue-linkage-bug/citypicker-1585403838216.gif" alt></p>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-09-19T08:18:54.322Z" itemprop="dateUpdated">2020-09-19 16:18:54</time>
+</span><br>
+
+
+        
+        <a href="/2020/03/28/vue-linkage-bug/" target="_blank" rel="external">http://11wy11.github.io/2020/03/28/vue-linkage-bug/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue-组件/">Vue 组件</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2020/03/28/vue-linkage-bug/&title=《VueAreaLinkage 设置默认值无效修改办法》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2020/03/28/vue-linkage-bug/&title=《VueAreaLinkage 设置默认值无效修改办法》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2020/03/28/vue-linkage-bug/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《VueAreaLinkage 设置默认值无效修改办法》 — WeiYuan's Blog&url=http://11wy11.github.io/2020/03/28/vue-linkage-bug/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2020/03/28/vue-linkage-bug/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/03/28/daily-skill-1/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">日常技巧</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/17/daily-nodejs-1/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">日常知识--NodeJS进阶（一）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2020/03/28/vue-linkage-bug/&title=《VueAreaLinkage 设置默认值无效修改办法》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2020/03/28/vue-linkage-bug/&title=《VueAreaLinkage 设置默认值无效修改办法》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2020/03/28/vue-linkage-bug/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《VueAreaLinkage 设置默认值无效修改办法》 — WeiYuan's Blog&url=http://11wy11.github.io/2020/03/28/vue-linkage-bug/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2020/03/28/vue-linkage-bug/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3aQXLDIAwF0Nz/0ukBEtP/oe6M4XnVSWzDy0IVkl6v+Hp/XJ/fft45fs/4Da87LgwMjMcy3sNr/Or22THj6tnx+zEwMM5hXG3x6p5ku0kITp4d34+BgYHxt/ckySIGBgbGCmNuyfF2k08wMDAw8oPo+idJonn7WRwDA+OBjLzq/v9/39LfwMDAeBTjXV4rDc6/CrJfnsLAwNiasd6GTDaRtAran+BLaMbAwNiUsV78ygtk6w0DDAyMMxlt+EsCbttayAtzv+wQAwNja8ZKEb890LahvA7WGBgY2zHmhhuS0JmU+/NBiqIHi4GBsR0jSQ3bo2yeArbjGhgYGCcz1ocw8pDdNhvy4I6BgbErI08E8yGJtmE510j4cojFwMDYlDFXdKuL9eUqc99iYGDsysjHHdqkbXJgYuoNGBgYZzLasNuej+eOshgYGGcy2oZiW8PLGwxzKSYGBsYJjLaIv9LabM/TRUDHwMDYmnFfopa3Ntu6YFR0w8DA2JqxnlDmI19tcJ/sx2JgYGzHWFkm3+h4rXq0AgMD4wDG5FxG2fhs75lsZ2JgYGzHmBunaIctkvCaJ5eXSSEGBsamjLkw2iaRbfHuxm4tBgbGYxnrQbYNpusBt/7vgYGBsQUjWTIv9+cFuzbVq1uYGBgYxzPy5kHe/pzMYTEwMDDK9mTevGyD+CUMAwPjAMbcITYvrs0V4IofCAMDY2tGm3fNjUq0wxwrBTsMDIyNGD8JZP71VZ8AIwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

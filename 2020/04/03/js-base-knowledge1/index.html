@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>前端基础复习-JavaScript-1 | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="js基础">
+    <meta name="description" content="前端自检清单JavaScript基础1–变量和类型">
+<meta name="keywords" content="js基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端基础复习-JavaScript-1">
+<meta property="og:url" content="http://11wy11.github.io/2020/04/03/js-base-knowledge1/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="前端自检清单JavaScript基础1–变量和类型">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-09-19T08:18:54.314Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端基础复习-JavaScript-1">
+<meta name="twitter:description" content="前端自检清单JavaScript基础1–变量和类型">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/weiyuan_player">
+                <i class="icon icon-lg icon-link"></i>
+                CSDN
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">前端基础复习-JavaScript-1</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">前端基础复习-JavaScript-1</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-03T10:36:11.000Z" itemprop="datePublished" class="page-time">
+  2020-04-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变量和类型"><span class="post-toc-number">1.</span> <span class="post-toc-text">变量和类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-JavaScript规定了几种语言类型"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.JavaScript规定了几种语言类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-JavaScript对象的底层数据结构是什么"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.JavaScript对象的底层数据结构是什么</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-Symbol类型在实际开发中的应用、可手动实现一个简单的Symbol"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3.Symbol类型在实际开发中的应用、可手动实现一个简单的Symbol</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-JavaScript中的变量在内存中的具体存储形式"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4.JavaScript中的变量在内存中的具体存储形式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-基本类型对应的内置对象，以及他们之间的装箱类型的拆箱操作"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5.基本类型对应的内置对象，以及他们之间的装箱类型的拆箱操作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-理解值类型和引用类型"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">6.理解值类型和引用类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-null和undefined的区别"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">7.null和undefined的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8-至少可以说出三种判断JavaScript数据类型的方式，以及他们的优缺点，如何准确的判断数组类型"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">8.至少可以说出三种判断JavaScript数据类型的方式，以及他们的优缺点，如何准确的判断数组类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#9-可能发生隐式类型转换的场景以及转换原则，应如何避免或巧妙应用"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">9.可能发生隐式类型转换的场景以及转换原则，应如何避免或巧妙应用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#10-出现小数精度丢失的原因，JavaScript可以存储的最大数字、最大安全数字，JavaScript处理大数字的方法、避免精度丢失的方法"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">10.出现小数精度丢失的原因，JavaScript可以存储的最大数字、最大安全数字，JavaScript处理大数字的方法、避免精度丢失的方法</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-js-base-knowledge1" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">前端基础复习-JavaScript-1</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-03 18:36:11" datetime="2020-04-03T10:36:11.000Z" itemprop="datePublished">2020-04-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>前端自检清单JavaScript基础1–变量和类型<br><a id="more"></a></p>
+<h3 id="变量和类型"><a href="#变量和类型" class="headerlink" title="变量和类型"></a>变量和类型</h3><h4 id="1-JavaScript规定了几种语言类型"><a href="#1-JavaScript规定了几种语言类型" class="headerlink" title="1.JavaScript规定了几种语言类型"></a>1.<code>JavaScript</code>规定了几种语言类型</h4><p>7种，</p>
+<p>undefined,null,Number,Boolean,</p>
+<p>String,Object,Symbol</p>
+<h4 id="2-JavaScript对象的底层数据结构是什么"><a href="#2-JavaScript对象的底层数据结构是什么" class="headerlink" title="2.JavaScript对象的底层数据结构是什么"></a>2.<code>JavaScript</code>对象的底层数据结构是什么</h4><p>Null (js中的数据在底层是以二进制存储，如果前三位为0，那么就会判定为object，而null的所有都为0)</p>
+<p><strong>js基本类型数据都是直接按值存储在栈中的</strong>(Undefined、Null、不是new出来的布尔、数字和字符串)</p>
+<p><strong>js引用类型数据被存储于堆中</strong> (如对象、数组、函数等，它们是通过拷贝和new出来的），引用类型的数据的地址指针存储于栈中，地址指针指向堆中的数据</p>
+<p>Object&gt;HeapObject（存储）&gt;JSReceiver(用于原型查找)-&gt;(FixedArrayBase-&gt;FixedArray)+JSObject-&gt;JSArray+JSCollection+(JSFunction&gt;JSMap+JSSet)</p>
+<h4 id="3-Symbol类型在实际开发中的应用、可手动实现一个简单的Symbol"><a href="#3-Symbol类型在实际开发中的应用、可手动实现一个简单的Symbol" class="headerlink" title="3.Symbol类型在实际开发中的应用、可手动实现一个简单的Symbol"></a>3.<code>Symbol</code>类型在实际开发中的应用、可手动实现一个简单的<code>Symbol</code></h4><p>应用场景：1.使用Symbol来作为对象属性名（key）</p>
+<p>2.使用Symbol来替代常量</p>
+<p>3.使用Symbol定义类的私有属性和方法</p>
+<p>symbol 类型的key不能被Object.keys和for—of</p>
+<h4 id="4-JavaScript中的变量在内存中的具体存储形式"><a href="#4-JavaScript中的变量在内存中的具体存储形式" class="headerlink" title="4.JavaScript中的变量在内存中的具体存储形式"></a>4.<code>JavaScript</code>中的变量在内存中的具体存储形式</h4><p><code>JavaScript</code> 中的变量分为基本类型和引用类型:</p>
+<p>基本类型: 保存在栈内存中的简单数据段，它们的值都有固定的大小，保存在栈空间，通过按值访问</p>
+<p>引用类型: 保存在堆内存中的对象，值大小不固定，栈内存中存放的该对象的访问地址指向堆内存中的对象，<code>JavaScript</code> 不允许直接访问堆内存中的位置，因此操作对象时，实际操作对象的引用</p>
+<h4 id="5-基本类型对应的内置对象，以及他们之间的装箱类型的拆箱操作"><a href="#5-基本类型对应的内置对象，以及他们之间的装箱类型的拆箱操作" class="headerlink" title="5.基本类型对应的内置对象，以及他们之间的装箱类型的拆箱操作"></a>5.基本类型对应的内置对象，以及他们之间的装箱类型的拆箱操作</h4><p>String，Number，Boolean</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 隐式装箱： 每当读取一个基本类型的值时，后台会创建一个该基本类型所对应的对象。</span><br><span class="line">  // 在这个基本类型上调用方法，其实是在这个基本类型对象上调用方法。</span><br><span class="line">  // 这个基本类型的对象是临时的，它只存在于方法调用那一行代码执行的瞬间，执行方法后立刻被销毁。</span><br><span class="line">  let num=123;</span><br><span class="line">  num.toFixed(2); // &apos;123.00&apos;//上方代码在后台的真正步骤为</span><br><span class="line">  var c = new Number(123);</span><br><span class="line">  c.toFixed(2);</span><br><span class="line">  c = null;</span><br><span class="line">  // 显式装箱: 通过内置对象 Boolean、Object、String 等可以对基本类型进行显示装箱。</span><br><span class="line">  var obj = new String(&apos;123&apos;);</span><br></pre></td></tr></table></figure>
+<h4 id="6-理解值类型和引用类型"><a href="#6-理解值类型和引用类型" class="headerlink" title="6.理解值类型和引用类型"></a>6.理解值类型和引用类型</h4><p>赋值传引用地址，值类型直接赋值</p>
+<h4 id="7-null和undefined的区别"><a href="#7-null和undefined的区别" class="headerlink" title="7.null和undefined的区别"></a>7.<code>null</code>和<code>undefined</code>的区别</h4><p>undefined类型表示未定义，值只有一个undefined，</p>
+<p>undefined是一个变量，而非关键字。</p>
+<p>而Null只有一个值，null，表示空值，是关键字，可以通过null关键字来获取null值</p>
+<h4 id="8-至少可以说出三种判断JavaScript数据类型的方式，以及他们的优缺点，如何准确的判断数组类型"><a href="#8-至少可以说出三种判断JavaScript数据类型的方式，以及他们的优缺点，如何准确的判断数组类型" class="headerlink" title="8.至少可以说出三种判断JavaScript数据类型的方式，以及他们的优缺点，如何准确的判断数组类型"></a>8.至少可以说出三种判断<code>JavaScript</code>数据类型的方式，以及他们的优缺点，如何准确的判断数组类型</h4><p>typeof </p>
+<p>instanceof</p>
+<p>constructor</p>
+<p>Object,prototype.toString.call([])==’[object Array]’</p>
+<p>Array.isArray()</p>
+<h4 id="9-可能发生隐式类型转换的场景以及转换原则，应如何避免或巧妙应用"><a href="#9-可能发生隐式类型转换的场景以及转换原则，应如何避免或巧妙应用" class="headerlink" title="9.可能发生隐式类型转换的场景以及转换原则，应如何避免或巧妙应用"></a>9.可能发生隐式类型转换的场景以及转换原则，应如何避免或巧妙应用</h4><ul>
+<li>isNaN ()</li>
+<li>自增/自减运算符：<code>++</code>、<code>—-</code></li>
+<li>正号/负号：<code>+a</code>、<code>-a</code></li>
+<li>加号：<code>+</code></li>
+<li>运算符：<code>-</code>、<code>*</code>、<code>/</code></li>
+<li><p>==在不同类型时进行隐式类型转换</p>
+<ul>
+<li>会先判断是否在对比 null 和 undefined，是的话就会返回 true</li>
+<li>判断两者类型是否为 string 和 number，是的话就会将字符串转换为 number</li>
+<li>判断其中一方是否为 boolean，是的话就会把 boolean 转为 number 再进行判断</li>
+<li>判断其中一方是否为 object 且另一方为 string、number 或者 symbol，是的话就会把 object 转为原始类型再进行判断</li>
+<li>两边都是对象的话，那么只要不是同一对象的不同引用，都为false</li>
+</ul>
+</li>
+<li><p>逻辑运算符：<code>&amp;&amp;</code>、<code>||</code>、<code>！</code> 。非布尔值进行<strong>与或</strong>运算时，会先将其转换为布尔值，然后再运算，但运算结果是<strong>原值</strong>。具体可以看下一篇文章《运算符》。</p>
+</li>
+<li><p>关系运算符：<code>&lt;</code>、<code>&gt;</code> <code>&lt;=</code> <code>&gt;=</code>等。关系运算符，得到的运算结果都是布尔值：要么是true，要么是false。</p>
+</li>
+</ul>
+<h4 id="10-出现小数精度丢失的原因，JavaScript可以存储的最大数字、最大安全数字，JavaScript处理大数字的方法、避免精度丢失的方法"><a href="#10-出现小数精度丢失的原因，JavaScript可以存储的最大数字、最大安全数字，JavaScript处理大数字的方法、避免精度丢失的方法" class="headerlink" title="10.出现小数精度丢失的原因，JavaScript可以存储的最大数字、最大安全数字，JavaScript处理大数字的方法、避免精度丢失的方法"></a>10.出现小数精度丢失的原因，<code>JavaScript</code>可以存储的最大数字、最大安全数字，<code>JavaScript</code>处理大数字的方法、避免精度丢失的方法</h4><ul>
+<li>精度丢失原因，说是 <code>JavaScript</code> 使用了 <code>IEEE 754</code> 规范，二进制储存十进制的小数时不能完整的表示小数</li>
+<li>能够表示的最大数字 <code>Number.MAX_VALUE</code> 等于 <code>1.7976931348623157e+308</code> ,最大安全数字 <code>Number.MAX_SAFE_INTEGER</code> 等于 <code>9007199254740991</code></li>
+<li>避免精度丢失<ul>
+<li>计算小数时，先乘 <code>100</code> 或 <code>1000</code>，变成整数再运算</li>
+<li>如果值超出了安全整数，有一个最新提案，<code>BigInt</code> 大整数，它可以表示任意大小的整数，注意只能表示整数，而不受安全整数的限制</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-09-19T08:18:54.314Z" itemprop="dateUpdated">2020-09-19 16:18:54</time>
+</span><br>
+
+
+        
+        <a href="/2020/04/03/js-base-knowledge1/" target="_blank" rel="external">http://11wy11.github.io/2020/04/03/js-base-knowledge1/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js基础/">js基础</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2020/04/03/js-base-knowledge1/&title=《前端基础复习-JavaScript-1》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2020/04/03/js-base-knowledge1/&title=《前端基础复习-JavaScript-1》 — WeiYuan's Blog&source=前端自检清单JavaScript基础1–变量和类型" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2020/04/03/js-base-knowledge1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端基础复习-JavaScript-1》 — WeiYuan's Blog&url=http://11wy11.github.io/2020/04/03/js-base-knowledge1/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2020/04/03/js-base-knowledge1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/04/03/js-base-knowledge2/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">前端基础复习-JavaScript-2</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/03/30/emmet-grammar/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">emmet-grammar</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2020/04/03/js-base-knowledge1/&title=《前端基础复习-JavaScript-1》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2020/04/03/js-base-knowledge1/&title=《前端基础复习-JavaScript-1》 — WeiYuan's Blog&source=前端自检清单JavaScript基础1–变量和类型" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2020/04/03/js-base-knowledge1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端基础复习-JavaScript-1》 — WeiYuan's Blog&url=http://11wy11.github.io/2020/04/03/js-base-knowledge1/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2020/04/03/js-base-knowledge1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3azVLDMAxF4b7/S4ctizo9V8JMIx+vmAKJPzMjrJ/XC6/r10p/fvVbq+/yt8RLhgwZj2Vct4ts6/7F5Dn88+XRyJAh4wAGeT0Pl6utkLB7/97l5zJkyJARBkFyvSNblyFDhowdDL4JEpplyJAhoxZAO+UzfjQbc3EZMmQ8kMGr7v//9Zb+hgwZMh7FuMLVbyeQpkK8KxkyZIxmpKUxPkLBU9/aSIcMGTLOYdTCJQek5TZyMY3PWIYMGYMYpOyVltt4wK2V/N4EXBkyZAxl1K6AJHTy1mbryGTIkDGawS9qtfy4FtBrgxoyZMiYyuCXM765fqOUsFH2LEOGjBEM0kSslck4vnaIb3YuQ4aMoQz+0H4Ffh9bhgwZJzDSJmUn6a2V5+IsXIYMGYMYndJ8LX/sFPKCPFiGDBmDGPehrTZMxgfFNs6MyJAhYxyDhM40sqUH1AnZMmTImM3oI9PGZNpaaN12ZciQMZRRa2fWks9aortx8EKGDBlfzOApaCeMkrYoeVowMyJDhoyhjE7pjRfRas/5sCsZMmQcwEiHt8hw2I5G6YeAK0OGjHGMK1x8Q+kT+GGhv4MMGTIGMTrF/TQQ14p0aNhChgwZBzBaI1nt5mV6KDJkyDiZkQY+ksTy9if/D/Bn/Q0ZMmSMZqRDWqQlkDZNg8kOGTJkHMmoJbSdMhkq4cmQIeMABkk1+eZqYbTWTJUhQ8YJjDR1JKEzbU/WdiJDhowDGD/OniLgRJmV4wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
