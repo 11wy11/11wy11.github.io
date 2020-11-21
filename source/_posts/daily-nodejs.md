@@ -816,3 +816,133 @@ connection.query(deleteSql,function (err, result) {
 });
 connection.end();
 ```
+
+### 13. Node.js 连接MongoDB
+
+cnpm install mongodb --save
+
+1. 创建数据库
+2. 创建集合
+3. 增删改查数据
+4. 聚合（连接）操作
+5. 删除集合
+
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/nodejsBase";
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    console.log("数据库已创建!");
+    var dbase = db.db("nodejsBase");
+
+    // dbase.createCollection('site', function (err, res) {
+    //     if (err) throw err;
+    //     console.log("创建集合!");
+    //     db.close();
+    // });
+
+    var myobj = { name: "菜鸟教程", url: "www.runoob" };
+    dbase.collection("site").insertOne(myobj, function(err, res) {
+        if (err) throw err;
+        console.log("文档插入成功");
+        //db.close();
+    });
+    // myobj =  [
+    //     { name: '菜鸟工具', url: 'https://c.runoob.com', type: 'cn'},
+    //     { name: 'Google', url: 'https://www.google.com', type: 'en'},
+    //     { name: 'Facebook', url: 'https://www.google.com', type: 'en'}
+    // ];
+    // dbase.collection("site").insertMany(myobj, function(err, res) {
+    //     if (err) throw err;
+    //     console.log("插入的文档数量为: " + res.insertedCount);
+    //     //db.close();
+    // });
+
+    //查询全部
+    // dbase.collection("site").find({}).toArray(function (err,result) {
+    //     if (err) throw err;
+    //     console.log(result);
+    //     //db.close();
+    // })
+
+    //更新
+    var whereStr = {"name":'菜鸟教程'};  // 查询条件
+    var updateStr = {$set: { "url" : "https://www.runoob.com" ,type:'cn'}};
+    dbase.collection("site").updateMany(whereStr,updateStr,function (err,result) {
+        console.log("更新————————————————————————");
+        if (err) throw err;
+        console.log(result.result.nModified + " 条文档被更新");
+        //db.close();
+    });
+    // //条件
+    // dbase.collection("site").find({name:"菜鸟教程"}).toArray(function (err,result) {
+    //     console.log("查询————————————————————————");
+    //     if (err) throw err;
+    //     console.log(result);
+    //     //db.close();
+    // });
+    // //删除
+    // dbase.collection("site").deleteMany(whereStr, function(err, result) {
+    //     console.log("删除————————————————————————");
+    //     if (err) throw err;
+    //     console.log(result.result.n + " 条文档被删除");
+    //     db.close();
+    // });
+    //查询排序 分页skip 跳过指定条数 limit条数
+    // var mysort = { type: 1 };//1升序，-1降序
+    // dbase.collection("site").find().sort(mysort).skip(2).limit(5).toArray(function(err, result) {
+    //     if (err) throw err;
+    //     console.log(result);
+    //     db.close();
+    // });
+    //连接操作
+    // dbase.createCollection('orders', function (err, res) {
+    //     if (err) throw err;
+    //     console.log("创建orders集合!");
+    //     db.close();
+    // });
+    // dbase.createCollection('products', function (err, res) {
+    //     if (err) throw err;
+    //     console.log("创建products集合!");
+    //     db.close();
+    // });
+    // let orderData={_id:1,product_id:154,status:1}
+    // dbase.collection("orders").insertOne(orderData,function (err,result) {
+    //     if (err) throw err;
+    //     console.log(result.result.n);
+    // })
+    // let productData=[ { _id: 154, name: '笔记本电脑' },
+    //     { _id: 155, name: '耳机' },
+    //     { _id: 156, name: '台式电脑' }];
+    // dbase.collection("products").insertMany(productData,function (err,result) {
+    //     if (err) console.log(err);
+    //     console.log(result.result.n);
+    // })
+    dbase.collection("orders")
+        .aggregate([{
+            $lookup:
+                {
+                    from: 'products',            // 右集合
+                    localField: 'product_id',    // 左集合 join 字段
+                    foreignField: '_id',         // 右集合 join 字段
+                    as: 'orderdetails'           // 新生成字段（类型array）
+                }
+        }])
+        .toArray(function(err, res) {
+        if (err) throw err;
+        console.log(JSON.stringify(res));
+        db.close();
+    });
+    //分组等
+    dbase.collection("site")
+        .aggregate([{
+            $group:{_id:'$name',num:{$sum:1}}
+        }])
+        .toArray(function(err, res) {
+            if (err) throw err;
+            console.log(JSON.stringify(res));
+            db.close();
+        });
+    //其他操作类似，查看mongodb操作相关内容
+});
+```
