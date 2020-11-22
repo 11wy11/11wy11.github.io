@@ -212,4 +212,4 @@ void QtGuiApplication1::addVectorLayer()
 
 将include和lib,使用qgis-dev路径下的文件
 
-其次，如果在debug模式下编译提示无法找到某个dll,也可以在网上下载提示的dll
+其次，如果在debug模式下编译提示无法找到某个dll,也可以在网上下载提示的dll，像gdal303.dll，在app/gdal-dev中，proj_8_0.dll，在proj-dev里

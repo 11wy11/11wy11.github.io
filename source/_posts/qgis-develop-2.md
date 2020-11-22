@@ -5,6 +5,8 @@ tags: QGIS
 categories: GIS
 ---
 
+QGIS 源码编译，为学习开源软件以及二次开发做准备
+
 <!--more-->
 
 ### 下载软件包
@@ -20,44 +22,84 @@ categories: GIS
 
 在选包界面的搜索栏输入文档中给出的包名，目前官方文档给出的是：
 
-cygwin
+#### 1.cygwin
 
 \- bison
 \- flex
 
-OSGeo4W:
+![image-20201122191237032](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\18)
 
-国内镜像：http://gwmodel.whu.edu.cn/mirrors/osgeo4w
+**设置环境变量：Path中添加C:\cygwin64\bin**
 
-\- qgis-rel-deps另外之后编译的过程中如果发现有缺失的包也是可以重新在这里补充下载的。
+![image-20201122191332862](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\19)
+
+**检查是否安装成功flex和bison**,见下图
+
+![image-20201122191537468](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\20)
+
+**2.OSGeo4W:**
+
+下载地址：  http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe (32bit) or http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe (64bit)
+
+选择Advance Install ,在线下载时，使用镜像http://gwmodel.whu.edu.cn/mirrors/osgeo4w，不然会下载特别缓慢
+
+另外之后编译的过程中如果发现有缺失的包也是可以重新在这里补充下载的。
 
 ![img](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\70)
 
 直接下一步完成安装即可。
 
+注:如果不需要编译源码，只需要下载qgis相关即可，后续如果还需要编译源码，需要下载一些编译依赖库：
+
+Qt >= 4.5.0（QT5随OSGeo4W自动安装，在OSGeo4W目录下apps中）
+
+Proj >= 4.4.x（随OSGeo4W自动安装，在OSGeo4W目录下apps中）
+
+GEOS >= 3.0，~~下载地址：https://trac.osgeo.org/geos/，下载某个版本的tag.bz2,解压后，按照官网的说明，首先必须要运行autogen.bat，**后面尝试了一下，~~不下载这个，设置成OSGeo4W64的include,和lib目录，也可以，详见下一节，源码编译**
+
+Sqlite3 >= 3.0.0(暂没用到)
+
+GDAL/OGR >= 1.4.x（随OSGeo4W自动安装，在OSGeo4W目录下apps中）
+
+Qwt >= 5.0 & (< 6.1 with internalQwtPolar)(随OSGeo4W自动安装，在OSGeo4W目录下)
+
+expat >= 1.95(随OSGeo4W自动安装，在OSGeo4W目录下)
+
+\- QScintilla2
+\- QCA
+\- qtkeychain (>= 0.5)
+
+可选依赖库：
+\- GRASS驱动和插件支持 - GRASS >= 6.0.0. QGIS可以和GRASS6或者GRASS7共同编译. 它也可以同时支持这两个版本的GRASS如果安装了rpath的话，具体使用的版本是由LD_LIBRARY_PATH或者PATH变量在运行时决定。
+\- georeferencer - GSL >= 1.8
+\- postgis数据库支持 - PostgreSQL >= 8.0.x
+\- gps插件 - gpsbabel
+\- mapserver导出以及PyQGIS - Python >= 3.3
+\- python支持 - SIP >= 4.12, PyQt >= 5.3 并且要与Qt版本吻合, Qscintilla2
+\- qgis mapserver - FastCGI
+\- oracle驱动 - Oracle OCI library
+
 安装完cygwin和OSGeo4W后，将ninja.exe复制到之前安装OSGeo4W目录的OSGeo4W64\bin\下。、
 
 ![img](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\22)
 
+#### 安装CMake
+
+https://cmake.org/download/
+
+![image-20201122184022077](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\16)
+
+**新建CMAKE_ROOT的环境变量**
+
+打开CMakeGUI程序，选择QGIS源码（https://github.com/qgis/QGIS），以及存放编译生成的工程的文件夹路径
+
 ### 编译源码
 
-找到OSGeo4W的安装路径，在下面新建一个文本文档，输入并修改加粗部分为你的源码路径。
+官方提供了两种方法，使用Trugonly.cmd创建MSVC解决方案文件或者使用cmake-gui
 
-@echo off
- call **X:\src\qgis**\ms-windows\osgeo4w\msvc-env.bat x86_64
- @cmd
+由于各种路径设置的原因，笔者建议还是使用传统的cmake进行编译。
 
-```
-@echo off
- call X:\src\qgis\ms-windows\osgeo4w\msvc-env.bat x86_64
-@cmd
-```
-
-（【X:\src\qgis】即从GitHub上下载的源码包解压后的位置，实在找不到也可以试试搜索msvc-env.bat这个文件然后根据其路径修改）
-
-将这个文本文档的文件名修改为【OSGeo4W-dev.bat】保存在OSGeo4W的安装目录下，然后运行它。
-
-这是官方文档给出的方法，但是如果直接照做，之前的安装路径又有所修改的话，很可能会报错，例如找不到文件，其实这是因为环境变量没有修改的原因，其实官方文档的方法就是直接调用了msvc-dev.bat这个批处理文件而已，根据这个提示右键编辑查看msvc-dev.bat这个文件。
+##### **1.运行 C:\OSGeo4W64\bin下的o4w_env.bat文件，安装好环境变量**
 
 不难发现，其中涉及到的重要的环境变量主要有：
 
@@ -77,53 +119,21 @@ INCLUDE（OSGeo4W静态库文件）
 
 如果之前更改了路径，修改相应的环境变量即可。
 
-其中，VS140COMNTOOLS是VS2015的变量名，如果是像笔者一样使用VS2017的话，还需要将变量名VS140COMNTOOLS改为VS150COMNTOOLS。
+其中，VS140COMNTOOLS是VS2015的变量名，
 
-------
+##### 打开cmake-gui，设置好源码路径和要输出的路径，然后点击Configure
 
-修改方法：
-
-1、利用批处理文件修改
-
-创建一个文本文件，命名path.bat,内容参考如下，路径换成相应安装路径即可
-
-```
-@echo off
-set VS150COMNTOOLS = C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" x64
-set OSGEO4W_ROOT=E:\QGISdevelop\OSGeo4W64
-call "%OSGEO4W_ROOT%\bin\o4w_env.bat"
-path %PATH%;E:\QGISdevelop\CMAKE\bin;E:\QGISdevelop\cygwin\bin;E:\QGISdevelop\OSGeo4W64\apps\Python36
-@set GRASS_PREFIX=E:/QGISdevelop/OSGeo4W64/apps/grass/grass-7.4.1
-@set INCLUDE=%INCLUDE%;%OSGEO4W_ROOT%\include
-@set LIB=%LIB%;%OSGEO4W_ROOT%\lib;%OSGEO4W_ROOT%\lib
-@cmd
-```
-
-在CMD中运行这个BAT
-
-官方提供了两种方法，使用Trugonly.cmd创建MSVC解决方案文件或者使用cmake-gui
-
-由于各种路径设置的原因，笔者建议还是使用传统的cmake进行编译
-
-打开之前创建的OSGeo4W-dev.bat
-
-![img](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\1)
-
-打开cmake-gui，设置好源码路径和要输出的路径，然后点击Configure
-
-![img](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\2)
+![image-20201122185955306](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\17)
 
 另外在CMAKE卡中设置项目要安装的路径，推荐设置在一个新的空目录中，避免导致混乱
 
 ![img](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\3)
 
-出现错误也是正常的，关键还是路径的问题，所以说前面环境变量的设置十分重要。另外在WITH中去掉一些不必要的组件，最最最重要的是DESKTOP，然后就是GUI等一些组件，当然直接使用默认的也基本上可以了。
+出现错误也是正常的，关键还是路径的问题，所以说前面环境变量的设置十分重要
 
-![img](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\4)
+##### 配置环境变量
 
-![img](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\5)
-
-一步一步的指定缺失的路径，首先是flex和bison
+一步一步的指定缺失的路径，首先是flex和bison**，这一步，主要在安装cygwin并下载flex和bision后，将cygwin/bin路径添加到Path中即可**
 
 ![img](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\6)
 
@@ -131,19 +141,15 @@ path %PATH%;E:\QGISdevelop\CMAKE\bin;E:\QGISdevelop\cygwin\bin;E:\QGISdevelop\OS
 
 然后是各个库
 
+![image-20201122192309206](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\21)
+
 ![img](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\7)
 
-我遇到了这个spatialite版本过旧的问题
+这个基本在安装OSGeo4W64时已经全部安装过了，设置路径即可
 
-![img](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\8)
+![image-20201122205035392](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\24)
 
-这时再次打开之前的OSGeo4W安装程序，搜索这个包并进行安装
-
-![img](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\9)
-
-问题还是没有解决，这时才发现原来是版本选成了VS17的，这里还是要选择VS2015 64位的版本
-
-![img](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\10)
+![image-20201122211026744](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\25)
 
 设置完成后继续点Configure，有错误则设置好需要的路径直到出现
 
@@ -172,3 +178,7 @@ path %PATH%;E:\QGISdevelop\CMAKE\bin;E:\QGISdevelop\cygwin\bin;E:\QGISdevelop\OS
 ![img](https://img-blog.csdnimg.cn/20181227175610298.png)
 
 ![img](https://img-blog.csdnimg.cn/20181227175756127.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0MzU3NzE3,size_16,color_FFFFFF,t_70)
+
+### 其他问题
+
+尤其是确保**不要**安装msinttypes软件包，它会安装stdint.h文件到OSGeo4W[64]/include目录下，进而导致与Visual Studio本身的stdint.h文件冲突，致使编译某些模块失败。
