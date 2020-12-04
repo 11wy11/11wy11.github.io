@@ -21,25 +21,27 @@
     
     
     <meta name="keywords" content="QGIS">
-    <meta name="description" content="基本软件下载1.OSGeo4W下载OSGeo4W  http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe (32bit) or http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe (64bit) 选择Advance Install ,在线下载时，使用镜像http://gwm">
+    <meta name="description" content="结合网上资料以及自己的尝试，整理一个搭建环境的详细步骤">
 <meta name="keywords" content="QGIS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="QT5.11.2+vs2015+qgis 搭建qgis二次开发环境">
 <meta property="og:url" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/index.html">
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
-<meta property="og:description" content="基本软件下载1.OSGeo4W下载OSGeo4W  http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe (32bit) or http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe (64bit) 选择Advance Install ,在线下载时，使用镜像http://gwm">
+<meta property="og:description" content="结合网上资料以及自己的尝试，整理一个搭建环境的详细步骤">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/B_我的资料/site/11wy11.github.io/source/_posts/qgis-develop-4/1">
-<meta property="og:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/B_我的资料/site/11wy11.github.io/source/_posts/qgis-develop-4/2">
-<meta property="og:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/B_我的资料/site/11wy11.github.io/source/_posts/qgis-develop-4/5">
-<meta property="og:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/B_我的资料/site/11wy11.github.io/source/_posts/qgis-develop-4/6">
-<meta property="og:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/B_我的资料/site/11wy11.github.io/source/_posts/qgis-develop-4/3">
-<meta property="og:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/B_我的资料/site/11wy11.github.io/source/_posts/qgis-develop-4/4">
-<meta property="og:updated_time" content="2020-11-21T05:45:55.549Z">
+<meta property="og:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/1">
+<meta property="og:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/2">
+<meta property="og:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/5">
+<meta property="og:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/6">
+<meta property="og:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/3">
+<meta property="og:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/4">
+<meta property="og:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/8">
+<meta property="og:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/7">
+<meta property="og:updated_time" content="2020-12-04T12:08:48.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QT5.11.2+vs2015+qgis 搭建qgis二次开发环境">
-<meta name="twitter:description" content="基本软件下载1.OSGeo4W下载OSGeo4W  http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe (32bit) or http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe (64bit) 选择Advance Install ,在线下载时，使用镜像http://gwm">
-<meta name="twitter:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/B_我的资料/site/11wy11.github.io/source/_posts/qgis-develop-4/1">
+<meta name="twitter:description" content="结合网上资料以及自己的尝试，整理一个搭建环境的详细步骤">
+<meta name="twitter:image" content="http://11wy11.github.io/2020/11/20/qgis-develop-4/1">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -174,7 +176,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本软件下载"><span class="post-toc-number">1.</span> <span class="post-toc-text">基本软件下载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-OSGeo4W下载"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.OSGeo4W下载</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-QT5"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. QT5</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-VS2015安装QT插件"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3.VS2015安装QT插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#方式一：通过工具》扩展与更新》联机，搜索QT，但在新建QT工程时，只有QTWidgetsApplication-没有QTGUIApplication，想使用QT-GUI-Application模板创建，则卸载方式一安装的插件"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">方式一：通过工具》扩展与更新》联机，搜索QT，但在新建QT工程时，只有QTWidgetsApplication,没有QTGUIApplication，想使用QT GUI Application模板创建，则卸载方式一安装的插件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#方式二："><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">方式二：</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#VS-创建QT工程"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">VS 创建QT工程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置项目属性"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">配置项目属性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#其他QT工程自动拷贝dll的方法"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">其他QT工程自动拷贝dll的方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一个qgis项目"><span class="post-toc-number">2.</span> <span class="post-toc-text">第一个qgis项目</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本软件下载"><span class="post-toc-number">1.</span> <span class="post-toc-text">基本软件下载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-OSGeo4W下载"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.OSGeo4W下载</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-QT5"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. QT5</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-VS2015安装QT插件"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3.VS2015安装QT插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#方式一：通过工具》扩展与更新》联机，搜索QT，但在新建QT工程时，只有QTWidgetsApplication-没有QTGUIApplication，想使用QT-GUI-Application模板创建，则卸载方式一安装的插件"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">方式一：通过工具》扩展与更新》联机，搜索QT，但在新建QT工程时，只有QTWidgetsApplication,没有QTGUIApplication，想使用QT GUI Application模板创建，则卸载方式一安装的插件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#方式二："><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">方式二：</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#VS-创建QT工程"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">VS 创建QT工程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置项目属性"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">配置项目属性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#其他QT工程自动拷贝dll的方法"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">其他QT工程自动拷贝dll的方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#运行第一个QGIS项目找不到M-PI"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">运行第一个QGIS项目找不到M_PI</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一个qgis项目"><span class="post-toc-number">2.</span> <span class="post-toc-text">第一个qgis项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可能遇到的错误及解决"><span class="post-toc-number">3.</span> <span class="post-toc-text">可能遇到的错误及解决</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、提示qgis相关库找不到，"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1、提示qgis相关库找不到，</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-Release版本可以运行，但在Debug模式，新建地图画布mapcanvas报错"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.Release版本可以运行，但在Debug模式，新建地图画布mapcanvas报错</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -199,71 +201,91 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <a id="more"></a>
+            <p>结合网上资料以及自己的尝试，整理一个搭建环境的详细步骤</p>
+<a id="more"></a>
 <h3 id="基本软件下载"><a href="#基本软件下载" class="headerlink" title="基本软件下载"></a>基本软件下载</h3><h4 id="1-OSGeo4W下载"><a href="#1-OSGeo4W下载" class="headerlink" title="1.OSGeo4W下载"></a>1.OSGeo4W下载</h4><p>OSGeo4W  <a href="http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe" target="_blank" rel="noopener">http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe</a> (32bit) or <a href="http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe" target="_blank" rel="noopener">http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe</a> (64bit)</p>
 <p>选择Advance Install ,在线下载时，使用镜像<a href="http://gwmodel.whu.edu.cn/mirrors/osgeo4w，不然会下载特别缓慢" target="_blank" rel="noopener">http://gwmodel.whu.edu.cn/mirrors/osgeo4w，不然会下载特别缓慢</a></p>
 <h4 id="2-QT5"><a href="#2-QT5" class="headerlink" title="2. QT5"></a>2. QT5</h4><p>会在安装qgis的时候，同时下载QT5.11.2，默认安装路径为：C:\OSGeo4W64\apps\Qt5</p>
 <h4 id="3-VS2015安装QT插件"><a href="#3-VS2015安装QT插件" class="headerlink" title="3.VS2015安装QT插件"></a>3.VS2015安装QT插件</h4><h5 id="方式一：通过工具》扩展与更新》联机，搜索QT，但在新建QT工程时，只有QTWidgetsApplication-没有QTGUIApplication，想使用QT-GUI-Application模板创建，则卸载方式一安装的插件"><a href="#方式一：通过工具》扩展与更新》联机，搜索QT，但在新建QT工程时，只有QTWidgetsApplication-没有QTGUIApplication，想使用QT-GUI-Application模板创建，则卸载方式一安装的插件" class="headerlink" title="方式一：通过工具》扩展与更新》联机，搜索QT，但在新建QT工程时，只有QTWidgetsApplication,没有QTGUIApplication，想使用QT GUI Application模板创建，则卸载方式一安装的插件"></a>方式一：通过工具》扩展与更新》联机，搜索QT，但在新建QT工程时，只有QTWidgetsApplication,没有QTGUIApplication，想使用QT GUI Application模板创建，则卸载方式一安装的插件</h5><h5 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h5><p>进入下边网站下载，点击安装即可。（本次下载的是2.4.3）</p>
 <p><a href="https://download.qt.io/official_releases/vsaddin/2.4.3/" target="_blank" rel="noopener">https://download.qt.io/official_releases/vsaddin/2.4.3/</a></p>
-<h4 id="VS-创建QT工程"><a href="#VS-创建QT工程" class="headerlink" title="VS 创建QT工程"></a>VS 创建QT工程</h4><p>新建项目，C++下QT,使用QT GUI Application模板创建，勾选XML。</p>
+<h4 id="VS-创建QT工程"><a href="#VS-创建QT工程" class="headerlink" title="VS 创建QT工程"></a>VS 创建QT工程</h4><p>新建项目，C++下QT,使用QT GUI Application模板创建，勾选XML。，经过测试，直接使用方式一安装的插件，创建QT WidgetsApplication也可以</p>
 <h4 id="配置项目属性"><a href="#配置项目属性" class="headerlink" title="配置项目属性"></a>配置项目属性</h4><p>1.<strong>C/C++下，附加包含目录</strong>，设置qt相关的include，以及OSGeo4W，QGIS的include目录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\OSGeo4W64\include;C:\OSGeo4W64\apps\Qt5\include\QtXml;C:\OSGeo4W64\apps\Qt5\include\QtWidgets;C:\OSGeo4W64\apps\Qt5\include\QtGui;C:\OSGeo4W64\apps\qgis\include;%(AdditionalIncludeDirectories)</span><br></pre></td></tr></table></figure>
 <p>2.链接器，设置附加库目录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\OSGeo4W64\apps\Qt5\lib;C:\OSGeo4W64\apps\qgis\lib;%(AdditionalLibraryDirectories)</span><br></pre></td></tr></table></figure>
 <p>3.链接器下，输入，设置附加依赖项</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qgis_core.lib;qgis_app.lib;qgis_gui.lib;Qt5Widgets.lib;Qt5Xml.lib;%(AdditionalDependencies)</span><br></pre></td></tr></table></figure>
-<p>4.在项目工程目录下，与EXE同级目录下，将OSGeo4W的bin,apps/qgis/bin,apps/QT5/bin下的所有dll拷贝到exe同级目录。</p>
+<p>4.在项目工程目录下，与EXE同级目录下，<strong>将OSGeo4W的bin,apps/qgis/bin,apps/QT5/bin下的所有dll拷贝到exe同级目录。</strong></p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2020/11/20/qgis-develop-4/B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-4\1" alt="image-20201121132810671" title>
+                    <img src="/2020/11/20/qgis-develop-4/1" alt="image-20201121132810671" title>
                 </div>
                 <div class="image-caption">image-20201121132810671</div>
             </figure>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2020/11/20/qgis-develop-4/B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-4\2" alt="image-20201121132901385" title>
+                    <img src="/2020/11/20/qgis-develop-4/2" alt="image-20201121132901385" title>
                 </div>
                 <div class="image-caption">image-20201121132901385</div>
             </figure>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2020/11/20/qgis-develop-4/B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-4\5" alt="image-20201121133711149" title>
+                    <img src="/2020/11/20/qgis-develop-4/5" alt="image-20201121133711149" title>
                 </div>
                 <div class="image-caption">image-20201121133711149</div>
             </figure>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2020/11/20/qgis-develop-4/B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-4\6" alt="image-20201121133749867" title>
+                    <img src="/2020/11/20/qgis-develop-4/6" alt="image-20201121133749867" title>
                 </div>
                 <div class="image-caption">image-20201121133749867</div>
             </figure>
-<p>5.将qt中platforms，plugins拷贝到4所述的路径下，否则编译会报错，提示no QT Platform的错误</p>
+<p>5.将qt中plugins拷贝到4所述的路径下，否则编译会报错，提示no QT Platform的错误，如果不知道，就都拷，考虑到项目大小，使用<strong>其他QT工程自动拷贝dll的方法</strong>，自动添加qt拷贝</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2020/11/20/qgis-develop-4/B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-4\3" alt="image-20201121133113855" title>
+                    <img src="/2020/11/20/qgis-develop-4/3" alt="image-20201121133113855" title>
                 </div>
                 <div class="image-caption">image-20201121133113855</div>
             </figure>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2020/11/20/qgis-develop-4/B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-4\4" alt="image-20201121133135496" title>
+                    <img src="/2020/11/20/qgis-develop-4/4" alt="image-20201121133135496" title>
                 </div>
                 <div class="image-caption">image-20201121133135496</div>
             </figure> 
 <h4 id="其他QT工程自动拷贝dll的方法"><a href="#其他QT工程自动拷贝dll的方法" class="headerlink" title="其他QT工程自动拷贝dll的方法"></a>其他QT工程自动拷贝dll的方法</h4><p>在当前工程的exe目录下，<strong>可以在按住shift,右键Release目录，选择在powershell窗口打开</strong>,执行以下命令：QtGuiApplication1为创建的qt工程项目</p>
 <p><code>C:\OSGeo4W64\apps\Qt5\bin\windeployqt.exe QtGuiApplication1.exe</code></p>
+<h4 id="运行第一个QGIS项目找不到M-PI"><a href="#运行第一个QGIS项目找不到M-PI" class="headerlink" title="运行第一个QGIS项目找不到M_PI"></a>运行第一个QGIS项目找不到M_PI</h4><p>主要是C++默认不包含科学库，需要设置预处理器，<strong>_USE_MATH_DEFINES;</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/11/20/qgis-develop-4/8" alt="image-20201121143633512" title>
+                </div>
+                <div class="image-caption">image-20201121143633512</div>
+            </figure>
 <h3 id="第一个qgis项目"><a href="#第一个qgis项目" class="headerlink" title="第一个qgis项目"></a>第一个qgis项目</h3><p>1.在main.app中改QtApplication的主函数为QgisApplication</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"QtGuiApplication1.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QtWidgets/QApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;qgsapplication.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">/*QApplication a(argc, argv);</span></span><br><span class="line"><span class="comment">	QtGuiApplication1 w;</span></span><br><span class="line"><span class="comment">	w.show();</span></span><br><span class="line"><span class="comment">	return a.exec();*/</span></span><br><span class="line">	<span class="function">QgsApplication <span class="title">a</span><span class="params">(argc, argv, <span class="literal">true</span>)</span></span>;</span><br><span class="line">	QgsApplication::setPrefixPath(<span class="string">"C:/OSGeo4W/apps/qgis"</span>, <span class="literal">true</span>);</span><br><span class="line">	QgsApplication::initQgis();    <span class="comment">//初始化QGIS应用</span></span><br><span class="line">	QtGuiApplication1 w;</span><br><span class="line">	w.show();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>2.在窗体主文件中，头文件，定义mapcanvas，以及图层</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QtWidgets/QMainWindow&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ui_QtGuiApplication1.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;qmenu.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;qaction.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;qgsmapcanvas.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QtGuiApplication1</span> :</span> <span class="keyword">public</span> QMainWindow</span><br><span class="line">&#123;</span><br><span class="line">	Q_OBJECT</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	QtGuiApplication1(QWidget *parent = Q_NULLPTR);</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	Ui::QtGuiApplication1Class ui;</span><br><span class="line">	<span class="comment">// create the menus and then add the actions to them.</span></span><br><span class="line">	QMenu *fileMenu;</span><br><span class="line">	QAction *openFileAction;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//map canvas</span></span><br><span class="line">	QgsMapCanvas *mapCanvas;</span><br><span class="line">	QList&lt;QgsMapLayer *&gt; layers;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> slots:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">on_openFileAction_triggered</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">addVectorLayer</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>3.cpp文件中</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"QtGuiApplication1.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;qmenubar.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;qmessagebox.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;qfiledialog.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;qgsvectorlayer.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">QtGuiApplication1::QtGuiApplication1(QWidget *parent)</span><br><span class="line">	: QMainWindow(parent)</span><br><span class="line">&#123;</span><br><span class="line">	ui.setupUi(<span class="keyword">this</span>);</span><br><span class="line">	<span class="keyword">this</span>-&gt;resize(<span class="number">600</span>, <span class="number">400</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// create the menus and then add the actions to them.</span></span><br><span class="line">	fileMenu = <span class="keyword">this</span>-&gt;menuBar()-&gt;addMenu(<span class="string">"File"</span>);</span><br><span class="line">	openFileAction = <span class="keyword">new</span> QAction(<span class="string">"Open"</span>, <span class="keyword">this</span>);</span><br><span class="line">	<span class="keyword">this</span>-&gt;connect(openFileAction, SIGNAL(triggered(<span class="keyword">bool</span>)), <span class="keyword">this</span>, SLOT(on_openFileAction_triggered()));</span><br><span class="line">	fileMenu-&gt;addAction(openFileAction);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// initialize the map canvas</span></span><br><span class="line">	mapCanvas = <span class="keyword">new</span> QgsMapCanvas();</span><br><span class="line">	<span class="keyword">this</span>-&gt;setCentralWidget(mapCanvas);</span><br><span class="line"></span><br><span class="line">	mapCanvas-&gt;setCanvasColor(QColor(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>));</span><br><span class="line">	mapCanvas-&gt;setVisible(<span class="literal">true</span>);</span><br><span class="line">	mapCanvas-&gt;enableAntiAliasing(<span class="literal">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> QtGuiApplication1::on_openFileAction_triggered() &#123;</span><br><span class="line">	addVectorLayer();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> QtGuiApplication1::addVectorLayer()</span><br><span class="line">&#123;</span><br><span class="line">	QString fileName = QFileDialog::getOpenFileName(<span class="keyword">this</span>, tr(<span class="string">"Open shape file"</span>), <span class="string">""</span>, <span class="string">"*.shp"</span>);</span><br><span class="line">	QStringList temp = fileName.split(<span class="string">'/'</span>);</span><br><span class="line">	QString basename = temp.at(temp.size() - <span class="number">1</span>);</span><br><span class="line">	QgsVectorLayer* vecLayer = <span class="keyword">new</span> QgsVectorLayer(fileName, basename, <span class="string">"ogr"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!vecLayer-&gt;isValid())</span><br><span class="line">	&#123;</span><br><span class="line">		QMessageBox::critical(<span class="keyword">this</span>, <span class="string">"error"</span>, QString(<span class="string">"layer is invalid: \n"</span>) + fileName);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	mapCanvas-&gt;setExtent(vecLayer-&gt;extent());</span><br><span class="line">	layers.append(vecLayer);</span><br><span class="line">	mapCanvas-&gt;setLayers(layers);</span><br><span class="line">	mapCanvas-&gt;refresh();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="可能遇到的错误及解决"><a href="#可能遇到的错误及解决" class="headerlink" title="可能遇到的错误及解决"></a>可能遇到的错误及解决</h3><h4 id="1、提示qgis相关库找不到，"><a href="#1、提示qgis相关库找不到，" class="headerlink" title="1、提示qgis相关库找不到，"></a>1、提示qgis相关库找不到，</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/11/20/qgis-develop-4/7" alt="image-20201121141305726" title>
+                </div>
+                <div class="image-caption">image-20201121141305726</div>
+            </figure>
+<p><strong>解决方案：</strong>,将qgis/bin下dll拷贝到项目编译后exe所在目录</p>
+<p>同理，可能会提示找不到OSGeo4W下例如gdal,sqlite3等库dll,将OSGeo4W/bin下dll拷贝到项目编译后exe所在目录</p>
+<h4 id="2-Release版本可以运行，但在Debug模式，新建地图画布mapcanvas报错"><a href="#2-Release版本可以运行，但在Debug模式，新建地图画布mapcanvas报错" class="headerlink" title="2.Release版本可以运行，但在Debug模式，新建地图画布mapcanvas报错"></a>2.Release版本可以运行，但在Debug模式，新建地图画布mapcanvas报错</h4><p>将include和lib,使用qgis-dev路径下的文件</p>
+<p>其次，如果在debug模式下编译提示无法找到某个dll,也可以在网上下载提示的dll，像gdal303.dll，在app/gdal-dev中，proj_8_0.dll，在proj-dev里</p>
 
         </div>
 
@@ -272,7 +294,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-11-21T05:45:55.549Z" itemprop="dateUpdated">2020-11-21 13:45:55</time>
+    最后更新时间：<time datetime="2020-12-04T12:08:48.499Z" itemprop="dateUpdated">2020-12-04 20:08:48</time>
 </span><br>
 
 
@@ -314,7 +336,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2020/11/20/qgis-develop-4/&title=《QT5.11.2+vs2015+qgis 搭建qgis二次开发环境》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2020/11/20/qgis-develop-4/&title=《QT5.11.2+vs2015+qgis 搭建qgis二次开发环境》 — WeiYuan's Blog&source=结合网上资料以及自己的尝试，整理一个搭建环境的详细步骤" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -349,14 +371,21 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/12/04/qgis-development-problem/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">QGIS编译可能遇到的问题</h4>
+      </a>
+    </div>
   
 
   
     <div class="waves-block waves-effect next">
       <a href="/2020/11/18/qgis-develop-3/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">QGIS二次开发-图层加载</h4>
+        <h4 class="title">QGIS二次开发学习（二）-测试demo</h4>
       </a>
     </div>
   
@@ -464,7 +493,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2020/11/20/qgis-develop-4/&title=《QT5.11.2+vs2015+qgis 搭建qgis二次开发环境》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2020/11/20/qgis-develop-4/&title=《QT5.11.2+vs2015+qgis 搭建qgis二次开发环境》 — WeiYuan's Blog&source=结合网上资料以及自己的尝试，整理一个搭建环境的详细步骤" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

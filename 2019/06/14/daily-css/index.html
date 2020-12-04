@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>日常知识点整理--CSS基础 | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="CSS">
+    <meta name="description" content="我所不熟悉的CSS属性">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日常知识点整理--CSS基础">
+<meta property="og:url" content="http://11wy11.github.io/2019/06/14/daily-css/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="我所不熟悉的CSS属性">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-12-04T12:01:53.654Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="日常知识点整理--CSS基础">
+<meta name="twitter:description" content="我所不熟悉的CSS属性">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/weiyuan_player">
+                <i class="icon icon-lg icon-link"></i>
+                CSDN
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">日常知识点整理--CSS基础</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">日常知识点整理--CSS基础</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-14T02:07:40.000Z" itemprop="datePublished" class="page-time">
+  2019-06-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#我所不熟悉的CSS属性"><span class="post-toc-number">1.</span> <span class="post-toc-text">我所不熟悉的CSS属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#before-选择器"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">before 选择器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#after-选择器"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">after 选择器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#filter-滤镜-属性"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">filter(滤镜) 属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#伪类"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">伪类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#anchor伪类"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">anchor伪类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CSS-属性-选择器"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">CSS 属性 选择器</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-daily-css" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">日常知识点整理--CSS基础</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-14 10:07:40" datetime="2019-06-14T02:07:40.000Z" itemprop="datePublished">2019-06-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>我所不熟悉的CSS属性<br><a id="more"></a></p>
+<p>[TOC]</p>
+<h2 id="我所不熟悉的CSS属性"><a href="#我所不熟悉的CSS属性" class="headerlink" title="我所不熟悉的CSS属性"></a>我所不熟悉的CSS属性</h2><h3 id="before-选择器"><a href="#before-选择器" class="headerlink" title="before 选择器"></a>before 选择器</h3><p>:before 选择器向选定的元素前插入内容</p>
+<p>使用<a href="https://www.runoob.com/cssref/pr-gen-content.html" target="_blank" rel="noopener">content</a> 属性来指定要插入的内容。 </p>
+<h3 id="after-选择器"><a href="#after-选择器" class="headerlink" title="after 选择器"></a>after 选择器</h3><p>:after 选择器向选定的元素之后插入内容。</p>
+<p>例如插入下三角</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined">select&#123;       </span></span><br><span class="line"><span class="undefined">    height: 40px;</span></span><br><span class="line"><span class="undefined">    padding: 5px;</span></span><br><span class="line"><span class="undefined">    background-color:#ececec;</span></span><br><span class="line"><span class="undefined">    border: 0;</span></span><br><span class="line"><span class="undefined">    outline: none;</span></span><br><span class="line"><span class="undefined">    font-size: 16px;       </span></span><br><span class="line"><span class="undefined">    width: 240px;</span></span><br><span class="line"><span class="undefined">   -webkit-appearance: none;</span></span><br><span class="line"><span class="undefined">    -moz-appearance: none;</span></span><br><span class="line"><span class="undefined">    appearance: none;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">.select:after &#123;</span></span><br><span class="line"><span class="undefined">    content:"▼";    </span></span><br><span class="line"><span class="undefined">    padding: 12px 8px;</span></span><br><span class="line"><span class="undefined">    position: absolute; right: 10px; top: 0;    </span></span><br><span class="line"><span class="undefined">    z-index: 1;</span></span><br><span class="line"><span class="undefined">    text-align: center;</span></span><br><span class="line"><span class="undefined">    width: 10%;</span></span><br><span class="line"><span class="undefined">    height: 100%;      </span></span><br><span class="line"><span class="undefined">    pointer-events: none;</span></span><br><span class="line"><span class="undefined">    box-sizing: border-box;   </span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"select"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"select"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>select<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>option<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>option<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>option<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>option<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>option<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>option<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="filter-滤镜-属性"><a href="#filter-滤镜-属性" class="headerlink" title="filter(滤镜) 属性"></a>filter(滤镜) 属性</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">Filter</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">none</td>
+<td style="text-align:left">默认值，没有效果。</td>
+</tr>
+<tr>
+<td style="text-align:left">blur(<em>px</em>)</td>
+<td style="text-align:left">给图像设置高斯模糊。”radius”一值设定高斯函数的标准差，或者是屏幕上以多少像素融在一起， 所以值越大越模糊；  如果没有设定值，则默认是0；这个参数可设置css长度值，但不接受百分比值。</td>
+</tr>
+<tr>
+<td style="text-align:left">brightness(<em>%</em>)</td>
+<td style="text-align:left">给图片应用一种线性乘法，使其看起来更亮或更暗。如果值是0%，图像会全黑。值是100%，则图像无变化。其他的值对应线性乘数效果。值超过100%也是可以的，图像会比原来更亮。如果没有设定值，默认是1。</td>
+</tr>
+<tr>
+<td style="text-align:left">contrast(<em>%</em>)</td>
+<td style="text-align:left">调整图像的对比度。值是0%的话，图像会全黑。值是100%，图像不变。值可以超过100%，意味着会运用更低的对比。若没有设置值，默认是1。</td>
+</tr>
+<tr>
+<td style="text-align:left">drop-shadow(<em>h-shadow v-shadow blur spread color</em>)</td>
+<td style="text-align:left">给图像设置一个阴影效果。阴影是合成在图像下面，可以有模糊度的，可以以特定颜色画出的遮罩图的偏移版本。 函数接受<shadow>(在CSS3背景中定义)类型的值，除了”inset”关键字是不允许的。该函数与已有的box-shadow box-shadow属性很相似；不同之处在于，通过滤镜，一些浏览器为了更好的性能会提供硬件加速。<code>&lt;shadow&gt;参数如下：`</code><strong><offset-x></offset-x></strong> <strong><offset-y></offset-y></strong> (必须)这是设置阴影偏移量的两个 <length>值. <strong><offset-x></offset-x></strong> 设定水平方向距离. 负值会使阴影出现在元素左边. <strong><offset-y></offset-y></strong>设定垂直距离.负值会使阴影出现在元素上方。查看<strong><length></length></strong>可能的单位.<strong>如果两个值都是0</strong>, 则阴影出现在元素正后面 (如果设置了 <blur-radius> and/or <spread-radius>，会有模糊效果).<strong><blur-radius></blur-radius></strong> (可选)这是第三个code&gt;<length>值. 值越大，越模糊，则阴影会变得更大更淡.不允许负值 若未设定，默认是0 (则阴影的边界很锐利).<strong><spread-radius></spread-radius></strong> (可选)这是第四个 <length>值. 正值会使阴影扩张和变大，负值会是阴影缩小.若未设定，默认是0 (阴影会与元素一样大小). 注意: Webkit, 以及一些其他浏览器 不支持第四个长度，如果加了也不会渲染。 <strong><color></color></strong> (可选)查看 <color>该值可能的关键字和标记。若未设定，颜色值基于浏览器。在Gecko (Firefox), Presto (Opera)和Trident (Internet Explorer)中， 会应用color<strong>color</strong>属性的值。另外, 如果颜色值省略，WebKit中阴影是透明的。`</color></length></length></spread-radius></blur-radius></length></shadow></td>
+</tr>
+<tr>
+<td style="text-align:left">grayscale(<em>%</em>)</td>
+<td style="text-align:left">将图像转换为灰度图像。值定义转换的比例。值为100%则完全转为灰度图像，值为0%图像无变化。值在0%到100%之间，则是效果的线性乘子。若未设置，值默认是0；</td>
+</tr>
+<tr>
+<td style="text-align:left">hue-rotate(<em>deg</em>)</td>
+<td style="text-align:left">给图像应用色相旋转。”angle”一值设定图像会被调整的色环角度值。值为0deg，则图像无变化。若值未设置，默认值是0deg。该值虽然没有最大值，超过360deg的值相当于又绕一圈。</td>
+</tr>
+<tr>
+<td style="text-align:left">invert(<em>%</em>)</td>
+<td style="text-align:left">反转输入图像。值定义转换的比例。100%的价值是完全反转。值为0%则图像无变化。值在0%和100%之间，则是效果的线性乘子。 若值未设置，值默认是0。</td>
+</tr>
+<tr>
+<td style="text-align:left">opacity(<em>%</em>)</td>
+<td style="text-align:left">转化图像的透明程度。值定义转换的比例。值为0%则是完全透明，值为100%则图像无变化。值在0%和100%之间，则是效果的线性乘子，也相当于图像样本乘以数量。 若值未设置，值默认是1。该函数与已有的opacity属性很相似，不同之处在于通过filter，一些浏览器为了提升性能会提供硬件加速。</td>
+</tr>
+<tr>
+<td style="text-align:left">saturate(<em>%</em>)</td>
+<td style="text-align:left">转换图像饱和度。值定义转换的比例。值为0%则是完全不饱和，值为100%则图像无变化。其他值，则是效果的线性乘子。超过100%的值是允许的，则有更高的饱和度。 若值未设置，值默认是1。</td>
+</tr>
+<tr>
+<td style="text-align:left">sepia(<em>%</em>)</td>
+<td style="text-align:left">将图像转换为深褐色。值定义转换的比例。值为100%则完全是深褐色的，值为0%图像无变化。值在0%到100%之间，则是效果的线性乘子。若未设置，值默认是0；</td>
+</tr>
+<tr>
+<td style="text-align:left">url()</td>
+<td style="text-align:left">URL函数接受一个XML文件，该文件设置了 一个SVG滤镜，且可以包含一个锚点来指定一个具体的滤镜元素。例如：<code>filter: url(svg-url#element-id)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">initial</td>
+<td style="text-align:left">设置属性为默认值，可参阅： <a href="https://www.runoob.com/cssref/css-initial.html" target="_blank" rel="noopener">CSS initial 关键字</a></td>
+</tr>
+<tr>
+<td style="text-align:left">inherit</td>
+<td style="text-align:left">从父元素继承该属性，可参阅：<a href="https://www.runoob.com/cssref/css-inherit.html" target="_blank" rel="noopener">CSS inherit 关键字</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h3><h4 id="anchor伪类"><a href="#anchor伪类" class="headerlink" title="anchor伪类"></a>anchor伪类</h4><p>在支持 CSS 的浏览器中，链接的不同状态都可以以不同的方式显示</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;<span class="attribute">color</span>:<span class="number">#FF0000</span>;&#125; <span class="comment">/* 未访问的链接 */</span> <span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;<span class="attribute">color</span>:<span class="number">#00FF00</span>;&#125; <span class="comment">/* 已访问的链接 */</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;<span class="attribute">color</span>:<span class="number">#FF00FF</span>;&#125; <span class="comment">/* 鼠标划过链接 */</span> <span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123;<span class="attribute">color</span>:<span class="number">#0000FF</span>;&#125; <span class="comment">/* 已选中的链接 */</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong> 在CSS定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。</p>
+<p><strong>注意：</strong> 在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。</p>
+<h4 id="CSS-属性-选择器"><a href="#CSS-属性-选择器" class="headerlink" title="CSS 属性 选择器"></a>CSS 属性 选择器</h4><p>下面的例子是把包含标题（title）的所有元素变为蓝色：</p>
+<p>实例</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[title]</span> &#123;     <span class="attribute">color</span>:blue; &#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-12-04T12:01:53.654Z" itemprop="dateUpdated">2020-12-04 20:01:53</time>
+</span><br>
+
+
+        
+        <a href="/2019/06/14/daily-css/" target="_blank" rel="external">http://11wy11.github.io/2019/06/14/daily-css/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/06/14/daily-css/&title=《日常知识点整理--CSS基础》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/06/14/daily-css/&title=《日常知识点整理--CSS基础》 — WeiYuan's Blog&source=我所不熟悉的CSS属性" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/06/14/daily-css/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《日常知识点整理--CSS基础》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/06/14/daily-css/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/06/14/daily-css/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/15/daily-nodejs/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">日常知识--初识NodeJS</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/13/daily-js/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">日常知识点整理——js基础</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/06/14/daily-css/&title=《日常知识点整理--CSS基础》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/06/14/daily-css/&title=《日常知识点整理--CSS基础》 — WeiYuan's Blog&source=我所不熟悉的CSS属性" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/06/14/daily-css/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《日常知识点整理--CSS基础》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/06/14/daily-css/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/06/14/daily-css/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aWw6CQAxGYfa/aVyAYTx/CyZ0Dk9EEed7aXo7Dnyd+Lp6fv3O78+PJy4ZMmS8lpEei3/yfayUTc4mQ4aMfRhXESw9yvr5dbRc3/84swwZMmSEYXQdHEngliFDhox+wCXl6PoZjpQhQ4YMXsT223CE9HgtLkOGjBcyeNf9//ePzDdkyJDxKsYZXiQ15Clg+rbLf5EhQ8ZoBg9wtTEAHxWkaZ8MGTJkpKEzbcDVDn2kD8mQIWM0gxSxaalZSx+DBQ4ZMmQMZXQWIzqNM05Cy2QyZMgYzeBfkGFkWtbyIjlOK2XIkDGOwROyNGXkaxadhTMZMmTswOgE1lo6SIJymrbKkCFjNwZ/da1YrQ0DgpafDBkyxjFImz49Oh8PkAYcKoZlyJAxmpHWg+myRbG5ny5byJAhYzQjba51Sk0C5sPRy8GADBkyxjFqpSx5HS9fbxsJyJAhYzQjLSNrR7lrLUOGDBl7MjqtsTSt7LMDjAwZMkYwOktgfFR515rF5WllyJCxAaOzGJEGzVoh/SNNlCFDxjYMfrj+0JEHenQGGTJkDGWc4UVCKi9x+TjhhqRQhgwZr2XcNRkkqVttnNlatpAhQ8YgRq3JlY4na4PSIODKkCFjA0ZaZPJVDF4kt9pwMmTIkBHep8sTnWGqDBkyZJCAyyvjWpsMjUVlyJCxAaM2DKiVteS38ThThgwZoxm15Qm0qoXHk/wfW4NMGTJkvI/xAXE82xmXVgrHAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
