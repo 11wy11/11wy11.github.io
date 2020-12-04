@@ -57,19 +57,19 @@ qgis_core.lib;qgis_app.lib;qgis_gui.lib;Qt5Widgets.lib;Qt5Xml.lib;%(AdditionalDe
 
 4.在项目工程目录下，与EXE同级目录下，**将OSGeo4W的bin,apps/qgis/bin,apps/QT5/bin下的所有dll拷贝到exe同级目录。**
 
-![image-20201121132810671](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-4\1)
+![image-20201121132810671](qgis-develop-4\1)
 
-![image-20201121132901385](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-4\2)
+![image-20201121132901385](qgis-develop-4\2)
 
-![image-20201121133711149](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-4\5)
+![image-20201121133711149](qgis-develop-4\5)
 
-![image-20201121133749867](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-4\6)
+![image-20201121133749867](qgis-develop-4\6)
 
 5.将qt中plugins拷贝到4所述的路径下，否则编译会报错，提示no QT Platform的错误，如果不知道，就都拷，考虑到项目大小，使用**其他QT工程自动拷贝dll的方法**，自动添加qt拷贝
 
-![image-20201121133113855](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-4\3)
+![image-20201121133113855](qgis-develop-4\3)
 
-![image-20201121133135496](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-4\4) 
+![image-20201121133135496](qgis-develop-4\4) 
 
 #### 其他QT工程自动拷贝dll的方法
 
@@ -81,7 +81,7 @@ qgis_core.lib;qgis_app.lib;qgis_gui.lib;Qt5Widgets.lib;Qt5Xml.lib;%(AdditionalDe
 
 主要是C++默认不包含科学库，需要设置预处理器，**_USE_MATH_DEFINES;**
 
-![image-20201121143633512](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-4\8)
+![image-20201121143633512](qgis-develop-4\8)
 
 ### 第一个qgis项目
 
@@ -202,7 +202,7 @@ void QtGuiApplication1::addVectorLayer()
 
 #### 1、提示qgis相关库找不到，
 
-![image-20201121141305726](J:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-4\7)
+![image-20201121141305726](qgis-develop-4\7)
 
 **解决方案：**,将qgis/bin下dll拷贝到项目编译后exe所在目录
 

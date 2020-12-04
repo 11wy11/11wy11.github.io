@@ -1,9 +1,11 @@
 ---
-title:日常知识点整理——CSS基础
+title: 日常知识点整理--CSS基础
 date: 2019-06-14 10:07:40
 tags: 
-categories:
+    - CSS
+categories: 前端
 ---
+
 我所不熟悉的CSS属性
 <!--more-->
 

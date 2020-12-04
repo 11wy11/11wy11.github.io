@@ -1,7 +1,8 @@
 ---
 title: 日常知识点整理——js基础
 date: 2019-06-13 11:43:50
-tags: js
+tags: 
+	- js
 categories: 日常
 ---
 
