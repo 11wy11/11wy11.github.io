@@ -20,7 +20,7 @@ categories: 工具
 5. 配置SSH key  
    打开本机的控制台，以windows系统为例，可以执行win+R 输入cmd打开，执行
    ```
-   ssh -keygen -t rsa -C 'D:/id.txt'
+   ssh-keygen -t rsa -C 'D:/id.txt'
    ```
    然后连续按3次回车，最终会在用户目录下生成一个文件，找到**目录\.ssh/id_rsa.pub**文件，用记事本打开全选复制。   
    在你的github上点击头像>设置进入设置页面，选择SSH and GPG keys, 点击**New SSH key**按钮，名称随意填写，将刚复制的内容粘贴到key,添加
@@ -72,7 +72,7 @@ categories: 工具
     db.json  
     *.log
     .deploy*/
-     ```                  
+     ```
      执行以下命令
      ```git
      #git初始化
@@ -87,7 +87,7 @@ categories: 工具
      git remote add origin git@github.com:<username>/<username>.github.io.git
      #push到hexo分支
      git push origin hexo
-     ```                   
+     ```
     执行hexo g -d生成网站并部署到GitHub上  
     这样一来，在GitHub上的git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。
 7. 其他设备更新博客步骤：  
