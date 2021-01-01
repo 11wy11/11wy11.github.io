@@ -7,7 +7,21 @@ categories: GIS
 
 QGIS 源码编译，为学习开源软件以及二次开发做准备
 
+资料收集于网络资源，后经测试，通过官方自带的批处理能够方便的编译出qgis工程
+
 <!--more-->
+
+使用老的方式，通过cmake-gui配置环境变量编译qgis 源码
+
+### VS2015需要安装的开发工具
+
+Select "Custom" install and add the following packages:
+
+- "Common Tools for Visual C++ 2015" under "Visual C++"
+
+- "Tools (1.4.1) and Windows 10 SDK (10.0.14393)" under "Universal Windows App Development Tools".
+
+  ![image-20201206195049105](qgis-develop-2\image-20201206195049105.png)
 
 ### 下载软件包
 
@@ -55,7 +69,7 @@ Qt >= 4.5.0（QT5随OSGeo4W自动安装，在OSGeo4W目录下apps中）
 
 Proj >= 4.4.x（随OSGeo4W自动安装，在OSGeo4W目录下apps中）
 
-GEOS >= 3.0，~~下载地址：https://trac.osgeo.org/geos/，下载某个版本的tag.bz2,解压后，按照官网的说明，首先必须要运行autogen.bat，**后面尝试了一下，~~不下载这个，设置成OSGeo4W64的include,和lib目录，也可以，详见下一节，源码编译**
+GEOS >= 3.0，
 
 Sqlite3 >= 3.0.0(暂没用到)
 
@@ -79,7 +93,7 @@ expat >= 1.95(随OSGeo4W自动安装，在OSGeo4W目录下)
 \- qgis mapserver - FastCGI
 \- oracle驱动 - Oracle OCI library
 
-安装完cygwin和OSGeo4W后，将ninja.exe复制到之前安装OSGeo4W目录的OSGeo4W64\bin\下。、
+安装完cygwin和OSGeo4W后，**将ninja.exe复制到之前安装OSGeo4W目录的OSGeo4W64\bin\下**。、
 
 ![img](qgis-develop-2\22)
 

@@ -9,6 +9,12 @@ categories: GIS
 
 QGIS git  https://github.com/qgis
 
+QGIS 快速指南
+
+QGIS Python 开发手册
+
+QGIS C++ 开发手册
+
 QGIS API https://qgis.org/api/3.14/api_break.html
 
 QgsDiagramRendererV2
