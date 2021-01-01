@@ -19,7 +19,7 @@ Select "Custom" install and add the following packages:
 
 - "Tools (1.4.1) and Windows 10 SDK (10.0.14393)" under "Universal Windows App Development Tools".
 
-  ![image-20201206195049105](qgis-develop-2\image-20201206195049105.png)
+  ![image-20201206195049105](qgis-develop-5\image-20201206195049105.png)
 
 ### 下载软件包
 
@@ -39,15 +39,15 @@ Select "Custom" install and add the following packages:
 \- bison
 \- flex
 
-![image-20201122191237032](G:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\18)
+![image-20201122191237032](qgis-develop-5\18.png)
 
 **设置环境变量：Path中添加C:\cygwin64\bin**
 
-![image-20201122191332862](G:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\19)
+![image-20201122191332862](qgis-develop-5\19.png)
 
 **检查是否安装成功flex和bison**,见下图
 
-![image-20201122191537468](G:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\20)
+![image-20201122191537468](qgis-develop-5\20.png)
 
 **2.OSGeo4W:**
 
@@ -59,7 +59,7 @@ Select "Custom" install and add the following packages:
 
 **搜索qgis-dev-deps**
 
-![img](G:\B_我的资料\site\11wy11.github.io\source\_posts\qgis-develop-2\70)
+![img](qgis-develop-5\70.png)
 
 直接下一步完成安装即可。
 
@@ -67,7 +67,7 @@ Select "Custom" install and add the following packages:
 
 https://cmake.org/download/
 
-![image-20201122184022077](qgis-develop-2\16)
+![image-20201122184022077](qgis-develop-5\16.png)
 
 #### 4.ninja(https://github.com/ninja-build/ninja/releases/download/v1.7.2/ninja-win.zip)
 
@@ -123,7 +123,7 @@ configonly.bat
 
 **如果提示Flex报错等，可以检查msvc-env.bat中的设置默认是c:\cygwin64\bin,如果不是，注意修改路径**
 
-![image-20201225192436078](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20201225192436078.png)
+![image-20201225192436078](qgis-develop-5\image-20201225192436078.png)
 
 #### 4.编译QGIS
 
@@ -163,7 +163,7 @@ configonly.bat
 
 #### 成功之后，设置qgis为启动项，运行，就可以看到QGIS界面了
 
-![image-20201229184038694](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20201229184038694.png)
+![image-20201229184038694](qgis-develop-5\image-20201229184038694.png)
 
 ![image-20201229185257473](qgis-develop-5\image-20201229185257473.png)
 

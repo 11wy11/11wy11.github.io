@@ -23,3 +23,4 @@ pyrcc5 -o resources.py resources.qrc
 查看安装路径
 
 QgsApplication.prefixPath()
+
