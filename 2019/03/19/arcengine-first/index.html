@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>VS2013/VS2015/VS2017下使用ArcEngine10.1/10.2（一） | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="ArcEngine,VS">
+    <meta name="description" content="ArcObjects SDK for Microsoft .Net Framework 10.1或10.2在安装时，会检测VS2010或VS2012的安装路径，而有时因为其他项目使用限制而且不愿同时安装多个版本的VS,通过修改注册表方式实现安装">
+<meta name="keywords" content="ArcEngine,VS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VS2013&#x2F;VS2015&#x2F;VS2017下使用ArcEngine10.1&#x2F;10.2（一）">
+<meta property="og:url" content="http://11wy11.github.io/2019/03/19/arcengine-first/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="ArcObjects SDK for Microsoft .Net Framework 10.1或10.2在安装时，会检测VS2010或VS2012的安装路径，而有时因为其他项目使用限制而且不愿同时安装多个版本的VS,通过修改注册表方式实现安装">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/19/arcengine-first/pic1.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/19/arcengine-first/pic2.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/19/arcengine-first/pic3.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/19/arcengine-first/pic4.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/19/arcengine-first/pic5.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/19/arcengine-first/pic6.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/19/arcengine-first/pic7.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/19/arcengine-first/pic8.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/19/arcengine-first/pic9.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/19/arcengine-first/pic10.png">
+<meta property="og:image" content="http://11wy11.github.io/2019/03/19/arcengine-first/pic11.png">
+<meta property="og:updated_time" content="2019-03-20T02:32:42.182Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VS2013&#x2F;VS2015&#x2F;VS2017下使用ArcEngine10.1&#x2F;10.2（一）">
+<meta name="twitter:description" content="ArcObjects SDK for Microsoft .Net Framework 10.1或10.2在安装时，会检测VS2010或VS2012的安装路径，而有时因为其他项目使用限制而且不愿同时安装多个版本的VS,通过修改注册表方式实现安装">
+<meta name="twitter:image" content="http://11wy11.github.io/2019/03/19/arcengine-first/pic1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/weiyuan_player">
+                <i class="icon icon-lg icon-link"></i>
+                CSDN
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">VS2013/VS2015/VS2017下使用ArcEngine10.1/10.2（一）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">VS2013/VS2015/VS2017下使用ArcEngine10.1/10.2（一）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-19T07:51:40.000Z" itemprop="datePublished" class="page-time">
+  2019-03-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ArcGIS/">ArcGIS</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#具体步骤"><span class="post-toc-number">2.</span> <span class="post-toc-text">具体步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-修改注册表"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1.修改注册表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-安装ArcObjects-SDK-for-Microsoft-Net-Framework"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.安装ArcObjects SDK for Microsoft .Net Framework</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-在工具箱中添加ArcGIS相关组件"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3. 在工具箱中添加ArcGIS相关组件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方案1"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">方案1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方案2"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">方案2</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加引用"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">添加引用</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Program-cs中授权"><span class="post-toc-number">3.</span> <span class="post-toc-text">Program.cs中授权</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#手动添加ArcGIS项目模板"><span class="post-toc-number">4.</span> <span class="post-toc-text">手动添加ArcGIS项目模板</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-arcengine-first" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">VS2013/VS2015/VS2017下使用ArcEngine10.1/10.2（一）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-19 15:51:40" datetime="2019-03-19T07:51:40.000Z" itemprop="datePublished">2019-03-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ArcGIS/">ArcGIS</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>ArcObjects SDK for Microsoft .Net Framework 10.1或10.2在安装时，会检测VS2010或VS2012的安装路径，而有时因为其他项目使用限制而且不愿同时安装多个版本的VS,通过修改注册表方式实现安装<br><a id="more"></a></p>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>ArcObjects SDK for Microsoft .Net Framework 10.1或10.2在安装时，会检测VS2010或VS2012的安装路径，而有时因为其他项目使用限制而且不愿同时安装多个版本的VS,通过修改注册表方式实现安装</p>
+<h1 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h1><h2 id="1-修改注册表"><a href="#1-修改注册表" class="headerlink" title="1.修改注册表"></a>1.修改注册表</h2><p>首先打开注册表，window系统可以通过win+R，输入regedit后，回车打开注册表</p>
+<p>找到<strong>计算机\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\VisualStudio\10.0</strong>，点击10.0文件夹，此时是没有InstallDir和ShellFolder两个字符串值</p>
+<p>找到<strong>计算机\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\VisualStudio\12.0</strong>,点击12.0文件夹，查看InstallDir值，并复制</p>
+<p>回到10.0目录，右键新建->字符串值，新建InstallDir值，双击编辑值，将刚复制的粘贴</p>
+<p>同样的处理，添加ShellFolder</p>
+<h2 id="2-安装ArcObjects-SDK-for-Microsoft-Net-Framework"><a href="#2-安装ArcObjects-SDK-for-Microsoft-Net-Framework" class="headerlink" title="2.安装ArcObjects SDK for Microsoft .Net Framework"></a>2.安装ArcObjects SDK for Microsoft .Net Framework</h2><p>打开ArcGIS Desktop 或ArcEngine安装程序，找到ArcObjects SDK for Microsoft .Net Framework，点击安装，此时就不会提示要求VS2010或VS2012安装环境了，下面以ArcGIS Desktop 为例：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/03/19/arcengine-first/pic1.png" alt="图1-安装" title>
+                </div>
+                <div class="image-caption">图1-安装</div>
+            </figure></p>
+<h2 id="3-在工具箱中添加ArcGIS相关组件"><a href="#3-在工具箱中添加ArcGIS相关组件" class="headerlink" title="3. 在工具箱中添加ArcGIS相关组件"></a>3. 在工具箱中添加ArcGIS相关组件</h2><p>由于通过修改注册表的方式安装的ArcObjects SDK for Microsoft .Net Framework，因此，可能会导致VS中没有ArcGIS相关工具，需要手动添加</p>
+<p>打开VS2013,任意打开一个窗体，打开工具箱，会发现没有ArcGIS选项卡，因此，首先右键<strong>新建选项卡</strong>，然后右键，点击<strong>选择项</strong>,在.NET Framework组件下，找到下图所示的ArcGIS组件<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/03/19/arcengine-first/pic2.png" alt="图2-添加ArcGIS组件" title>
+                </div>
+                <div class="image-caption">图2-添加ArcGIS组件</div>
+            </figure></p>
+<h3 id="方案1"><a href="#方案1" class="headerlink" title="方案1"></a>方案1</h3><p>注意，如果在.NET Framework下找不到相关组件，可以点击<strong>浏览</strong>,找到ArcObjects SDK for Microsoft .Net Framework的安装目录下的DotNet，一般路径为<code>D:\Program Files (x86)\ArcGIS\DeveloperKit10.2\DotNet</code>如下图所示，可以按需添加，或者按住<strong>Shift</strong>全选添加。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/03/19/arcengine-first/pic3.png" alt="图3-浏览组件dll" title>
+                </div>
+                <div class="image-caption">图3-浏览组件dll</div>
+            </figure></p>
+<p>勾选需要的组件，点击确定后，在新建的选项卡下出现组件<br>    <center><br>    <img src="/2019/03/19/arcengine-first/pic4.png" alt="图4-组件"><br>    </center><br>红色框为新添加的.NET组件，上面两个是COM组件，暂时不需要使用，下节介绍.NET组件和COM组件的区别  </p>
+<h3 id="方案2"><a href="#方案2" class="headerlink" title="方案2"></a>方案2</h3><p>在Desktop安装目录的bin下找到需要的控件，以.ocx为后缀，选中后拖入工具箱</p>
+<h2 id="添加引用"><a href="#添加引用" class="headerlink" title="添加引用"></a>添加引用</h2><p>在不做任何手动操作时，安装了ArcGIS Desktop之后，可以在COM下的类型库中找到ArcGIS 相关的COM组件，如下图所示<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/03/19/arcengine-first/pic5.png" alt="图5-COM类型库中的ArcGIS相关组件" title>
+                </div>
+                <div class="image-caption">图5-COM类型库中的ArcGIS相关组件</div>
+            </figure></p>
+<p>注意点击引用这些组件时，引用呈现下图所示结果：</p>
+<center><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/03/19/arcengine-first/pic6.png" alt="图6-添加COM组件引用后" title>
+                </div>
+                <div class="image-caption">图6-添加COM组件引用后</div>
+            </figure><br></center>
+
+<p>但会发现找不到Esri.ArcGIS.Version的库，而这个库必须在主函数入口处使用获得授权许可，之后才能使用ArcEngine中相关的类或接口。</p>
+<p>因此，<strong>这里在添加引用是选择.NET组件</strong>，点击<strong>浏览</strong>找到ArcObjects SDK for Microsoft .Net Framework的安装目录下的DotNet，一般路径为<code>D:\Program Files (x86)\ArcGIS\DeveloperKit10.2\DotNet</code>如下图所示，选择Esri.ArcGIS.Version.dll，其他库VS会根据需要自动引用。如上图图3所示.<br>注意点击引用这些组件时，引用呈现下图所示结果：</p>
+<center><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/03/19/arcengine-first/pic7.png" alt="图7-添加NET组件引用后" title>
+                </div>
+                <div class="image-caption">图7-添加NET组件引用后</div>
+            </figure><br></center>
+
+<h1 id="Program-cs中授权"><a href="#Program-cs中授权" class="headerlink" title="Program.cs中授权"></a>Program.cs中授权</h1><p>在Main函数中添加 <code>ESRI.ArcGIS.RuntimeManager.Bind(ESRI.ArcGIS.ProductCode.EngineOrDesktop);</code>,如下图所示<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/03/19/arcengine-first/pic8.png" alt="图8-添加授权" title>
+                </div>
+                <div class="image-caption">图8-添加授权</div>
+            </figure></p>
+<p>直至就可以在一个应用程序中使用ArcEngine的功能了。</p>
+<p>当然如果你想使用VS创建ArcGIS模板应用程序，此时你会发现Visual C#下没有ArcGIS选项，这时又需要我们手动添加了<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/03/19/arcengine-first/pic9.png" alt="图9-手动安装之前" title>
+                </div>
+                <div class="image-caption">图9-手动安装之前</div>
+            </figure></p>
+<h1 id="手动添加ArcGIS项目模板"><a href="#手动添加ArcGIS项目模板" class="headerlink" title="手动添加ArcGIS项目模板"></a>手动添加ArcGIS项目模板</h1><p>由于我们最开始安装SDK时，采用了修改注册表的方式骗过ArcObject检测，因此，模板默认安装在了但是设置的VS2013安装路径Microsoft Visio Studio 12.0下了</p>
+<ol>
+<li>将模板拷贝至vs模板库中<br>找到D:\Program Files (x86)\Microsoft Visual Studio 12.0\Microsoft Visual Studio 10.0，在Common7/IDE下有两个文件夹<strong>ItemTemplates/CSharp/ArcGIS</strong>,<strong>ProjectTemplates/CSharp/ArcGIS</strong>,<br>分别拷贝在vs2013模板文件位置，如：<br>D:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\<strong>ItemTemplates</strong>\CSharp和<br>I:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\<strong>ProjectTemplates</strong>\CSharp</li>
+<li>右键，以管理员权限运行vs2013,也就是启动vs2013</li>
+<li><p>重新安装一次模板</p>
+<ul>
+<li>打开vs2013/2015的命令行工具<br> 2013：<br>  开始–&gt; 所有应用 –&gt; Microsoft Visual Studio 2013 –&gt; Visual Studio Tools,打开后 vs2013开发人员命令提示<br>  <img src="/2019/03/19/arcengine-first/pic10.png" alt="图10-vs2013开发人员命令提示"><br> 2015或更高：<br> 开始–&gt; 所有应用 –&gt; Microsoft Visual Studio 2015 –&gt; vs2015开发人员命令提示（可能会叫Visual Studio 2015 Command Prompt ）</li>
+<li><p>执行如下命令<br><code>devenv.exe/InstallVSTemplates</code><br>需要注意的事情是，这个命令执行后，不会马上出现项目或项模板，需要重新打开vs2017，新建时会重新初始化模板。 </p>
+<p>如果第三步有问题，换成用管理员权限运行。</p>
+</li>
+</ul>
+</li>
+<li>效果<br>C#下出现ArcGIS相关模板<br> <img src="/2019/03/19/arcengine-first/pic11.png" alt="图11-成功添加ArcGIS模板"></li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-20T02:32:42.182Z" itemprop="dateUpdated">2019-03-20 10:32:42</time>
+</span><br>
+
+
+        
+        <a href="/2019/03/19/arcengine-first/" target="_blank" rel="external">http://11wy11.github.io/2019/03/19/arcengine-first/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ArcEngine/">ArcEngine</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VS/">VS</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/19/arcengine-first/&title=《VS2013/VS2015/VS2017下使用ArcEngine10.1/10.2（一）》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/19/arcengine-first/&title=《VS2013/VS2015/VS2017下使用ArcEngine10.1/10.2（一）》 — WeiYuan's Blog&source=ArcObjects SDK for Microsoft .Net Framework 10.1或10.2在安装时，会检测VS2010或VS2012的安装..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/19/arcengine-first/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《VS2013/VS2015/VS2017下使用ArcEngine10.1/10.2（一）》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/19/arcengine-first/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/19/arcengine-first/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/20/krpano-learn-note/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">krpano学习笔记--干货</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/18/cpp-gdal/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">GDAL简介</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/19/arcengine-first/&title=《VS2013/VS2015/VS2017下使用ArcEngine10.1/10.2（一）》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/19/arcengine-first/&title=《VS2013/VS2015/VS2017下使用ArcEngine10.1/10.2（一）》 — WeiYuan's Blog&source=ArcObjects SDK for Microsoft .Net Framework 10.1或10.2在安装时，会检测VS2010或VS2012的安装..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/19/arcengine-first/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《VS2013/VS2015/VS2017下使用ArcEngine10.1/10.2（一）》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/19/arcengine-first/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/19/arcengine-first/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3a0Y7DMAhE0f7/T2dfK6XBM+CNZLh+qrpp7OOVEGB/PvK4vsb3N/dn7s/fn3x659Obtw0YMGAcy7jCsXdZ8TPKvI9rgAEDxgDG07KUIBiH4xgfz6WsDQYMGDCUz8pw2TBgwIBRZ0jpmrB0JZWEAQMGDL2I1ZtruYD7Ui0OAwaMAxl61/39z/9yvgEDBoyjGJc56s39+hp+zAIDBozWDD3AuQ0y96jATftgwIAxh+EWjXoxqfzV3UR7j2HAgNGCoQRTvcWWqzT1Y4NFugkDBozWDCOLLKSMynbkZocBA0ZvRq4ppgfQXUeki6YeDBgwxjByRaaezOUSPuO2CAwYMJoy6ovW88360cIiw4UBA0ZTRryU+qWKXEvODcQwYMDozVB+/NKND+E9Rp4LAwaMdow4vcu9rn4hwz7HgAEDRlOGcWVBbvHnSt84yC6CPgwYMAYw9AncdFAHu9c1SvsEAwaMoxh6Sqe34dwrGm46aN9ogwEDRgtGva2WSxBd9mIuGDBgDGYoC3WpysUv+8oaDBgwxjDcQlc5TnAXt6EihwEDRlNGLuTp39RbaYsVwoABoynjMoc+fe5XbstP+j/AgAHjcEb9TDBXBu99GwwYMCYw3CCrF6h6698NuMkiFgYMGIczcrcX9MPLDQ21eONgwIABQ56ykocqgXhzwIUBA0ZThnsImnvSTTFhwIAxgaEUse4FVj0pdEtWGDBgTGPUA2Vu+nrwhQEDxgDGH7+odHIIDwC7AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

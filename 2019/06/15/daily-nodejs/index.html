@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>日常知识--初识NodeJS | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="nodejs">
+    <meta name="description" content="整理来自菜鸟教程中nodejs入门知识">
+<meta name="keywords" content="nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日常知识--初识NodeJS">
+<meta property="og:url" content="http://11wy11.github.io/2019/06/15/daily-nodejs/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="整理来自菜鸟教程中nodejs入门知识">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://11wy11.github.io/2019/06/15/daily-nodejs/TIM截图20190615205947.png">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/03/nodejs-require.jpg">
+<meta property="og:updated_time" content="2020-12-04T11:59:44.776Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="日常知识--初识NodeJS">
+<meta name="twitter:description" content="整理来自菜鸟教程中nodejs入门知识">
+<meta name="twitter:image" content="http://11wy11.github.io/2019/06/15/daily-nodejs/TIM截图20190615205947.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/weiyuan_player">
+                <i class="icon icon-lg icon-link"></i>
+                CSDN
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">日常知识--初识NodeJS</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">日常知识--初识NodeJS</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-15T12:57:01.000Z" itemprop="datePublished" class="page-time">
+  2019-06-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#0-Webstorm设置nodejs提示"><span class="post-toc-number">1.</span> <span class="post-toc-text">0. Webstorm设置nodejs提示</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-模块系统"><span class="post-toc-number">2.</span> <span class="post-toc-text">1. 模块系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-从文件模块缓存中加载"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1.1 从文件模块缓存中加载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-从原生模块加载"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">1.2 从原生模块加载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-从文件加载"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">1.3 从文件加载</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-函数传递"><span class="post-toc-number">3.</span> <span class="post-toc-text">2. 函数传递</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-路由"><span class="post-toc-number">4.</span> <span class="post-toc-text">3. 路由</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-全局变量"><span class="post-toc-number">5.</span> <span class="post-toc-text">4. 全局变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-1-Node-js-全局对象"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">4.1 Node.js 全局对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-全局对象与全局变量"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">4.2 全局对象与全局变量</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-常用工具"><span class="post-toc-number">6.</span> <span class="post-toc-text">5. 常用工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-文件系统"><span class="post-toc-number">7.</span> <span class="post-toc-text">6. 文件系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-1-异步和同步"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">6.1 异步和同步</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-2-打开文件，读写文件"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">6.2 打开文件，读写文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-3-主要方法"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">6.3  主要方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-Get-Post请求"><span class="post-toc-number">8.</span> <span class="post-toc-text">7. Get/Post请求</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-1-获得get请求"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">7.1 获得get请求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-2-获得post请求"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">7.2 获得post请求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-3-发送Get请求"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">7.3 发送Get请求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-4-发送Post请求"><span class="post-toc-number">8.4.</span> <span class="post-toc-text">7.4 发送Post请求</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-工具模块"><span class="post-toc-number">9.</span> <span class="post-toc-text">8. 工具模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-Express框架"><span class="post-toc-number">10.</span> <span class="post-toc-text">9. Express框架</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-RESTful-API"><span class="post-toc-number">11.</span> <span class="post-toc-text">10. RESTful API</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-多进程"><span class="post-toc-number">12.</span> <span class="post-toc-text">11. 多进程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#exec-方法"><span class="post-toc-number">12.1.</span> <span class="post-toc-text">exec() 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#spawn-方法"><span class="post-toc-number">12.2.</span> <span class="post-toc-text">spawn() 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ork-方法"><span class="post-toc-number">12.3.</span> <span class="post-toc-text">ork 方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#12-Node-js-连接-MySQL"><span class="post-toc-number">13.</span> <span class="post-toc-text">12. Node.js 连接 MySQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装驱动"><span class="post-toc-number">13.0.1.</span> <span class="post-toc-text">安装驱动</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#连接数据库"><span class="post-toc-number">13.0.2.</span> <span class="post-toc-text">连接数据库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数据库操作-CURD"><span class="post-toc-number">13.0.3.</span> <span class="post-toc-text">数据库操作( CURD )</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#13-Node-js-连接MongoDB"><span class="post-toc-number">13.1.</span> <span class="post-toc-text">13. Node.js 连接MongoDB</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-daily-nodejs" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">日常知识--初识NodeJS</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-06-15 20:57:01" datetime="2019-06-15T12:57:01.000Z" itemprop="datePublished">2019-06-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端/">前端</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>整理来自菜鸟教程中nodejs入门知识</p>
+<a id="more"></a>
+<h2 id="0-Webstorm设置nodejs提示"><a href="#0-Webstorm设置nodejs提示" class="headerlink" title="0. Webstorm设置nodejs提示"></a>0. Webstorm设置nodejs提示</h2><p>File&gt;Settings&gt;Languages &amp; Frameworks&gt;javaScript&gt;Libraries, Add Nodejs提示库</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/06/15/daily-nodejs/TIM截图20190615205947.png" alt="设置图" title>
+                </div>
+                <div class="image-caption">设置图</div>
+            </figure>
+<h2 id="1-模块系统"><a href="#1-模块系统" class="headerlink" title="1. 模块系统"></a>1. 模块系统</h2><p>Node.js 中自带了一个叫做 <strong>http</strong> 的模块，我们在我们的代码中请求它并把返回值赋给一个本地变量。</p>
+<p>这把我们的本地变量变成了一个拥有所有 http 模块所提供的公共方法的对象。</p>
+<p>Node.js 的 require 方法中的文件查找策略如下：</p>
+<p>由于 Node.js 中存在 4 类模块（原生模块和3种文件模块），尽管 require 方法极其简单，但是内部的加载却是十分复杂的，其加载优先级也各自不同。如下图所示：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://www.runoob.com/wp-content/uploads/2014/03/nodejs-require.jpg" alt="img" title>
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+<h3 id="1-1-从文件模块缓存中加载"><a href="#1-1-从文件模块缓存中加载" class="headerlink" title="1.1 从文件模块缓存中加载"></a>1.1 从文件模块缓存中加载</h3><p>尽管原生模块与文件模块的优先级不同，但是都会优先从文件模块的缓存中加载已经存在的模块。</p>
+<h3 id="1-2-从原生模块加载"><a href="#1-2-从原生模块加载" class="headerlink" title="1.2 从原生模块加载"></a>1.2 从原生模块加载</h3><p>原生模块的优先级仅次于文件模块缓存的优先级。require 方法在解析文件名之后，优先检查模块是否在原生模块列表中。以http模块为例，尽管在目录下存在一个 http/http.js/http.node/http.json 文件，require(“http”) 都不会从这些文件中加载，而是从原生模块中加载。</p>
+<p>原生模块也有一个缓存区，同样也是优先从缓存区加载。如果缓存区没有被加载过，则调用原生模块的加载方式进行加载和执行。</p>
+<h3 id="1-3-从文件加载"><a href="#1-3-从文件加载" class="headerlink" title="1.3 从文件加载"></a>1.3 从文件加载</h3><p>当文件模块缓存中不存在，而且不是原生模块的时候，Node.js 会解析 require 方法传入的参数，并从文件系统中加载实际的文件，这里我们将详细描述查找文件模块的过程，其中，也有一些细节值得知晓。</p>
+<p>require方法接受以下几种参数的传递：</p>
+<ul>
+<li>http、fs、path等，原生模块。</li>
+<li>./mod或../mod，相对路径的文件模块。</li>
+<li>/pathtomodule/mod，绝对路径的文件模块。</li>
+<li>mod，非原生模块的文件模块。</li>
+</ul>
+<p>在路径 Y 下执行 require(X) 语句执行顺序：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 如果 X 是内置模块</span><br><span class="line">   a. 返回内置模块</span><br><span class="line">   b. 停止执行</span><br><span class="line"><span class="number">2.</span> 如果 X 以 <span class="string">'/'</span> 开头</span><br><span class="line">   a. 设置 Y 为文件根路径</span><br><span class="line"><span class="number">3.</span> 如果 X 以 <span class="string">'./'</span> 或 <span class="string">'/'</span> or <span class="string">'../'</span> 开头</span><br><span class="line">   a. LOAD_AS_FILE(Y + X)</span><br><span class="line">   b. LOAD_AS_DIRECTORY(Y + X)</span><br><span class="line"><span class="number">4.</span> LOAD_NODE_MODULES(X, dirname(Y))</span><br><span class="line"><span class="number">5.</span> 抛出异常 <span class="string">"not found"</span></span><br><span class="line"></span><br><span class="line">LOAD_AS_FILE(X)</span><br><span class="line"><span class="number">1.</span> 如果 X 是一个文件, 将 X 作为 JavaScript 文本载入并停止执行。</span><br><span class="line"><span class="number">2.</span> 如果 X.js 是一个文件, 将 X.js 作为 JavaScript 文本载入并停止执行。</span><br><span class="line"><span class="number">3.</span> 如果 X.json 是一个文件, 解析 X.json 为 JavaScript 对象并停止执行。</span><br><span class="line"><span class="number">4.</span> 如果 X.node 是一个文件, 将 X.node 作为二进制插件载入并停止执行。</span><br><span class="line"></span><br><span class="line">LOAD_INDEX(X)</span><br><span class="line"><span class="number">1.</span> 如果 X/index.js 是一个文件,  将 X/index.js 作为 JavaScript 文本载入并停止执行。</span><br><span class="line"><span class="number">2.</span> 如果 X/index.json 是一个文件, 解析 X/index.json 为 JavaScript 对象并停止执行。</span><br><span class="line"><span class="number">3.</span> 如果 X/index.node 是一个文件,  将 X/index.node 作为二进制插件载入并停止执行。</span><br><span class="line"></span><br><span class="line">LOAD_AS_DIRECTORY(X)</span><br><span class="line"><span class="number">1.</span> 如果 X/package.json 是一个文件,</span><br><span class="line">   a. 解析 X/package.json, 并查找 <span class="string">"main"</span> 字段。</span><br><span class="line">   b. let M = X + (json main 字段)</span><br><span class="line">   c. LOAD_AS_FILE(M)</span><br><span class="line">   d. LOAD_INDEX(M)</span><br><span class="line"><span class="number">2.</span> LOAD_INDEX(X)</span><br><span class="line"></span><br><span class="line">LOAD_NODE_MODULES(X, START)</span><br><span class="line"><span class="number">1.</span> <span class="keyword">let</span> DIRS=NODE_MODULES_PATHS(START)</span><br><span class="line"><span class="number">2.</span> <span class="keyword">for</span> each DIR <span class="keyword">in</span> DIRS:</span><br><span class="line">   a. LOAD_AS_FILE(DIR/X)</span><br><span class="line">   b. LOAD_AS_DIRECTORY(DIR/X)</span><br><span class="line"></span><br><span class="line">NODE_MODULES_PATHS(START)</span><br><span class="line"><span class="number">1.</span> <span class="keyword">let</span> PARTS = path split(START)</span><br><span class="line"><span class="number">2.</span> <span class="keyword">let</span> I = count <span class="keyword">of</span> PARTS - <span class="number">1</span></span><br><span class="line"><span class="number">3.</span> <span class="keyword">let</span> DIRS = []</span><br><span class="line"><span class="number">4.</span> <span class="keyword">while</span> I &gt;= <span class="number">0</span>,</span><br><span class="line">   a. if PARTS[I] = <span class="string">"node_modules"</span> CONTINUE</span><br><span class="line">   b. DIR = path join(PARTS[<span class="number">0</span> .. I] + <span class="string">"node_modules"</span>)</span><br><span class="line">   c. DIRS = DIRS + DIR</span><br><span class="line">   d. let I = I - <span class="number">1</span></span><br><span class="line"><span class="number">5.</span> <span class="keyword">return</span> DIRS</span><br></pre></td></tr></table></figure>
+<h2 id="2-函数传递"><a href="#2-函数传递" class="headerlink" title="2. 函数传递"></a>2. 函数传递</h2><p>在JavaScript中，一个函数可以作为另一个函数的参数。我们可以先定义一个函数，然后传递，也可以在传递参数的地方直接定义函数。</p>
+<p>Node.js中函数的使用与Javascript类似，举例来说，你可以这样做：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params">word</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(word);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">execute</span>(<span class="params">someFunction, value</span>) </span>&#123;</span><br><span class="line">  someFunction(value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">execute(say, <span class="string">"Hello"</span>);</span><br></pre></td></tr></table></figure>
+<p>以上代码中，我们把 say 函数作为execute函数的第一个变量进行了传递。这里传递的不是 say 的返回值，而是 say 本身！</p>
+<p>这样一来， say 就变成了execute 中的本地变量 someFunction ，execute可以通过调用 someFunction() （带括号的形式）来使用 say 函数。</p>
+<p>当然，因为 say 有一个变量， execute 在调用 someFunction 时可以传递这样一个变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>) </span>&#123;</span><br><span class="line">  response.writeHead(<span class="number">200</span>, &#123;<span class="string">"Content-Type"</span>: <span class="string">"text/plain"</span>&#125;);</span><br><span class="line">  response.write(<span class="string">"Hello World"</span>);</span><br><span class="line">  response.end();</span><br><span class="line">&#125;).listen(<span class="number">8888</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="3-路由"><a href="#3-路由" class="headerlink" title="3. 路由"></a>3. 路由</h2><p>我们要为路由提供请求的 URL 和其他需要的 GET 及 POST 参数，随后路由需要根据这些数据来执行相应的代码。我们需要的所有数据都会包含在 request 对象中，该对象作为 onRequest() 回调函数的第一个参数传递。但是为了解析这些数据，我们需要额外的 Node.JS 模块，它们分别是 url 和 querystring 模块。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">      url.parse(string).query</span><br><span class="line">                                           |</span><br><span class="line">           url.parse(string).pathname      |</span><br><span class="line">                       |                   |</span><br><span class="line">                       |                   |</span><br><span class="line">                     ------ -------------------</span><br><span class="line">http:<span class="comment">//localhost:8888/start?foo=bar&amp;hello=world</span></span><br><span class="line">                                ---       -----</span><br><span class="line">                                 |          |</span><br><span class="line">                                 |          |</span><br><span class="line">              querystring.parse(queryString)[<span class="string">"foo"</span>]    |</span><br><span class="line">                                            |</span><br><span class="line">                         querystring.parse(queryString)[<span class="string">"hello"</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http=<span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">var</span> url=<span class="built_in">require</span>(<span class="string">"url"</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params">route</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onRequest</span>(<span class="params">request,response</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 发送 HTTP 头部</span></span><br><span class="line">        <span class="comment">// HTTP 状态值: 200 : OK</span></span><br><span class="line">        <span class="comment">// 内容类型: text/plain</span></span><br><span class="line">        <span class="keyword">var</span> pathname=url.parse(request.url).pathname;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Request for "</span> + pathname + <span class="string">" received."</span>);</span><br><span class="line">        route(pathname);</span><br><span class="line">        response.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>&#125;);</span><br><span class="line">        <span class="comment">// 发送响应数据 "Hello World"</span></span><br><span class="line">        response.end(<span class="string">'Hello World\n'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    http.createServer(onRequest).listen(<span class="number">8888</span>);</span><br><span class="line">    <span class="comment">// 终端打印如下信息</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Server running at http://127.0.0.1:8888/'</span>);</span><br><span class="line">&#125;</span><br><span class="line">exports.start=start;</span><br></pre></td></tr></table></figure>
+<h2 id="4-全局变量"><a href="#4-全局变量" class="headerlink" title="4. 全局变量"></a>4. 全局变量</h2><h3 id="4-1-Node-js-全局对象"><a href="#4-1-Node-js-全局对象" class="headerlink" title="4.1 Node.js 全局对象"></a>4.1 Node.js 全局对象</h3><p>JavaScript 中有一个特殊的对象，称为全局对象（Global Object），它及其所有属性都可以在程序的任何地方访问，即全局变量。</p>
+<p>在浏览器 JavaScript 中，通常 window 是全局对象， 而 Node.js 中的全局对象是 global，所有全局变量（除了 global 本身以外）都是 global 对象的属性。</p>
+<p>在 Node.js 我们可以直接访问到 global 的属性，而不需要在应用中包含它。</p>
+<hr>
+<h3 id="4-2-全局对象与全局变量"><a href="#4-2-全局对象与全局变量" class="headerlink" title="4.2 全局对象与全局变量"></a>4.2 全局对象与全局变量</h3><p>global 最根本的作用是作为全局变量的宿主。按照 ECMAScript 的定义，满足以下条 件的变量是全局变量：</p>
+<ul>
+<li>在最外层定义的变量；</li>
+<li>全局对象的属性；</li>
+<li>隐式定义的变量（未定义直接赋值的变量）。</li>
+</ul>
+<p>当你定义一个全局变量时，这个变量同时也会成为全局对象的属性，反之亦然。需要注 意的是，在 Node.js 中你不可能在最外层定义变量，因为所有用户代码都是属于当前模块的， 而模块本身不是最外层上下文。</p>
+<p><strong>注意：</strong> <strong>永远不要使用 var 定义变量以避免引入全局变量，因为全局变量会污染 命名空间，提高代码的耦合风险。</strong></p>
+<ul>
+<li>__filename</li>
+<li>process</li>
+<li>setTimeout(cb, ms)</li>
+<li>clearTimeout(t)</li>
+<li>setInterval(cb, ms)</li>
+<li>console</li>
+</ul>
+<h2 id="5-常用工具"><a href="#5-常用工具" class="headerlink" title="5. 常用工具"></a>5. 常用工具</h2><ol>
+<li><p>inherits</p>
+<p><strong>util.inherits(constructor, superConstructor)</strong> 是一个实现对象间原型继承的函数。</p>
+<p>JavaScript 的面向对象特性是基于原型的，与常见的基于类的不同。JavaScript 没有提供对象继承的语言级别特性，而是通过原型复制来实现的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>); </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Base</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'base'</span>; </span><br><span class="line">    <span class="keyword">this</span>.base = <span class="number">1991</span>; </span><br><span class="line">    <span class="keyword">this</span>.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + <span class="keyword">this</span>.name); </span><br><span class="line">    &#125;; </span><br><span class="line">&#125; </span><br><span class="line">Base.prototype.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'sub'</span>; </span><br><span class="line">&#125; </span><br><span class="line">util.inherits(Sub, Base); </span><br><span class="line"><span class="keyword">var</span> objBase = <span class="keyword">new</span> Base(); </span><br><span class="line">objBase.showName(); </span><br><span class="line">objBase.sayHello(); </span><br><span class="line"><span class="built_in">console</span>.log(objBase); </span><br><span class="line"><span class="keyword">var</span> objSub = <span class="keyword">new</span> Sub(); </span><br><span class="line">objSub.showName(); </span><br><span class="line"><span class="comment">//objSub.sayHello(); </span></span><br><span class="line"><span class="built_in">console</span>.log(objSub);</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>Sub 仅仅继承了Base 在原型中定义的函数，而构造函数内部创造的 base 属 性和 sayHello 函数都没有被 Sub 继承。</p>
+</li>
+<li><p>isArray</p>
+</li>
+<li><p>inspect</p>
+</li>
+<li><p>isRegExp</p>
+</li>
+<li><p>isDate</p>
+</li>
+<li><p>isError</p>
+</li>
+</ol>
+<h2 id="6-文件系统"><a href="#6-文件系统" class="headerlink" title="6. 文件系统"></a>6. 文件系统</h2><h3 id="6-1-异步和同步"><a href="#6-1-异步和同步" class="headerlink" title="6.1 异步和同步"></a>6.1 异步和同步</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 异步读取</span></span><br><span class="line">fs.readFile(<span class="string">'input.txt'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (err) &#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="built_in">console</span>.error(err);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"异步读取: "</span> + data.toString());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同步读取</span></span><br><span class="line"><span class="keyword">var</span> data = fs.readFileSync(<span class="string">'input.txt'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"同步读取: "</span> + data.toString());</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"程序执行完毕。"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="6-2-打开文件，读写文件"><a href="#6-2-打开文件，读写文件" class="headerlink" title="6.2 打开文件，读写文件"></a>6.2 打开文件，读写文件</h3><p>以下为在异步模式下打开文件的语法格式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.open(path, flags[, mode], callback)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<p>参数使用说明如下：</p>
+<ul>
+<li><strong>path</strong> - 文件的路径。</li>
+<li><strong>flags</strong> - 文件打开的行为。具体值详见下文。</li>
+<li><strong>mode</strong> - 设置文件模式(权限)，文件创建默认权限为 0666(可读，可写)。</li>
+<li><strong>callback</strong> - 回调函数，带有两个参数如：callback(err, fd)。</li>
+</ul>
+<p>flags 参数可以是以下值：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Flag</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">r</td>
+<td style="text-align:left">以读取模式打开文件。如果文件不存在抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">r+</td>
+<td style="text-align:left">以读写模式打开文件。如果文件不存在抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">rs</td>
+<td style="text-align:left">以同步的方式读取文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">rs+</td>
+<td style="text-align:left">以同步的方式读取和写入文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">w</td>
+<td style="text-align:left">以写入模式打开文件，如果文件不存在则创建。</td>
+</tr>
+<tr>
+<td style="text-align:left">wx</td>
+<td style="text-align:left">类似 ‘w’，但是如果文件路径存在，则文件写入失败。</td>
+</tr>
+<tr>
+<td style="text-align:left">w+</td>
+<td style="text-align:left">以读写模式打开文件，如果文件不存在则创建。</td>
+</tr>
+<tr>
+<td style="text-align:left">wx+</td>
+<td style="text-align:left">类似 ‘w+’， 但是如果文件路径存在，则文件读写失败。</td>
+</tr>
+<tr>
+<td style="text-align:left">a</td>
+<td style="text-align:left">以追加模式打开文件，如果文件不存在则创建。</td>
+</tr>
+<tr>
+<td style="text-align:left">ax</td>
+<td style="text-align:left">类似 ‘a’， 但是如果文件路径存在，则文件追加失败。</td>
+</tr>
+<tr>
+<td style="text-align:left">a+</td>
+<td style="text-align:left">以读取追加模式打开文件，如果文件不存在则创建。</td>
+</tr>
+<tr>
+<td style="text-align:left">ax+</td>
+<td style="text-align:left">类似 ‘a+’， 但是如果文件路径存在，则文件读取追加失败。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-3-主要方法"><a href="#6-3-主要方法" class="headerlink" title="6.3  主要方法"></a>6.3  主要方法</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">方法 &amp; 描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left"><strong>fs.rename(oldPath, newPath, callback)</strong> 异步 rename().回调函数没有参数，但可能抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><strong>fs.ftruncate(fd, len, callback)</strong> 异步 ftruncate().回调函数没有参数，但可能抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><strong>fs.ftruncateSync(fd, len)</strong> 同步 ftruncate()</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><strong>fs.truncate(path, len, callback)</strong> 异步 truncate().回调函数没有参数，但可能抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><strong>fs.truncateSync(path, len)</strong> 同步 truncate()</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left"><strong>fs.chown(path, uid, gid, callback)</strong> 异步 chown().回调函数没有参数，但可能抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left"><strong>fs.chownSync(path, uid, gid)</strong> 同步 chown()</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left"><strong>fs.fchown(fd, uid, gid, callback)</strong> 异步 fchown().回调函数没有参数，但可能抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:left"><strong>fs.fchownSync(fd, uid, gid)</strong> 同步 fchown()</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left"><strong>fs.lchown(path, uid, gid, callback)</strong> 异步 lchown().回调函数没有参数，但可能抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">11</td>
+<td style="text-align:left"><strong>fs.lchownSync(path, uid, gid)</strong> 同步 lchown()</td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left"><strong>fs.chmod(path, mode, callback)</strong> 异步 chmod().回调函数没有参数，但可能抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left"><strong>fs.chmodSync(path, mode)</strong> 同步 chmod().</td>
+</tr>
+<tr>
+<td style="text-align:left">14</td>
+<td style="text-align:left"><strong>fs.fchmod(fd, mode, callback)</strong> 异步 fchmod().回调函数没有参数，但可能抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">15</td>
+<td style="text-align:left"><strong>fs.fchmodSync(fd, mode)</strong> 同步 fchmod().</td>
+</tr>
+<tr>
+<td style="text-align:left">16</td>
+<td style="text-align:left"><strong>fs.lchmod(path, mode, callback)</strong> 异步 lchmod().回调函数没有参数，但可能抛出异常。Only available on Mac OS X.</td>
+</tr>
+<tr>
+<td style="text-align:left">17</td>
+<td style="text-align:left"><strong>fs.lchmodSync(path, mode)</strong> 同步 lchmod().</td>
+</tr>
+<tr>
+<td style="text-align:left">18</td>
+<td style="text-align:left"><strong>fs.stat(path, callback)</strong> 异步 stat(). 回调函数有两个参数 err, stats，stats 是 fs.Stats 对象。</td>
+</tr>
+<tr>
+<td style="text-align:left">19</td>
+<td style="text-align:left"><strong>fs.lstat(path, callback)</strong> 异步 lstat(). 回调函数有两个参数 err, stats，stats 是 fs.Stats 对象。</td>
+</tr>
+<tr>
+<td style="text-align:left">20</td>
+<td style="text-align:left"><strong>fs.fstat(fd, callback)</strong> 异步 fstat(). 回调函数有两个参数 err, stats，stats 是 fs.Stats 对象。</td>
+</tr>
+<tr>
+<td style="text-align:left">21</td>
+<td style="text-align:left"><strong>fs.statSync(path)</strong> 同步 stat(). 返回 fs.Stats 的实例。</td>
+</tr>
+<tr>
+<td style="text-align:left">22</td>
+<td style="text-align:left"><strong>fs.lstatSync(path)</strong> 同步 lstat(). 返回 fs.Stats 的实例。</td>
+</tr>
+<tr>
+<td style="text-align:left">23</td>
+<td style="text-align:left"><strong>fs.fstatSync(fd)</strong> 同步 fstat(). 返回 fs.Stats 的实例。</td>
+</tr>
+<tr>
+<td style="text-align:left">24</td>
+<td style="text-align:left"><strong>fs.link(srcpath, dstpath, callback)</strong> 异步 link().回调函数没有参数，但可能抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">25</td>
+<td style="text-align:left"><strong>fs.linkSync(srcpath, dstpath)</strong> 同步 link().</td>
+</tr>
+<tr>
+<td style="text-align:left">26</td>
+<td style="text-align:left"><strong>fs.symlink(srcpath, dstpath[, type], callback)</strong> 异步 symlink().回调函数没有参数，但可能抛出异常。 type 参数可以设置为 ‘dir’, ‘file’, 或 ‘junction’ (默认为 ‘file’) 。</td>
+</tr>
+<tr>
+<td style="text-align:left">27</td>
+<td style="text-align:left"><strong>fs.symlinkSync(srcpath, dstpath[, type])</strong> 同步 symlink().</td>
+</tr>
+<tr>
+<td style="text-align:left">28</td>
+<td style="text-align:left"><strong>fs.readlink(path, callback)</strong> 异步 readlink(). 回调函数有两个参数 err, linkString。</td>
+</tr>
+<tr>
+<td style="text-align:left">29</td>
+<td style="text-align:left"><strong>fs.realpath(path[, cache], callback)</strong> 异步 realpath(). 回调函数有两个参数 err, resolvedPath。</td>
+</tr>
+<tr>
+<td style="text-align:left">30</td>
+<td style="text-align:left"><strong>fs.realpathSync(path[, cache])</strong> 同步 realpath()。返回绝对路径。</td>
+</tr>
+<tr>
+<td style="text-align:left">31</td>
+<td style="text-align:left"><strong>fs.unlink(path, callback)</strong> 异步 unlink().回调函数没有参数，但可能抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">32</td>
+<td style="text-align:left"><strong>fs.unlinkSync(path)</strong> 同步 unlink().</td>
+</tr>
+<tr>
+<td style="text-align:left">33</td>
+<td style="text-align:left"><strong>fs.rmdir(path, callback)</strong> 异步 rmdir().回调函数没有参数，但可能抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">34</td>
+<td style="text-align:left"><strong>fs.rmdirSync(path)</strong> 同步 rmdir().</td>
+</tr>
+<tr>
+<td style="text-align:left">35</td>
+<td style="text-align:left"><strong>fs.mkdir(path[, mode], callback)</strong> S异步 mkdir(2).回调函数没有参数，但可能抛出异常。 访问权限默认为 0777。</td>
+</tr>
+<tr>
+<td style="text-align:left">36</td>
+<td style="text-align:left"><strong>fs.mkdirSync(path[, mode])</strong> 同步 mkdir().</td>
+</tr>
+<tr>
+<td style="text-align:left">37</td>
+<td style="text-align:left"><strong>fs.readdir(path, callback)</strong> 异步 readdir(3). 读取目录的内容。</td>
+</tr>
+<tr>
+<td style="text-align:left">38</td>
+<td style="text-align:left"><strong>fs.readdirSync(path)</strong> 同步 readdir().返回文件数组列表。</td>
+</tr>
+<tr>
+<td style="text-align:left">39</td>
+<td style="text-align:left"><strong>fs.close(fd, callback)</strong> 异步 close().回调函数没有参数，但可能抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">40</td>
+<td style="text-align:left"><strong>fs.closeSync(fd)</strong> 同步 close().</td>
+</tr>
+<tr>
+<td style="text-align:left">41</td>
+<td style="text-align:left"><strong>fs.open(path, flags[, mode], callback)</strong> 异步打开文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">42</td>
+<td style="text-align:left"><strong>fs.openSync(path, flags[, mode])</strong> 同步 version of fs.open().</td>
+</tr>
+<tr>
+<td style="text-align:left">43</td>
+<td style="text-align:left"><strong>fs.utimes(path, atime, mtime, callback)</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">44</td>
+<td style="text-align:left"><strong>fs.utimesSync(path, atime, mtime)</strong> 修改文件时间戳，文件通过指定的文件路径。</td>
+</tr>
+<tr>
+<td style="text-align:left">45</td>
+<td style="text-align:left"><strong>fs.futimes(fd, atime, mtime, callback)</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">46</td>
+<td style="text-align:left"><strong>fs.futimesSync(fd, atime, mtime)</strong> 修改文件时间戳，通过文件描述符指定。</td>
+</tr>
+<tr>
+<td style="text-align:left">47</td>
+<td style="text-align:left"><strong>fs.fsync(fd, callback)</strong> 异步 fsync.回调函数没有参数，但可能抛出异常。</td>
+</tr>
+<tr>
+<td style="text-align:left">48</td>
+<td style="text-align:left"><strong>fs.fsyncSync(fd)</strong> 同步 fsync.</td>
+</tr>
+<tr>
+<td style="text-align:left">49</td>
+<td style="text-align:left"><strong>fs.write(fd, buffer, offset, length[, position], callback)</strong> 将缓冲区内容写入到通过文件描述符指定的文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">50</td>
+<td style="text-align:left"><strong>fs.write(fd, data[, position[, encoding]], callback)</strong> 通过文件描述符 fd 写入文件内容。</td>
+</tr>
+<tr>
+<td style="text-align:left">51</td>
+<td style="text-align:left"><strong>fs.writeSync(fd, buffer, offset, length[, position])</strong> 同步版的 fs.write()。</td>
+</tr>
+<tr>
+<td style="text-align:left">52</td>
+<td style="text-align:left"><strong>fs.writeSync(fd, data[, position[, encoding]])</strong> 同步版的 fs.write().</td>
+</tr>
+<tr>
+<td style="text-align:left">53</td>
+<td style="text-align:left"><strong>fs.read(fd, buffer, offset, length, position, callback)</strong> 通过文件描述符 fd 读取文件内容。</td>
+</tr>
+<tr>
+<td style="text-align:left">54</td>
+<td style="text-align:left"><strong>fs.readSync(fd, buffer, offset, length, position)</strong> 同步版的 fs.read.</td>
+</tr>
+<tr>
+<td style="text-align:left">55</td>
+<td style="text-align:left"><strong>fs.readFile(filename[, options], callback)</strong> 异步读取文件内容。</td>
+</tr>
+<tr>
+<td style="text-align:left">56</td>
+<td style="text-align:left"><strong>fs.readFileSync(filename[, options])</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">57</td>
+<td style="text-align:left"><strong>fs.writeFile(filename, data[, options], callback)</strong> 异步写入文件内容。</td>
+</tr>
+<tr>
+<td style="text-align:left">58</td>
+<td style="text-align:left"><strong>fs.writeFileSync(filename, data[, options])</strong> 同步版的 fs.writeFile。</td>
+</tr>
+<tr>
+<td style="text-align:left">59</td>
+<td style="text-align:left"><strong>fs.appendFile(filename, data[, options], callback)</strong> 异步追加文件内容。</td>
+</tr>
+<tr>
+<td style="text-align:left">60</td>
+<td style="text-align:left"><strong>fs.appendFileSync(filename, data[, options])</strong> The 同步 version of fs.appendFile.</td>
+</tr>
+<tr>
+<td style="text-align:left">61</td>
+<td style="text-align:left"><strong>fs.watchFile(filename[, options], listener)</strong> 查看文件的修改。</td>
+</tr>
+<tr>
+<td style="text-align:left">62</td>
+<td style="text-align:left"><strong>fs.unwatchFile(filename[, listener])</strong> 停止查看 filename 的修改。</td>
+</tr>
+<tr>
+<td style="text-align:left">63</td>
+<td style="text-align:left"><strong>fs.watch(filename[, options][, listener])</strong> 查看 filename 的修改，filename 可以是文件或目录。返回 fs.FSWatcher 对象。</td>
+</tr>
+<tr>
+<td style="text-align:left">64</td>
+<td style="text-align:left"><strong>fs.exists(path, callback)</strong> 检测给定的路径是否存在。</td>
+</tr>
+<tr>
+<td style="text-align:left">65</td>
+<td style="text-align:left"><strong>fs.existsSync(path)</strong> 同步版的 fs.exists.</td>
+</tr>
+<tr>
+<td style="text-align:left">66</td>
+<td style="text-align:left"><strong>fs.access(path[, mode], callback)</strong> 测试指定路径用户权限。</td>
+</tr>
+<tr>
+<td style="text-align:left">67</td>
+<td style="text-align:left"><strong>fs.accessSync(path[, mode])</strong> 同步版的 fs.access。</td>
+</tr>
+<tr>
+<td style="text-align:left">68</td>
+<td style="text-align:left"><strong>fs.createReadStream(path[, options])</strong> 返回ReadStream 对象。</td>
+</tr>
+<tr>
+<td style="text-align:left">69</td>
+<td style="text-align:left"><strong>fs.createWriteStream(path[, options])</strong> 返回 WriteStream 对象。</td>
+</tr>
+<tr>
+<td style="text-align:left">70</td>
+<td style="text-align:left"><strong>fs.symlink(srcpath, dstpath[, type], callback)</strong> 异步 symlink().回调函数没有参数，但可能抛出异常。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-Get-Post请求"><a href="#7-Get-Post请求" class="headerlink" title="7. Get/Post请求"></a>7. Get/Post请求</h2><h3 id="7-1-获得get请求"><a href="#7-1-获得get请求" class="headerlink" title="7.1 获得get请求"></a>7.1 获得get请求</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onGetRequest</span>(<span class="params">request,response</span>) </span>&#123;</span><br><span class="line">       <span class="comment">// 发送 HTTP 头部</span></span><br><span class="line">       <span class="comment">// HTTP 状态值: 200 : OK</span></span><br><span class="line">      <span class="comment">// 内容类型: text/plain</span></span><br><span class="line">       <span class="keyword">var</span> pathname=url.parse(request.url).pathname;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Request for "</span> + pathname + <span class="string">" received."</span>);</span><br><span class="line">        route(pathname);</span><br><span class="line">       response.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plain;charset=utf-8'</span>&#125;);</span><br><span class="line">       <span class="comment">// 发送响应数据 "Hello World"</span></span><br><span class="line">       <span class="comment">// 解析 url 参数</span></span><br><span class="line">       <span class="keyword">var</span> params = url.parse(request.url, <span class="literal">true</span>).query;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> params)&#123;</span><br><span class="line">           response.write(key+<span class="string">":"</span>+params[key]+<span class="string">"\n"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       response.end(util.inspect(url.parse(request.url, <span class="literal">true</span>)));</span><br><span class="line">   &#125;</span><br><span class="line"> http.createServer(onGetRequest).listen(<span class="number">8888</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="7-2-获得post请求"><a href="#7-2-获得post请求" class="headerlink" title="7.2 获得post请求"></a>7.2 获得post请求</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> postHTML =</span><br><span class="line">    <span class="string">'&lt;html&gt;&lt;head&gt;&lt;meta charset="utf-8"&gt;&lt;title&gt; Node.js 实例&lt;/title&gt;&lt;/head&gt;'</span> +</span><br><span class="line">    <span class="string">'&lt;body&gt;'</span> +</span><br><span class="line">    <span class="string">'&lt;form method="post"&gt;'</span> +</span><br><span class="line">    <span class="string">'名称： &lt;input name="name"&gt;&lt;br&gt;'</span> +</span><br><span class="line">    <span class="string">'邮件： &lt;input name="email"&gt;&lt;br&gt;'</span> +</span><br><span class="line">    <span class="string">'地址： &lt;input name="address"&gt;&lt;br&gt;'</span> +</span><br><span class="line">    <span class="string">'&lt;input type="submit"&gt;'</span> +</span><br><span class="line">    <span class="string">'&lt;/form&gt;'</span> +</span><br><span class="line">    <span class="string">'&lt;/body&gt;&lt;/html&gt;'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onPostRequest</span>(<span class="params">request,response</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 定义了一个post变量，用于暂存请求体的信息</span></span><br><span class="line">    <span class="keyword">var</span> post = <span class="string">''</span>;</span><br><span class="line">    request.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>)</span>&#123;</span><br><span class="line">        post += chunk;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// 在end事件触发后，通过querystring.parse将post解析为真正的POST请求格式，然后向客户端返回。</span></span><br><span class="line">    request.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        post = qs.parse(post);</span><br><span class="line">        response.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/html; charset=utf8'</span>&#125;);</span><br><span class="line">        <span class="keyword">if</span>(post.name) &#123; <span class="comment">// 输出提交的数据</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> post)&#123;</span><br><span class="line">                response.write(key+<span class="string">":"</span>+post[key]+<span class="string">"\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;  <span class="comment">// 输出表单</span></span><br><span class="line">            response.write(postHTML);</span><br><span class="line">        &#125;</span><br><span class="line">        response.end();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">http.createServer(onPostRequest).listen(<span class="number">8888</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="7-3-发送Get请求"><a href="#7-3-发送Get请求" class="headerlink" title="7.3 发送Get请求"></a>7.3 发送Get请求</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送get请求</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> data = &#123;</span><br><span class="line">    a: <span class="number">123</span>,</span><br><span class="line">    time: <span class="keyword">new</span> <span class="built_in">Date</span>().getTime()&#125;;<span class="comment">//这是需要提交的数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> content = qs.stringify(data);</span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">    hostname: <span class="string">'127.0.0.1'</span>,</span><br><span class="line">    port: <span class="number">8888</span>,</span><br><span class="line">    path: <span class="string">'/pay/pay_callback?'</span> + content,</span><br><span class="line">    method: <span class="string">'GET'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> req = http.request(options, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'STATUS: '</span> + res.statusCode);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'HEADERS: '</span> + <span class="built_in">JSON</span>.stringify(res.headers));</span><br><span class="line">    res.setEncoding(<span class="string">'utf8'</span>);</span><br><span class="line">    res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">chunk</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'BODY: '</span> + chunk);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">req.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'problem with request: '</span> + e.message);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">req.end();</span><br></pre></td></tr></table></figure>
+<h3 id="7-4-发送Post请求"><a href="#7-4-发送Post请求" class="headerlink" title="7.4 发送Post请求"></a>7.4 发送Post请求</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送post</span></span><br><span class="line"><span class="keyword">var</span> contents = qs.stringify(&#123;</span><br><span class="line">    name:<span class="string">'byvoid'</span>,</span><br><span class="line">    email:<span class="string">'byvoid@byvoid.com'</span>,</span><br><span class="line">    address:<span class="string">'Zijing'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">    host:<span class="string">'127.0.0.1'</span>,</span><br><span class="line">    port:<span class="number">8888</span>,</span><br><span class="line">    path:<span class="string">'/'</span>,</span><br><span class="line">    method:<span class="string">'POST'</span>,</span><br><span class="line">    headers:&#123;</span><br><span class="line">        <span class="string">'Content-Type'</span>:<span class="string">'application/x-www-form-urlencoded'</span>,</span><br><span class="line">        <span class="string">'Content-Length'</span>:contents.length</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> req = http.request(options, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">    res.setEncoding(<span class="string">'utf8'</span>);</span><br><span class="line">    res.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"data:"</span>,data);   <span class="comment">//一段html代码</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">req.write(contents);</span><br><span class="line">req.end();</span><br></pre></td></tr></table></figure>
+<h2 id="8-工具模块"><a href="#8-工具模块" class="headerlink" title="8. 工具模块"></a>8. 工具模块</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">模块名 &amp; 描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left"><a href="https://www.runoob.com/nodejs/nodejs-os-module.html" target="_blank" rel="noopener"><strong>OS 模块</strong></a> 提供基本的系统操作函数。</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><a href="https://www.runoob.com/nodejs/nodejs-path-module.html" target="_blank" rel="noopener"><strong>Path 模块</strong></a> 提供了处理和转换文件路径的工具。</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><a href="https://www.runoob.com/nodejs/nodejs-net-module.html" target="_blank" rel="noopener"><strong>Net 模块</strong></a> 用于底层的网络通信。提供了服务端和客户端的的操作。</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><a href="https://www.runoob.com/nodejs/nodejs-dns-module.html" target="_blank" rel="noopener"><strong>DNS 模块</strong></a> 用于解析域名。</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><a href="https://www.runoob.com/nodejs/nodejs-domain-module.html" target="_blank" rel="noopener"><strong>Domain 模块</strong></a> 简化异步代码的异常处理，可以捕捉处理try catch无法捕捉的。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-Express框架"><a href="#9-Express框架" class="headerlink" title="9. Express框架"></a>9. Express框架</h2><ul>
+<li><p><strong>body-parser</strong> - node.js 中间件，用于处理 JSON, Raw, Text 和 URL 编码的数据。</p>
+</li>
+<li><p><strong>cookie-parser</strong> - 这就是一个解析Cookie的工具。通过req.cookies可以取到传过来的cookie，并把它们转成对象。</p>
+</li>
+<li><p><strong>multer</strong> - node.js 中间件，用于处理 enctype=”multipart/form-data”（设置表单的MIME编码）的表单数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express=<span class="built_in">require</span>(<span class="string">"express"</span>)</span><br><span class="line"><span class="keyword">var</span> app=express();</span><br><span class="line"><span class="comment">//  主页输出 "Hello World"</span></span><br><span class="line">app.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"主页 GET 请求"</span>);</span><br><span class="line">    res.send(<span class="string">'hello get'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//  POST 请求</span></span><br><span class="line">app.post(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"主页 POST 请求"</span>);</span><br><span class="line">    res.send(<span class="string">'Hello POST'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//  /del_user 页面响应</span></span><br><span class="line">app.get(<span class="string">'/del_user'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"/del_user 响应 DELETE 请求"</span>);</span><br><span class="line">    res.send(<span class="string">'删除页面'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//  /list_user 页面 GET 请求</span></span><br><span class="line">app.get(<span class="string">'/list_user'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"/list_user GET 请求"</span>);</span><br><span class="line">    res.send(<span class="string">'用户列表页面'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对页面 abcd, abxcd, ab123cd, 等响应 GET 请求</span></span><br><span class="line">app.get(<span class="string">'/ab*cd'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"/ab*cd GET 请求"</span>);</span><br><span class="line">    res.send(<span class="string">'正则匹配'</span>);</span><br><span class="line">&#125;)</span><br><span class="line">app.get(<span class="string">'/index.html'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.sendFile( __dirname + <span class="string">"/public/html/"</span> + <span class="string">"index.html"</span> );</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"><span class="keyword">var</span> multer=<span class="built_in">require</span>(<span class="string">"multer"</span>);</span><br><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line"><span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>)</span><br><span class="line">app.use(cookieParser())</span><br><span class="line"><span class="comment">// 创建 application/x-www-form-urlencoded 编码解析</span></span><br><span class="line"><span class="keyword">var</span> urlencodedParser = bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;)</span><br><span class="line">app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;))</span><br><span class="line">app.use(multer(&#123;<span class="attr">dest</span>:<span class="string">'/tmp/'</span>&#125;).array(<span class="string">'image'</span>));</span><br><span class="line">app.post(<span class="string">'/process_post'</span>, urlencodedParser, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出 JSON 格式</span></span><br><span class="line">    <span class="keyword">var</span> response = &#123;</span><br><span class="line">        <span class="string">"first_name"</span>:req.body.first_name,</span><br><span class="line">        <span class="string">"last_name"</span>:req.body.last_name</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">console</span>.log(response);</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">"Cookies: "</span> + util.inspect(req.cookies));</span><br><span class="line">    res.end(<span class="built_in">JSON</span>.stringify(response));</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> server =app.listen(<span class="number">8081</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> host=server.address().address;</span><br><span class="line">    <span class="keyword">var</span> port=server.address().port;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"应用实例，访问地址为 http://%s:%s"</span>, host, port)</span><br><span class="line">&#125;)</span><br><span class="line">app.post(<span class="string">'/file_upload'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.files[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">var</span> des_file=__dirname+<span class="string">"/"</span>+req.files[<span class="number">0</span>].originalname;</span><br><span class="line">    fs.readFile(req.files[<span class="number">0</span>].path,<span class="function"><span class="keyword">function</span> (<span class="params">err,data</span>) </span>&#123;</span><br><span class="line">        fs.watchFile(des_file,data,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(err)&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(err);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                response=&#123;</span><br><span class="line">                    message:<span class="string">'File uploaded successfully'</span>,</span><br><span class="line">                    filename: req.files[<span class="number">0</span>].originalname</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">console</span>.log(response);</span><br><span class="line">            res.end(<span class="built_in">JSON</span>.stringify(response));</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="10-RESTful-API"><a href="#10-RESTful-API" class="headerlink" title="10. RESTful API"></a>10. RESTful API</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">/测试restful api</span><br><span class="line"><span class="comment">//添加的新用户数据</span></span><br><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">    <span class="string">"user4"</span> : &#123;</span><br><span class="line">        <span class="string">"name"</span> : <span class="string">"mohit"</span>,</span><br><span class="line">        <span class="string">"password"</span> : <span class="string">"password4"</span>,</span><br><span class="line">        <span class="string">"profession"</span> : <span class="string">"teacher"</span>,</span><br><span class="line">        <span class="string">"id"</span>: <span class="number">4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">app.post(<span class="string">'/adduser'</span>,urlencodedParser,<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> newData=req.body;</span><br><span class="line">    fs.readFile(__dirname+<span class="string">"/public/static/users.json"</span>,<span class="string">"utf-8"</span>,<span class="function"><span class="keyword">function</span> (<span class="params">err,data</span>) </span>&#123;</span><br><span class="line">        data = <span class="built_in">JSON</span>.parse( data );</span><br><span class="line">        data[<span class="string">"user4"</span>] = newData;</span><br><span class="line">        <span class="built_in">console</span>.log( data );</span><br><span class="line">        res.end( <span class="built_in">JSON</span>.stringify(data));</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//  /del_user 页面响应</span></span><br><span class="line">app.get(<span class="string">'/del_user/:id'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// First read existing users.</span></span><br><span class="line">    fs.readFile( __dirname + <span class="string">"/public/static/"</span> + <span class="string">"users.json"</span>, <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">        data = <span class="built_in">JSON</span>.parse( data );</span><br><span class="line">        <span class="keyword">delete</span> data[<span class="string">"user"</span> +req.params.id];</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log( data );</span><br><span class="line">        res.end( <span class="built_in">JSON</span>.stringify(data));</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//  /list_user 页面 GET 请求</span></span><br><span class="line">app.get(<span class="string">'/list_user'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"/list_user GET 请求"</span>);</span><br><span class="line">    fs.readFile(__dirname+<span class="string">"/public/static/"</span>+<span class="string">"users.json"</span>,<span class="string">"utf-8"</span>,<span class="function"><span class="keyword">function</span> (<span class="params">err,data</span>) </span>&#123;</span><br><span class="line">        res.end(data);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">app.get(<span class="string">'/:id'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 首先我们读取已存在的用户</span></span><br><span class="line">    fs.readFile( __dirname + <span class="string">"/public/static/"</span> + <span class="string">"users.json"</span>, <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">        data = <span class="built_in">JSON</span>.parse( data );</span><br><span class="line">        <span class="keyword">var</span> user = data[<span class="string">"user"</span> + req.params.id]</span><br><span class="line">        <span class="built_in">console</span>.log( user );</span><br><span class="line">        res.end( <span class="built_in">JSON</span>.stringify(user));</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="11-多进程"><a href="#11-多进程" class="headerlink" title="11. 多进程"></a>11. 多进程</h2><h3 id="exec-方法"><a href="#exec-方法" class="headerlink" title="exec() 方法"></a>exec() 方法</h3><p>child_process.exec</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> child_process = <span class="built_in">require</span>(<span class="string">'child_process'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">3</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> workerProcess = child_process.exec(<span class="string">'node support.js '</span>+i, <span class="function"><span class="keyword">function</span> (<span class="params">error, stdout, stderr</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(error.stack);</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'Error code: '</span>+error.code);</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'Signal received: '</span>+error.signal);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'stdout: '</span> + stdout);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'stderr: '</span> + stderr);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    workerProcess.on(<span class="string">'exit'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">code</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'子进程已退出，退出码 '</span>+code);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="spawn-方法"><a href="#spawn-方法" class="headerlink" title="spawn() 方法"></a>spawn() 方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> child_process = <span class="built_in">require</span>(<span class="string">'child_process'</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">3</span>; i++) &#123;</span><br><span class="line"><span class="keyword">var</span> workerProcess = child_process.spawn(<span class="string">'node'</span>, [<span class="string">'support.js'</span>, i]);</span><br><span class="line">workerProcess.stdout.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'stdout: '</span> + data);</span><br><span class="line">&#125;);</span><br><span class="line">workerProcess.stderr.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'stderr: '</span> + data);</span><br><span class="line">&#125;);</span><br><span class="line">workerProcess.on(<span class="string">'close'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">code</span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'子进程已退出，退出码 '</span>+code);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ork-方法"><a href="#ork-方法" class="headerlink" title="ork 方法"></a>ork 方法</h3><p>child_process.fork 是 spawn() 方法的特殊形式，用于创建进程，语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child_process.fork(modulePath[, args][, options])</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> child_process = <span class="built_in">require</span>(<span class="string">'child_process'</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">3</span>; i++) &#123;</span><br><span class="line"><span class="keyword">var</span> worker_process = child_process.fork(<span class="string">"support.js"</span>, [i]);    </span><br><span class="line">worker_process.on(<span class="string">'close'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">code</span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'子进程已退出，退出码 '</span> + code);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="12-Node-js-连接-MySQL"><a href="#12-Node-js-连接-MySQL" class="headerlink" title="12. Node.js 连接 MySQL"></a>12. Node.js 连接 MySQL</h2><h4 id="安装驱动"><a href="#安装驱动" class="headerlink" title="安装驱动"></a>安装驱动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install mysql</span><br></pre></td></tr></table></figure>
+<h4 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mysql      = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</span><br><span class="line"><span class="keyword">var</span> connection = mysql.createConnection(&#123;</span><br><span class="line">host     : <span class="string">'localhost'</span>,</span><br><span class="line">user     : <span class="string">'root'</span>,</span><br><span class="line">password : <span class="string">'123456'</span>,</span><br><span class="line">database : <span class="string">'test'</span></span><br><span class="line">&#125;);</span><br><span class="line">connection.connect();</span><br><span class="line">connection.query(<span class="string">'SELECT 1 + 1 AS solution'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">error, results, fields</span>) </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'The solution is: '</span>, results[<span class="number">0</span>].solution);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="数据库操作-CURD"><a href="#数据库操作-CURD" class="headerlink" title="数据库操作( CURD )"></a>数据库操作( CURD )</h4><p>使用connection.query执行sql语句，实现增删改查</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">var mysql=require(&quot;mysql&quot;);</span><br><span class="line">var connection =mysql.createConnection(&#123;</span><br><span class="line">    host:&quot;localhost&quot;,</span><br><span class="line">    user:&quot;root&quot;,</span><br><span class="line">    password:&quot;123456&quot;,</span><br><span class="line">    database:&apos;nodejsBase&apos;</span><br><span class="line">&#125;);</span><br><span class="line">connection.connect();</span><br><span class="line">//查询</span><br><span class="line">connection.query(&apos;select * from websites&apos;,function (error,results) &#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(&apos;[SELECT ERROR] - &apos;,error.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(results);</span><br><span class="line">&#125;);</span><br><span class="line">//插入</span><br><span class="line">var  addSql = &apos;INSERT INTO websites(Id,name,url,alexa,country) VALUES(0,?,?,?,?)&apos;;</span><br><span class="line">var  addSqlParams = [&apos;菜鸟工具&apos;, &apos;https://c.runoob.com&apos;,&apos;23453&apos;, &apos;CN&apos;];</span><br><span class="line">connection.query(addSql,addSqlParams,function (err,result) &#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&apos;[INSERT ERROR] - &apos;,err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;--------------------------INSERT----------------------------&apos;);</span><br><span class="line">    //console.log(&apos;INSERT ID:&apos;,result.insertId);</span><br><span class="line">    console.log(&apos;INSERT ID:&apos;,result);</span><br><span class="line">    console.log(&apos;-----------------------------------------------------------------\n\n&apos;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//更新</span><br><span class="line">var updateSql=&apos;update websites set name=?,url=? where id=?&apos;;</span><br><span class="line">var updateParams=[&apos;菜鸟移动站&apos;, &apos;https://m.runoob.com&apos;,6];</span><br><span class="line">connection.query(updateSql,updateParams,function (err,result) &#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&apos;[UPDATE ERROR] - &apos;,err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;--------------------------UPDATE----------------------------&apos;);</span><br><span class="line">    console.log(&apos;UPDATE affectedRows&apos;,result.affectedRows);</span><br><span class="line">    console.log(&apos;-----------------------------------------------------------------\n\n&apos;);</span><br><span class="line">&#125;);</span><br><span class="line">//删除</span><br><span class="line">var deleteSql=&apos;delete from websites where id=7&apos;;</span><br><span class="line">connection.query(deleteSql,function (err, result) &#123;</span><br><span class="line">    if(err)&#123;</span><br><span class="line">        console.log(&apos;[DELETE ERROR] - &apos;,err.message);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    console.log(&apos;--------------------------DELETE----------------------------&apos;);</span><br><span class="line">    console.log(&apos;DELETE affectedRows&apos;,result.affectedRows);</span><br><span class="line">    console.log(&apos;-----------------------------------------------------------------\n\n&apos;);</span><br><span class="line">&#125;);</span><br><span class="line">connection.end();</span><br></pre></td></tr></table></figure>
+<h3 id="13-Node-js-连接MongoDB"><a href="#13-Node-js-连接MongoDB" class="headerlink" title="13. Node.js 连接MongoDB"></a>13. Node.js 连接MongoDB</h3><p>cnpm install mongodb –save</p>
+<ol>
+<li>创建数据库</li>
+<li>创建集合</li>
+<li>增删改查数据</li>
+<li>聚合（连接）操作</li>
+<li>删除集合</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MongoClient = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).MongoClient;</span><br><span class="line"><span class="keyword">var</span> url = <span class="string">"mongodb://localhost:27017/nodejsBase"</span>;</span><br><span class="line">MongoClient.connect(url, &#123; <span class="attr">useNewUrlParser</span>: <span class="literal">true</span> &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, db</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"数据库已创建!"</span>);</span><br><span class="line">    <span class="keyword">var</span> dbase = db.db(<span class="string">"nodejsBase"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// dbase.createCollection('site', function (err, res) &#123;</span></span><br><span class="line">    <span class="comment">//     if (err) throw err;</span></span><br><span class="line">    <span class="comment">//     console.log("创建集合!");</span></span><br><span class="line">    <span class="comment">//     db.close();</span></span><br><span class="line">    <span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> myobj = &#123; <span class="attr">name</span>: <span class="string">"菜鸟教程"</span>, <span class="attr">url</span>: <span class="string">"www.runoob"</span> &#125;;</span><br><span class="line">    dbase.collection(<span class="string">"site"</span>).insertOne(myobj, <span class="function"><span class="keyword">function</span>(<span class="params">err, res</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"文档插入成功"</span>);</span><br><span class="line">        <span class="comment">//db.close();</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// myobj =  [</span></span><br><span class="line">    <span class="comment">//     &#123; name: '菜鸟工具', url: 'https://c.runoob.com', type: 'cn'&#125;,</span></span><br><span class="line">    <span class="comment">//     &#123; name: 'Google', url: 'https://www.google.com', type: 'en'&#125;,</span></span><br><span class="line">    <span class="comment">//     &#123; name: 'Facebook', url: 'https://www.google.com', type: 'en'&#125;</span></span><br><span class="line">    <span class="comment">// ];</span></span><br><span class="line">    <span class="comment">// dbase.collection("site").insertMany(myobj, function(err, res) &#123;</span></span><br><span class="line">    <span class="comment">//     if (err) throw err;</span></span><br><span class="line">    <span class="comment">//     console.log("插入的文档数量为: " + res.insertedCount);</span></span><br><span class="line">    <span class="comment">//     //db.close();</span></span><br><span class="line">    <span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询全部</span></span><br><span class="line">    <span class="comment">// dbase.collection("site").find(&#123;&#125;).toArray(function (err,result) &#123;</span></span><br><span class="line">    <span class="comment">//     if (err) throw err;</span></span><br><span class="line">    <span class="comment">//     console.log(result);</span></span><br><span class="line">    <span class="comment">//     //db.close();</span></span><br><span class="line">    <span class="comment">// &#125;)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//更新</span></span><br><span class="line">    <span class="keyword">var</span> whereStr = &#123;<span class="string">"name"</span>:<span class="string">'菜鸟教程'</span>&#125;;  <span class="comment">// 查询条件</span></span><br><span class="line">    <span class="keyword">var</span> updateStr = &#123;<span class="attr">$set</span>: &#123; <span class="string">"url"</span> : <span class="string">"https://www.runoob.com"</span> ,<span class="attr">type</span>:<span class="string">'cn'</span>&#125;&#125;;</span><br><span class="line">    dbase.collection(<span class="string">"site"</span>).updateMany(whereStr,updateStr,<span class="function"><span class="keyword">function</span> (<span class="params">err,result</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"更新————————————————————————"</span>);</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">        <span class="built_in">console</span>.log(result.result.nModified + <span class="string">" 条文档被更新"</span>);</span><br><span class="line">        <span class="comment">//db.close();</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// //条件</span></span><br><span class="line">    <span class="comment">// dbase.collection("site").find(&#123;name:"菜鸟教程"&#125;).toArray(function (err,result) &#123;</span></span><br><span class="line">    <span class="comment">//     console.log("查询————————————————————————");</span></span><br><span class="line">    <span class="comment">//     if (err) throw err;</span></span><br><span class="line">    <span class="comment">//     console.log(result);</span></span><br><span class="line">    <span class="comment">//     //db.close();</span></span><br><span class="line">    <span class="comment">// &#125;);</span></span><br><span class="line">    <span class="comment">// //删除</span></span><br><span class="line">    <span class="comment">// dbase.collection("site").deleteMany(whereStr, function(err, result) &#123;</span></span><br><span class="line">    <span class="comment">//     console.log("删除————————————————————————");</span></span><br><span class="line">    <span class="comment">//     if (err) throw err;</span></span><br><span class="line">    <span class="comment">//     console.log(result.result.n + " 条文档被删除");</span></span><br><span class="line">    <span class="comment">//     db.close();</span></span><br><span class="line">    <span class="comment">// &#125;);</span></span><br><span class="line">    <span class="comment">//查询排序 分页skip 跳过指定条数 limit条数</span></span><br><span class="line">    <span class="comment">// var mysort = &#123; type: 1 &#125;;//1升序，-1降序</span></span><br><span class="line">    <span class="comment">// dbase.collection("site").find().sort(mysort).skip(2).limit(5).toArray(function(err, result) &#123;</span></span><br><span class="line">    <span class="comment">//     if (err) throw err;</span></span><br><span class="line">    <span class="comment">//     console.log(result);</span></span><br><span class="line">    <span class="comment">//     db.close();</span></span><br><span class="line">    <span class="comment">// &#125;);</span></span><br><span class="line">    <span class="comment">//连接操作</span></span><br><span class="line">    <span class="comment">// dbase.createCollection('orders', function (err, res) &#123;</span></span><br><span class="line">    <span class="comment">//     if (err) throw err;</span></span><br><span class="line">    <span class="comment">//     console.log("创建orders集合!");</span></span><br><span class="line">    <span class="comment">//     db.close();</span></span><br><span class="line">    <span class="comment">// &#125;);</span></span><br><span class="line">    <span class="comment">// dbase.createCollection('products', function (err, res) &#123;</span></span><br><span class="line">    <span class="comment">//     if (err) throw err;</span></span><br><span class="line">    <span class="comment">//     console.log("创建products集合!");</span></span><br><span class="line">    <span class="comment">//     db.close();</span></span><br><span class="line">    <span class="comment">// &#125;);</span></span><br><span class="line">    <span class="comment">// let orderData=&#123;_id:1,product_id:154,status:1&#125;</span></span><br><span class="line">    <span class="comment">// dbase.collection("orders").insertOne(orderData,function (err,result) &#123;</span></span><br><span class="line">    <span class="comment">//     if (err) throw err;</span></span><br><span class="line">    <span class="comment">//     console.log(result.result.n);</span></span><br><span class="line">    <span class="comment">// &#125;)</span></span><br><span class="line">    <span class="comment">// let productData=[ &#123; _id: 154, name: '笔记本电脑' &#125;,</span></span><br><span class="line">    <span class="comment">//     &#123; _id: 155, name: '耳机' &#125;,</span></span><br><span class="line">    <span class="comment">//     &#123; _id: 156, name: '台式电脑' &#125;];</span></span><br><span class="line">    <span class="comment">// dbase.collection("products").insertMany(productData,function (err,result) &#123;</span></span><br><span class="line">    <span class="comment">//     if (err) console.log(err);</span></span><br><span class="line">    <span class="comment">//     console.log(result.result.n);</span></span><br><span class="line">    <span class="comment">// &#125;)</span></span><br><span class="line">    dbase.collection(<span class="string">"orders"</span>)</span><br><span class="line">        .aggregate([&#123;</span><br><span class="line">            $lookup:</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">from</span>: <span class="string">'products'</span>,            <span class="comment">// 右集合</span></span><br><span class="line">                    localField: <span class="string">'product_id'</span>,    <span class="comment">// 左集合 join 字段</span></span><br><span class="line">                    foreignField: <span class="string">'_id'</span>,         <span class="comment">// 右集合 join 字段</span></span><br><span class="line">                    <span class="keyword">as</span>: <span class="string">'orderdetails'</span>           <span class="comment">// 新生成字段（类型array）</span></span><br><span class="line">                &#125;</span><br><span class="line">        &#125;])</span><br><span class="line">        .toArray(<span class="function"><span class="keyword">function</span>(<span class="params">err, res</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(res));</span><br><span class="line">        db.close();</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//分组等</span></span><br><span class="line">    dbase.collection(<span class="string">"site"</span>)</span><br><span class="line">        .aggregate([&#123;</span><br><span class="line">            $group:&#123;<span class="attr">_id</span>:<span class="string">'$name'</span>,<span class="attr">num</span>:&#123;<span class="attr">$sum</span>:<span class="number">1</span>&#125;&#125;</span><br><span class="line">        &#125;])</span><br><span class="line">        .toArray(<span class="function"><span class="keyword">function</span>(<span class="params">err, res</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(res));</span><br><span class="line">            db.close();</span><br><span class="line">        &#125;);</span><br><span class="line">    <span class="comment">//其他操作类似，查看mongodb操作相关内容</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-12-04T11:59:44.776Z" itemprop="dateUpdated">2020-12-04 19:59:44</time>
+</span><br>
+
+
+        
+        <a href="/2019/06/15/daily-nodejs/" target="_blank" rel="external">http://11wy11.github.io/2019/06/15/daily-nodejs/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/06/15/daily-nodejs/&title=《日常知识--初识NodeJS》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/06/15/daily-nodejs/&title=《日常知识--初识NodeJS》 — WeiYuan's Blog&source=整理来自菜鸟教程中nodejs入门知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/06/15/daily-nodejs/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《日常知识--初识NodeJS》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/06/15/daily-nodejs/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/06/15/daily-nodejs/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/16/daily-mysql-reset-password/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">日常整理之mysql密码重置</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/14/daily-css/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">日常知识点整理--CSS基础</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/06/15/daily-nodejs/&title=《日常知识--初识NodeJS》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/06/15/daily-nodejs/&title=《日常知识--初识NodeJS》 — WeiYuan's Blog&source=整理来自菜鸟教程中nodejs入门知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/06/15/daily-nodejs/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《日常知识--初识NodeJS》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/06/15/daily-nodejs/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/06/15/daily-nodejs/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3aS3KDMBAFQN//0uQADvKbkVggtVYp7BiaxdT8Pp/4XF/n+9O77ye/PL6y7GBgYLyWcQ3P3WNVb5a8iPF9x7+AgYFxAmMcCseAMThHJve6vY6BgYExQU0SSgwMDIwnAu44gUuK25kEFAMD40xGcoMqoxdYH6/FMTAwXshYVWQ+8fcj8w0MDIxXMa7iyQNib+TQOxgYGHsz8gC3KvnLMfnzYGBgnMPotc9mytrqQ3+qMgwMjC0Y49DZG2fmqxhJEy1q+WFgYGzNyGNXb9z4xJghCsQYGBgbMXqpXnWRYmYtIyqnMTAwDmD0krMkKex9p/pfGBgYezN6Pau8cJ1JB5ME8Z/rGBgY2zF6o8fe6lh1AJC37TAwME5g9CJ03obrhenCpxgYGAcw8sfqIef3QQrLFhgYGMcwquldTs0L1+bOCAYGxnaMaqKWt8x6g8kFIwEMDIytGUkSVg2pvXK3PNPAwMA4hlFdtli7Olb9zdsZLAYGxtaMXvZVTf7ytYxqWYuBgXEOY345rNpQy4P7j5eCgYFxAKMa5p5Y/Kq+LAwMjBMYV/HkRW8SZKsD0R9JIQYGxqaMXrDrNdd6S2a95Q8MDIz9GNXUsNp6y4vYqYCLgYFxAKNacOZXeq+gXAZjYGBgFFtvq5Y5ytkrBgYGRrx+kZepq0poDAyMExi9YcB8Ez8vbpctW2BgYLyQ0SsdVz16nuklaSgGBsZ2jD9Gx7JQon78wQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

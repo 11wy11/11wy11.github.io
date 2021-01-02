@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>AI组件开发（一）--注记旋转矩阵 | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="AI">
+    <meta name="description" content="Adobe Illustrator 组件开发 AIRealMatrixSet介绍及使用方法，参数及原理分析">
+<meta name="keywords" content="AI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI组件开发（一）--注记旋转矩阵">
+<meta property="og:url" content="http://11wy11.github.io/2019/03/14/ai-first-note/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="Adobe Illustrator 组件开发 AIRealMatrixSet介绍及使用方法，参数及原理分析">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-25T06:05:00.276Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI组件开发（一）--注记旋转矩阵">
+<meta name="twitter:description" content="Adobe Illustrator 组件开发 AIRealMatrixSet介绍及使用方法，参数及原理分析">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/weiyuan_player">
+                <i class="icon icon-lg icon-link"></i>
+                CSDN
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">AI组件开发（一）--注记旋转矩阵</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">AI组件开发（一）--注记旋转矩阵</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-14T02:56:02.000Z" itemprop="datePublished" class="page-time">
+  2019-03-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/AI组件开发/">AI组件开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SDK官方帮助文档"><span class="post-toc-number">1.</span> <span class="post-toc-text">SDK官方帮助文档</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参数及原理分析"><span class="post-toc-number">2.</span> <span class="post-toc-text">参数及原理分析</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#相关文章"><span class="post-toc-number"></span> <span class="post-toc-text">相关文章</span></a>
+        </li></nav>
+    </aside>
+
+
+<article id="post-ai-first-note" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">AI组件开发（一）--注记旋转矩阵</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-14 10:56:02" datetime="2019-03-14T02:56:02.000Z" itemprop="datePublished">2019-03-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/AI组件开发/">AI组件开发</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Adobe Illustrator 组件开发 AIRealMatrixSet介绍及使用方法，参数及原理分析<br><a id="more"></a></p>
+<h2 id="SDK官方帮助文档"><a href="#SDK官方帮助文档" class="headerlink" title="SDK官方帮助文档"></a>SDK官方帮助文档</h2><p>AIAPI void(<em> AIRealMathSuite::AIRealMatrixSet)(AIRealMatrix </em>m, AIReal a, AIReal b, AIReal c, AIReal d, AIReal tx, AIReal ty)<br>Sets the scale, rotation, and translation values of a transformation matrix.<br>Parameters:<br>m The matrix object.<br>a New a value.<br>b New b value.<br>c New c value.<br>d New d value.<br>tx New horizontal translation value.<br>ty New vertical translation value.  </p>
+<h2 id="参数及原理分析"><a href="#参数及原理分析" class="headerlink" title="参数及原理分析"></a>参数及原理分析</h2><p>ad缩放bc旋转tx,ty位移，基础的2D矩阵<br> 公式</p>
+<pre><code>x=ax+cy+tx
+y=bx+dy+ty
+</code></pre><p>为了把二维图形的变化统一在一个坐标系里，引入了齐次坐标的概念，即把一个图形用一个三维矩阵表示，其中第三列总是(0,0,1)，用来作为坐标系的标准。所以所有的变化都由前两列完成<br>以上参数在矩阵中的表示为：</p>
+<p> |a    b    0|</p>
+<p> |c    d    0|</p>
+<p> |tx   ty   1|</p>
+<p>运算原理：原坐标设为（X,Y,1）;</p>
+<pre><code>                     |a    b    0|
+
+[X，Y,  1]           |c    d    0|     =     [aX + cY + tx   bX + dY + ty  1] ;
+
+                     |tx    ty  1|
+</code></pre><p>通过矩阵运算后的坐标[aX + cY + tx   bX + dY + ty  1]，我们对比一下可知：</p>
+<ol>
+<li>第一种：设a=d=1, b=c=0.  平移</li>
+</ol>
+<p>[aX + cY + tx   bX + dY + ty  1] = [X  + tx  Y + ty  1];</p>
+<p>可见，这个时候，坐标是按照向量（tx，ty）进行平移</p>
+<ol start="2">
+<li>第二种：设b=c=tx=ty=0.  缩放</li>
+</ol>
+<p>[aX + cY + tx   bX + dY + ty  1] = [aX    dY   1];</p>
+<p>可见，这个时候，坐标X按照a进行缩放，Y按照d进行缩放，a，d就是X，Y的比例系数</p>
+<ol start="3">
+<li>第三种：设tx=ty=0，a=cosɵ，b=sinɵ，c=-sinɵ，d=cosɵ。旋转</li>
+</ol>
+<p>[aX + cY + tx   bX + dY + ty  1] = [Xcosɵ - Ysinɵ    Xsinɵ + Ycosɵ  1] ;</p>
+<pre><code>|cosɵ    -sinɵ   0|
+
+|sinɵ    cosɵ    0|    
+
+| 0       0      1 |
+</code></pre><p>可见，这个时候，ɵ就是旋转的角度，逆时针为正，顺时针为负</p>
+<ol start="4">
+<li><p>第四种：设tx=ty=0，a=1，b=0，c=-sinɵ，d=cosɵ。倾斜<br>[aX + cY + tx   bX + dY + ty  1] = [ - Ysinɵ    Ycosɵ  1] ;</p>
+<pre><code>|1        0       0|
+
+|-sinɵ    cosɵ    0|    
+
+| 0       0       1 |
+</code></pre></li>
+</ol>
+<p>可见，这个时候，ɵ就是倾斜的角度，逆时针为正，顺时针为负</p>
+<h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><p><a href="/2019/03/14/ai-first-note">AI组件开发（一）–注记旋转矩阵</a><br><a href="/2019/03/18/ai-second-note">AI组件开发（二）–AIRealMathSuite</a><br><a href="/2019/03/24/ai-third-note">AI组件开发（三）–AIArtboardSuite</a><br><a href="/2019/03/24/ai-forth-document-note">AI组件开发（四）–AIDocumentSuite</a><br><a href="/2019/03/24/ai-fifth-ailayer-note">AI组件开发（五）–AILayerSuite</a><br><a href="/2019/03/24/ai-six-aiart-note">AI组件开发（六）–AIArtSuite</a><br><a href="/2019/03/25/ai-seven-path-note">AI组件开发（七）–AIPathSuite&amp;&amp;AIPathfinderSuite</a><br><a href="/2019/03/25/ai-eight-style-note">AI组件开发（八）–AIArtStyleSuite</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-25T06:05:00.276Z" itemprop="dateUpdated">2019-03-25 14:05:00</time>
+</span><br>
+
+
+        
+        <a href="/2019/03/14/ai-first-note/" target="_blank" rel="external">http://11wy11.github.io/2019/03/14/ai-first-note/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/">AI</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/14/ai-first-note/&title=《AI组件开发（一）--注记旋转矩阵》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/14/ai-first-note/&title=《AI组件开发（一）--注记旋转矩阵》 — WeiYuan's Blog&source=Adobe Illustrator 组件开发 AIRealMatrixSet介绍及使用方法，参数及原理分析" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/14/ai-first-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AI组件开发（一）--注记旋转矩阵》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/14/ai-first-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/14/ai-first-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/14/krpano-first-note/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">krpano快速入门教程（一）之构建panos应用</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/14/csdn-markdown-grammar/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">csdn-markdown编辑器语法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/14/ai-first-note/&title=《AI组件开发（一）--注记旋转矩阵》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/14/ai-first-note/&title=《AI组件开发（一）--注记旋转矩阵》 — WeiYuan's Blog&source=Adobe Illustrator 组件开发 AIRealMatrixSet介绍及使用方法，参数及原理分析" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/14/ai-first-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AI组件开发（一）--注记旋转矩阵》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/14/ai-first-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/14/ai-first-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aQY7jMAwEwPz/09kHzDrTTcUDWCqdgsBxWDoQFKnXK17veF09//mdP79/3bEwMDAey2jDSt5zFVbLTmLDwMA4h3EV1ufPV4B8C5Lffo4NAwMDI/mcl4xt6BgYGBgzRptSP4eefIOBgYGRH2IT6krC/aOzOAYGxgMZedf97z/fMt/AwMB4FONdrlmSzdtts4WBgbE3I09wbYNsNirIyz4MDIxzGPn1iLbR1ibZvDBduuWBgYHxWEbb3C/+ICgBZ0OC/yRcDAyMrRmf02Vb5M0GkLPWGwYGxgmM2QWLleSYh7tUVmJgYGzEmLX72yNu21BrC1YMDIxzGCsptW2xrWziZYWLgYGxKWP2upVSMh8k1ENQDAyMrRn5aDNPvvl4oN2yfPCJgYGxH6NtkCWJcjYWnT2DgYFxAqP98exSVzu1WCoNMTAwtmC01yxmibI9vn5hvzEwMLZjzIq5No0mB9HZlTIMDIy9GUnlOAu3JeWhX/4XBgbGAYxfrjIstNtWrlYU24qBgXEAY1bMtW/4Vj8fAwPjZMasZMyLyPXnL7cVAwNjU8a7XPnx9b6rY7/UthgYGNsx2kItP+4mh9U2Ea+XmxgYGM9ltE2u/MA5u0IxiwEDA+MExuyQ+a3hwXrhiIGBgXHHgDMvBG9MuBgYGJsyZtdeV9pkUYmJgYFxACM5xOaw9sg6a8lhYGCcw2hTXn5FbBZEPi7FwMA4gPEP9+gD8TiH9aUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

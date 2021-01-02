@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>AI组件开发（六）--AIArtSuite | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="AI">
+    <meta name="description" content="Adobe Illustrator 文档中绘制的所有图形均为Art，相关操作函数在AIArtSuite中定义">
+<meta name="keywords" content="AI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI组件开发（六）--AIArtSuite">
+<meta property="og:url" content="http://11wy11.github.io/2019/03/24/ai-six-aiart-note/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="Adobe Illustrator 文档中绘制的所有图形均为Art，相关操作函数在AIArtSuite中定义">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-25T06:08:15.341Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI组件开发（六）--AIArtSuite">
+<meta name="twitter:description" content="Adobe Illustrator 文档中绘制的所有图形均为Art，相关操作函数在AIArtSuite中定义">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/weiyuan_player">
+                <i class="icon icon-lg icon-link"></i>
+                CSDN
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">AI组件开发（六）--AIArtSuite</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">AI组件开发（六）--AIArtSuite</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-24T13:43:22.000Z" itemprop="datePublished" class="page-time">
+  2019-03-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/AI组件开发/">AI组件开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AIArtSuite"><span class="post-toc-number">1.</span> <span class="post-toc-text">AIArtSuite</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注册声明"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">注册声明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#方法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#paintOrder-枚举常量"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">paintOrder 枚举常量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AIArtHandle"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">AIArtHandle</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用实例"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">使用实例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#相关文章"><span class="post-toc-number">2.</span> <span class="post-toc-text">相关文章</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-ai-six-aiart-note" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">AI组件开发（六）--AIArtSuite</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-24 21:43:22" datetime="2019-03-24T13:43:22.000Z" itemprop="datePublished">2019-03-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/AI组件开发/">AI组件开发</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Adobe Illustrator 文档中绘制的所有图形均为Art，相关操作函数在AIArtSuite中定义<br><a id="more"></a></p>
+<h1 id="AIArtSuite"><a href="#AIArtSuite" class="headerlink" title="AIArtSuite"></a>AIArtSuite</h1><p>此套件允许您访问和修改Illustrator文档中的图稿。</p>
+<p>它提供了创建和删除对象，重新排列对象以及获取和设置对象信息的功能。您可以使用这些函数来导航图形对象树，以及获得或修改有关图形对象的一般信息，例如它们的边界或锁定状态。</p>
+<p>Art套件是实现大多数插件的基础。Illustrator文档由一个由a引用的图形对象的集合组成AIArtHandle。这是指向文档图稿数据库中图形对象的不透明指针。通过Art suite的访问器功能访问这些字段。</p>
+<p>艺术对象可以表示单个实体，诸如路径，文本块或放置的图像，或一组对象，诸如路径的集合。艺术类型标识符（AIArtType）表示艺术品的类型。</p>
+<p>使用SPBasicSuite::AcquireSuite()常量kAIArtSuite和使用获取此套件kAIArtVersion。</p>
+<h2 id="注册声明"><a href="#注册声明" class="headerlink" title="注册声明"></a>注册声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//xxxSuites.h</span><br><span class="line">#include &quot;Suites.hpp&quot;</span><br><span class="line">#include &quot;AIArtConverter.h&quot;</span><br><span class="line">extern  &quot;C&quot; AAIArtSuite*	sAIArt ;</span><br><span class="line"></span><br><span class="line">//xxxSuites.cpp</span><br><span class="line">extern &quot;C&quot;&#123;</span><br><span class="line">AIArtSuite*	sAIArt = NULL;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ImportSuite gImportSuites[] = &#123;</span><br><span class="line">    IMPORT_TEXT_SUITES</span><br><span class="line">    kAIArtSuite, kAIArtSuiteVersion, &amp;sAIArt,</span><br><span class="line">        nil, 0, nil</span><br><span class="line">      &#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li>AIAPI AIErr（*     NewArt）（ai :: int16类型，ai :: int16 paintOrder，AIArtHandle prep，AIArtHandle * newArt）<br>   创建一个新的Art对象。 </li>
+<li>AIAPI AIErr（*     DisposeArt）（AIArtHandle Art）<br>   从文档中删除Art对象。 </li>
+<li>AIAPI AIErr（*     ReorderArt）（AIArtHandle thisArt，ai :: int16 paintOrder，AIArtHandle prep）<br>   更改Art对象的绘制顺序，或将路径移入或移出复合路径或组。 </li>
+<li>AIAPI AIErr（*     DuplicateArt）（AIArtHandle thisArt，ai :: int16 paintOrder，AIArtHandle prep，AIArtHandle * newArt）<br>   使用深层复制复制Art对象（组和复合路径的子项也是重复的）。 </li>
+<li>AIAPI AIErr（*     GetFirstArtOfLayer）（AILayerHandle图层，AIArtHandle *Art）<br>   获得图层中的第一个Art对象，该图层包含该图层中的所有Art。 </li>
+<li>AIAPI AIErr（*     GetLayerOfArt）（AIArtHandle art，AILayerHandle *layer）<br>   获得Art对象的父图层（如果有）。 </li>
+<li>AIAPI AIErr（*     GetArtType）（AIArtHandle art，short * type）<br>   获得Art对象的类型。 </li>
+<li>AIAPI AIErr（*     GetArtUserAttr）（AIArtHandle art，ai :: int32 whichAttr，ai :: int32 * attr）<br>   获得Art对象的用户属性; 也就是说，标志显示它是被选中，隐藏还是被锁定。 </li>
+<li>AIAPI AIErr（*     SetArtUserAttr）（AIArtHandle art，ai :: int32 whichAttr，ai :: int32 attr）<br>   设置对象的用户属性; 也就是说，标志显示它是被选中，隐藏还是被锁定。 </li>
+<li>AIAPI AIErr（*     GetArtParent）（AIArtHandle art，AIArtHandle *parent）<br>   获得Art对象的父组。 </li>
+<li>AIAPI AIErr（*     GetArtFirstChild）（AIArtHandle art，AIArtHandle *child）<br>   获得组对象的第一个子对象。 </li>
+<li>AIAPI AIErr（*     GetArtSibling）（AIArtHandle art，AIArtHandle *sibling）<br>   获得同一组中的下一个对象。 </li>
+<li>AIAPI AIErr（*     GetArtPriorSibling）（AIArtHandle art，AIArtHandle *sibling）<br>   获得同一组中的上一个对象。 </li>
+<li>AIAPI AIErr（*     GetArtBounds）（AIArtHandle art，AIRealRect * bounds）<br>   获得Art对象的包围矩形。 </li>
+<li>AIAPI AIErr（*     SetArtBounds）（AIArtHandle art）<br>   更新Art对象的封闭矩形（边界框）的缓存信息。 </li>
+<li>AIAPI AIErr（*     GetArtCenterPointVisible）（AIArtHandle art，AIBoolean *visible）<br>   检查Art品的中心点是否可见。 </li>
+<li>AIAPI AIErr（*     SetArtCenterPointVisible）（AIArtHandle art，AIBoolean visible）<br>   选择对象时，可以使Art品的中心点可见或不可见。 </li>
+<li>AIAPI AIErr（*     GetArtTransformBounds）（AIArtHandle art，AIRealMatrix * transform，ai :: int32 flags，AIRealRect * bounds）<br>   应用变换矩阵后，获得Art对象的几何边界。 </li>
+<li>AIAPI AIErr（*     UpdateArtworkLink）（AIArtHandle art，AIBoolean force，AIBoolean *updated）<br>   检查给定容器的子树中包含的任何链接对象（链接图像或放置对象）是否需要更新，并在需要时更新它们。 </li>
+<li>AIAPI AIBoolean（*     ValidArt）（AIArtHandle art，AIBoolean searchAllLayerLists）<br>   如果Art对象引用有效，则返回true。 </li>
+<li>AIAPI AIErr（*     GetArtOrder）（AIArtHandle art1，AIArtHandle art2，short * order）<br>   获取两个Art品的绘画顺序或遏制关系。 </li>
+<li>AIAPI AIErr（*     SelectNamedArtOfLayer）（AILayerHandle图层，const ai :: UnicodeString＆name，AIBoolean matchWholeWord，AIBoolean caseSensitive）<br>   通过将字符串与Art对象注释的内容进行匹配来选择图层的指定图稿。 </li>
+<li>AIAPI AIErr（*     GetArtRotatedBounds）（AIArtHandle art，AIReal angle，ai :: int32 flags，AIRealRect * bounds）<br>   旋转后获得Art对象的包围矩形。 </li>
+<li>AIAPI AIBoolean（*     ArtHasFill）（AIArtHandle art）<br>   如果Art对象或后代对象绘制应被视为填充的内容，则返回true。 </li>
+<li>AIAPI AIBoolean（*     ArtHasStroke）（AIArtHandle art）<br>   如果Art对象或后代对象绘制应被视为笔划的内容，则返回true。 </li>
+<li>AIAPI AIBoolean（*     ArtsHaveEqualPaths）（AIArtHandle art1，AIArtHandle art2）<br>   如果两个Art对象除了组，路径和复合路径之外只包含其他内容，并且它们具有相同的几何（控制点），则返回true。 </li>
+<li>AIAPI AIErr（*     ArtCopyFillStyleIfEqualPaths）（AIArtHandle dstArt，AIArtHandle srcArt）<br>   未在AI11及更高版本中实施; 回报kNotImplementedErr。 </li>
+<li>AIAPI AIErr（*     ArtCopyStrokeStyleIfEqualPaths）（AIArtHandle dstArt，AIArtHandle srcArt）<br>   未在AI11及更高版本中实施; 回报kNotImplementedErr。 </li>
+<li>AIAPI AIErr（*     GetInsertionPoint）（AIArtHandle * art，short * paintorder，AIBoolean * editable）<br>   获得文档的插入点。 </li>
+<li>AIAPI AIErr（*     SetInsertionPoint）（AIArtHandle art）<br>   设置文档的插入点。 </li>
+<li>AIAPI AIErr（*     GetKeyArt）（AIArtHandle *Art）<br>   获得对象对齐的关键对象。 </li>
+<li>AIAPI AIErr（*     CancelKeyArt）（无效）<br>   清除对象对齐的关键对象。 </li>
+<li>AIAPI AIErr（*     GetDictionary）（AIArtHandle art，struct _AIDictionary ** dictionary）<br>   获得与Art对象关联的字典。 </li>
+<li>AIAPI AIErr（*     SetArtName）（AIArtHandle art，const ai :: UnicodeString＆name）<br>   设置Art对象的名称。 </li>
+<li>AIAPI AIErr（*     GetArtName）（AIArtHandle art，ai :: UnicodeString＆name，ASBoolean * isDefaultName）<br>   获得Art对象的名称。 </li>
+<li>AIAPI AIErr（*     IsArtLayerGroup）（AIArtHandle art，ASBoolean * isLayerGroup）<br>   报告Art对象是否是与图层或子图层对应的组。 </li>
+<li>AIAPI AIErr（*     ReleaseToLayers）（常量AIArtHandle技术中，ASBoolean版本）<br>   将图层，组或插件组的元素释放到单独的图层。 </li>
+<li>AIAPI AIErr（*     ModifyTargetedArtSet）（AIArtHandle * list，ai :: int32 count，ai :: int32 action）<br>   使用指定的操作修改文档中的目标对象集。 </li>
+<li>AIAPI AIBoolean（*     IsArtStyledArt）（AIArtHandle art）<br>   如果art是另一个对象的样式Art的一部分，则返回true。 </li>
+<li>AIAPI AIBoolean（*     IsArtClipping）（AIArtHandle art）<br>   如果art添加到剪辑，则返回true 。 </li>
+<li>AIAPI AIErr（*     TransferAttributes）（AIArtHandle srcart，AIArtHandle dstart，ai :: uint32 which）<br>   将源Art对象的属性传输到目标Art对象。 </li>
+<li>AIAPI AIErr（*     GetArtLastChild）（AIArtHandle art，AIArtHandle *child）<br>   获得容器Art对象的最后一个子项。 </li>
+<li>AIAPI AIErr（*     SetArtTextWrapProperty）（AIArtHandle art，AIReal offset，AIBoolean invert）<br>   设置影响文本环绕文本换行对象的方式的属性; 也就是说，kArtIsTextWrap设置属性的那个。 </li>
+<li>AIAPI AIErr（*     GetArtTextWrapProperty）（AIArtHandle art，AIReal * offset，AIBoolean * invert）<br>   获得影响文本环绕文本换行对象的方式的属性; 也就是说，kArtIsTextWrap设置属性的那个。 </li>
+<li>AIAPI AIErr（*     CreateCopyScope）（枚举AICopyScopeKind类，AICopyScopeHandle *范围）<br>   创建并设置复制范围。 </li>
+<li>AIAPI AIErr（*     DestroyCopyScope）（AICopyScopeHandle范围）<br>   取消并销毁复制范围。 </li>
+<li>AIAPI AIErr（*     InsertionPointBadForArtType）（ai :: int16 paintOrder，AIArtHandle prep，ai :: int16 artType）<br>   检查在给定插入点处创建或插入给定类型的Art对象是否可以。 </li>
+<li>AIAPI AIErr（*     PreinsertionFlightCheck）（AIArtHandle candidateArt，ai :: int16 paintOrder，AIArtHandle prep）<br>   根据插入上下文和候选Art的属性，检查是否可以在指定的插入点处插入Art对象或其副本，而无需实际尝试插入。 </li>
+<li>AIAPI AIErr（*     SetNote）（AIArtHandle art，const ai :: UnicodeString＆inNote）<br>   设置Art对象的音符属性，该属性通常包含用户输入的文本。 </li>
+<li>AIAPI AIErr（*     GetNote）（AIArtHandle art，ai :: UnicodeString＆outNote）<br>   获得Art对象的注释属性文本，该文本通常包含用户输入的文本。 </li>
+<li>AIAPI AIBoolean（*     HasNote）（AIArtHandle art）<br>   检查Art品是否附有说明。 </li>
+<li>AIAPI无效（*     删除注意）（AIArtHandle art）<br>   删除附加到Art对象的注释（如果有）。 </li>
+<li>AIAPI AIErr（*     GetArtXMPSize）（AIArtHandle art，size_t * size）<br>   获取与Art对象关联的XMP元数据的大小。 </li>
+<li>AIAPI AIErr（*     GetArtXMP）（AIArtHandle art，char * xmp，size_t size）<br>   获得与Art对象的XMP元数据关联的XML数据包。 </li>
+<li>AIAPI AIErr（*     SetArtXMP）（AIArtHandle art，const char * xmp）<br>   设置Art对象的XMP元数据，替换任何现有数据。 </li>
+<li>AIAPI AIErr（*     GetPreciseArtTransformBounds）（AIArtHandle art，AIRealMatrix * transform，ai :: int32 flags，AIDoubleRect * bounds）<br>   应用变换矩阵后，获得Art对象的几何边界。 </li>
+<li>AIAPI AIErr（*     UncheckedDisposeArt）（AIArtHandle art）<br>   从Art树中删除Art对象，对输入的有效性进行最低限度检查，以便最大限度地提高性能。 </li>
+<li>AIAPI AIErr（*     ArtIsGraph）（AIArtHandle art，AIBoolean * artisgraph）<br>   报告Art对象是否为图形对象类型。 </li>
+<li>AIAPI AIErr（*     SetKeyArt）（AIArtHandle art）<br>   将Art设置为对象对齐的KeyArt。关键对象是其他对象对齐的对象。 </li>
+<li>AIAPI AIErr（*     GetDrawingMode）（ai :: int32 * mode）<br>   获得当前文档的绘图模式。 </li>
+<li>AIAPI AIErr（*     SetDrawingMode）（ai :: int32模式）<br>   设置当前文档的绘图模式。 </li>
+<li>AIAPI AIErr（*     GetInsertionPointForDrawingMode）（ai :: int32模式，AIArtHandle * art，short * paintorder，AIBoolean * editable）<br>   根据绘图模式获得当前文档的插入点。 </li>
+<li>AIAPI AIErr（*     GetInsertionPointForCurrentDrawingMode）（AIArtHandle * art，short * paintorder，AIBoolean * editable）<br>   根据当前绘图模式获得当前文档的插入点。 </li>
+<li>AIAPI AIErr（*     GetPathPolarity）（AIArtHandle art，ai :: int32 * polarity）<br>   获得Art对象的路径极性。 </li>
+<li>AIAPI AIBoolean（*     IsPixelPerfect）（AIArtHandle art）<br>   报告Art品是否处于像素完美模式。 </li>
+<li>AIAPI AIErr（*     SetPixelPerfect）（AIArtHandle art，AIBoolean isPixelPerfect）<br>   为Art品打开或关闭像素完美模式。 </li>
+<li>AIAPI AIBoolean（*     ObjectsAreEquivalent）（AIArtHandle art1，AIArtHandle art2）<br>   比较两个Art对象以确定它们在几何，外观属性和字典内容中是否等效。通常，一个对象在当前文档中，另一个在另一个文档中。 </li>
+<li>AIAPI AIErr（*     IsArtALayerInSymbol）（AIArtHandle art，AIBoolean * isLayerInSymbol）<br>   报告Art对象是否充当符号模式中的图层。 </li>
+<li>AIAPI AIErr（*     GetArtTimeStamp）（AIArtHandle art，size_t * timeStamp）<br>   获得Art对象的修改时间戳。 <h2 id="paintOrder-枚举常量"><a href="#paintOrder-枚举常量" class="headerlink" title="paintOrder 枚举常量"></a>paintOrder 枚举常量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">typedef enum AIPaintOrder &#123;</span><br><span class="line">	/* Default value */</span><br><span class="line">	kPlaceDefault = 0,</span><br><span class="line">	/** Place above the prepositional object */</span><br><span class="line">	kPlaceAbove = 1,</span><br><span class="line">	/** Place below the prepositional object */</span><br><span class="line">	kPlaceBelow,</span><br><span class="line">	/** Place within and at the top of the prepositional container */</span><br><span class="line">	kPlaceInsideOnTop,</span><br><span class="line">	/** Place within and at the bottom of the prepositional container */</span><br><span class="line">	kPlaceInsideOnBottom,</span><br><span class="line">	/** Place at the top of the paint order, ignoring prepositional object */</span><br><span class="line">	kPlaceAboveAll,</span><br><span class="line">	/** Place at the bottom of the paint order, ignoring prepositional object */</span><br><span class="line">	kPlaceBelowAll</span><br><span class="line">&#125; AIPaintOrder;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="AIArtHandle"><a href="#AIArtHandle" class="headerlink" title="AIArtHandle"></a>AIArtHandle</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef struct ArtObject* AIArtHandle</span><br><span class="line">Opaque reference to an art object.</span><br><span class="line"></span><br><span class="line">Access using AIArtSuite.</span><br></pre></td></tr></table></figure>
+<h2 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">AIArtHandle artGroup = NULL;</span><br><span class="line">sAIArt-&gt;GetFirstArtOfLayer(PolygonLayer, &amp;artGroup);</span><br><span class="line">AIArtHandle art = NULL;</span><br><span class="line">sAIArt-&gt;NewArt(kPathArt, kPlaceInsideOnTop, artGroup, &amp;art);</span><br><span class="line">//setNote</span><br><span class="line">sAIArt-&gt;SetNote(&quot;该属性通常包含用户输入的文本。需要记录保存的信息，一般，号分割的字符串，不过插件一般使用Dictionary&quot;);</span><br><span class="line">//HasNote,GetNote</span><br><span class="line">if (sAIArt-&gt;HasNote(artGroup))&#123;</span><br><span class="line">		ai::UnicodeString infoNote;</span><br><span class="line">		sAIArt-&gt;GetNote(artGroup, infoNote);</span><br><span class="line">		&#125;</span><br><span class="line">//DisposeArt</span><br><span class="line">sAIArt-&gt;DisposeArt(artGroup);</span><br><span class="line"></span><br><span class="line">//设置隐藏图层内容不可见</span><br><span class="line">	AILayerHandle FirstLayer;</span><br><span class="line">	AILayerHandle NextLayer = NULL;</span><br><span class="line"></span><br><span class="line">	sAILayer-&gt;GetLayerFirstChild(m_hideLayer,&amp;FirstLayer);</span><br><span class="line">	while(FirstLayer)</span><br><span class="line">	&#123;</span><br><span class="line">		AIArtHandle ArtGroup;</span><br><span class="line">		AIArtHandle Art;</span><br><span class="line">		sAIArt-&gt;GetFirstArtOfLayer(FirstLayer,&amp;ArtGroup);</span><br><span class="line">		sAIArt-&gt;GetArtFirstChild(ArtGroup,&amp;Art);</span><br><span class="line">		</span><br><span class="line">		AILayerHandle LayerTemp;</span><br><span class="line">		LayerTemp =  FirstLayer;</span><br><span class="line">		sAILayer-&gt;GetNextLayer(FirstLayer,&amp;FirstLayer);</span><br><span class="line">		if(!Art)</span><br><span class="line">			sAILayer-&gt;DeleteLayer(LayerTemp);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	sAILayer-&gt;SetLayerVisible(m_hideLayer, false);</span><br><span class="line">	</span><br><span class="line">	AIRealRect artRect;</span><br><span class="line">   sAIArt-&gt;GetArtBounds(m_pointArt, &amp;artRect);</span><br><span class="line">   sAIMathSuite-&gt;AIRealMatrixSetTranslate(&amp;maxtrix, ListIter-&gt;h - (artRect.right + artRect.left) / 2, ListIter-&gt;v - (artRect.top + artRect.bottom) / 2);</span><br><span class="line">   sAITransformArt-&gt;TransformArt(m_pointArt, &amp;maxtrix, 1, kTransformObjects);</span><br><span class="line">   sAIArt-&gt;SetArtName(m_pointArt, ai::UnicodeString(&quot;XXXX&quot;));</span><br><span class="line">   </span><br><span class="line">   AIArtHandle textPathPoly = NULL;</span><br><span class="line">   AIArtHandle textFrame;//已存在变量</span><br><span class="line">   sAIArt-&gt;DuplicateArt(textFrame, kPlaceBelow,textFrame, &amp;textPathPoly);</span><br><span class="line">   AIArtHandle textFrameBackgroud;//已存在变量</span><br><span class="line">   sAIArt-&gt;ReorderArt(textFrameBackgroud, kPlaceInsideOnTop, ArtGroup);</span><br><span class="line">   </span><br><span class="line">   AIArtHandle outlines=NULL;</span><br><span class="line">   	sAITextFrame-&gt;CreateOutline(textFrame, &amp;outlines);</span><br><span class="line">   </span><br><span class="line">   	AIArtHandle outlinef=NULL,outlinen=NULL;</span><br><span class="line">   	sAIArt-&gt;GetArtFirstChild(outlines, &amp;outlinef);</span><br><span class="line">   </span><br><span class="line">   	//描边属性</span><br><span class="line">   	AIPathStyle pathstyle;</span><br><span class="line">   	pathstyle.fillPaint = false;</span><br><span class="line">   	pathstyle.strokePaint = true;</span><br><span class="line">   	AIStrokeStyle strokestyle;</span><br><span class="line">   	strokestyle.width = this-&gt;borderWidth;</span><br><span class="line">   	strokestyle.cap = kAIRoundCap;</span><br><span class="line">   	strokestyle.join = kAIRoundJoin;</span><br><span class="line">   	strokestyle.color = borderColor;</span><br><span class="line">   	pathstyle.stroke = strokestyle;</span><br><span class="line">   </span><br><span class="line">   	sAIPathStyle-&gt;SetPathStyle(outlinef, &amp;pathstyle);</span><br><span class="line">   </span><br><span class="line">   	sAIArt-&gt;GetArtSibling(outlinef, &amp;outlinen); </span><br><span class="line">   </span><br><span class="line">   	while (outlinen)</span><br><span class="line">   	&#123;</span><br><span class="line">   		sAIPathStyle-&gt;SetPathStyle(outlinen, &amp;pathstyle);</span><br><span class="line">   		sAIArt-&gt;GetArtSibling(outlinen, &amp;outlinen);</span><br><span class="line">   	&#125;</span><br><span class="line">   </span><br><span class="line">   	sAIArt-&gt;DisposeArt(textFrame);</span><br><span class="line">   	//使用GetArtPriorSibling</span><br><span class="line">   	// get the previous art</span><br><span class="line">    error = sArt-&gt;GetArtPriorSibling(art, &amp;art);</span><br><span class="line">    if (error) return error;</span><br><span class="line">    if (!art)&#123;</span><br><span class="line">            // art was first in group</span><br><span class="line">            // see if parent has previous art</span><br><span class="line">            error = sArt-&gt;GetArtParent(art, &amp;art);</span><br><span class="line">            if (error) return error;</span><br><span class="line">            ...</span><br><span class="line">   //使用GetArtParent  ,GetArtSibling</span><br><span class="line">     ...</span><br><span class="line">     // see if parent has sibling</span><br><span class="line">     error = sArt-&gt;GetArtParent(nextart, &amp;nextart);</span><br><span class="line">     if (error) return error;</span><br><span class="line">     error = sArt-&gt;GetArtSibling(nextart, &amp;nextart);</span><br><span class="line">     if (error) return error;</span><br><span class="line">     if (nextart) &#123;    // parent has sibling</span><br><span class="line">     ...</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><p><a href="/2019/03/14/ai-first-note">AI组件开发（一）–注记旋转矩阵</a><br><a href="/2019/03/18/ai-second-note">AI组件开发（二）–AIRealMathSuite</a><br><a href="/2019/03/24/ai-third-note">AI组件开发（三）–AIArtboardSuite</a><br><a href="/2019/03/24/ai-forth-document-note">AI组件开发（四）–AIDocumentSuite</a><br><a href="/2019/03/24/ai-fifth-ailayer-note">AI组件开发（五）–AILayerSuite</a><br><a href="/2019/03/24/ai-six-aiart-note">AI组件开发（六）–AIArtSuite</a><br><a href="/2019/03/25/ai-seven-path-note">AI组件开发（七）–AIPathSuite&amp;&amp;AIPathfinderSuite</a><br><a href="/2019/03/25/ai-eight-style-note">AI组件开发（八）–AIArtStyleSuite</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-25T06:08:15.341Z" itemprop="dateUpdated">2019-03-25 14:08:15</time>
+</span><br>
+
+
+        
+        <a href="/2019/03/24/ai-six-aiart-note/" target="_blank" rel="external">http://11wy11.github.io/2019/03/24/ai-six-aiart-note/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/">AI</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/24/ai-six-aiart-note/&title=《AI组件开发（六）--AIArtSuite》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/24/ai-six-aiart-note/&title=《AI组件开发（六）--AIArtSuite》 — WeiYuan's Blog&source=Adobe Illustrator 文档中绘制的所有图形均为Art，相关操作函数在AIArtSuite中定义" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/24/ai-six-aiart-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AI组件开发（六）--AIArtSuite》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/24/ai-six-aiart-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/24/ai-six-aiart-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/25/ai-seven-path-note/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">AI组件开发（七）--AIPathSuite&amp;&amp;AIPathfinderSuite</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/24/ai-fifth-ailayer-note/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">AI组件开发（五）--AILayerSuite</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/03/24/ai-six-aiart-note/&title=《AI组件开发（六）--AIArtSuite》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/03/24/ai-six-aiart-note/&title=《AI组件开发（六）--AIArtSuite》 — WeiYuan's Blog&source=Adobe Illustrator 文档中绘制的所有图形均为Art，相关操作函数在AIArtSuite中定义" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/03/24/ai-six-aiart-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AI组件开发（六）--AIArtSuite》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/03/24/ai-six-aiart-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/03/24/ai-six-aiart-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aQW6EMAwF0Ln/pafbSi2ZbwdGwjxWFWJCHgvXsf16xdd7ef1+5u/zycrrO6ddGBgYt2XkW6zeWb9l/fZ8bxgYGM9hrEPhOgjuB9/1b5MwjYGBgXGUwOVXlY2BgYGxw6gmhUmATngYGBgY1VLamtdb50tncQwMjBsy8hD5/b8v6W9gYGDcinHFQTS/n6/zYVcYGBijGXmAy9OyXquyN6KBgYHxBMbRQjsBNB+8qH7E5mQZBgbGzRk7S++EyF7yF7UiMDAwhjLy0NlrdibPF1qVSQsTAwNjEGN9mKyma2e1NvOBjH+qhhgYGOMYybaqr9xpRq4PzOVDLAYGxiBGb6O9dLA3/hX9Y8DAwBjKqCZn1cZkspXq2z+0MDEwMMYxekW3c9sDvVGMw3dhYGCMY+w3A7a+3HUzIxgYGOMYeYEs31x1jKN6PP7Q38DAwBjHyEtj1cBaXaGXbmJgYMxmJJizinGFklm8KwwMjCczzh3k6pX+1x+0ORCGgYFxc0ZvhKI3TpF/ssKuMDAwHsPIE8Q84cvbA70Ph4GB8RxGr/XY+22+0QIVAwNjKONdvJIkLw+gZ7UzMTAwZjN2gl0vrawOivWaChgYGPMYW0WuoPRfHaHIWxHlCREMDIybM84qtFWPu9VU7zBwY2BgYLTGLM5KBC8PuBgYGKMZ1dDZO0NHHwgDA+MBjGozoNfmzI/Q5fIfBgbGaMZ+yKsumpTzkiCLgYHxAMYPcAFLqa9GIhwAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

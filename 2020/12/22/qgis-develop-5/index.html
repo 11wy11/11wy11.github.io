@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>QGIS 按照官方指南编译源码 | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="QGIS">
+    <meta name="description" content="最终成功编译QGIS的详细步骤，可以不用来cmake-gui界面，就可以配置">
+<meta name="keywords" content="QGIS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QGIS 按照官方指南编译源码">
+<meta property="og:url" content="http://11wy11.github.io/2020/12/22/qgis-develop-5/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="最终成功编译QGIS的详细步骤，可以不用来cmake-gui界面，就可以配置">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://11wy11.github.io/2020/12/22/qgis-develop-5/image-20201206195049105.png">
+<meta property="og:image" content="http://11wy11.github.io/2020/12/22/qgis-develop-5/18.png">
+<meta property="og:image" content="http://11wy11.github.io/2020/12/22/qgis-develop-5/19.png">
+<meta property="og:image" content="http://11wy11.github.io/2020/12/22/qgis-develop-5/20.png">
+<meta property="og:image" content="http://11wy11.github.io/2020/12/22/qgis-develop-5/70.png">
+<meta property="og:image" content="http://11wy11.github.io/2020/12/22/qgis-develop-5/16.png">
+<meta property="og:image" content="http://11wy11.github.io/2020/12/22/qgis-develop-5/image-20201225191938744.png">
+<meta property="og:image" content="http://11wy11.github.io/2020/12/22/qgis-develop-5/image-20201225191859911.png">
+<meta property="og:image" content="http://11wy11.github.io/2020/12/22/qgis-develop-5/image-20201225192436078.png">
+<meta property="og:image" content="http://11wy11.github.io/2020/12/22/qgis-develop-5/image-20201229172653562.png">
+<meta property="og:image" content="http://11wy11.github.io/2020/12/22/qgis-develop-5/image-20201229184038694.png">
+<meta property="og:image" content="http://11wy11.github.io/2020/12/22/qgis-develop-5/image-20201229185257473.png">
+<meta property="og:updated_time" content="2021-01-01T14:14:37.387Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QGIS 按照官方指南编译源码">
+<meta name="twitter:description" content="最终成功编译QGIS的详细步骤，可以不用来cmake-gui界面，就可以配置">
+<meta name="twitter:image" content="http://11wy11.github.io/2020/12/22/qgis-develop-5/image-20201206195049105.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/weiyuan_player">
+                <i class="icon icon-lg icon-link"></i>
+                CSDN
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">QGIS 按照官方指南编译源码</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">QGIS 按照官方指南编译源码</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-12-22T06:35:20.000Z" itemprop="datePublished" class="page-time">
+  2020-12-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/QGIS/">QGIS</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#软件环境准备"><span class="post-toc-number">1.</span> <span class="post-toc-text">软件环境准备</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#VS2015需要安装的开发工具"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">VS2015需要安装的开发工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载软件包"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">下载软件包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-cygwin"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">1.cygwin</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-安装CMake"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">3.安装CMake</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-ninja-https-github-com-ninja-build-ninja-releases-download-v1-7-2-ninja-win-zip"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">4.ninja(https://github.com/ninja-build/ninja/releases/download/v1.7.2/ninja-win.zip)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置环境变量"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">配置环境变量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-path中添加cmake-osgeo4W64等环境变量"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">1.path中添加cmake,osgeo4W64等环境变量</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-开发python插件所需要的环境变量配置"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">2.开发python插件所需要的环境变量配置</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#QGIS源码编译"><span class="post-toc-number">2.</span> <span class="post-toc-text">QGIS源码编译</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-克隆或者下载源代码"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1. 克隆或者下载源代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-在OSGeo4W64下，创建OSGeo4W-dev-bat文件"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2. 在OSGeo4W64下，创建OSGeo4W-dev.bat文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-使用configonly-bat创建VS工程"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3.使用configonly.bat创建VS工程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-编译QGIS"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">4.编译QGIS</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-编译过程报错解决"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">4.编译过程报错解决</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-error-LNK2019"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">1.error LNK2019</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-PJ-CONTEXT重定义"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">2.PJ_CONTEXT重定义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-如果编译过程中提示找不到PyQT5的module等错误"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">3.如果编译过程中提示找不到PyQT5的module等错误</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#成功之后，设置qgis为启动项，运行，就可以看到QGIS界面了"><span class="post-toc-number">2.4.4.</span> <span class="post-toc-text">成功之后，设置qgis为启动项，运行，就可以看到QGIS界面了</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#参考文档"><span class="post-toc-number">2.4.5.</span> <span class="post-toc-text">参考文档</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-qgis-develop-5" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">QGIS 按照官方指南编译源码</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-12-22 14:35:20" datetime="2020-12-22T06:35:20.000Z" itemprop="datePublished">2020-12-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/QGIS/">QGIS</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>最终成功编译QGIS的详细步骤，可以不用来cmake-gui界面，就可以配置</p>
+<a id="more"></a>
+<h2 id="软件环境准备"><a href="#软件环境准备" class="headerlink" title="软件环境准备"></a>软件环境准备</h2><h3 id="VS2015需要安装的开发工具"><a href="#VS2015需要安装的开发工具" class="headerlink" title="VS2015需要安装的开发工具"></a>VS2015需要安装的开发工具</h3><p>Select “Custom” install and add the following packages:</p>
+<ul>
+<li><p>“Common Tools for Visual C++ 2015” under “Visual C++”</p>
+</li>
+<li><p>“Tools (1.4.1) and Windows 10 SDK (10.0.14393)” under “Universal Windows App Development Tools”.</p>
+<p><img src="/2020/12/22/qgis-develop-5/image-20201206195049105.png" alt="image-20201206195049105"></p>
+</li>
+</ul>
+<h3 id="下载软件包"><a href="#下载软件包" class="headerlink" title="下载软件包"></a>下载软件包</h3><table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Website</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CMake</td>
+<td><a href="https://cmake.org/files/v3.7/cmake-3.7.2-win64-x64.msi" target="_blank" rel="noopener">https://cmake.org/files/v3.7/cmake-3.7.2-win64-x64.msi</a></td>
+</tr>
+<tr>
+<td>cygwin</td>
+<td><a href="http://cygwin.com/setup-x86.exe" target="_blank" rel="noopener">http://cygwin.com/setup-x86.exe</a> (32bit) or <a href="http://cygwin.com/setup-x86_64.exe" target="_blank" rel="noopener">http://cygwin.com/setup-x86_64.exe</a> (64bit)</td>
+</tr>
+<tr>
+<td>OSGeo4W</td>
+<td><a href="http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe" target="_blank" rel="noopener">http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe</a> (32bit) or <a href="http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe" target="_blank" rel="noopener">http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe</a> (64bit)</td>
+</tr>
+<tr>
+<td>ninja</td>
+<td><a href="https://github.com/ninja-build/ninja/releases/download/v1.7.2/ninja-win.zip" target="_blank" rel="noopener">https://github.com/ninja-build/ninja/releases/download/v1.7.2/ninja-win.zip</a></td>
+</tr>
+</tbody>
+</table>
+<p>对于cygwin和OSGeo4W，下载完后都是选择高级安装。</p>
+<p>在选包界面的搜索栏输入文档中给出的包名，目前官方文档给出的是：</p>
+<h4 id="1-cygwin"><a href="#1-cygwin" class="headerlink" title="1.cygwin"></a>1.cygwin</h4><p>- bison<br>- flex</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/12/22/qgis-develop-5/18.png" alt="image-20201122191237032" title>
+                </div>
+                <div class="image-caption">image-20201122191237032</div>
+            </figure>
+<p><strong>设置环境变量：Path中添加C:\cygwin64\bin</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/12/22/qgis-develop-5/19.png" alt="image-20201122191332862" title>
+                </div>
+                <div class="image-caption">image-20201122191332862</div>
+            </figure>
+<p><strong>检查是否安装成功flex和bison</strong>,见下图</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/12/22/qgis-develop-5/20.png" alt="image-20201122191537468" title>
+                </div>
+                <div class="image-caption">image-20201122191537468</div>
+            </figure>
+<p><strong>2.OSGeo4W:</strong></p>
+<p>下载地址：  <a href="http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe" target="_blank" rel="noopener">http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86.exe</a> (32bit) or <a href="http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe" target="_blank" rel="noopener">http://download.osgeo.org/osgeo4w/osgeo4w-setup-x86_64.exe</a> (64bit)</p>
+<p>选择Advance Install ,在线下载时，使用镜像<a href="http://gwmodel.whu.edu.cn/mirrors/osgeo4w，不然会下载特别缓慢" target="_blank" rel="noopener">http://gwmodel.whu.edu.cn/mirrors/osgeo4w，不然会下载特别缓慢</a></p>
+<p>另外之后编译的过程中如果发现有缺失的包也是可以重新在这里补充下载的。</p>
+<p><strong>搜索qgis-dev-deps</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/12/22/qgis-develop-5/70.png" alt="img" title>
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+<p>直接下一步完成安装即可。</p>
+<h4 id="3-安装CMake"><a href="#3-安装CMake" class="headerlink" title="3.安装CMake"></a>3.安装CMake</h4><p><a href="https://cmake.org/download/" target="_blank" rel="noopener">https://cmake.org/download/</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/12/22/qgis-develop-5/16.png" alt="image-20201122184022077" title>
+                </div>
+                <div class="image-caption">image-20201122184022077</div>
+            </figure>
+<h4 id="4-ninja-https-github-com-ninja-build-ninja-releases-download-v1-7-2-ninja-win-zip"><a href="#4-ninja-https-github-com-ninja-build-ninja-releases-download-v1-7-2-ninja-win-zip" class="headerlink" title="4.ninja(https://github.com/ninja-build/ninja/releases/download/v1.7.2/ninja-win.zip)"></a>4.ninja(<a href="https://github.com/ninja-build/ninja/releases/download/v1.7.2/ninja-win.zip" target="_blank" rel="noopener">https://github.com/ninja-build/ninja/releases/download/v1.7.2/ninja-win.zip</a>)</h4><p>下载后解压，将ninja.exe 拷贝到</p>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><h4 id="1-path中添加cmake-osgeo4W64等环境变量"><a href="#1-path中添加cmake-osgeo4W64等环境变量" class="headerlink" title="1.path中添加cmake,osgeo4W64等环境变量"></a>1.path中添加cmake,osgeo4W64等环境变量</h4><p>C:\OSGeo4W64\bin</p>
+<p>D:\cygwin64\bin</p>
+<p>D:\cmake-3.19.0-win64-x64\bin</p>
+<p><img src="/2020/12/22/qgis-develop-5/image-20201225191938744.png" alt="image-20201225191938744"></p>
+<h4 id="2-开发python插件所需要的环境变量配置"><a href="#2-开发python插件所需要的环境变量配置" class="headerlink" title="2.开发python插件所需要的环境变量配置"></a>2.开发python插件所需要的环境变量配置</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/12/22/qgis-develop-5/image-20201225191859911.png" alt="image-20201225191859911" title>
+                </div>
+                <div class="image-caption">image-20201225191859911</div>
+            </figure>
+<h2 id="QGIS源码编译"><a href="#QGIS源码编译" class="headerlink" title="QGIS源码编译"></a>QGIS源码编译</h2><h3 id="1-克隆或者下载源代码"><a href="#1-克隆或者下载源代码" class="headerlink" title="1. 克隆或者下载源代码"></a>1. 克隆或者下载源代码</h3><p>官方例子放在了OSGeo4W下，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\OSGeo4W64</span><br><span class="line">git clone git://github.com/qgis/QGIS.git</span><br></pre></td></tr></table></figure>
+<h3 id="2-在OSGeo4W64下，创建OSGeo4W-dev-bat文件"><a href="#2-在OSGeo4W64下，创建OSGeo4W-dev-bat文件" class="headerlink" title="2. 在OSGeo4W64下，创建OSGeo4W-dev.bat文件"></a>2. 在OSGeo4W64下，创建OSGeo4W-dev.bat文件</h3><p>首先运行OSGeo4W64下的bat,设置qt等环境变量，然后保存并运行该批处理文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> @echo off</span><br><span class="line">    call C:\OSGeo4W64\QGIS\ms-windows\osgeo4w\msvc-env.bat x86_64</span><br><span class="line">@cmd</span><br></pre></td></tr></table></figure>
+<h3 id="3-使用configonly-bat创建VS工程"><a href="#3-使用configonly-bat创建VS工程" class="headerlink" title="3.使用configonly.bat创建VS工程"></a>3.使用configonly.bat创建VS工程</h3><p><strong>如果遇到提示cmake 非法命令，可以修改msvc-env.bat中path的设置，</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\OSGeo4W64\QGIS\ms-windows\osgeo4w</span><br><span class="line">configonly.bat</span><br></pre></td></tr></table></figure>
+<p><strong>如果提示Flex报错等，可以检查msvc-env.bat中的设置默认是c:\cygwin64\bin,如果不是，注意修改路径</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/12/22/qgis-develop-5/image-20201225192436078.png" alt="image-20201225192436078" title>
+                </div>
+                <div class="image-caption">image-20201225192436078</div>
+            </figure>
+<h4 id="4-编译QGIS"><a href="#4-编译QGIS" class="headerlink" title="4.编译QGIS"></a>4.编译QGIS</h4><p>在运行了<strong>OSGeo4W-dev.bat</strong>文件之后，在创建编译的工程，确保所有的环境变量被正确设置</p>
+<p><strong>运行 call gdal-dev-env.bat 来添加gdal和proj库路径</strong></p>
+<p><strong>输入 devenv打开VS</strong></p>
+<h3 id="4-编译过程报错解决"><a href="#4-编译过程报错解决" class="headerlink" title="4.编译过程报错解决"></a>4.编译过程报错解决</h3><h4 id="1-error-LNK2019"><a href="#1-error-LNK2019" class="headerlink" title="1.error LNK2019"></a>1.error LNK2019</h4><p> error LNK2019: 无法解析的外部符号 “<strong>declspec(dllimport) public: static class QString </strong>cdecl QgsOpenClUtils::deviceInfo(enum QgsOpenClUtils::Info,class cl::Device)” (_<em>imp</em>?deviceInfo@QgsOpenClUtils@@SA?AVQString@@W4Info@1@VDevice@cl@@@Z)，该符号在函数 </p>
+<p>解决方案1：由于项目字符集设置问题，根据提示将指定项目的字符集设置为与DLL一致，具体设置如下：项目属性-&gt;配置属性–&gt;常规-&gt;项目默认值-&gt;字符集中设置字符集（测试没有用）</p>
+<p><strong>最终解决：再解决了问题2中的重定义问题后，问题1也修复</strong></p>
+<h4 id="2-PJ-CONTEXT重定义"><a href="#2-PJ-CONTEXT重定义" class="headerlink" title="2.PJ_CONTEXT重定义"></a>2.PJ_CONTEXT重定义</h4><p>比较坑的地方是OSGeo4W64/include 以及OSGeo4W64/app/proj-dev/include 均有proj.h，需要看你工程里配置的proj库是哪个路径，我的需要修改的是OSGeo4W64/include 下的proj.h设置#pragma once，注意看include 的引入顺序，默认生成的引用顺序为先定义了proj-dev/include 后定义了OSGeo4W64/include，调整顺序为下图所示：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/12/22/qgis-develop-5/image-20201229172653562.png" alt="image-20201229172653562" title>
+                </div>
+                <div class="image-caption">image-20201229172653562</div>
+            </figure>
+<p><strong>总结：</strong></p>
+<p><strong>1. 修改OSGeo4W64/include 下的proj.h，在文件开头 添加代码：#pragma once</strong></p>
+<p><strong>2. 调整c++/常规，附加包含目录，include顺序，先根目录C:\OSGeo4W64\include，再C:\OSGeo4W64\apps\proj-dev\include</strong></p>
+<p>3.步骤2需要设置的工程包括：qgis_core,qgis_gui,qgis_app,qgis_process</p>
+<h4 id="3-如果编译过程中提示找不到PyQT5的module等错误"><a href="#3-如果编译过程中提示找不到PyQT5的module等错误" class="headerlink" title="3.如果编译过程中提示找不到PyQT5的module等错误"></a>3.如果编译过程中提示找不到PyQT5的module等错误</h4><p>运行OSGeo4W-dev.bat，执行call gdal-dev-env.bat,使用devenv命令启动vs2015,再打开工程</p>
+<h4 id="成功之后，设置qgis为启动项，运行，就可以看到QGIS界面了"><a href="#成功之后，设置qgis为启动项，运行，就可以看到QGIS界面了" class="headerlink" title="成功之后，设置qgis为启动项，运行，就可以看到QGIS界面了"></a>成功之后，设置qgis为启动项，运行，就可以看到QGIS界面了</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/12/22/qgis-develop-5/image-20201229184038694.png" alt="image-20201229184038694" title>
+                </div>
+                <div class="image-caption">image-20201229184038694</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/12/22/qgis-develop-5/image-20201229185257473.png" alt="image-20201229185257473" title>
+                </div>
+                <div class="image-caption">image-20201229185257473</div>
+            </figure>
+<h4 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h4><p>官方github下的install.md</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-01-01T14:14:37.387Z" itemprop="dateUpdated">2021-01-01 22:14:37</time>
+</span><br>
+
+
+        
+        <a href="/2020/12/22/qgis-develop-5/" target="_blank" rel="external">http://11wy11.github.io/2020/12/22/qgis-develop-5/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QGIS/">QGIS</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2020/12/22/qgis-develop-5/&title=《QGIS 按照官方指南编译源码》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2020/12/22/qgis-develop-5/&title=《QGIS 按照官方指南编译源码》 — WeiYuan's Blog&source=最终成功编译QGIS的详细步骤，可以不用来cmake-gui界面，就可以配置" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2020/12/22/qgis-develop-5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《QGIS 按照官方指南编译源码》 — WeiYuan's Blog&url=http://11wy11.github.io/2020/12/22/qgis-develop-5/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2020/12/22/qgis-develop-5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/12/26/qgis-develop-6/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">QGIS插件开发学习</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/12/07/qgis-develop-5-python-env/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">QGIS二次开发-配置python环境</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2020/12/22/qgis-develop-5/&title=《QGIS 按照官方指南编译源码》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2020/12/22/qgis-develop-5/&title=《QGIS 按照官方指南编译源码》 — WeiYuan's Blog&source=最终成功编译QGIS的详细步骤，可以不用来cmake-gui界面，就可以配置" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2020/12/22/qgis-develop-5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《QGIS 按照官方指南编译源码》 — WeiYuan's Blog&url=http://11wy11.github.io/2020/12/22/qgis-develop-5/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2020/12/22/qgis-develop-5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3awW6sMAwF0Pn/n6brp1eGaxsqkZys0JQCJwvLsf35xOv4b+X3V+9Jnt9cGBgYr2UcX9fZK8+uexuRvPdiKzEwMDZgnL347Dr/azU0JxuEgYGBMQmpOSz5dAwMDIxJwP2eup09eZKAYmBgYOQflBw159vx4FkcAwPjhYz8qPn314/0NzAwMF7FOIqr2nqsPq23MDAw1mb0GpC9sn4VU/4eDAyMDRj3vr43WpEkpqNeKAYGxmsZ1cDaG+qal9UKIx0YGBjLMZ5uCeStzTzUFvobGBgYL2dUAXllvhdwm1uDgYGxAaNaoL+tQBYfp6N8FgMDY2lGXu6vhsJqiplv6D//hYGBsTQjn7DqpYB5qE2S0WbVEAMD4+WM/JiaBOJ7U8BCcwIDA2MDxm3R+rFBiot7MDAwlmbkRfle2yDZgiTIFoYtMDAwlmPcVWir1up7Vf1CPMbAwFiUMYnZ1WRxMt7xy+8YGBhLM/IQ3Ht0r805L+dhYGCsx5jvQU7NYdVjLQYGxm6M3qfnwxm9pmaU52JgYCzN+MSrUAgbVMnKLVIMDIxFGUdxTUYuoqAZhO+LpBADA2M5xjzIzstneSAu1w4xMDAWYlSbi9WErzqu0Qy4GBgYGzB6ga9XsOuNmjXP4hgYGFsy8l++J4jzN44CLgYGxjaM3mjFpIVwcYjFwMBYmpEXziahM0kTEzAGBsZujMlgRMKIjqCtIzEGBsYGjB/by4mH+LurYQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>AI组件开发（九）--AIDocumentListSuite | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="AI">
+    <meta name="description" content="DocumentListSuite创建文档  使用场景，通常我们写的插件在创建图层或者绘制时，需要判断当前时候存在文档且文档是否处于激活状态，没有这需要创建然后进行之后的操作     AIDocumentListSuite中的New方法能够很好的满足我们的需要。  1234567//判断当前是否有文档	AIDocumentHandle currentDocument;	ai::int32 cou">
+<meta name="keywords" content="AI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI组件开发（九）--AIDocumentListSuite">
+<meta property="og:url" content="http://11wy11.github.io/2019/04/19/ai-nine-documentlist-note/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="DocumentListSuite创建文档  使用场景，通常我们写的插件在创建图层或者绘制时，需要判断当前时候存在文档且文档是否处于激活状态，没有这需要创建然后进行之后的操作     AIDocumentListSuite中的New方法能够很好的满足我们的需要。  1234567//判断当前是否有文档	AIDocumentHandle currentDocument;	ai::int32 cou">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-19T14:41:23.090Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI组件开发（九）--AIDocumentListSuite">
+<meta name="twitter:description" content="DocumentListSuite创建文档  使用场景，通常我们写的插件在创建图层或者绘制时，需要判断当前时候存在文档且文档是否处于激活状态，没有这需要创建然后进行之后的操作     AIDocumentListSuite中的New方法能够很好的满足我们的需要。  1234567//判断当前是否有文档	AIDocumentHandle currentDocument;	ai::int32 cou">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/weiyuan_player">
+                <i class="icon icon-lg icon-link"></i>
+                CSDN
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">AI组件开发（九）--AIDocumentListSuite</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">AI组件开发（九）--AIDocumentListSuite</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-19T12:41:28.000Z" itemprop="datePublished" class="page-time">
+  2019-04-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/AI组件开发/">AI组件开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DocumentListSuite创建文档"><span class="post-toc-number">1.</span> <span class="post-toc-text">DocumentListSuite创建文档</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用默认设置创建"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">使用默认设置创建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自定义文档属性创建"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">自定义文档属性创建</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-ai-nine-documentlist-note" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">AI组件开发（九）--AIDocumentListSuite</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-19 20:41:28" datetime="2019-04-19T12:41:28.000Z" itemprop="datePublished">2019-04-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/AI组件开发/">AI组件开发</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <a id="more"></a>
+<h1 id="DocumentListSuite创建文档"><a href="#DocumentListSuite创建文档" class="headerlink" title="DocumentListSuite创建文档"></a>DocumentListSuite创建文档</h1><p>  使用场景，通常我们写的插件在创建图层或者绘制时，需要判断当前时候存在文档且文档是否处于激活状态，没有这需要创建然后进行之后的操作  </p>
+<p>  AIDocumentListSuite中的New方法能够很好的满足我们的需要。<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//判断当前是否有文档</span><br><span class="line">	AIDocumentHandle currentDocument;</span><br><span class="line">	ai::int32 count=0;</span><br><span class="line">	sAIDocumentList-&gt;Count(&amp;count);</span><br><span class="line">	if (count == 0)&#123;</span><br><span class="line">		sAIDocumentList-&gt;New(ai::UnicodeString(&quot;&quot;), NULL, kDialogNone, &amp;currentDocument);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用默认设置创建"><a href="#使用默认设置创建" class="headerlink" title="使用默认设置创建"></a>使用默认设置创建</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sAIDocumentList-&gt;New(ai::UnicodeString(&quot;&quot;), NULL, kDialogOff, &amp;currentDocument);</span><br></pre></td></tr></table></figure>
+<h2 id="自定义文档属性创建"><a href="#自定义文档属性创建" class="headerlink" title="自定义文档属性创建"></a>自定义文档属性创建</h2><p>这里比较坑，根据官网api文档，如果文档参数不为空时，必须完整的定义NewDocumentPreset<br>实现如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">AINewDocumentPreset newDocumentPreset;</span><br><span class="line">	newDocumentPreset.docTitle = ai::UnicodeString(L&quot;新建文档&quot;);</span><br><span class="line">	newDocumentPreset.docWidth = 500;</span><br><span class="line">	newDocumentPreset.docHeight = 250;</span><br><span class="line">	newDocumentPreset.docNumArtboards = 1;</span><br><span class="line">	newDocumentPreset.docArtboardLayout = kAIArtboardLayoutCol;</span><br><span class="line">	newDocumentPreset.docArtboardSpacing = 1;</span><br><span class="line">	newDocumentPreset.docArtboardRowsOrCols = 1;</span><br><span class="line">	newDocumentPreset.docColorMode = kAICMYKColorModel;</span><br><span class="line">	newDocumentPreset.docUnits = kMillimetersUnits;</span><br><span class="line">	newDocumentPreset.docPreviewMode = kAIPreviewModeDefault;</span><br><span class="line">	newDocumentPreset.docTransparencyGrid = kAITransparencyGridNone;</span><br><span class="line">	newDocumentPreset.docRasterResolution = kAIRasterResolutionHigh;</span><br><span class="line">	sAIDocumentList-&gt;New(ai::UnicodeString(L&quot;新建文档&quot;) , &amp;newDocumentPreset, kDialogOff, &amp;currentDocument);</span><br></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-19T14:41:23.090Z" itemprop="dateUpdated">2019-04-19 22:41:23</time>
+</span><br>
+
+
+        
+        <a href="/2019/04/19/ai-nine-documentlist-note/" target="_blank" rel="external">http://11wy11.github.io/2019/04/19/ai-nine-documentlist-note/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/">AI</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/04/19/ai-nine-documentlist-note/&title=《AI组件开发（九）--AIDocumentListSuite》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/04/19/ai-nine-documentlist-note/&title=《AI组件开发（九）--AIDocumentListSuite》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/04/19/ai-nine-documentlist-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AI组件开发（九）--AIDocumentListSuite》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/04/19/ai-nine-documentlist-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/04/19/ai-nine-documentlist-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/19/ai-chinese-note/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">AI组件开发（十）--中文乱码问题解决方案</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/19/cplusplus-release-update-note/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">C#打包更新设置</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2019/04/19/ai-nine-documentlist-note/&title=《AI组件开发（九）--AIDocumentListSuite》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2019/04/19/ai-nine-documentlist-note/&title=《AI组件开发（九）--AIDocumentListSuite》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2019/04/19/ai-nine-documentlist-note/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AI组件开发（九）--AIDocumentListSuite》 — WeiYuan's Blog&url=http://11wy11.github.io/2019/04/19/ai-nine-documentlist-note/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2019/04/19/ai-nine-documentlist-note/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aUXKDMAxF0ex/0+kCOsB9z9Ap8uUrExrjw4cqWfp88PU9vc7/nqz5+/vPE5cMGTJeyyBbJHfP1z9aJ/3+8AXJkCFjAwZ5/FGgPIfx4Hv++WLPMmTIkIGDIAnK5K4MGTJkrDN4FXn0qzRwy5AhQ0a3ifT4jIfjB2txGTJkvJDBT93//vMj/Q0ZMmS8itGVo2koXFkH7UqGDBmjGTzA8cGINOEjVLQfGTJkDGV0jcn0MZxKEtNgmkOGDBmDGCSM8rJ2vd6MBz5kyJAxmkFCW9piTNsAK0dvMmTI2IdBAhlpcKZlatoivUg6ZciQMZRx11F+WrjyajSeFpEhQ8ZQBoFxNk8T+fjX+X5kyJAxm5GmYmkA5e1JnlxevG4ZMmQMZZDGZNfI7Fqb3V0ZMmRMZaShsDtQK3sU3bCFDBkyNmOQx6+PiPFmJ5oZkSFDxpaMlcEI0qrszvbLfFOGDBkvZKQP69oD5BXwdPBiok2GDBlDGSQQ82DapYwk+N7w/0SGDBmvZZACkizKw3Q6ZoGSURkyZGzD4CkjD7gpsmwYyJAhYxsGP7i/KzVMN41qcRkyZAxifMOLb4IE0LvamTJkyJjN4FcalHmY5oG4PDuUIUPGCEZ6yLWCXz+YkyFDxs6MLvB1ZerKa7rIc2XIkCEDL73y27TolSFDhozucK3cCt7hI6mhDBky/j2ja08uDXJVjU8ZMmTsyehKx67zwBsMvPEgQ4aM0YwfqxVLqZFO2pUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
