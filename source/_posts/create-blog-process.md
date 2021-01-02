@@ -103,3 +103,6 @@ categories: 工具
 ### 补充
 1. 有时会出现下载的主题无法上传，首先删除themes/主题文件夹下的`.git`,使用` git rm --cached themes/indigo`命令清空后重新上传`
 2. 如果最开始.gitignore文件没有配置正确，可以使用`git rm -r --cached .`命令清楚缓存文件，重新add,commit,push上传
+3. 当使用node 14以上版本，使用hexo d命令部署时，会提示AGType错误，需要将node的版本退回到12，可以使用nvm管理多个版本的node,具体步骤如下：
+   1. 下载nvm(https://github.com/coreybutler/nvm-windows/releases) setup.zip,安装，**注意不要将nvm安装到默认的c/program files下，换一个盘，不然安装node之后会提示node命令找不到**
+   2. 在控制台，使用`nvm install node@12.4.0 `命令安装node，可以使用nvm ls 查看当前安装的node版本，使用命令`nvm use 12.4.0`使用指定版本，使用命令node -v 或 npm -v检查安装是否成功
