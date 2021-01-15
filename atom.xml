@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://11wy11.github.io/"/>
-  <updated>2020-12-26T15:16:58.023Z</updated>
+  <updated>2021-01-15T08:06:24.531Z</updated>
   <id>http://11wy11.github.io/</id>
   
   <author>
@@ -15,6 +15,77 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>qt-develop-skill-1</title>
+    <link href="http://11wy11.github.io/2021/01/15/qt-develop-skill-1/"/>
+    <id>http://11wy11.github.io/2021/01/15/qt-develop-skill-1/</id>
+    <published>2021-01-15T08:06:24.000Z</published>
+    <updated>2021-01-15T08:06:24.531Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>资料整理裂变</title>
+    <link href="http://11wy11.github.io/2021/01/09/resource-collection/"/>
+    <id>http://11wy11.github.io/2021/01/09/resource-collection/</id>
+    <published>2021-01-09T05:02:13.000Z</published>
+    <updated>2021-01-09T05:03:41.123Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><ol><li>DXF文件格式详解：<a href="https://wenku.baidu.com/view/45beee5886c24028915f804d2b160b4e767f81cc.html" target="_blank" rel="noopener">https://wenku.baidu.com/view/45beee5886c24028915f804d2b160b4e767f81cc.html</a></li><li></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ol&gt;
+&lt;li&gt;DXF文件格式详解：&lt;a href=&quot;https://wenku.baidu.com/view/45beee5886c24028915f804d2b160b4e767f81cc.html&quot; target=&quot;_blank&quot; re
+      
+    
+    </summary>
+    
+      <category term="资料" scheme="http://11wy11.github.io/categories/%E8%B5%84%E6%96%99/"/>
+    
+    
+      <category term="其他" scheme="http://11wy11.github.io/tags/%E5%85%B6%E4%BB%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>QGIS 文件结构解析及符号化类结构解析</title>
+    <link href="http://11wy11.github.io/2021/01/02/qgis-develop-filestruct/"/>
+    <id>http://11wy11.github.io/2021/01/02/qgis-develop-filestruct/</id>
+    <published>2021-01-02T03:43:08.000Z</published>
+    <updated>2021-01-04T08:54:47.714Z</updated>
+    
+    <content type="html"><![CDATA[<p>分析QGS文件格式及符号及注记组织结构</p><a id="more"></a><h3 id="QGS-文件结构"><a href="#QGS-文件结构" class="headerlink" title="QGS 文件结构"></a>QGS 文件结构</h3><h4 id="QGS-xml结构"><a href="#QGS-xml结构" class="headerlink" title="QGS xml结构"></a>QGS xml结构</h4><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2021/01/02/qgis-develop-filestruct/qgstoplevel.png" alt title>                </div>                <div class="image-caption"></div>            </figure><h4 id="ProjectLayers-结构"><a href="#ProjectLayers-结构" class="headerlink" title="ProjectLayers 结构"></a>ProjectLayers 结构</h4><p>包括图层属性，符号规则，注记规则</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2021/01/02/qgis-develop-filestruct/qgsprojectlayers.png" alt title>                </div>                <div class="image-caption"></div>            </figure><h4 id="QLR-图层定义文件"><a href="#QLR-图层定义文件" class="headerlink" title="QLR 图层定义文件"></a>QLR 图层定义文件</h4><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2021/01/02/qgis-develop-filestruct/qlr.png" alt="qlr" title>                </div>                <div class="image-caption">qlr</div>            </figure><h4 id="QML文件"><a href="#QML文件" class="headerlink" title="QML文件"></a>QML文件</h4><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2021/01/02/qgis-develop-filestruct/qml.png" alt="qml" title>                </div>                <div class="image-caption">qml</div>            </figure><h3 id="MapLayer"><a href="#MapLayer" class="headerlink" title="MapLayer"></a>MapLayer</h3><p>StyleCategory</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2021/01/02/qgis-develop-filestruct/image-20210103220709620.png" alt="image-20210103220709620" title>                </div>                <div class="image-caption">image-20210103220709620</div>            </figure><p>QgsMapLayerStyleManager</p><p>管理与一个地图层一起使用的样式。</p><p>存储的样式由其名称标识。管理器始终跟踪当前处于活动状态的已存储样式。更改当前样式后，新样式将应用于关联的图层。</p><p>QgsMapLayerStyleManagerWidget</p><h4 id="QgsSymbolLayer"><a href="#QgsSymbolLayer" class="headerlink" title="QgsSymbolLayer"></a>QgsSymbolLayer</h4><p>property</p><table><thead><tr><th>PropertySize</th><th>符号大小。</th></tr></thead><tbody><tr><td>PropertyAngle</td><td>符号角度。</td></tr><tr><td>PropertyName</td><td>名称，例如简单标记的形状名称。</td></tr><tr><td>PropertyFillColor</td><td>填色。</td></tr><tr><td>PropertyStrokeColor</td><td>描边颜色。</td></tr><tr><td>PropertyStrokeWidth</td><td>行程宽度。</td></tr><tr><td>PropertyStrokeStyle</td><td>笔触样式（例如，实线，虚线）</td></tr><tr><td>PropertyOffset</td><td>符号偏移量。</td></tr><tr><td>PropertyCharacter</td><td>字符，例如用于字体标记符号层。</td></tr><tr><td>PropertyWidth</td><td>符号宽度。</td></tr><tr><td>PropertyHeight</td><td>符号高度。</td></tr><tr><td>PropertyPreserveAspectRatio</td><td>保留宽度和高度之间的长宽比。</td></tr><tr><td>PropertyFillStyle</td><td>填充样式（例如，实心，点）</td></tr><tr><td>PropertyJoinStyle</td><td>线联接样式。</td></tr><tr><td>PropertySecondaryColor</td><td>次要颜色（例如用于渐变填充）</td></tr><tr><td>PropertyLineAngle</td><td>线角或哈希线符号的哈希线角度。</td></tr><tr><td>PropertyLineDistance</td><td>行之间的距离，或散列线符号的行长。</td></tr><tr><td>PropertyGradientType</td><td>渐变填充类型。</td></tr><tr><td>PropertyCoordinateMode</td><td>渐变坐标模式。</td></tr><tr><td>PropertyGradientSpread</td><td>梯度扩散模式。</td></tr><tr><td>PropertyGradientReference1X</td><td>渐变参考点1 x。</td></tr><tr><td>PropertyGradientReference1Y</td><td>梯度参考点1 y。</td></tr><tr><td>PropertyGradientReference2X</td><td>渐变参考点2 x。</td></tr><tr><td>PropertyGradientReference2Y</td><td>梯度参考点2 y。</td></tr><tr><td>PropertyGradientReference1IsCentroid</td><td>渐变参考点1是质心。</td></tr><tr><td>PropertyGradientReference2IsCentroid</td><td>渐变参考点2为质心。</td></tr><tr><td>PropertyBlurRadius</td><td>Shapeburst模糊半径。</td></tr><tr><td>PropertyShapeburstUseWholeShape</td><td>Shapeburst使用整个形状。</td></tr><tr><td>PropertyShapeburstMaxDistance</td><td>边缘距离处的Shapeburst填充。</td></tr><tr><td>PropertyShapeburstIgnoreRings</td><td>Shapeburst忽略环。</td></tr><tr><td>PropertyFile</td><td>文件名，例如svg文件。</td></tr><tr><td>PropertyDistanceX</td><td>点之间的水平距离。</td></tr><tr><td>PropertyDistanceY</td><td>点之间的垂直距离。</td></tr><tr><td>PropertyDisplacementX</td><td>水平位移。</td></tr><tr><td>PropertyDisplacementY</td><td>垂直位移。</td></tr><tr><td>PropertyOpacity</td><td>不透明度。</td></tr><tr><td>PropertyCustomDash</td><td>自定义破折号模式。</td></tr><tr><td>PropertyCapStyle</td><td>线帽样式。</td></tr><tr><td>PropertyPlacement</td><td>线标记放置。</td></tr><tr><td>PropertyInterval</td><td>行标记间隔。</td></tr><tr><td>PropertyOffsetAlongLine</td><td>沿线偏移。</td></tr><tr><td>PropertyAverageAngleLength</td><td>长度到平均符号角度。</td></tr><tr><td>PropertyHorizontalAnchor</td><td>水平锚点。</td></tr><tr><td>PropertyVerticalAnchor</td><td>垂直锚点。</td></tr><tr><td>PropertyLayerEnabled</td><td>是否启用符号层。</td></tr><tr><td>PropertyArrowWidth</td><td>箭头尾巴宽度。</td></tr><tr><td>PropertyArrowStartWidth</td><td>箭头尾部开始宽度。</td></tr><tr><td>PropertyArrowHeadLength</td><td>箭头长度。</td></tr><tr><td>PropertyArrowHeadThickness</td><td>箭头的厚度。</td></tr><tr><td>PropertyArrowHeadType</td><td>箭头类型。</td></tr><tr><td>PropertyArrowType</td><td>箭头类型。</td></tr><tr><td>PropertyOffsetX</td><td>水平偏移。</td></tr><tr><td>PropertyOffsetY</td><td>垂直偏移。</td></tr><tr><td>PropertyPointCount</td><td>点数。</td></tr><tr><td>PropertyRandomSeed</td><td>随机数种子。</td></tr><tr><td>PropertyClipPoints</td><td>标记是否应修剪到多边形边界。</td></tr><tr><td>PropertyDensityArea</td><td>密度区域。</td></tr><tr><td>PropertyFontFamily</td><td>字体系列。</td></tr><tr><td>PropertyFontStyle</td><td>字体样式。</td></tr><tr><td>PropertyDashPatternOffset</td><td>虚线图案偏移量。</td></tr></tbody></table><h4 id="QgsSymbol"><a href="#QgsSymbol" class="headerlink" title="QgsSymbol"></a>QgsSymbol</h4><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2021/01/02/qgis-develop-filestruct/dir_66f89767e42cf8b00ce6054c6b00ac7c_dep.png" alt="dir_66f89767e42cf8b00ce6054c6b00ac7c_dep" title>                </div>                <div class="image-caption">dir_66f89767e42cf8b00ce6054c6b00ac7c_dep</div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2021/01/02/qgis-develop-filestruct/qgssymbol_8h__incl.png" alt="qgssymbol_8h__incl" title>                </div>                <div class="image-caption">qgssymbol_8h__incl</div>            </figure><h4 id="整体功能结构"><a href="#整体功能结构" class="headerlink" title="整体功能结构"></a>整体功能结构</h4><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2021/01/02/qgis-develop-filestruct/dir_aebb8dcc11953d78e620bbef0b9e2183_dep.png" alt="dir_aebb8dcc11953d78e620bbef0b9e2183_dep" title>                </div>                <div class="image-caption">dir_aebb8dcc11953d78e620bbef0b9e2183_dep</div>            </figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;分析QGS文件格式及符号及注记组织结构&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="GIS" scheme="http://11wy11.github.io/categories/GIS/"/>
+    
+    
+      <category term="QGIS" scheme="http://11wy11.github.io/tags/QGIS/"/>
+    
+  </entry>
   
   <entry>
     <title>QGIS插件开发学习</title>
