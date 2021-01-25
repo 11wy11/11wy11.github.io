@@ -79,7 +79,7 @@ qgis_core.lib;qgis_app.lib;qgis_gui.lib;Qt5Widgets.lib;Qt5Xml.lib;%(AdditionalDe
 
 #### 运行第一个QGIS项目找不到M_PI
 
-主要是C++默认不包含科学库，需要设置预处理器，**_USE_MATH_DEFINES;**
+主要是C++默认不包含科学库，需要设置预处理器，、、、、
 
 ![image-20201121143633512](qgis-develop-4\8)
 
@@ -213,3 +213,41 @@ void QtGuiApplication1::addVectorLayer()
 将include和lib,使用qgis-dev路径下的文件
 
 其次，如果在debug模式下编译提示无法找到某个dll,也可以在网上下载提示的dll，像gdal303.dll，在app/gdal-dev中，proj_8_0.dll，在proj-dev里
+
+#### 3.warning C4003 引入头文件顺序错误
+
+```
+1>d:\osgeo4w64\apps\qgis\include\qgsdatetimestatisticalsummary.h(148): warning C4003: “min”宏的实参不足 (编译源文件 MapRepApp.cpp)
+```
+
+c/c++ **附加包含目录中定义的目录顺序有关，尝试调整相关库顺序**
+
+**<windows.h>头文件中的宏 min(或者max)与QT的类QTimer 中的宏min(或者max)冲突**
+
+#### 4.error C3646未知重写说明符
+
+1.h 1.cpp
+
+2.h 2.cpp
+
+在1.h 中#include了 2.h ，然后在2.h 中又#include了 1.h ，然后这个错误就出现了
+
+**出现这个提示，一般情况是：①本错误所在文档加载的某个头文件中，文件的最后缺失了一个分号。②缺少定义，未包含相应的头文件；③类的定义的先后顺序有误**
+
+#### 5.dll链接不一致不允许定义dllimport静态数据成员
+
+
+
+### QGIS 二次开发在Release模式开发使用断点
+
+1. 链接器》调试，设置生成调试信息，生成完整程序数据库文件，生成映射文件，即时导出，如下图所示
+
+   ![image-20210116223028356](qgis-develop-4/image-20210116223028356.png)
+
+2. 设置C/C++常规调试信息格式：用于“编辑并继续”的程序数据库
+
+   ![image-20210116223135189](qgis-develop-4/image-20210116223135189.png)
+
+3. 设置C/C++ 优化：已禁用
+
+![image-20210116223206885](qgis-develop-4/image-20210116223206885.png)
