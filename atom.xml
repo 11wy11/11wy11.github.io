@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://11wy11.github.io/"/>
-  <updated>2021-01-15T13:42:59.356Z</updated>
+  <updated>2021-03-04T15:27:33.320Z</updated>
   <id>http://11wy11.github.io/</id>
   
   <author>
@@ -15,6 +15,82 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>QGIS自定义符号库</title>
+    <link href="http://11wy11.github.io/2021/03/03/qgis-develop-custom-symbollib/"/>
+    <id>http://11wy11.github.io/2021/03/03/qgis-develop-custom-symbollib/</id>
+    <published>2021-03-03T14:05:10.000Z</published>
+    <updated>2021-03-04T15:27:33.320Z</updated>
+    
+    <content type="html"><![CDATA[<p>QGIS 资料收集总结</p><a id="more"></a><h1 id="1-qgis自定义符号库"><a href="#1-qgis自定义符号库" class="headerlink" title="1.qgis自定义符号库"></a>1.qgis自定义符号库</h1><p>转载:<a href="https://blog.csdn.net/wywywywywywy123456/article/details/66971218" target="_blank" rel="noopener">https://blog.csdn.net/wywywywywywy123456/article/details/66971218</a></p><p>地图符号作为地图语言；抽象描述的客观世界并用直观、生动视觉的手段向我们传递地理信息。每款GIS软件都会自带一些常见的地图符号，也可以自定义地图符号。一般做专题地图那些常规符号库就不能满足我们。</p><p>在使用qgis时候发现自带地图符号少的可怜而且又不美观。于是我引进第三方地图符号；由于qgis自定义允许svg格式我去mapbox官网下载一套svg格式。svg网上资源还是蛮丰富的；加载qgis里只要设置一下路径可以。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2021/03/03/qgis-develop-custom-symbollib/20170327151252041" alt="img" title>                </div>                <div class="image-caption">img</div>            </figure><p>右击Properties选择样式类型SVG。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2021/03/03/qgis-develop-custom-symbollib/20170327151429451" alt="img" title>                </div>                <div class="image-caption">img</div>            </figure><p>当然可以通过lnkscape软件来做符号，然后在保存SVG格式。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2021/03/03/qgis-develop-custom-symbollib/20170327152341462" alt="img" title>                </div>                <div class="image-caption">img</div>            </figure><p>也可以写XML文件来添加地图符号。<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2021/03/03/qgis-develop-custom-symbollib/20170327152759185" alt="img" title>                </div>                <div class="image-caption">img</div>            </figure></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2021/03/03/qgis-develop-custom-symbollib/20170327153028412" alt="img" title>                </div>                <div class="image-caption">img</div>            </figure><p>参考资料</p><p><a href="http://docs.qgis.org/2.14/en/docs/training_manual/basic_map/symbology.html" target="_blank" rel="noopener">http://docs.qgis.org/2.14/en/docs/training_manual/basic_map/symbology.html</a></p><p><a href="https://www.mapbox.com/maki-icons/" target="_blank" rel="noopener">https://www.mapbox.com/maki-icons/</a><br><a href="https://thenounproject.com/" target="_blank" rel="noopener">https://thenounproject.com/</a></p><p><a href="https://mapicons.mapsmarker.com/" target="_blank" rel="noopener">https://mapicons.mapsmarker.com/</a></p><h1 id="2-QGIS切换在线地图服务的地图样式"><a href="#2-QGIS切换在线地图服务的地图样式" class="headerlink" title="2.QGIS切换在线地图服务的地图样式"></a>2.QGIS切换在线地图服务的地图样式</h1><p>转载：<a href="https://blog.csdn.net/weixin_29002209/article/details/112558162" target="_blank" rel="noopener">https://blog.csdn.net/weixin_29002209/article/details/112558162</a></p><p>底图是栅格瓦片服务，所以我们不能对其内容进行控制，更不能对其标注进行修改。不过这一切，在最新的QGIS中，借助一个插件，就可以实现底图效果的自定义了，不仅可以修改不同图层的样式，还可以直接将不想要的图层、标注直接关掉。</p><p><strong>插件MapTiler</strong></p><p>默认提供了7种地图样式，你可以在这些基础上进行改造。我使用最多的是Basic、Streets和Toner。</p><p>需要你输入一个Key才行。点击面板中的地址自己申请一个就可以啦。</p><p>申请完毕填上后，数据就可以加载到工程中啦。</p><p>此时，我们在图层树上选择所加载的图层，右侧就会出现其对应的设置面板。新添加的底图服务面板中，都是每一个可以设置的图层，可以对其进行开关勾选，更可以对其进行样式设置。然，不仅可以对图层效果进行设置，对图层标注也是可以修改的。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;QGIS 资料收集总结&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="QGIS" scheme="http://11wy11.github.io/categories/QGIS/"/>
+    
+    
+      <category term="QGIS" scheme="http://11wy11.github.io/tags/QGIS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>QGIS改造源代码</title>
+    <link href="http://11wy11.github.io/2021/03/02/qis-develop-7-addition-qgis/"/>
+    <id>http://11wy11.github.io/2021/03/02/qis-develop-7-addition-qgis/</id>
+    <published>2021-03-02T14:24:51.000Z</published>
+    <updated>2021-03-02T14:33:02.126Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><p>1、利用uic.exe 手动生成ui头文件</p><p>配置过环境变量QTDIR之后，可以在命令行中使用uic命令</p><p>uic “src\ui\qgisapp.ui” -o “.\ms-windows\osgeo4w\build-qgis-test-x86_64\src\ui\ui_qgisapp.h”</p><p>2.利用moc.exe 编译出cpp文件</p><p><strong>moc.exe” “自定义的.h” -o “moc_xxx.cpp”</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;1、利用uic.exe 手动生成ui头文件&lt;/p&gt;
+&lt;p&gt;配置过环境变量QTDIR之后，可以在命令行中使用uic命令&lt;/p&gt;
+&lt;p&gt;uic “src\ui\qgisapp.ui” -o “.\ms-windows\osgeo4w\buil
+      
+    
+    </summary>
+    
+      <category term="QGIS" scheme="http://11wy11.github.io/categories/QGIS/"/>
+    
+    
+      <category term="QGIS" scheme="http://11wy11.github.io/tags/QGIS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pycharm2020.1破解激活</title>
+    <link href="http://11wy11.github.io/2021/03/02/pycharm-install/"/>
+    <id>http://11wy11.github.io/2021/03/02/pycharm-install/</id>
+    <published>2021-03-02T14:08:06.000Z</published>
+    <updated>2021-03-02T14:09:14.965Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><p>记录：破解激活文档：<a href="https://www.cnblogs.com/xuexianqi/p/12767075.html" target="_blank" rel="noopener">https://www.cnblogs.com/xuexianqi/p/12767075.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;记录：破解激活文档：&lt;a href=&quot;https://www.cnblogs.com/xuexianqi/p/12767075.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.cnblog
+      
+    
+    </summary>
+    
+      <category term="软件" scheme="http://11wy11.github.io/categories/%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+      <category term="软件" scheme="http://11wy11.github.io/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>QGIS二次开发-QT Designer使用技巧点</title>
