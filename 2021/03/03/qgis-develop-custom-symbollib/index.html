@@ -45,7 +45,9 @@
 <meta property="og:image" content="http://11wy11.github.io/2021/03/03/qgis-develop-custom-symbollib/1092574-20171107150849950-1809473349.png">
 <meta property="og:image" content="http://11wy11.github.io/2021/03/03/qgis-develop-custom-symbollib/1092574-20171107151000559-1200382917.png">
 <meta property="og:image" content="http://11wy11.github.io/2021/03/03/qgis-develop-custom-symbollib/1092574-20171107152250341-1723983819.png">
-<meta property="og:updated_time" content="2021-03-10T12:13:16.847Z">
+<meta property="og:image" content="http://11wy11.github.io/2021/03/03/qgis-develop-custom-symbollib/a1dd5c2703fa6e4f6a13c9c7a2860a5e.png">
+<meta property="og:image" content="http://11wy11.github.io/2021/03/03/qgis-develop-custom-symbollib/fbd61c00e048d602e60d433820779379.png">
+<meta property="og:updated_time" content="2021-03-11T11:32:11.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QGIS相关资料整理">
 <meta name="twitter:description" content="QGIS 资料收集总结">
@@ -184,7 +186,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-qgis自定义符号库"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.qgis自定义符号库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-QGIS切换在线地图服务的地图样式"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.QGIS切换在线地图服务的地图样式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-QGIS自定义符号"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.QGIS自定义符号</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用第三方SVG符号库导入QGIS"><span class="post-toc-number">4.</span> <span class="post-toc-text">使用第三方SVG符号库导入QGIS</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一款插件SLYR-ESRI到QGIS兼容插件"><span class="post-toc-number">5.</span> <span class="post-toc-text">一款插件SLYR ESRI到QGIS兼容插件</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-qgis自定义符号库"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.qgis自定义符号库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-QGIS切换在线地图服务的地图样式"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.QGIS切换在线地图服务的地图样式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-QGIS自定义符号"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.QGIS自定义符号</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用第三方SVG符号库导入QGIS"><span class="post-toc-number">4.</span> <span class="post-toc-text">使用第三方SVG符号库导入QGIS</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一款插件SLYR-ESRI到QGIS兼容插件"><span class="post-toc-number">5.</span> <span class="post-toc-text">一款插件SLYR ESRI到QGIS兼容插件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#获取空气质量数据在QGIS进行可视化"><span class="post-toc-number">6.</span> <span class="post-toc-text">获取空气质量数据在QGIS进行可视化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据收集和预处理"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">数据收集和预处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、空气质量指数分级"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">2、空气质量指数分级</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-添加文字标注"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">3.添加文字标注</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -367,6 +369,47 @@
 <li>线符号：简单线，制图线，标记线，哈希线和简单3d线</li>
 <li>填充符号：简单填充，线条填充，标记填充，随机标记填充，图片填充和渐变填充</li>
 </ul>
+<h1 id="获取空气质量数据在QGIS进行可视化"><a href="#获取空气质量数据在QGIS进行可视化" class="headerlink" title="获取空气质量数据在QGIS进行可视化"></a>获取空气质量数据在QGIS进行可视化</h1><h2 id="数据收集和预处理"><a href="#数据收集和预处理" class="headerlink" title="数据收集和预处理"></a>数据收集和预处理</h2><p>城市点数据来自天地图的1：100万地形数据（2017版），WFS服务地址为：<a href="http://gisserver.tianditu.gov.cn/TDTService/wfs" target="_blank" rel="noopener">http://gisserver.tianditu.gov.cn/TDTService/wfs</a></p>
+<p>空气质量指数来自中华人民共和国生态环境部官网：<a href="https://www.mee.gov.cn/" target="_blank" rel="noopener">https://www.mee.gov.cn/</a></p>
+<ol>
+<li><p>首先，收集和整理空气质量指数。从生态环境部将所需要的数据下载，整理为三个字段：AQI、空气质量、城市，保存为CSV分隔文本文件。其中AQI为整型字段，用于制作空气质量指数分级专题图；空气质量是对应AQI分级的中文描述；城市名称将作为连接字段与矢量数据挂接。</p>
+</li>
+<li><p>其次，利用QGIS提取和处理天地图1：100万地形数据（2017版）居民点数据。打开QGIS，在【浏览】面板找到“WFS/OGC API-Features”节点，右键-&gt;【新建连接】，在弹出的对话框，名称填写“tianditu”，URL输入：“<a href="http://gisserver.tianditu.gov.cn/TDTService/wfs”，点击【OK】完成WFS连接。" target="_blank" rel="noopener">http://gisserver.tianditu.gov.cn/TDTService/wfs”，点击【OK】完成WFS连接。</a></p>
+</li>
+<li><p>展开【浏览器】面板-&gt;【WFS/OGC API-Features】-&gt;【tianditu】，可以看到该数据服务下共有AANP、AGNP、BOUA、BOUL等十个图层，对应居民点、行政区划界线、水系、道路等要素，其中AGNP为带名称的居民点，将其拖拽到地图窗口，同时打开对应的属性表，观察数据情况：可以看到，AGNP图层共包含OBJECTID、CLASS、NAME、PINYIN、GNID、XZNAME六个字段，其中CLASS表示居民点分类，通过分析可知，当CLASS取值为“AD”时，可提取到城市点。</p>
+</li>
+<li><p>点击属性表窗口左下角的下拉菜单，选择【高级过滤（表达式）】，打开表达式字符串过滤器，输入下列表达式筛选出城市点：”CLASS”  =  ‘AD’点击【OK】完成表达式筛选，返回属性表窗口，共过滤出415个要素，点击表格左上角，选中所有过滤结果：切换到QGIS地图主窗口，右键点击【图层】面板-&gt;【AGNP】-&gt;【导出】-&gt;【另存选中的要素为…】，弹出【矢量图层另存为】对话框，设置如下参数：格式：GeoPackage；文件名：任意存储路径\city.gpkg；其他参数保持默认，点击【OK】将筛选到的城市点保存为单独的图层。</p>
+</li>
+<li><p>最后，建立空气质量指数与城市点数据的连接。在【浏览器】面板找到上一步骤保存的城市点图层和空气质量指数，拖拽到地图窗口。右键点击城市点图层-&gt;【属性】-&gt;【连接】： 击左下角的 按钮，打开新建连接对话框，设置如下参数：</p>
+<p>​    连接图层：AQI20210128；</p>
+<p>​    连接字段：城市；</p>
+<p>​    目标字段：NAME。</p>
+<p><img src="/2021/03/03/qgis-develop-custom-symbollib/a1dd5c2703fa6e4f6a13c9c7a2860a5e.png" alt="img"></p>
+<p>点击【OK】完成连接设置。</p>
+</li>
+<li><p>关闭图层属性对话框，返回QGIS主窗口，打开城市点图层的属性表窗口，可以看到属性字段增加了AQI、空气质量和城市，说明AQI数据已经连接到城市点图层，至此，数据预处理工作完成，开始空气质量指数地图可视化设置。</p>
+</li>
+</ol>
+<h2 id="2、空气质量指数分级"><a href="#2、空气质量指数分级" class="headerlink" title="2、空气质量指数分级"></a>2、空气质量指数分级</h2><p>根据我国生态环境部科技标准司于2012年发布的《环境空气质量指数（AQI）技术规定（试行）（HJ 633—2012）》，我国的空气质量指数可以分为六个等级，具体分级标准如下：</p>
+<p> <img src="/2021/03/03/qgis-develop-custom-symbollib/fbd61c00e048d602e60d433820779379.png" alt="img"></p>
+<p>使用QGIS的“渐进”渲染，可以将上述标准表达在地图上。 </p>
+<p>选中城市点图层，点击【图层】面板上方的 按钮，打开【图层样式】面板，点击渲染器下拉框，选择“渐进”渲染：设置“渐进”渲染的参数如下： </p>
+<p>值：AQI20210128_AQI；</p>
+<p>图例格式：精度-2，勾选“裁剪”；</p>
+<p>模式：等数量（分位数）；</p>
+<p>类：6。</p>
+<p>点击【分类】按钮，将城市的AQI分为6个等级，如下图：默认的分级断点和样式与我国的标准并不一致，需要手工调整。首先，修改一级AQI的符号颜色为标准规定的绿色，RGB值为（72, 228, 0）：双击分类第一行中的【符号】， 在符号图层选中【标记】-&gt;【简单标记】-&gt;【填充颜色】-&gt;【选择颜色】，分别填入颜色的R、G、B分量：72, 228, 0。</p>
+<p> 第二步，修改分级的上下限。双击第一行的【值】，弹出上下限设置对话框，输入【下界值】为0；【上界值】为50：</p>
+<p> 最后，修改图例的文字，双击第一行的【图例】，进入编辑状态，输入文字“优”：</p>
+<p> 按同样步骤完成其他AQI级别的符号、上下限、图例的修改，完成后效果如下图：</p>
+<h2 id="3-添加文字标注"><a href="#3-添加文字标注" class="headerlink" title="3.添加文字标注"></a>3.添加文字标注</h2><p>在【图层样式】面板，切换到 标注标签页，选择“单一标注”，点击【值】右侧的 按钮，打开【表达式对话框】，输入如下表达式作为标注的内容：</p>
+<p>“NAME”  ||  ‘\n’  || “AQI20210128_AQI”</p>
+<p>接下来设置标签的背景颜色。切换到 背景，勾选“绘制背景”，设置【大小 横坐标】为2，【纵向大小】为0.5，点击【填充颜色】右侧的 按钮，打开【表达式字符串构造器】对话框，输入如下表达式设置标注的背景色：</p>
+<p>@symbol_color</p>
+<p>此时可以看到，有些标注压盖了城市点，需要设置标注的位置以解决压盖问题。切换到 位置，将【模式】设置为“离点偏移量”，【横、纵坐标偏移】分别输入0.0000，-6.0000。</p>
+<p>为了明确标注与城市的对应关系，可以绘制引出线，即标注牵引线。切换到 引出线，勾选“绘制引出线”，将【从要素偏移】设置为1毫米。</p>
+<p>最后，为地图选择一个比较素净的网络地图作为背景图，本文选择使用OpenStreetMap monochrome作为底图，其XYZ连接URL为：<a href="http://a.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png。也可以使用国内的天地图、高德地图等（关于如何加载网络地图，请参考：浅谈XYZTiles" target="_blank" rel="noopener">http://a.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png。也可以使用国内的天地图、高德地图等（关于如何加载网络地图，请参考：浅谈XYZTiles</a> 和 通过QGIS XYZ Tiles访问国内四大图商地图服务）。最终效果如下：</p>
+<p>转载原文链接：<a href="https://blog.csdn.net/QGISClass/article/details/113360573" target="_blank" rel="noopener">https://blog.csdn.net/QGISClass/article/details/113360573</a></p>
 
         </div>
 
@@ -375,7 +418,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2021-03-10T12:13:16.847Z" itemprop="dateUpdated">2021-03-10 20:13:16</time>
+    最后更新时间：<time datetime="2021-03-11T11:32:11.123Z" itemprop="dateUpdated">2021-03-11 19:32:11</time>
 </span><br>
 
 

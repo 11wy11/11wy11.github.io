@@ -23,18 +23,21 @@
     
     
     <meta name="keywords" content="软件">
-    <meta name="description" content="记录：破解激活文档：https://www.cnblogs.com/xuexianqi/p/12767075.html">
+    <meta name="description" content="记录：破解激活文档：https://www.cnblogs.com/xuexianqi/p/12767075.html 【Python】在PyCharm的菜单栏中配置Python2代码转换Python3的工具概述本文介绍如何在PyCharm环境配置2to3.py工具到菜单栏。 测试环境Windows 10 64位PyCharm Community Edition 2016.3Python 3.5">
 <meta name="keywords" content="软件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pycharm2020.1破解激活">
 <meta property="og:url" content="http://11wy11.github.io/2021/03/02/pycharm-install/index.html">
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
-<meta property="og:description" content="记录：破解激活文档：https://www.cnblogs.com/xuexianqi/p/12767075.html">
+<meta property="og:description" content="记录：破解激活文档：https://www.cnblogs.com/xuexianqi/p/12767075.html 【Python】在PyCharm的菜单栏中配置Python2代码转换Python3的工具概述本文介绍如何在PyCharm环境配置2to3.py工具到菜单栏。 测试环境Windows 10 64位PyCharm Community Edition 2016.3Python 3.5">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-03-02T14:09:14.965Z">
+<meta property="og:image" content="http://11wy11.github.io/2021/03/02/pycharm-install/image-20210313194349723.png">
+<meta property="og:image" content="http://11wy11.github.io/2021/03/02/pycharm-install/image-20210313194650582.png">
+<meta property="og:updated_time" content="2021-03-13T11:47:04.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pycharm2020.1破解激活">
-<meta name="twitter:description" content="记录：破解激活文档：https://www.cnblogs.com/xuexianqi/p/12767075.html">
+<meta name="twitter:description" content="记录：破解激活文档：https://www.cnblogs.com/xuexianqi/p/12767075.html 【Python】在PyCharm的菜单栏中配置Python2代码转换Python3的工具概述本文介绍如何在PyCharm环境配置2to3.py工具到菜单栏。 测试环境Windows 10 64位PyCharm Community Edition 2016.3Python 3.5">
+<meta name="twitter:image" content="http://11wy11.github.io/2021/03/02/pycharm-install/image-20210313194349723.png">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -166,6 +169,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#【Python】在PyCharm的菜单栏中配置Python2代码转换Python3的工具"><span class="post-toc-number">1.</span> <span class="post-toc-text">【Python】在PyCharm的菜单栏中配置Python2代码转换Python3的工具</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2to3-py"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">2to3.py</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置步骤"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">配置步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#参考：https-blog-csdn-net-yannanxiu-article-details-54601075"><span class="post-toc-number">1.0.2.1.</span> <span class="post-toc-text">参考：https://blog.csdn.net/yannanxiu/article/details/54601075</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
 
 <article id="post-pycharm-install" class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -189,7 +199,34 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <a id="more"></a>
 <p>记录：破解激活文档：<a href="https://www.cnblogs.com/xuexianqi/p/12767075.html" target="_blank" rel="noopener">https://www.cnblogs.com/xuexianqi/p/12767075.html</a></p>
-
+<h1 id="【Python】在PyCharm的菜单栏中配置Python2代码转换Python3的工具"><a href="#【Python】在PyCharm的菜单栏中配置Python2代码转换Python3的工具" class="headerlink" title="【Python】在PyCharm的菜单栏中配置Python2代码转换Python3的工具"></a>【Python】在PyCharm的菜单栏中配置Python2代码转换Python3的工具</h1><p>概述<br>本文介绍如何在PyCharm环境配置2to3.py工具到菜单栏。</p>
+<p>测试环境<br>Windows 10 64位<br>PyCharm Community Edition 2016.3<br>Python 3.5.1</p>
+<h3 id="2to3-py"><a href="#2to3-py" class="headerlink" title="2to3.py"></a>2to3.py</h3><p>如果要把python2编译器下的代码转换升级到python3编译器，可以使用Python自带的2to3.py工具进行转化。</p>
+<p>你可以在Python安装路径下的Tools\scripts目录下找到2to3.py文件。</p>
+<p>命令行使用方式：</p>
+<p>python C:\Python35\Tools\scripts\2to3.py -w [filename]</p>
+<p>可以加-h查看帮助：</p>
+<p>python C:\Python35\Tools\scripts\2to3.py -h</p>
+<h3 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h3><p>第一步：<br>pyCharm菜单栏–&gt;「File」–&gt;「Settings」–&gt;「Tools」–&gt;「External Tools」–&gt;点击加号添加工具。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2021/03/02/pycharm-install/image-20210313194349723.png" alt="image-20210313194349723" title>
+                </div>
+                <div class="image-caption">image-20210313194349723</div>
+            </figure>
+<p>第二步：<br>工具配置如下：</p>
+<p>Program：\$ModuleSdkPath\$<br>Parameters：C:\Python35\Tools\scripts\2to3.py -w “\$FilePath\$”<br>Working directory：\$FileDir\$</p>
+<p>第三步：<br>之后一路「OK」即可，完成后可以在「菜单栏」–&gt;「Tool」–&gt;「Extern Tools」下使用。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2021/03/02/pycharm-install/image-20210313194650582.png" alt="image-20210313194650582" title>
+                </div>
+                <div class="image-caption">image-20210313194650582</div>
+            </figure>
+<p>注意事项<br>由于Markdown编辑器的原因，参数以图片为准。<br>2to3.py存放路径最好不要有空格，或者尝试给执行路径加英文双引号，例如：<br>“C:\Python37\Tools\scripts\2to3.py” -w “\$FilePath\$”</p>
+<h4 id="参考：https-blog-csdn-net-yannanxiu-article-details-54601075"><a href="#参考：https-blog-csdn-net-yannanxiu-article-details-54601075" class="headerlink" title="参考：https://blog.csdn.net/yannanxiu/article/details/54601075"></a>参考：<a href="https://blog.csdn.net/yannanxiu/article/details/54601075" target="_blank" rel="noopener">https://blog.csdn.net/yannanxiu/article/details/54601075</a></h4>
         </div>
 
         <blockquote class="post-copyright">
@@ -197,7 +234,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2021-03-02T14:09:14.965Z" itemprop="dateUpdated">2021-03-02 22:09:14</time>
+    最后更新时间：<time datetime="2021-03-13T11:47:04.949Z" itemprop="dateUpdated">2021-03-13 19:47:04</time>
 </span><br>
 
 

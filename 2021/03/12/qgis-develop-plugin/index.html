@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <!-- 百度搜索检测验证 -->
+    <meta name="baidu-site-verification" content="code-pNOeknJCac">
+    
+    <title>QGIS的插件开发（C++&amp;python） | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="QGIS">
+    <meta name="description" content="QGIS的插件开发（C++&amp;amp;Python）基于C++C++插件一般以Dll文件的形式，存放在工程下。当我们使用对应的插件时，会动态加载它。和Python良好的可移植性不同，Dll文件及其附属一系列的链接库不可以直接加入现有工程。所以，我们采用重新编译的方法来生成对应的Dll文件。 研究思路QGIS是基于QT开发的开源项目。其中自带有Plugin Builder的插件，利用Plugin B">
+<meta name="keywords" content="QGIS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QGIS的插件开发（C++&amp;python）">
+<meta property="og:url" content="http://11wy11.github.io/2021/03/12/qgis-develop-plugin/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="QGIS的插件开发（C++&amp;amp;Python）基于C++C++插件一般以Dll文件的形式，存放在工程下。当我们使用对应的插件时，会动态加载它。和Python良好的可移植性不同，Dll文件及其附属一系列的链接库不可以直接加入现有工程。所以，我们采用重新编译的方法来生成对应的Dll文件。 研究思路QGIS是基于QT开发的开源项目。其中自带有Plugin Builder的插件，利用Plugin B">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-03-12T08:09:48.365Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QGIS的插件开发（C++&amp;python）">
+<meta name="twitter:description" content="QGIS的插件开发（C++&amp;amp;Python）基于C++C++插件一般以Dll文件的形式，存放在工程下。当我们使用对应的插件时，会动态加载它。和Python良好的可移植性不同，Dll文件及其附属一系列的链接库不可以直接加入现有工程。所以，我们采用重新编译的方法来生成对应的Dll文件。 研究思路QGIS是基于QT开发的开源项目。其中自带有Plugin Builder的插件，利用Plugin B">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/weiyuan_player">
+                <i class="icon icon-lg icon-link"></i>
+                CSDN
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">QGIS的插件开发（C++&amp;python）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">QGIS的插件开发（C++&amp;python）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-03-12T07:13:25.000Z" itemprop="datePublished" class="page-time">
+  2021-03-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/QGIS/">QGIS</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#QGIS的插件开发（C-amp-Python）"><span class="post-toc-number">1.</span> <span class="post-toc-text">QGIS的插件开发（C++&amp;Python）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基于C"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">基于C++</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#研究思路"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">研究思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">源码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生成插件模板"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">生成插件模板</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#生成vs工程"><span class="post-toc-number">1.3.1.1.</span> <span class="post-toc-text">生成vs工程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">1.3.1.2.</span> <span class="post-toc-text">参考资料</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-qgis-develop-plugin" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">QGIS的插件开发（C++&python）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-03-12 15:13:25" datetime="2021-03-12T07:13:25.000Z" itemprop="datePublished">2021-03-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/QGIS/">QGIS</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <a id="more"></a>
+<h1 id="QGIS的插件开发（C-amp-Python）"><a href="#QGIS的插件开发（C-amp-Python）" class="headerlink" title="QGIS的插件开发（C++&amp;Python）"></a>QGIS的插件开发（C++&amp;Python）</h1><h2 id="基于C"><a href="#基于C" class="headerlink" title="基于C++"></a>基于C++</h2><p>C++插件一般以Dll文件的形式，存放在工程下。当我们使用对应的插件时，会动态加载它。<br>和Python良好的可移植性不同，Dll文件及其附属一系列的链接库不可以直接加入现有工程。所以，我们采用重新编译的方法来生成对应的Dll文件。</p>
+<h2 id="研究思路"><a href="#研究思路" class="headerlink" title="研究思路"></a>研究思路</h2><p>QGIS是基于QT开发的开源项目。其中自带有Plugin Builder的插件，利用Plugin Builder，可以直接建立一个插件模板。</p>
+<p>然而，Plugin Builder生成的插件模板是Python格式，为了让它能够成为我们希望的Dll格式。<br>我们将利用Plugin Builder的功能，先生成插件模板源码。再将其加入qgis源码中，重新用C++编译整个qgis工程来生成它。<br>（本文中将用大小写来区分QGIS Desktop桌面应用和qgis源码）</p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>【Plugin Builder源码】</p>
+<p><a href="https://github.com/g-sherman/Qgis-Plugin-Builder" target="_blank" rel="noopener">https://github.com/g-sherman/Qgis-Plugin-Builder</a></p>
+<p>Plugin Builder是一个同QGIS版本变化同步更新的一个插件。</p>
+<p>如果你有下载安装过QGIS Desktop，你会发现他的Plugin Builder插件有所更改，名为Plugin Builder 3<br>同时在3版本以上的qgis源码中，我们找不到Plugin Builder的源码。<br>（本文中将用Plugin Builder和Plugin Builder 3分别表示不同版本的PluginBuilder插件）</p>
+<p>而目前提供的Plugin Builder（包含CMakeList）源码，还使用早期QT4和Python2的编译规则。<br>所以，如果你下载的源码版本是较新的（3版本以上），你还需要下载qgis-ltr（稳定维护版本2.18.25）的源码。<br>qgis-latest-ltr</p>
+<p>在这个版本里，你可以在src/plugins下找到我们需要的Plugin Builder源码</p>
+<p><strong>我找不到，单独下载了plugin builder的源码，按照教程放置，提示</strong>找不到resouce</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;plugin_builder.py&quot;, line 47, in &lt;module&gt;</span><br><span class="line">    from .resources import *  #pylint: disable=W0401,W0614</span><br><span class="line">ModuleNotFoundError: No module named &apos;__main__.resources&apos;; &apos;__main__&apos; is not a package</span><br></pre></td></tr></table></figure>
+<h3 id="生成插件模板"><a href="#生成插件模板" class="headerlink" title="生成插件模板"></a>生成插件模板</h3><p>生成插件指令<br>在plugin_builder.py所在位置运行cmd</p>
+<p>PS D:\QGIS\qgis-3.2.2\src\plugins&gt; python3 plugin_builder.py<br>它和MFC类似，是一个简单的向导。<br>会依次输出要求指令，输入合适的内容即可直接构造。</p>
+<p>您的插件MyTool已在my_plugin中创建，CMakeLists.txt已被修改。<br>一旦您的插件成功构建，请查看my_plugin/readme关于如何开始的提示</p>
+<h4 id="生成vs工程"><a href="#生成vs工程" class="headerlink" title="生成vs工程"></a>生成vs工程</h4><p>将处理好的源码，利用cmake生成对应的工程文件。<br>并对其编译，使其成功生成。</p>
+<p>在资源管理器中找到以你的插件为命名的项目<br>如，我的是——mytoolplugin<br>对这个项目的添加有关.h和.cpp文件，对其编辑，最后生成解决方案中的<br>即为你的C++插件<br>你可以在新建项目的目录中找到他们。</p>
+<p>出错补充<br>在加入自定义的插件后，这个插件项目，可能会出现以下错误<br>C1083 无法打开包括文件: “qgis_core.h”: No such file or directory<br>C1083 无法打开包括文件: “qgis_gui.h”: No such file or directory<br>C1083 无法打开包括文件: “qgisexpression.h”: No such file or directory<br>解决方法——<br>在这个项目属性，C++常规，附加包含目录中添加<br>源码路径\src\core<br>源码路径\src\gui<br>源码路径\core\expression<br>即可</p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://blog.csdn.net/qq_39506222/article/details/83579888?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_v2~rank_aggregation-3-83579888.pc_agg_rank_aggregation&amp;utm_term=c%2B%2B%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91+qgis&amp;spm=1000.2123.3001.4430" target="_blank" rel="noopener">https://blog.csdn.net/qq_39506222/article/details/83579888?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_v2~rank_aggregation-3-83579888.pc_agg_rank_aggregation&amp;utm_term=c%2B%2B%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91+qgis&amp;spm=1000.2123.3001.4430</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-03-12T08:09:48.365Z" itemprop="dateUpdated">2021-03-12 16:09:48</time>
+</span><br>
+
+
+        
+        <a href="/2021/03/12/qgis-develop-plugin/" target="_blank" rel="external">http://11wy11.github.io/2021/03/12/qgis-develop-plugin/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QGIS/">QGIS</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2021/03/12/qgis-develop-plugin/&title=《QGIS的插件开发（C++&python）》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2021/03/12/qgis-develop-plugin/&title=《QGIS的插件开发（C++&python）》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2021/03/12/qgis-develop-plugin/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《QGIS的插件开发（C++&python）》 — WeiYuan's Blog&url=http://11wy11.github.io/2021/03/12/qgis-develop-plugin/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2021/03/12/qgis-develop-plugin/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/03/10/svg-learn/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">使用SVG制作icon</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2021/03/12/qgis-develop-plugin/&title=《QGIS的插件开发（C++&python）》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2021/03/12/qgis-develop-plugin/&title=《QGIS的插件开发（C++&python）》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2021/03/12/qgis-develop-plugin/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《QGIS的插件开发（C++&python）》 — WeiYuan's Blog&url=http://11wy11.github.io/2021/03/12/qgis-develop-plugin/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2021/03/12/qgis-develop-plugin/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aUY7DIAwFwN7/0tkDdEOfDa0UGL5WaQlMV7JszOsVj+tmvH9692T8zvfnr28MDAyMxzKu4RhvtLqt8XfG6959BwMD4xzGXQQbbzpBjoNvMne8NwwMDIw8XUtCdnXrGBgYGD1Gdcm8iE0SUAwMjJMZebisnnTlP8GPanEMDIwHMvLg+Pu/v9LfwMDAeBTjKo5VDc6ZPfyzCgYGxtaM3lHa2mbkeFbhogYGBsbWjPExVm+xapDNE9NyJouBgXEAY2b5XvrYa4JiYGDsyhhva6ZJkKSP1Tbq7acYGBjHMMqTp4vPajvz9lMMDIzDGMm0vAEwkz4WfiYMDIytGfkxWRIEe1tMAm45ScXAwNiUMdOSzBPHatJZLY8xMDD2Y+SJ3aqkrXcV48OKGBgYWzPy5mIeBKNOaSutXNAjxcDA2IiRv3RVOzNPNG/fhoGBsSmjWe+2EseEkTyP4jEGBsZGjF5wHIfa+cI4fz8GBsZpjJl0rRcc8+savfIYAwNjJ0ZyeaJ6oJ83EvI3fAjKGBgYxzDykDfTnqwG33JFjoGBsSkj326+6VUNhkLAxcDA2I5xFcfMGVeSgOZv+PB/wMDA2Iix9mgsTzqrs6rtVQwMjP0Y+WHZOCxWZ62tRjEwME5gzAe+/IJXeYtJexUDAwOjdQGiVwBXi14MDAyMBQtMwAopJgYGxgGM/FJXcqDWe9JroGJgYJzA6IW8XvDtXRGbL30xMDAey/gDuztLqajb2BQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

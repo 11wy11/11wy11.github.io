@@ -23,18 +23,18 @@
     
     
     <meta name="keywords" content="QGIS">
-    <meta name="description" content="QGIS git  https://github.com/qgis QGIS 快速指南 QGIS Python 开发手册 QGIS C++ 开发手册 QGIS API https://qgis.org/api/3.14/api_break.html QgsDiagramRendererV2 通过 QgsVectorLayer 的 setDiagramRenderer() 方法，传入一个 QgsD">
+    <meta name="description" content="QGIS git  https://github.com/qgis QGIS 快速指南  用户手册 https://docs.qgis.org/3.16/en/docs/user_manual/index.html 教程 https://docs.qgis.org/3.16/en/docs/training_manual/index.html QGIS Python 开发手册 https://d">
 <meta name="keywords" content="QGIS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="QGIS二次开发学习（一）">
 <meta property="og:url" content="http://11wy11.github.io/2020/11/18/qgis-develop-1/index.html">
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
-<meta property="og:description" content="QGIS git  https://github.com/qgis QGIS 快速指南 QGIS Python 开发手册 QGIS C++ 开发手册 QGIS API https://qgis.org/api/3.14/api_break.html QgsDiagramRendererV2 通过 QgsVectorLayer 的 setDiagramRenderer() 方法，传入一个 QgsD">
+<meta property="og:description" content="QGIS git  https://github.com/qgis QGIS 快速指南  用户手册 https://docs.qgis.org/3.16/en/docs/user_manual/index.html 教程 https://docs.qgis.org/3.16/en/docs/training_manual/index.html QGIS Python 开发手册 https://d">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-22T06:42:11.083Z">
+<meta property="og:updated_time" content="2021-03-12T08:02:25.218Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QGIS二次开发学习（一）">
-<meta name="twitter:description" content="QGIS git  https://github.com/qgis QGIS 快速指南 QGIS Python 开发手册 QGIS C++ 开发手册 QGIS API https://qgis.org/api/3.14/api_break.html QgsDiagramRendererV2 通过 QgsVectorLayer 的 setDiagramRenderer() 方法，传入一个 QgsD">
+<meta name="twitter:description" content="QGIS git  https://github.com/qgis QGIS 快速指南  用户手册 https://docs.qgis.org/3.16/en/docs/user_manual/index.html 教程 https://docs.qgis.org/3.16/en/docs/training_manual/index.html QGIS Python 开发手册 https://d">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -189,10 +189,16 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <a id="more"></a>
 <p>QGIS git  <a href="https://github.com/qgis" target="_blank" rel="noopener">https://github.com/qgis</a></p>
-<p>QGIS 快速指南</p>
+<p>QGIS 快速指南 </p>
+<p>用户手册 <a href="https://docs.qgis.org/3.16/en/docs/user_manual/index.html" target="_blank" rel="noopener">https://docs.qgis.org/3.16/en/docs/user_manual/index.html</a></p>
+<p>教程 <a href="https://docs.qgis.org/3.16/en/docs/training_manual/index.html" target="_blank" rel="noopener">https://docs.qgis.org/3.16/en/docs/training_manual/index.html</a></p>
 <p>QGIS Python 开发手册</p>
-<p>QGIS C++ 开发手册</p>
+<p><a href="https://docs.qgis.org/3.16/en/docs/pyqgis_developer_cookbook/index.html" target="_blank" rel="noopener">https://docs.qgis.org/3.16/en/docs/pyqgis_developer_cookbook/index.html</a></p>
+<p> PyQGIS API <a href="https://qgis.org/pyqgis/" target="_blank" rel="noopener">https://qgis.org/pyqgis/</a></p>
+<p>QGIS C++ 开发手册 <a href="https://qgis.org/api/" target="_blank" rel="noopener">https://qgis.org/api/</a></p>
 <p>QGIS API <a href="https://qgis.org/api/3.14/api_break.html" target="_blank" rel="noopener">https://qgis.org/api/3.14/api_break.html</a></p>
+<p>早期3.1.0.0的用户手册<a href="https://docs.huihoo.com/qgis/qgis-1.0.0-user-guide-en.pdf" target="_blank" rel="noopener">https://docs.huihoo.com/qgis/qgis-1.0.0-user-guide-en.pdf</a></p>
+<p>开发人员手册：<a href="https://docs.qgis.org/3.16/en/docs/developers_guide/index.html" target="_blank" rel="noopener">https://docs.qgis.org/3.16/en/docs/developers_guide/index.html</a></p>
 <p>QgsDiagramRendererV2</p>
 <p>通过 QgsVectorLayer 的 setDiagramRenderer() 方法，传入一个 QgsDiagramRendererV2 的实例，当前的矢量图层就会以设置的方法来渲染显示图表。</p>
 <p>其中 QgsLinearlyInterpolatedDiagramRenderer和QgsSingleCategoryDiagramRenderer 分别是具体的渲染方法类，</p>
@@ -275,7 +281,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-12-22T06:42:11.083Z" itemprop="dateUpdated">2020-12-22 14:42:11</time>
+    最后更新时间：<time datetime="2021-03-12T08:02:25.218Z" itemprop="dateUpdated">2021-03-12 16:02:25</time>
 </span><br>
 
 
