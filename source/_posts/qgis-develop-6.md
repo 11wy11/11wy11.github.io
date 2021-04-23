@@ -9,6 +9,8 @@ python PyQGIS插件开发代码学习片段
 
 <!--more-->
 
+## Python插件开发部分代码片段
+
 #### QGIS设置支持mdb
 
 点击设置》选项》系统，在环境，勾选使用自定义变量，添加两个环境：
@@ -21,5 +23,10 @@ PGEO_DRIVER_TEMPLATE DRIVER=Microsoft Access Driver (*.mdb, *.accdb);DBQ=%s
 
 
 
-D:\OSGeo4W64\include;D:\OSGeo4W64\apps\Qt5\include\QtXml;D:\OSGeo4W64\apps\Qt5\include\QtWidgets;D:\OSGeo4W64\apps\Qt5\include\QtQml;D:\OSGeo4W64\apps\Qt5\include\QtGui;D:\OSGeo4W64\apps\Qt5\include\QtPrintSupport;D:\OSGeo4W64\apps\Qt5\include\QtQmlDebug;.\;.\qgslib\ui;D:\OSGeo4W64\apps\gdal-dev\include;D:\OSGeo4W64\apps\Qt5\include\qt5keychain;D:\OSGeo4W64\apps\Qt5\include\QtCrypto;D:\OSGeo4W64\apps\Qt5\include\QtSql;D:\OSGeo4W64\apps\Qt5\include\QtCore;.\qgslib\core;.\qgslib\app\layout;.\qgslib\gui;.\qgslib\app;D:\OSGeo4W64\apps\qgis\include;%(AdditionalIncludeDirectories)
+## QGIS自定义Python表达式
 
+参考资料：https://gis.stackexchange.com/questions/386223/qgis-custom-python-expressions-not-loading-on-startup
+
+### XML相关
+
+https://doc.qt.io/qtforpython-5/PySide2/QtXml/QDomNode.html

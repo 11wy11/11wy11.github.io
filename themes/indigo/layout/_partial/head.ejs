@@ -12,6 +12,8 @@
     <% if(theme.canonical){ %>
     <link rel="canonical" href="<%- (theme.canonical + url_for(page.path)).replace(/index\.html$/, '') %>">
     <% }%>
+    <!-- 百度搜索检测验证 -->
+    <meta name="baidu-site-verification" content="code-pNOeknJCac" />
     <%
         var title = page.title;
 

@@ -9,7 +9,7 @@ categories: 使用技巧
 
 <!--more-->
 
-#百度搜索资源平台
+### 百度搜索资源平台
 
 https://ziyuan.baidu.com/linksubmit/
 
@@ -18,5 +18,7 @@ https://ziyuan.baidu.com/linksubmit/
 以前可以的，现在需要先注册主站，才能解锁一些功能。恩，是时候搭建一个自己的站点了。
 
 网上找到的，将自己的博文地址贴到下方的网址里，可以主动向百度搜索推送，加快抓取速度。不过亲测关键还是得自己博文写得能够吸引人，能真的解决大家的问题。
+
+### 提交非验证站点的链接
 
 https://ziyuan.baidu.com/linksubmit/url

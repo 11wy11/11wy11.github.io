@@ -165,6 +165,22 @@ if %errorlevel% neq 0 goto :VCEnd
  QQmlComponent: Component is not ready
 79>  file:///J:/QGISDEV/QGISBuild1/src/quickgui/plugin/typelist.qml:2:1: plugin cannot be loaded for module "QgsQuick": Cannot load library J:\QGISDEV\QGISBuild1\src\quickgui\plugin\QgsQuick\qgis_quick_plugin.dll: 找不到指定的模块。
 
+### 3.7 proj相关宏命令重定义
+
+比较坑的地方是OSGeo4W64/include 以及OSGeo4W64/app/proj-dev/include 均有proj.h，需要看你工程里配置的proj库是哪个路径，我的需要修改的是OSGeo4W64/include 下的proj.h设置\#pragma once，注意看include 的引入顺序，默认生成的引用顺序为先定义了proj-dev/include 后定义了OSGeo4W64/include，调整顺序为下图所示：
+
+![image-20201229172653562](qgis-development-problem/image-20201229172653562.png)
+
+**总结：**
+
+**1. 修改OSGeo4W64/include 下的proj.h，在文件开头 添加代码：#pragma once**
+
+**2. 调整c++/常规，附加包含目录，include顺序，先根目录C:\OSGeo4W64\include，再C:\OSGeo4W64\apps\proj-dev\include**
+
+3.步骤2需要设置的工程包括：qgis_core,qgis_gui,qgis_app,qgis_process
+
+### 3.8新建C++插件
+
 ### 4. python相关
 
 Debug方式编译生成解决方案时，提示缺少python37_d.lib，需要安装python debug版本，如果没有，可以修改已经安装的python，如下图所示

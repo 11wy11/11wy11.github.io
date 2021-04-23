@@ -7,17 +7,41 @@ categories: GIS
 
 <!--more-->
 
+# QGIS基本资料
+
 QGIS git  https://github.com/qgis
 
-QGIS 快速指南
+QGIS 快速指南 
+
+用户手册 https://docs.qgis.org/3.16/en/docs/user_manual/index.html
+
+教程 https://docs.qgis.org/3.16/en/docs/training_manual/index.html
 
 QGIS Python 开发手册
 
-QGIS C++ 开发手册
+https://docs.qgis.org/3.16/en/docs/pyqgis_developer_cookbook/index.html
+
+ PyQGIS API https://qgis.org/pyqgis/
+
+QGIS C++ 开发手册 https://qgis.org/api/
 
 QGIS API https://qgis.org/api/3.14/api_break.html
 
+早期3.1.0.0的用户手册https://docs.huihoo.com/qgis/qgis-1.0.0-user-guide-en.pdf
+
+开发人员手册：https://docs.qgis.org/3.16/en/docs/developers_guide/index.html
+
 QgsDiagramRendererV2
+
+几何生成器函数介绍：https://docs.qgis.org/3.16/en/docs/user_manual/working_with_vector/functions_list.html?highlight=tapered_buffer#geometry-functions
+
+插件目录：http://plugins.qgis.org/plugins/
+
+###### QGIS|如何正确分发成果数据？https://www.pianshen.com/article/57192006165/
+
+表达式-函数编辑器
+
+https://docs.qgis.org/3.16/en/docs/user_manual/working_with_vector/expression.html?highlight=function%20editor#function-editor
 
 通过 QgsVectorLayer 的 setDiagramRenderer() 方法，传入一个 QgsDiagramRendererV2 的实例，当前的矢量图层就会以设置的方法来渲染显示图表。
 

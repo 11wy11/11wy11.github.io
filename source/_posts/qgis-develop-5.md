@@ -171,3 +171,7 @@ configonly.bat
 
 官方github下的install.md
 
+### 注意事项
+
+如果没有将软件vs、osgeo4w64安装在默认的C盘，需要修改configonly.bat中相关环境变量的地址
+
