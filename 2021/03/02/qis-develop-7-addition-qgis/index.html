@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
 <meta property="og:description" content="1、利用uic.exe 手动生成ui头文件 配置过环境变量QTDIR之后，可以在命令行中使用uic命令 uic “src\ui\qgisapp.ui” -o “.\ms-windows\osgeo4w\build-qgis-test-x86_64\src\ui\ui_qgisapp.h” 2.利用moc.exe 编译出cpp文件 moc.exe” “自定义的.h” -o “moc_xxx.cpp">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-03-12T07:50:53.608Z">
+<meta property="og:updated_time" content="2021-03-27T06:47:40.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QGIS改造源代码">
 <meta name="twitter:description" content="1、利用uic.exe 手动生成ui头文件 配置过环境变量QTDIR之后，可以在命令行中使用uic命令 uic “src\ui\qgisapp.ui” -o “.\ms-windows\osgeo4w\build-qgis-test-x86_64\src\ui\ui_qgisapp.h” 2.利用moc.exe 编译出cpp文件 moc.exe” “自定义的.h” -o “moc_xxx.cpp">
@@ -166,6 +166,13 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#几何生成器"><span class="post-toc-number">1.</span> <span class="post-toc-text">几何生成器</span></a></li></ol>
+        </nav>
+    </aside>
+
 
 <article id="post-qis-develop-7-addition-qgis" class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -194,7 +201,7 @@
 <p>2.利用moc.exe 编译出cpp文件</p>
 <p><strong>moc.exe” “自定义的.h” -o “moc_xxx.cpp”</strong></p>
 <p><strong>每次改动界面，需要全部重新编译工程</strong></p>
-
+<h2 id="几何生成器"><a href="#几何生成器" class="headerlink" title="几何生成器"></a>几何生成器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">-- render the centroid of a feature</span><br><span class="line">centroid( $geometry )</span><br><span class="line"></span><br><span class="line">-- visually overlap features within a 100 map units distance from a point</span><br><span class="line">-- feature, i.e generate a 100m buffer around the point</span><br><span class="line">buffer( $geometry, 100 )</span><br><span class="line"></span><br><span class="line">-- Given polygon layer1( id1, layer2_id, ...) and layer2( id2, fieldn...)</span><br><span class="line">-- render layer1 with a line joining centroids of both where layer2_id = id2</span><br><span class="line">make_line( centroid( $geometry ),</span><br><span class="line">           centroid( geometry( get_feature( &apos;layer2&apos;, &apos;id2&apos;, attribute(</span><br><span class="line">               $currentfeature, &apos;layer2_id&apos;) ) )</span><br><span class="line">         )</span><br><span class="line"></span><br><span class="line">-- Create a nice radial effect of points surrounding the central feature</span><br><span class="line">-- point when used as a MultiPoint geometry generator</span><br><span class="line">collect_geometries(</span><br><span class="line">  array_foreach(</span><br><span class="line">    generate_series( 0, 330, 30 ),</span><br><span class="line">      project( $geometry, .2, radians( @element ) )</span><br><span class="line">  )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -202,7 +209,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2021-03-12T07:50:53.608Z" itemprop="dateUpdated">2021-03-12 15:50:53</time>
+    最后更新时间：<time datetime="2021-03-27T06:47:40.094Z" itemprop="dateUpdated">2021-03-27 14:47:40</time>
 </span><br>
 
 

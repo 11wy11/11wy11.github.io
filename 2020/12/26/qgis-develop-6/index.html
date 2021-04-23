@@ -32,7 +32,7 @@
 <meta property="og:description" content="python PyQGIS插件开发代码学习片段">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://11wy11.github.io/2020/12/26/qgis-develop-6/image-20201226231641904.png">
-<meta property="og:updated_time" content="2021-01-20T13:36:28.079Z">
+<meta property="og:updated_time" content="2021-04-02T15:38:01.639Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QGIS插件开发学习">
 <meta name="twitter:description" content="python PyQGIS插件开发代码学习片段">
@@ -169,7 +169,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#QGIS设置支持mdb"><span class="post-toc-number">1.</span> <span class="post-toc-text">QGIS设置支持mdb</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Python插件开发部分代码片段"><span class="post-toc-number">1.</span> <span class="post-toc-text">Python插件开发部分代码片段</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#QGIS设置支持mdb"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">QGIS设置支持mdb</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#QGIS自定义Python表达式"><span class="post-toc-number">2.</span> <span class="post-toc-text">QGIS自定义Python表达式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#XML相关"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">XML相关</span></a></li></ol></li>
         </nav>
     </aside>
 
@@ -194,7 +194,7 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>python PyQGIS插件开发代码学习片段</p>
 <a id="more"></a>
-<h4 id="QGIS设置支持mdb"><a href="#QGIS设置支持mdb" class="headerlink" title="QGIS设置支持mdb"></a>QGIS设置支持mdb</h4><p>点击设置》选项》系统，在环境，勾选使用自定义变量，添加两个环境：</p>
+<h2 id="Python插件开发部分代码片段"><a href="#Python插件开发部分代码片段" class="headerlink" title="Python插件开发部分代码片段"></a>Python插件开发部分代码片段</h2><h4 id="QGIS设置支持mdb"><a href="#QGIS设置支持mdb" class="headerlink" title="QGIS设置支持mdb"></a>QGIS设置支持mdb</h4><p>点击设置》选项》系统，在环境，勾选使用自定义变量，添加两个环境：</p>
 <p>OGR_SKIP ODBC，</p>
 <p>PGEO_DRIVER_TEMPLATE DRIVER=Microsoft Access Driver (<em>.mdb, </em>.accdb);DBQ=%s</p>
 <figure class="image-bubble">
@@ -204,7 +204,8 @@
                 </div>
                 <div class="image-caption">image-20201226231641904</div>
             </figure>
-<p>D:\OSGeo4W64\include;D:\OSGeo4W64\apps\Qt5\include\QtXml;D:\OSGeo4W64\apps\Qt5\include\QtWidgets;D:\OSGeo4W64\apps\Qt5\include\QtQml;D:\OSGeo4W64\apps\Qt5\include\QtGui;D:\OSGeo4W64\apps\Qt5\include\QtPrintSupport;D:\OSGeo4W64\apps\Qt5\include\QtQmlDebug;.\;.\qgslib\ui;D:\OSGeo4W64\apps\gdal-dev\include;D:\OSGeo4W64\apps\Qt5\include\qt5keychain;D:\OSGeo4W64\apps\Qt5\include\QtCrypto;D:\OSGeo4W64\apps\Qt5\include\QtSql;D:\OSGeo4W64\apps\Qt5\include\QtCore;.\qgslib\core;.\qgslib\app\layout;.\qgslib\gui;.\qgslib\app;D:\OSGeo4W64\apps\qgis\include;%(AdditionalIncludeDirectories)</p>
+<h2 id="QGIS自定义Python表达式"><a href="#QGIS自定义Python表达式" class="headerlink" title="QGIS自定义Python表达式"></a>QGIS自定义Python表达式</h2><p>参考资料：<a href="https://gis.stackexchange.com/questions/386223/qgis-custom-python-expressions-not-loading-on-startup" target="_blank" rel="noopener">https://gis.stackexchange.com/questions/386223/qgis-custom-python-expressions-not-loading-on-startup</a></p>
+<h3 id="XML相关"><a href="#XML相关" class="headerlink" title="XML相关"></a>XML相关</h3><p><a href="https://doc.qt.io/qtforpython-5/PySide2/QtXml/QDomNode.html" target="_blank" rel="noopener">https://doc.qt.io/qtforpython-5/PySide2/QtXml/QDomNode.html</a></p>
 
         </div>
 
@@ -213,7 +214,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2021-01-20T13:36:28.079Z" itemprop="dateUpdated">2021-01-20 21:36:28</time>
+    最后更新时间：<time datetime="2021-04-02T15:38:01.639Z" itemprop="dateUpdated">2021-04-02 23:38:01</time>
 </span><br>
 
 

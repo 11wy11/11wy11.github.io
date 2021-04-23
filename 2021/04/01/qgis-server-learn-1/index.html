@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <!-- 百度搜索检测验证 -->
+    <meta name="baidu-site-verification" content="code-pNOeknJCac">
+    
+    <title>QGIS Server初步学习 | WeiYuan&#39;s Blog | 学习随记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="QGIS">
+    <meta name="description" content="QGIS Server安装与使用（一）WMS测试获取详情 http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;amp;VERSION=1.3.0&amp;amp;REQUEST=GetCapabilities&amp;amp;map=D:/xampp/cgi-bin/myproject/styling_road_maps.qgs 测试范">
+<meta name="keywords" content="QGIS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QGIS Server初步学习">
+<meta property="og:url" content="http://11wy11.github.io/2021/04/01/qgis-server-learn-1/index.html">
+<meta property="og:site_name" content="WeiYuan&#39;s Blog">
+<meta property="og:description" content="QGIS Server安装与使用（一）WMS测试获取详情 http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;amp;VERSION=1.3.0&amp;amp;REQUEST=GetCapabilities&amp;amp;map=D:/xampp/cgi-bin/myproject/styling_road_maps.qgs 测试范">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-04-01T13:25:11.409Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QGIS Server初步学习">
+<meta name="twitter:description" content="QGIS Server安装与使用（一）WMS测试获取详情 http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;amp;VERSION=1.3.0&amp;amp;REQUEST=GetCapabilities&amp;amp;map=D:/xampp/cgi-bin/myproject/styling_road_maps.qgs 测试范">
+    
+        <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">11wy11</h5>
+          <a href="mailto:1124485058@qq.com" title="1124485058@qq.com" class="mail">1124485058@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                随笔
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/11wy11" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://blog.csdn.net/weiyuan_player">
+                <i class="icon icon-lg icon-link"></i>
+                CSDN
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">QGIS Server初步学习</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">QGIS Server初步学习</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-04-01T07:19:07.000Z" itemprop="datePublished" class="page-time">
+  2021-04-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/QGIS/">QGIS</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#QGIS-Server安装与使用（一）"><span class="post-toc-number">1.</span> <span class="post-toc-text">QGIS Server安装与使用（一）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WMS"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">WMS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WMTS"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">WMTS</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-qgis-server-learn-1" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">QGIS Server初步学习</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-04-01 15:19:07" datetime="2021-04-01T07:19:07.000Z" itemprop="datePublished">2021-04-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/QGIS/">QGIS</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <a id="more"></a>
+<h1 id="QGIS-Server安装与使用（一）"><a href="#QGIS-Server安装与使用（一）" class="headerlink" title="QGIS Server安装与使用（一）"></a>QGIS Server安装与使用（一）</h1><h2 id="WMS"><a href="#WMS" class="headerlink" title="WMS"></a>WMS</h2><p>测试获取详情</p>
+<p><a href="http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities&amp;map=D:/xampp/cgi-bin/myproject/styling_road_maps.qgs" target="_blank" rel="noopener">http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities&amp;map=D:/xampp/cgi-bin/myproject/styling_road_maps.qgs</a></p>
+<p>测试范围</p>
+<p><a href="http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;map=D:/xampp/cgi-bin/styling_road_maps.qgs&amp;BBOX=-122.36378383843272388,47.57745201656249634,-122.2956899602121581,47.6309678726616923&amp;WIDTH=500&amp;HEIGHT=500&amp;CRS=EPSG:4326" target="_blank" rel="noopener">http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;map=D:/xampp/cgi-bin/styling_road_maps.qgs&amp;BBOX=-122.36378383843272388,47.57745201656249634,-122.2956899602121581,47.6309678726616923&amp;WIDTH=500&amp;HEIGHT=500&amp;CRS=EPSG:4326</a></p>
+<p><a href="http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;map=D:/xampp/cgi-bin/styling_road_maps.qgs&amp;WIDTH=500&amp;HEIGHT=500&amp;CRS=EPSG:4326" target="_blank" rel="noopener">http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;map=D:/xampp/cgi-bin/styling_road_maps.qgs&amp;WIDTH=500&amp;HEIGHT=500&amp;CRS=EPSG:4326</a></p>
+<p>测试图层</p>
+<p><a href="http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;map=D:/xampp/cgi-bin/myproject/styling_road_maps.qgs&amp;BBOX=-122.36378383843272388,47.57745201656249634,-122.2956899602121581,47.6309678726616923&amp;WIDTH=500&amp;HEIGHT=500&amp;CRS=EPSG:4326&amp;Layers=lines" target="_blank" rel="noopener">http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;map=D:/xampp/cgi-bin/myproject/styling_road_maps.qgs&amp;BBOX=-122.36378383843272388,47.57745201656249634,-122.2956899602121581,47.6309678726616923&amp;WIDTH=500&amp;HEIGHT=500&amp;CRS=EPSG:4326&amp;Layers=lines</a></p>
+<p>测试获得图例</p>
+<p><a href="http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=lines&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0&amp;map=D:/xampp/cgi-bin/myproject/styling_road_maps.qgs" target="_blank" rel="noopener">http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;LAYER=lines&amp;FORMAT=image/png&amp;STYLE=default&amp;SLD_VERSION=1.1.0&amp;map=D:/xampp/cgi-bin/myproject/styling_road_maps.qgs</a></p>
+<p>测试中文工程</p>
+<p><a href="http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;map=G:/VSWorkspace/AIData/qgis/毕设数据/贵州测试数据/TestProject.qgs&amp;WIDTH=500&amp;HEIGHT=500&amp;CRS=EPSG:4057&amp;Layers=主区设色&amp;BBOX=634043.32977723015937954,2963074,676295.17148699390236288,2966794.11649530567228794" target="_blank" rel="noopener">http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;map=G:/VSWorkspace/AIData/qgis/毕设数据/贵州测试数据/TestProject.qgs&amp;WIDTH=500&amp;HEIGHT=500&amp;CRS=EPSG:4057&amp;Layers=主区设色&amp;BBOX=634043.32977723015937954,2963074,676295.17148699390236288,2966794.11649530567228794</a></p>
+<p><a href="http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;map=G:/VSWorkspace/AIData/qgis/%E6%AF%95%E8%AE%BE%E6%95%B0%E6%8D%AE/%E8%B4%B5%E5%B7%9E%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE/TestProject.qgs&amp;WIDTH=500&amp;HEIGHT=500&amp;CRS=EPSG:4326&amp;BBOX=634043.32977723015937954,2963074,676295.17148699390236288,2966794.11649530567228794" target="_blank" rel="noopener">http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;map=G:/VSWorkspace/AIData/qgis/%E6%AF%95%E8%AE%BE%E6%95%B0%E6%8D%AE/%E8%B4%B5%E5%B7%9E%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE/TestProject.qgs&amp;WIDTH=500&amp;HEIGHT=500&amp;CRS=EPSG:4326&amp;BBOX=634043.32977723015937954,2963074,676295.17148699390236288,2966794.11649530567228794</a></p>
+<h2 id="WMTS"><a href="#WMTS" class="headerlink" title="WMTS"></a>WMTS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?VERSION=1.3.0&amp;map=D:/xampp/cgi-bin/myproject/styling_road_maps.qgs&amp;SERVICE=WMTS&amp;REQUEST=GetTile&amp;LAYER=lines&amp;FORMAT=image/png&amp;TILEMATRIXSET=EPSG:4326&amp;TILEROW=0&amp;TILECOL=0</span><br></pre></td></tr></table></figure>
+<p>测试获得信息</p>
+<p><a href="http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMTS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities&amp;map=D:/xampp/cgi-bin/myproject/styling_road_maps.qgs" target="_blank" rel="noopener">http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?SERVICE=WMTS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities&amp;map=D:/xampp/cgi-bin/myproject/styling_road_maps.qgs</a></p>
+<p>获取Tile瓦片</p>
+<p><a href="http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?VERSION=1.3.0&amp;map=D:/xampp/cgi-bin/myproject/styling_road_maps.qgs&amp;SERVICE=WMTS&amp;REQUEST=GetTile&amp;LAYER=lines&amp;FORMAT=image/png&amp;TILEMATRIXSET=EPSG:4326&amp;TILEROW=961&amp;TILECOL=1303&amp;TileMatrix=12" target="_blank" rel="noopener">http://localhost:8080/cgi-bin/qgis_mapserv.fcgi.exe?VERSION=1.3.0&amp;map=D:/xampp/cgi-bin/myproject/styling_road_maps.qgs&amp;SERVICE=WMTS&amp;REQUEST=GetTile&amp;LAYER=lines&amp;FORMAT=image/png&amp;TILEMATRIXSET=EPSG:4326&amp;TILEROW=961&amp;TILECOL=1303&amp;TileMatrix=12</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-04-01T13:25:11.409Z" itemprop="dateUpdated">2021-04-01 21:25:11</time>
+</span><br>
+
+
+        
+        <a href="/2021/04/01/qgis-server-learn-1/" target="_blank" rel="external">http://11wy11.github.io/2021/04/01/qgis-server-learn-1/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://11wy11.github.io">
+            <img src="/img/avatar.jpg" alt="11wy11">
+            11wy11
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QGIS/">QGIS</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2021/04/01/qgis-server-learn-1/&title=《QGIS Server初步学习》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2021/04/01/qgis-server-learn-1/&title=《QGIS Server初步学习》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2021/04/01/qgis-server-learn-1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《QGIS Server初步学习》 — WeiYuan's Blog&url=http://11wy11.github.io/2021/04/01/qgis-server-learn-1/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2021/04/01/qgis-server-learn-1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/03/15/qgis-develop-python-plugin/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">qgis-develop-python-plugin</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "0fFY7GglufbAGM5Az77Xs00L-gzGzoHsz",
+            appKey: "pNkFVyXnYPoHuCC5RvuVPcu1",
+            avatar: "",
+            placeholder: "请留言",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>11wy11 &copy; 2019 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://11wy11.github.io/2021/04/01/qgis-server-learn-1/&title=《QGIS Server初步学习》 — WeiYuan's Blog&pic=http://11wy11.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://11wy11.github.io/2021/04/01/qgis-server-learn-1/&title=《QGIS Server初步学习》 — WeiYuan's Blog&source=记录学习过程中的一些知识" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://11wy11.github.io/2021/04/01/qgis-server-learn-1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《QGIS Server初步学习》 — WeiYuan's Blog&url=http://11wy11.github.io/2021/04/01/qgis-server-learn-1/&via=http://11wy11.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://11wy11.github.io/2021/04/01/qgis-server-learn-1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3aS3IDIQwFQN//0pOtFzF5QjhVQLNK2ckMzULRh9crXs/bev9k/O37J+Mnjz9ZtjAwMLZlPMM1/p0xde5vk/f+QsXAwLiAMQ6F4yBYDcf5u5K9YWBgYOTpWhQWYzYGBgZGhzFO3fKQmiSXGBgYGNUiNt9cXpRWj2lBLY6BgbEhI++6///PX5lvYGBgbMV4iqsacJN2Wx5eP+4KAwPjaMZcKy1JFjuXM+b2g4GBcTZjbhiZDzXHF7/mro69OqeOgYGxFSMPo51Sc1Xy9zFkY2BgXMDIU71+UZqPMwu7wsDAOJpRvdAwvh7RuTqWt/nK7TYMDIzNGUngSx5UvaKRXxeLjgkDA+NoRr9B1g+1eaEbJY4YGBgXMPJh4XgTeRGbDwOi48PAwDiOkaRl1VbaXOa2rArHwMA4jtFJ2vopYzWtLJ8QBgbGEYxO6ZiMNqujysniGQMD4wJGv9VVHR7kJWv5PwYGBsbRjFXJ3FwqmXxbmGlgYGAcxOi8rBUiiw2+wmQDAwPjSsZcQz9/ff6EP44YAwPjGka1rK0C8mBdHpFiYGBcwMh/7gwv8+dXd4uBgXEq4ymuVZc2koZaobTGwMA4mpGvfHP5fa1+jlfGYGBgbMvIC9FvzA2rrT0MDIybGf3+VZX6xVocAwMDIxgudq6RVYteDAwMjLU18VybLDogDAyMCxhzl7r6KeDcKAIDA+M2xtpAmb++uolO6YuBgbEt4wd2C9sZFPbTcQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '11wy11';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '11wy11博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

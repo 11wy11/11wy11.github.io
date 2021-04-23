@@ -31,10 +31,12 @@
 <meta property="og:site_name" content="WeiYuan&#39;s Blog">
 <meta property="og:description" content="使用QGIS PluginBuilder 来创建Python模板的qgis 插件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-01-01T14:16:02.963Z">
+<meta property="og:image" content="http://11wy11.github.io/2020/12/07/qgis-develop-5-python-env/image-20210315201250302.png">
+<meta property="og:updated_time" content="2021-03-15T12:24:54.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QGIS二次开发-配置python环境">
 <meta name="twitter:description" content="使用QGIS PluginBuilder 来创建Python模板的qgis 插件">
+<meta name="twitter:image" content="http://11wy11.github.io/2020/12/07/qgis-develop-5-python-env/image-20210315201250302.png">
     
         <link rel="alternate" type="application/atom+xml" title="WeiYuan&#39;s Blog" href="/atom.xml">
     
@@ -169,7 +171,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Plugin-Builder-创建插件"><span class="post-toc-number">1.</span> <span class="post-toc-text">Plugin Builder 创建插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用QGIS控制台脚本-python查看application"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">使用QGIS控制台脚本 python查看application</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Plugin-Builder-创建插件"><span class="post-toc-number">1.</span> <span class="post-toc-text">Plugin Builder 创建插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用QGIS控制台脚本-python查看application"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">使用QGIS控制台脚本 python查看application</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置python插件调试环境"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置python插件调试环境</span></a></li>
         </nav>
     </aside>
 
@@ -200,6 +202,33 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pyuic5 -o WYFirstPlugin_dialog.py WYFirstPlugin_dialog_base.ui</span><br><span class="line">pyrcc5 -o resources.py resources.qrc</span><br></pre></td></tr></table></figure>
 <h4 id="使用QGIS控制台脚本-python查看application"><a href="#使用QGIS控制台脚本-python查看application" class="headerlink" title="使用QGIS控制台脚本 python查看application"></a>使用QGIS控制台脚本 python查看application</h4><p>查看安装路径</p>
 <p>QgsApplication.prefixPath()</p>
+<h2 id="配置python插件调试环境"><a href="#配置python插件调试环境" class="headerlink" title="配置python插件调试环境"></a>配置python插件调试环境</h2><ol>
+<li><p>在 Pycharm <strong>Professional</strong> 中打开插件工程文件 （Community 版的不支持远程调试）</p>
+</li>
+<li><p>File -&gt; Project -&gt; Python Interpreter，点击小齿轮按钮，选择 Add</p>
+</li>
+<li><p>选择 Virtualenv Environment，在 <code>Base interpreter</code> 中选择一个本机上已经安装的 Python <strong>3</strong> 解释器；勾选 <code>Inherit global site-packages</code> 和 <code>Make available to all projects</code></p>
+</li>
+<li><p>创建好这个解释器环境后，回到 Python Interpreter 界面，点击小齿轮按钮，选择 Show All，选择下面一排按钮中最右边那个；点击下面那个加号，添加路径 <code>QGIS安装路径\apps\qgis-ltr\python</code></p>
+<p><img src="/2020/12/07/qgis-develop-5-python-env/image-20210315201250302.png" alt="image-20210315201250302"></p>
+</li>
+<li><p>Run -&gt; Edit Configuration…，点击加号，选择 Python Debug Server，设置 <code>IDE host name</code> 为 <code>localhost</code>, <code>Port</code> 任意，比如 53100</p>
+</li>
+<li><p>在需要调试的模块中添加以下代码，然后选择 Debug </p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">"PyCharm安装路径/debug-eggs/pydevd-pycharm.egg"</span>)</span><br><span class="line"><span class="keyword">import</span> pydevd_pycharm</span><br><span class="line"><span class="comment"># 这里的前两个参数要和上一步设置的对应好</span></span><br><span class="line">pydevd_pycharm.settrace(<span class="string">'localhost'</span>, port=<span class="number">53100</span>, stdoutToServer=<span class="literal">True</span>,</span><br><span class="line">                        stderrToServer=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li><p>进入文件夹 <code>PyCharm安装路径/debug-eggs</code>，将 <code>pydevd-pycharm.egg</code> 解压到一个文件夹中，比如 <code>pydevd-pycharm</code></p>
+<p>可以通过修改后缀为rar来解压</p>
+</li>
+<li><p>在 QGIS 中安装插件 Remote Debug</p>
+</li>
+<li><p>运行 Remote Debug 插件，<code>Debug</code> 选择 <code>PyDev</code>，<code>pydev path</code> 选择上一步中解压得到的文件夹</p>
+</li>
+<li><p>运行插件，开始调试 </p>
+</li>
+</ol>
 
         </div>
 
@@ -208,7 +237,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2021-01-01T14:16:02.963Z" itemprop="dateUpdated">2021-01-01 22:16:02</time>
+    最后更新时间：<time datetime="2021-03-15T12:24:54.437Z" itemprop="dateUpdated">2021-03-15 20:24:54</time>
 </span><br>
 
 
