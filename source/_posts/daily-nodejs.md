@@ -584,7 +584,7 @@ req.end();
       };
       console.log(response);
        console.log("Cookies: " + util.inspect(req.cookies));
-      res.end(JSON.stringify(response));
+      res.send(JSON.stringify(response));
   })
   var server =app.listen(8081,function () {
       var host=server.address().address;
